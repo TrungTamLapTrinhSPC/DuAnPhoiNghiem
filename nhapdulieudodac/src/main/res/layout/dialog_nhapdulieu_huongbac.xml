@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_gravity="center"
+    android:id="@+id/viewgroup"
+    android:background="@drawable/backgound_dialog"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/bachground_xl"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnBackMong"
+                android:background="#00000000"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_close_wieth_24dp" />
+
+            <TextView
+                android:id="@+id/tvTenTangCo"
+                android:layout_width="240dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="HƯỚNG BẮC"
+                android:textColor="#fff"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <!--KÍCH THƯỚC MÓNG-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_height="3.5dp"
+            android:background="@drawable/line_ngan"/>
+        <LinearLayout
+            android:id="@+id/btnHienKichThuocMong"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/backgound_dialog"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_down" />
+
+            <TextView
+                android:layout_width="266dp"
+                android:layout_height="match_parent"
+                android:text="Toạ độ đo nghiêng :"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layoutKichThuocMong"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:text="Giá trị chân cột"/>
+            <LinearLayout
+                android:id="@+id/MongM1"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="130dp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Toạ độ X (m):"/>
+                <EditText
+                    android:id="@+id/GT_X"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edittext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/MongM2"
+
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="130dp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Toạ độ Y (m):"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edittext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/GT_Y"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/MongM3"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="130dp"
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:text="Toạ độ Z (m):"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edittext"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/GT_Z"
+                    android:textSize="20dp"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnDuLieuDoMong"
+                android:text="Lưu số liệu"
+                android:textSize="13dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/backgound_dialog"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <ImageButton
+                android:id="@+id/btnChupHienTrang"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/backgound_dialog"
+                android:src="@drawable/ic_add_a_photo_black" />
+        </LinearLayout>
+        <!--XEM DẠNG BẢNG-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_height="3.5dp"
+            android:background="@drawable/line_ngan"/>
+        <LinearLayout
+            android:id="@+id/btnHienBang"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/backgound_dialog"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_down" />
+
+            <TextView
+                android:layout_width="266dp"
+                android:layout_height="match_parent"
+                android:text="Xem trước dạng bảng:"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+        <LinearLayout
+        android:id="@+id/layoutXemDangBang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:paddingLeft="5dp"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="horizontal|vertical">
+                <HorizontalScrollView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/boder_table"
+                    android:scrollbars="horizontal|vertical">
+                    <TableLayout
+                        android:id="@+id/Table12_ChanCot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="#3e3d3d">
+                        <TableRow>
+                            <TextView
+                                android:layout_width="115dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="Tên điểm"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="115dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="Tọa độ X (m)"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="115dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="Tọa độ Y (m)"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="115dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="Tọa độ Z (m)"
+                                android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="115dp"
+                                android:layout_height="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="Kiểm tra"
+                                android:textStyle="bold" />
+                            <EditText
+                                android:layout_height="20dp"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+                        </TableRow>
+                        <TableRow>
+
+                            <TextView
+                                android:layout_height="fill_parent"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#F1f1f1"
+                                android:gravity="center"
+                                android:text="HƯỚNG BĂC"
+                                android:textSize="15dp" />
+                            <EditText
+                                android:layout_height="fill_parent"
+                                android:layout_width="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+                            <EditText
+                                android:layout_height="fill_parent"
+                                android:layout_width="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+                            <EditText
+                                android:layout_height="fill_parent"
+                                android:layout_width="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+
+                            <TextView
+                                android:layout_height="fill_parent"
+                                android:layout_width="fill_parent"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+
+                            <EditText
+                                android:layout_height="25dp"
+                                android:layout_marginBottom="0.5dp"
+                                android:layout_marginHorizontal="0.5dp"
+                                android:layout_weight="0.5"
+                                android:background="#fff"
+                                android:gravity="center"
+                                android:textSize="15dp" />
+                        </TableRow>
+
+                    </TableLayout>
+                </HorizontalScrollView>
+            </ScrollView>
+
+    </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bachground_xxl"
+    android:weightSum="1"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:text="Bộ lọc công tác"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:id="@+id/LayoutSetting"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/btnChupAnh"
+                android:background= "@drawable/camera"
+                android:layout_width="80dp"
+                android:layout_marginRight="5dp"
+                android:layout_height="80dp"/>
+            <ImageButton
+                android:id="@+id/btnBaoCao"
+                android:layout_marginLeft="5dp"
+                android:background= "@drawable/ic_report"
+                android:layout_width="100dp"
+                android:layout_height="100dp"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:text="Chụp ảnh"
+                android:textSize="18dp"
+                android:textColor="#FFF"
+                android:layout_width="80dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:text="Báo cáo"
+                android:textSize="18dp"
+                android:textColor="#FFF"
+                android:layout_width="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

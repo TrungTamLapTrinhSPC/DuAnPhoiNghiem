@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.nhapdulieudodac">
+
+    <application>
+        <activity android:name=".FormMain_CotTuDung"></activity>
+        <activity android:name=".FormMain" />
+        <activity android:name=".Camera" />
+        <activity
+            android:name=".Trang1_Activity"/>
+        <activity
+            android:name=".Trang2_Activity"/>
+        <activity
+            android:name=".Trang3_Activity"/>
+        <activity
+            android:name=".Trang4_Activity"/>
+    </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_INTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.READ_INTERNAL_STORAGE" />
+</manifest>

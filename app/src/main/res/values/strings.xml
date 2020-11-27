@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">Viettel camera</string>
+    <string name="create_folder">create folder</string>
+    <string name="create_text_file">create text file</string>
+    <string name="search_file">search file</string>
+    <string name="search_folder">search folder</string>
+    <string name="upload_file">upload file</string>
+    <string name="download_file">download file</string>
+    <string name="delete_file">delete file</string>
+    <string name="view_folder">view folder</string>
+    <string name="picture">Picture</string>
+    <string name="description_info">Info</string>
+    <string name="intro_message">Info</string>
+    <string name="request_permission">This sample needs camera permission.</string>
+    <string name="camera_error">This device doesn\'t support Camera2 API.</string>
+    <string name="action_settings">Settings</string>
+    <string name="disp_text">
+
+    </string>
+    <string name="action_scan">UPLOAD file</string>
+    <string name="action_list">DOWNLOAD all files</string>
+    <!-- menu -->
+    <string name="action_delete">DELETE all files</string>
+    <string name="action_cre_act">CREATE activity</string>
+    <string name="action_pick_act">PICK activity</string>
+    <string name="action_account">Select Google Account…</string>
+    <string name="err_author">NO GOOGLE DRIVE ACCESS!</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="name">
+        <item>lún</item>
+        <item>nứt</item>
+        <item>bong vỡ</item>
+        <item>đốm ố bị ẩm</item>
+        <item>rỉ cốt thép</item>
+        <item>han rỉ lớp mạ</item>
+        <item>Khác....</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string-array name="ThanhPho">
+        <item>Hà Nội</item>
+        <item>Thanh Hóa</item>
+        <item>Cần Thơ</item>
+        <item>Bắc Giang</item>
+        <item>Bắc Ninh</item>
+        <item>Biên hòa</item>
+        <item>Đà lạt</item>
+        <item>Bà Rịa</item>
+        <item>Bạc Liêu</item>
+        <item>Bảo Lộc </item>
+        <item>Bắc Giang</item>
+        <item>Bắc Kạn</item>
+        <item>Bắc Ninh </item>
+        <item>Bến Tre</item>
+        <item></item>
+        <item></item>
+        <item>Khác....</item>
+    </string-array>
+</resources>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_margin="10dp"
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:scaleType="fitXY"
+             />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtTenHM"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:paddingLeft="10dp"
+                android:text="Tên"
+                android:textColor="#fff"
+                android:textSize="19dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <!--
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginBottom="2dp"
+        android:layout_height="1.5dp"
+        android:background="@drawable/line"></LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="right"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/line"></LinearLayout>
+        <Button
+            android:id="@+id/btnThuVien"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#00000000"
+            android:text="Thư viện"
+            android:textColor="#FFF"
+            android:textSize="13dp" />
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/line"></LinearLayout>
+        <Button
+            android:id="@+id/btnXem"
+            android:layout_width="100dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:background="#00000000"
+            android:text="Xem ảnh"
+            android:textStyle="normal"
+            android:textColor="#FFF"
+            android:textSize="13dp" />
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/line"></LinearLayout>
+    </LinearLayout>-->
+</LinearLayout>

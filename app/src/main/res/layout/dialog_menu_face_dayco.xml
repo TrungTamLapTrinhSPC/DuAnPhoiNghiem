@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/duongbotron5"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:paddingStart="5dp"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:paddingStart="5dp"
+            android:background="@drawable/edittext"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dhm"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/dhm" />
+        </LinearLayout>
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:background="@drawable/edittext"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dlm"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/dlm2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/edittext"
+            android:orientation="vertical"
+            android:paddingLeft="5dp">
+
+            <ImageView
+                android:id="@+id/dm"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/dm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:background="@drawable/edittext"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/drm"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/drm" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:background="@drawable/edittext"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/dmleft"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/dm_left" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingLeft="5dp"
+            android:background="@drawable/edittext"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/none"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/none" />
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>

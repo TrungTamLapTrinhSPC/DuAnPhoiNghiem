@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChenAnhTuThuVien">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/bachground_xl"
+        app:titleTextColor="#fff"
+        android:id="@+id/toolbar">
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_arrow_back_black_24dp" />
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="210dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="match_parent"
+                    android:text="Sửa ảnh"
+                    android:textSize="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="right"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="#00000000"
+                        android:src="@drawable/ic_search_black_24dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnpopupmenu"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:background="#00000000"
+                        android:src="@drawable/ic_settings_black_24dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:id="@+id/btnHome"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_home_black_24dp"
+                    android:background="#00000000"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                <TextView
+                    android:textColor="#e2e2e2"
+                    android:id="@+id/tvHangMuc"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:text="GMT 2325"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                <TextView
+                    android:textColor="#e2e2e2"
+                    android:id="@+id/tvCongtac"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Công tác chuẩn bị kiểm tra độ thẳng đứng của cột anten bằng máy toàn đạc điện tử"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="2dp"
+                android:background="@drawable/line"></LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1">
+        <ImageView
+            android:id="@+id/imgHinh"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <AutoCompleteTextView
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/tvChiTiet"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:padding="15dp"
+            android:hint="Tên chi tiết"
+            android:layout_height="50dp"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:background="@drawable/bachground_xxl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp">
+        <ImageButton
+            android:id="@+id/btnChinhSua"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_crop_black_24dp"/>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/btnGanLaiToDo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_location_on_black_24dp"/>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/btnLuu"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_file_download_withle_24dp"/>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <ImageButton
+            android:id="@+id/btnThoat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="#00000000"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_close_xam_24dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:background="@drawable/bachground_xxl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="5dp">
+        <TextView
+            android:layout_width="75dp"
+            android:text="Chỉnh sửa"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:background="#00000000"/>
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="50dp"
+            android:text="Toạ độ"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:background="#00000000"/>
+        <Space
+            android:layout_width="20dp"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="50dp"
+            android:text="Lưu lại"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:background="#00000000"/>
+        <Space
+            android:layout_width="20dp"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:layout_width="70dp"
+            android:text="Thoát"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"
+            android:background="#00000000"/>
+    </LinearLayout>
+</LinearLayout>

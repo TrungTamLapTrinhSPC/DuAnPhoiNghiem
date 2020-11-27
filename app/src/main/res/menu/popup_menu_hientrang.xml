@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+       android:id="@+id/itemBeTong"
+        android:title="Cấu kiện bê tông"
+       >
+        <menu
+            android:id="@+id/item2BeTong"
+            >
+            <item
+                android:title="Lún">
+            </item>
+            <item
+                android:title="Bình thường">
+            </item>
+            <item
+            android:title="Nứt bề mặt">
+             </item>
+            <item
+                android:title="vỡ vụn">
+            </item>
+            <item
+                android:title="Đốm ố bị ẩm">
+            </item>
+            <item
+                android:title="Bong tróc, tách lớp">
+            </item>
+            <item
+                android:title="Rỗ tổ ong">
+            </item>
+            <item
+                android:title="Rỉ cốt thép">
+            </item>
+            <item
+                android:id="@+id/itemkhac2"
+                android:title="Khác...">
+            </item>
+        </menu>
+   </item>
+    <item
+        android:id="@+id/itemThep"
+        android:title="Cấu kiện thép"
+        >
+        <menu>
+            <item
+                android:title="Han rỉ nhẹ">
+            </item>
+            <item
+                android:title="Han rỉ nặng">
+            </item>
+            <item
+                android:title="Cong vênh">
+            </item>
+            <item
+                android:title="Sơn bị bong tróc">
+            </item>
+            <item
+                android:title="Đứt gãy">
+            </item>
+            <item
+                android:title="Khe hở lắp ghép không đảm bảo">
+            </item>
+            <item
+                android:title="hết mỡ">
+            </item>
+            <item
+                android:title="rạn nứt">
+            </item>
+            <item
+                android:title="Thiếu đai ốc">
+            </item>
+            <item
+                android:title="Bình thường">
+            </item>
+            <item
+                android:id="@+id/itemkhac"
+                android:title="Khác...">
+            </item>
+        </menu>
+
+    </item>
+    <item
+        android:id="@+id/itemNenDat"
+        android:title="Nền đất">
+        <menu>
+            <item android:title="Lún nền đất"></item>
+            <item android:title="Dịch chuyển nền đất"></item>
+            <item android:title="xói mòn"></item>
+            <item android:title="Đã đổ bê tông"></item>
+            <item
+                android:id="@+id/itemkhac3"
+                android:title="Khác...">
+            </item>
+        </menu>
+    </item>
+    <item
+        android:id="@+id/itemCauKien"
+        android:title="Cấu kiện">
+        <menu>
+            <item android:title="bu lông neo"></item>
+            <item android:title="thanh cánh"></item>
+            <item android:title="thanh giằng"></item>
+            <item android:title="tăng đơ"></item>
+            <item android:title="ma ní"></item>
+            <item android:title="khóa cáp"></item>
+            <item android:title="bu lông nối đốt"></item>
+            <item android:title="bu lông liên kết thanh giằng"></item>
+            <item
+                android:id="@+id/itemkhac4"
+                android:title="Khác...">
+            </item>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/itemkhac5"
+        android:title="Khác...">
+    </item>
+
+</menu>

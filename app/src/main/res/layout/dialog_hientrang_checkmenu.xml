@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="530dp">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Hiện trạng đã chọn:"
+        android:textSize="20sp"
+        android:textColor="#fff"
+        android:background="@drawable/bachground_xl"
+        android:layout_height="30dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="(Thêm dấu '; ' vào cuối hiện trạng.)"
+        android:textSize="20sp"
+        android:layout_marginTop="30dp"
+        android:textColor="#fff"
+        android:background="@drawable/bachground_xl"
+        android:layout_height="30dp"/>
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_marginTop="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"/>
+    <ListView
+        android:id="@+id/listHienTrang"
+        android:background="@drawable/backgound_dialog"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="400dp">
+    </ListView>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:text="Xong" />
+        <android.support.v7.widget.SearchView
+            android:id="@+id/SearchViewCT"
+            android:layout_width="match_parent"
+            android:background="@drawable/duongbotron4"
+            app:searchHintIcon="@drawable/ic_search_xam_24dp"
+            app:searchIcon="@drawable/ic_search_xam_24dp"
+            app:iconifiedByDefault="false"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</RelativeLayout>

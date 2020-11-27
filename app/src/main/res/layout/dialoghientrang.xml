@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="@drawable/duongbotron5"
+    tools:ignore="MissingDefaultResource">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:background="@drawable/bachground_xxl"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="#fff"
+                android:layout_marginTop="5dp"
+                android:text="Nhập hiện trạng "
+                android:gravity="left"
+                android:layout_marginLeft="10dp"
+                android:textSize="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.04" />
+        </LinearLayout>
+
+        <!--Thẻ nhập hiện trạng-->
+        <LinearLayout
+            android:id="@+id/layoutSetting"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:textColor="@color/colorPrimary"
+                android:textSize="17dp"
+                android:gravity="center"
+                android:text="Chi tiết :"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:theme="@style/AppTheme.AppBarOverlay">
+                <AutoCompleteTextView
+                    android:id="@+id/tvChiTiet"
+                    android:layout_width="220dp"
+                    android:textColor="#296D84"
+                    android:gravity="center"
+                    android:hint="Bấm để chọn chi tiết cột"
+                    android:textColorHint="#949292"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="match_parent"
+                    android:textSize="15dp"
+                    android:text=""/>
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/btnremoveHT2"
+                    android:layout_width="60dp"
+                    android:text="Xóa"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/duongbotron5" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_height="1.1dp"
+                android:background="@drawable/line"></LinearLayout>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:text="Hiện trạng :"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal"
+                android:theme="@style/AppTheme.AppBarOverlay">
+
+                <ScrollView
+                    android:layout_width="220dp"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvHienTrang"
+                        android:layout_width="220dp"
+                        android:textColor="#296D84"
+                        android:gravity="center"
+                        android:hint="Bấm để chọn hiện trạng"
+                        android:textColorHint="#949292"
+                        android:background="@drawable/duongbotron4"
+                        android:layout_height="match_parent"
+                        android:textSize="15dp"
+                        android:text=""/>
+                </ScrollView>
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/btnremoveHT"
+                    android:layout_width="60dp"
+                    android:text="Xóa"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/duongbotron5" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/btnthoat"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.17"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/duongbotron"
+                android:text="Thoát"
+                android:textColor="#faf8f8" />
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:background="@drawable/duongbotron"
+                android:text="OK"
+                android:textColor="#faf8f8" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

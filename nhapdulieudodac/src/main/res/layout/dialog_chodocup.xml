@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bachground_xxl"
+    android:weightSum="1">
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="14dp"
+            android:background="@drawable/duongbotron5"
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <Switch
+                android:id="@+id/switchTheChung"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:textStyle="bold"
+                android:text="Gắn thẻ vị trí, thời gian:"
+                android:textColor="#fff"
+                android:textSize="17dp" />
+            <TextView
+                android:id="@+id/txt4"
+                android:text="On"
+                android:layout_marginLeft="5dp"
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:text="Cấu trúc thẻ thời gian:"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+
+                    android:id="@+id/edtThoiGian"
+                    android:layout_width="240dp"
+                    android:hint="Thời gian"
+                    android:textSize="15dp"
+                    android:text="dd/mm/yyyy hh:mm"
+                    android:textColorHint="#cbbcbbbb"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="25dp" />
+                <ImageView
+                    android:id="@+id/imgViTiThaoTac"
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:text="Thẻ toạ độ, vị trí:"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <Switch
+                    android:id="@+id/switchToaDo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Hiển thị toạ độ"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/txt5"
+
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="5dp"
+                    android:text="On"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <Switch
+                    android:id="@+id/switchDiaDiem"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Hiển thị địa điểm"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/txt6"
+
+                    android:text="On"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <TextView
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"
+                android:text="Chất lượng ảnh:"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+                    android:id="@+id/edtChatLuongAnh"
+                    android:layout_width="240dp"
+                    android:hint="Thời gian"
+                    android:textSize="15dp"
+                    android:text="FHD (1920x1080)"
+                    android:textColorHint="#cbbcbbbb"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="25dp" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+            </LinearLayout>
+            <TextView
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:layout_marginTop="10dp"
+                android:text="Độ sáng camera:"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+                    android:id="@+id/edtDoSang"
+                    android:layout_width="240dp"
+                    android:hint="Thời gian"
+                    android:textSize="15dp"
+                    android:text="Cao"
+                    android:textColorHint="#cbbcbbbb"
+                    android:textColor="@color/colorPrimary"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="25dp" />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_arrow_drop_down_black_24dp" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:text="Chế độ chụp"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textSize="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:id="@+id/LayoutSetting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:textSize="15dp"
+                android:textColor="#fff"
+                android:text="Nhập hiện trạng cho ảnh:"
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <Switch
+                    android:id="@+id/switchChiTiet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Khi đã có chi tiết"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/txt1"
+                    android:text="On"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_marginRight="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+
+                <Switch
+                    android:id="@+id/switchThuong"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Công tác thường"
+                    android:textColor="#fff"
+                    android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/txt2"
+                    android:text="On"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_height="30dp">
+                <Switch
+                    android:id="@+id/switchDiTat"
+                    android:textColor="#fff"
+                    android:textSize="15dp"
+                    android:checked="true"
+                    android:text="Công tác khuyết tật"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/txt3"
+                    android:text="On"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_marginRight="20dp"
+                android:layout_height="30dp">
+                <Switch
+                    android:id="@+id/switchLive"
+                    android:textColor="#fff"
+                    android:textSize="15dp"
+                    android:checked="true"
+                    android:text="camera luôn bật:"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+                <TextView
+                    android:id="@+id/txt7"
+                    android:text="On"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="15dp"
+                    android:textColor="#fff"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal"
+            android:weightSum="1">
+            <Button
+                android:id="@+id/btnthoat"
+                android:layout_width="90dp"
+                android:layout_marginRight="30dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.17"
+                android:background="@drawable/duongbotron"
+                android:text="Thoát"
+                android:textColor="#faf8f8" />
+
+            <Button
+                android:id="@+id/btnOK"
+                android:layout_width="90dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.21"
+                android:background="@drawable/duongbotron"
+                android:text="OK"
+                android:textColor="#faf8f8" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

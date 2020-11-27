@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bachground_xl"
+    tools:context=".suaAnh"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@drawable/bachground_xl"
+        app:titleTextColor="#fff"
+        android:id="@+id/toolbar">
+        <LinearLayout
+            android:paddingTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:id="@+id/btnBack"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:background="#00000000"
+                    android:src="@drawable/ic_arrow_back_black_24dp" />
+                <TextView
+                    android:textColor="#fff"
+                    android:layout_width="210dp"
+                    android:paddingLeft="10dp"
+                    android:layout_height="match_parent"
+                    android:text="Sửa ảnh"
+                    android:textSize="20dp"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="right"
+                    android:layout_height="match_parent">
+                    <ImageButton
+                        android:layout_marginLeft="10dp"
+                        android:layout_gravity="right"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="#00000000"
+                        android:src="@drawable/ic_search_black_24dp" />
+
+                    <ImageButton
+                        android:id="@+id/btnpopupmenu"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="right"
+                        android:background="#00000000"
+                        android:src="@drawable/ic_settings_black_24dp" />
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="43dp"
+                android:orientation="horizontal"
+                >
+
+                <ImageButton
+                    android:id="@+id/btnHome"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="right"
+                    android:src="@drawable/ic_home_black_24dp"
+                    android:background="#00000000"/>
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                <TextView
+                    android:textColor="#e2e2e2"
+                    android:id="@+id/tvHangMuc"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:text="GMT 2325"/>
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_keyboard_arrow_right_black_24dp" />
+                <TextView
+                    android:textColor="#e2e2e2"
+
+                    android:id="@+id/tvCongTac"
+                    android:layout_width="fill_parent"
+                    android:layout_height="40dp"
+                    android:textSize="15dp"
+                    android:layout_marginTop="3dp"
+                    android:text="Công tác chuẩn bị kiểm tra độ thẳng đứng của cột anten bằng máy toàn đạc điện tử"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_height="2dp"
+                android:background="@drawable/line"></LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="275dp"
+        android:orientation="vertical"
+        android:background="#FFF"
+
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ImageView
+            android:id="@+id/imgHinh"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            app:srcCompat="@drawable/ic_photo_size_select_actual_black_24dp" />
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="25dp">
+            <Button
+                android:id="@+id/btnxoaytrai"
+                android:background="@drawable/duongbotron5"
+                android:text="xoay trái"
+                android:textSize="14dp"
+                android:textColor="#59296d84"
+                android:layout_width="180dp"
+                android:layout_height="match_parent" />
+            <Button
+                android:id="@+id/btnxoay"
+                android:background="@drawable/duongbotron5"
+                android:text="xoay phải"
+                android:textSize="14dp"
+                android:textColor="#59296d84"
+                android:layout_width="180dp"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="1.5dp"
+        android:background="@drawable/line"></LinearLayout>
+    <LinearLayout
+        android:paddingBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bachground_xl"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="left"
+            android:orientation="horizontal"
+            android:theme="@style/AppTheme.AppBarOverlay">
+            <ImageButton
+                android:id="@+id/btnCamera"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/hinhtron"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/ic_add_a_photo_black_24dp" />
+
+            <ImageButton
+                android:id="@+id/btnOpenImg"
+                android:layout_gravity="center"
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/hinhtron"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:src="@drawable/ic_image_black_24dp" />
+
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:id="@+id/txtCongtac"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_gravity="center"
+                android:layout_height="55dp"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:text="Tên công tác"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="2dp"
+
+            android:layout_height="1.5dp"
+            android:background="@drawable/line"></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:theme="@style/AppTheme.AppBarOverlay">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="Chi tiết :"/>
+
+            <TextView
+                android:id="@+id/tvChiTiet"
+                android:layout_width="180dp"
+                android:textColor="#296D84"
+                android:gravity="center"
+                android:hint="Bấm để chọn chi tiết cột"
+                android:textColorHint="#949292"
+                android:background="@drawable/duongbotron4"
+                android:layout_height="match_parent"
+                android:textSize="15dp"
+                android:text=""/>
+
+            <Button
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnremoveHT2"
+                android:layout_width="60dp"
+                android:text="Xóa"
+                android:textSize="15dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/duongbotron5" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_height="1.1dp"
+            android:background="@drawable/line"></LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal"
+            android:theme="@style/AppTheme.AppBarOverlay">
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_width="80dp"
+                android:layout_height="match_parent"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                android:gravity="center"
+                android:text="Hiện trạng :"/>
+            <ScrollView
+                android:layout_width="180dp"
+                android:layout_gravity="center"
+                android:background="@drawable/duongbotron4"
+                android:layout_height="fill_parent">
+                <TextView
+                    android:id="@+id/tvHienTrang"
+                    android:layout_width="180dp"
+                    android:textColor="#296D84"
+                    android:hint="Bấm để chọn hiện trạng"
+                    android:textColorHint="#949292"
+                    android:background="@drawable/duongbotron4"
+                    android:layout_height="50dp"
+                    android:textSize="15dp"
+                    android:text=""/>
+            </ScrollView>
+            <Button
+                android:layout_marginLeft="5dp"
+                android:id="@+id/btnremoveHT"
+                android:layout_width="60dp"
+                android:text="Xóa"
+                android:textSize="15dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/duongbotron5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="1.1dp"
+            android:background="@drawable/line"></LinearLayout>
+        <Button
+            android:id="@+id/btnLuuAnh"
+            android:background="@drawable/duongbotron2"
+            android:layout_gravity="right"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Lưu ảnh "/>
+    </LinearLayout>
+</LinearLayout>

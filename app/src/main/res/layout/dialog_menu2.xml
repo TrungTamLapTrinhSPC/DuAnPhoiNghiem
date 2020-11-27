@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bachground_xxl"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textColor="#fff"
+            android:text="Menu"
+            android:gravity="left"
+            android:layout_marginLeft="10dp"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnmenuthemanh"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Thêm ảnh từ thư viện"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnmenuthemBaoCao"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Thêm ảnh vào công tác mới"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnmenuchuplai"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Chỉnh sửa ảnh"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnmenuxem"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Xem ảnh"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnMoveFile"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Chọn ảnh báo cáo"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="@drawable/duongbotron5"
+            android:id="@+id/btnmenuxoa"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Xóa"/>
+
+    </LinearLayout>
+
+</LinearLayout>

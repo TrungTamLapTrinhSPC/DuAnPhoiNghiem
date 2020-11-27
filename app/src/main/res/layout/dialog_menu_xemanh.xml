@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/bachground_xxl"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_width="300dp"
+        android:layout_height="120dp">
+        <TextView
+            android:textColor="#fff"
+            android:layout_marginTop="5dp"
+            android:text="Menu"
+            android:gravity="left"
+            android:layout_marginLeft="20dp"
+            android:textSize="25dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.04" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+
+        <Button
+            android:id="@+id/btnXemAnh"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="#fff"
+            android:text="Xem ảnh"
+            android:textColor="#296D84" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="@drawable/line2"></LinearLayout>
+        <Button
+            android:background="#fff"
+            android:id="@+id/btnChupAnh"
+            android:textColor="#296D84"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Chụp ảnh"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="center"
+    android:layout_width="320dp"
+    android:background="@drawable/backgound_dialog"
+    android:layout_height="match_parent">
+    <ViewStub
+        android:id="@+id/stub_list_CT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:inflatedId="@+id/showlayout"
+        android:layout="@layout/my_list_congtac_view"/>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/btnThoat"
+        android:layout_width="65dp"
+        android:layout_height="64dp"
+        android:background="@drawable/duongbotron"
+        android:layout_gravity="center|bottom"
+        android:src="@drawable/ic_chevron_left_black_24dp" />
+</android.support.design.widget.CoordinatorLayout>

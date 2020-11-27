@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Cài đặt.">
+        <menu>
+            <item
+                android:id="@+id/itemCheDoChup"
+                android:title="Chế độ chụp."
+                >
+            </item>
+            <item
+                android:id="@+id/itemluuphuluc"
+                android:title="Lưu phụ lục đã sửa."
+                >
+            </item>
+            <item
+                android:id="@+id/itemrestartphuluc"
+                android:title="Cập nhật cây thư mục."
+                >
+            </item>
+            <item
+                android:id="@+id/itemrestartHT"
+                android:title="Cập nhật đánh giá hiện trạng."
+                >
+            </item>
+
+        </menu>
+
+    </item>
+
+    <item
+        android:id="@+id/itemBaoCao"
+        android:title="Báo cáo ảnh hiện trường."
+        >
+    </item>
+
+</menu>

@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bachground_xl"
+    tools:context=".Camera">
+    <com.example.nhapdulieudodac.AutoFitTextureView
+        android:id="@+id/texture"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <!--Thẻ thời gian-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/tvMaTram"
+            android:background="#00000000"
+            android:text="Mã Trạm"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/tvToaDo"
+            android:background="#00000000"
+            android:text="Tọa độ"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/tvViTri"
+            android:background="#00000000"
+            android:text="Vị trí"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <TextView
+            android:textSize="12dp"
+            android:id="@+id/tvThoiGian"
+            android:background="#00000000"
+            android:text=""
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+    </LinearLayout>
+    <!--Nút chụp hình-->
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="5dp"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#00000000"
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <LinearLayout
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <Switch
+                android:id="@+id/switchLive"
+                android:textColor="#fff"
+                android:textSize="15dp"
+                android:checked="false"
+                android:text="Dị tật "
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="10" />
+            <TextView
+                android:id="@+id/txtditat"
+                android:text=""
+                android:textSize="15dp"
+                android:textColor="#F60303"
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="2dp"
+            android:layout_height="1.1dp"
+            android:background="@drawable/line_ngan"></LinearLayout>
+        <TextView
+            android:id="@+id/tvTenHM"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="#00000000"
+            android:text="Tên công tác"
+            android:layout_gravity="bottom"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="1dp"
+            android:background="@drawable/line_ngan"></LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+
+
+            <ImageButton
+                android:layout_gravity="bottom"
+                android:id="@+id/btnback"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:background="@drawable/duongbotron2"
+                android:src="@drawable/ic_chevron_left_black_24dp" />
+            <TextView
+                android:id="@+id/tvTenCT"
+                android:layout_marginLeft="5dp"
+                android:background="#00000000"
+                android:text="Tên công tác"
+                android:layout_gravity="bottom"
+                android:textColor="#fff"
+                android:layout_width="220dp"
+                android:layout_height="60dp" />
+            <ImageButton
+                android:id="@+id/btnSetting"
+                android:background="@drawable/duongbotron2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_speaker_notes_black_24dp" />
+            <ImageButton
+                android:id="@+id/btnNext"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:background="@drawable/duongbotron2"
+                android:src="@drawable/ic_chevron_right_black_24dp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:layout_height="80dp">
+            <ImageView
+                android:layout_gravity="bottom"
+                android:id="@+id/imageView"
+                android:layout_width="70dp"
+                android:layout_marginLeft="10dp"
+                android:layout_height="70dp"
+                android:scaleType="fitXY" />
+            <ImageButton
+                android:gravity="center"
+                android:id="@+id/btnLuuAnh"
+                android:textSize="13dp"
+                android:background="@drawable/hinhtron"
+                android:layout_gravity="bottom"
+                android:layout_width="70dp"
+                android:layout_marginRight="80dp"
+                android:layout_marginLeft="70dp"
+                android:layout_height="70dp"
+                android:text="Chụp"
+                android:src="@drawable/ic_add_a_photo" />
+            <ImageButton
+                android:background="#00000000"
+                android:src="@drawable/ic_settings_black_24dp"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp"
+                android:id="@+id/btnTheThoiGian"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:scaleType="fitXY" />
+        </LinearLayout>
+        <LinearLayout
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageButton
+                android:id="@+id/btnbackHM"
+                android:layout_width="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_height="40dp"
+                android:background="@drawable/duongbotron2"
+                android:src="@drawable/ic_chevron_left_black_24dp" />
+            <com.example.nhapdulieudodac.HorizontalListView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:widget="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/HorizontalListView"
+                android:layout_width="226dp"
+                android:transcriptMode="alwaysScroll"
+                android:layout_height="40dp"
+                android:divider="#00000000"
+                widget:dividerWidth="1dp"
+                android:layout_gravity="bottom"/>
+            <ImageButton
+                android:layout_gravity="bottom"
+                android:id="@+id/btnnextHM"
+                android:layout_marginTop="5dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/duongbotron2"
+                android:src="@drawable/ic_home_black_24dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--Thẻ nhập hiện trạng-->
+    <LinearLayout
+        android:id="@+id/layoutSetting"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="310dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvTenChiTiet"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+        <TextView
+            android:id="@+id/tvHienTrangChiTiet"
+            android:textSize="15dp"
+            android:textColor="#fff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+</RelativeLayout>

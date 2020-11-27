@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityHienTrang">
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Hiện trạng đã chọn:"
+        android:textSize="17dp"
+        android:layout_height="30dp"></TextView>
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"></EditText>
+    <ListView
+        android:id="@+id/listView"
+        android:layout_marginTop="130dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+    <LinearLayout
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+        <android.support.v7.widget.SearchView
+            android:id="@+id/SearchViewCT"
+            android:layout_width="250dp"
+            android:background="@drawable/duongbotron4"
+            app:searchHintIcon="@drawable/ic_search_xam_24dp"
+            app:searchIcon="@drawable/ic_search_xam_24dp"
+            app:iconifiedByDefault="false"
+            android:layout_height="match_parent" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+
+            android:text="Xong" />
+    </LinearLayout>
+
+</RelativeLayout>
