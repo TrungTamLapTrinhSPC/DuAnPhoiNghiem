@@ -27,7 +27,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
     private void SettupListView() {
         list_BTS.clear();
         list_BTS.add(new DoiTuong_BTS("","","","",""));
-
+        //Thay đổi thử dòng 30
         /**HIỂN THỊ RA MÀN HÌNH*/
         adapter_doiTuong_bts = new Adapter_DoiTuong_BTS(list_BTS, Activity_DanhSach_BTS.this,R.layout.item_bts);
         listview.setAdapter(adapter_doiTuong_bts);
