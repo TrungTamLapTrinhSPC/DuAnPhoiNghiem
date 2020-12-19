@@ -1,32 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <TextView
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:textSize="20dp"
         android:text="Công trình kiểm định: "
-        android:textColor="#fff"
         android:layout_height="wrap_content" />
-<GridView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/myGrid"
-    android:layout_marginTop="35dp"
-    android:layout_marginBottom="10dp"
-    android:columnWidth="110dp"
-    android:gravity="center_vertical"
-    android:horizontalSpacing="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp"
-    android:numColumns="3"
-    android:stretchMode="spacingWidth"
-    android:verticalSpacing="17dp"
-    android:background="@drawable/duongbotron2"
 
-    >
-
-</GridView>
-</FrameLayout>
+    <GridView
+        android:background="@drawable/hinhcovienxanh"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/myGrid"
+        android:layout_margin="10dp"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="10dp">
+    </GridView>
+</LinearLayout>

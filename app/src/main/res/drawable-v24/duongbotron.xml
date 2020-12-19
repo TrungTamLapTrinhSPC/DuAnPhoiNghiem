@@ -5,26 +5,27 @@
 
     <!-- Set màu nền-->
     <solid
-        android:color="#e4f58916" >
+        android:color="#00000000" >
     </solid>
 
     <!-- đặt thuộc tính màu và độ rộng của đường viền -->
     <stroke
         android:width="1dp"
-        android:color="#9ef8f8f9" >
+        android:color="@color/color_Blue1" >
     </stroke>
 
     <!-- các thuộc tính căn chỉnh-->
     <padding
-        android:left="5dp"
-        android:top="5dp"
-        android:right="5dp"
-        android:bottom="5dp" >
+        android:left="10dp"
+        android:top="10dp"
+        android:right="10dp"
+        android:bottom="10dp" >
     </padding>
 
     <!-- và đây là bán kính đường tròn ở 4 góc -->
     <corners
-        android:radius="6dp" >
+        android:radius="10dp" >
     </corners>
+
 
 </shape>

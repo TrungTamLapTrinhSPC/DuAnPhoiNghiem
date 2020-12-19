@@ -6,9 +6,9 @@
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
         android:textSize="20dp"
         android:text="Công trình kiểm định: "
-        android:textColor="#fff"
         android:layout_height="wrap_content" />
     <ListView
         android:layout_marginTop="35dp"
@@ -17,9 +17,11 @@
         android:id="@+id/mylistView"
         android:cacheColorHint="#0000"
         android:paddingTop="10dp"
-        android:background="@drawable/duongbotron2"
-        android:dividerHeight="3dp"
+        android:background="@drawable/hinhcovienxanh"
+        android:divider="@null"
+        android:dividerHeight="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        ></ListView>
+        android:layout_marginRight="10dp">
+
+    </ListView>
 </FrameLayout>

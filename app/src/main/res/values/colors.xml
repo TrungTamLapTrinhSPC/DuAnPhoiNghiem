@@ -8,4 +8,8 @@
     <color name="colorRed">#bcff020b</color>
     <color name="colorTrongsuot">#00000000</color>
     <color name="transparent">#00000000</color>
+    <color name="color_Blue1">#113A69</color>
+    <color name="color_Blue2">#366FB1</color>
+    <color name="darker_gray">#AAAAAA</color>
+
 </resources>

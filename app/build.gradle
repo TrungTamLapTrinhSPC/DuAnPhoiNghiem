@@ -3,10 +3,9 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "com.example.chirag.googlesignin"
-        minSdkVersion 21
+        applicationId "com.example.chirag.googlesignin2"
+        minSdkVersion 19
         multiDexEnabled true
-
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -59,13 +58,13 @@ dependencies {
     implementation group: 'com.google.api-client', name: 'google-api-client', version: '1.25.1'
     implementation 'com.google.apis:google-api-services-driveactivity:v2-rev20181113-1.27.0'
     api 'commons-codec:commons-codec:1.10'
+    implementation "androidx.cardview:cardview:1.0.0"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation files('libs\\commons-io-2.6.jar')
     implementation files('libs\\commons-net-3.6.jar')
-    implementation project(path: ':nhapdulieudodac')
-    implementation project(path: ':listcheckboxhientrang')
+
 
 }

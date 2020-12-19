@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgound_dialog"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:elevation="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Thêm trạm mới"
+            android:textColor="@color/color_Blue2"
+            android:textSize="40dp"
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/line"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"/>
+        <!-- Mã trạm-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Mã trạm:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic11" />
+            <ImageButton
+                android:layout_width="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
+
+            <EditText
+                android:hint="Mã trạm"
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:id="@+id/edtMaTram"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/backgound_edittext"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+        <!-- Địa điểm-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Địa điểm:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icons2" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
+
+            <EditText
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Địa điểm đặt trạm"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtDiaDiem"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+
+        <!-- Tọa độ-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Tọa độ:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/toa_do" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
+
+            <EditText
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Tọa độ đặt trạm"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtToaDo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp" />
+
+        </LinearLayout>
+        <!--Vị trí đặt-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Vị trí đặt:"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/radioGroup">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="30dp">
+                <RadioButton
+                    android:id="@+id/checkbox_trenmai"
+                    android:text="Trên mái"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:scaleX="1.5"
+                    android:textColor="#111"
+                    android:textSize="13dp"
+                    android:scaleY="1.5"
+                    android:layout_marginLeft="20dp"
+                    android:buttonTint="@color/color_Blue2" />
+
+                <RadioButton
+                    android:id="@+id/checkbox_duoidat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:buttonTint="@color/color_Blue2"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:text="Dưới đất"
+                    android:textColor="#111"
+                    android:textSize="13dp" />
+            </LinearLayout>
+
+        </RadioGroup>
+        <!-- Chiều cao nhà đặt trạm-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Chiều cao nhà đặt trạm:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="30dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icons8_truck_height" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
+
+            <EditText
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Chiều cao nhà đặt trạm"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtChieuCaoNha"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp" />
+
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:text="m"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
+
+
+        <!--Vị trí đặt cột-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:text="Vị trí đặt cột:"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/nhadattram"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--X-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/hinhcovienxam"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp">
+                    <ImageButton
+                        android:layout_margin="5dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icons3" />
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:text="W"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:gravity="center" />
+
+                    <ImageButton
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/line"/>
+
+                    <EditText
+                        android:textColor="#111"
+                        android:layout_margin="5dp"
+                        android:hint="Rộng"
+                        android:background="@drawable/backgound_edittext"
+                        android:id="@+id/edtChieuX"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="18dp" />
+
+                    <ImageButton
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/line"/>
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end|fill_horizontal"
+                        android:text="m"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="start|center_vertical" />
+
+                </LinearLayout>
+                <!--Y-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/hinhcovienxam"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginBottom="20dp">
+                    <ImageButton
+                        android:layout_margin="5dp"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/icons3" />
+
+                    <TextView
+                        android:layout_width="20dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end"
+                        android:text="H"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:gravity="center" />
+
+                    <ImageButton
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="5dp"
+
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/line"/>
+
+                    <EditText
+                        android:textColor="#111"
+                        android:layout_margin="5dp"
+                        android:hint="Dài"
+                        android:background="@drawable/backgound_edittext"
+                        android:id="@+id/edtChieuY"
+                        android:layout_width="70dp"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:textSize="18dp" />
+
+                    <ImageButton
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/line"/>
+
+                    <TextView
+                        android:layout_width="50dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="end|fill_horizontal"
+                        android:text="m"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="start|center_vertical" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btnLuuThongSo"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="60dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/backgound_header_4"
+            android:layout_gravity="center_horizontal"
+            android:text="Thêm trạm"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="28dp"
+            android:textStyle="normal" />
+
+    </LinearLayout>
+
+</LinearLayout>
