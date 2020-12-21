@@ -109,7 +109,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    DialogThemTram(Gravity.CENTER);
+                    DialogThemTram(Gravity.CENTER,"Thêm trạm mới");
                 }
             });
             btnGrid.setOnClickListener(new View.OnClickListener() {
@@ -426,7 +426,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                 }
             });
         }
-        private void DialogThemTram(int gravity){
+        private void DialogThemTram(int gravity,String title){
             final Dialog dialogthongso = new Dialog(Activity_MenuTram.this,R.style.PauseDialog);
             dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
             dialogthongso.setContentView(R.layout.dialog_themtram);
@@ -438,6 +438,9 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
             windowArr.gravity = gravity;
             window.setAttributes(windowArr);
             dialogthongso.show();
+
+            TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
+            tvTitle.setText(title);
         };
     //endregion
 }

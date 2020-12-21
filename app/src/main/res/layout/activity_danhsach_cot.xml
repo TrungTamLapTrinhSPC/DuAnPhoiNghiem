@@ -22,6 +22,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
                 <ImageButton
+                    android:id="@+id/btnBack"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="7dp"
                     android:layout_width="25dp"
@@ -147,8 +148,10 @@
             android:background="@drawable/dobong"
             android:elevation="10dp">
             <LinearLayout
+                android:id="@+id/btnThietKe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -219,8 +222,10 @@
             android:background="@drawable/dobong"
             android:elevation="10dp">
             <LinearLayout
+                android:id="@+id/btnAnhChup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:descendantFocusability="blocksDescendants"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -294,19 +299,19 @@
 
 
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="5dp"
+        android:textSize="20dp"
+        android:text="Các cột có trên mặt bằng: "
+        android:layout_height="wrap_content" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_marginTop="5dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginBottom="5dp"
-            android:textSize="20dp"
-            android:text="Các cột có trên mặt bằng: "
-            android:layout_height="wrap_content" />
+
         <ListView
-            android:layout_marginTop="35dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/listview_cot"

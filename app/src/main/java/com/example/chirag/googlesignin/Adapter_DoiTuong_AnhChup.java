@@ -12,13 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
-    private ArrayList<DoiTuong_Cot> arraylist;
-    private List<DoiTuong_Cot> myobjects = null;
+    private ArrayList<DoiTuong_AnhChup> arraylist;
+    private List<DoiTuong_AnhChup> myobjects = null;
     private ArrayList<String> myList = new ArrayList<String>();
     Context mycontext;
     int myreaource;
 
-    public Adapter_DoiTuong_AnhChup(List<DoiTuong_Cot> myobjects, Context mycontext, int myreaource) {
+    public Adapter_DoiTuong_AnhChup(List<DoiTuong_AnhChup> myobjects, Context mycontext, int myreaource) {
         this.myobjects = myobjects;
         this.mycontext = mycontext;
         this.myreaource = myreaource;
@@ -49,7 +49,7 @@ public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
         if (null == V)
         {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            V = inflater.inflate(R.layout.item_cot, null);
+            V = inflater.inflate(R.layout.item_anh_chup, null);
         }
 
         return V;

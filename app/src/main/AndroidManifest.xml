@@ -21,7 +21,8 @@
         android:roundIcon="@drawable/ivccico"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_DanhSach_BTS"></activity>
+        <activity android:name=".Activity_DanhSach_AnhChup"></activity>
+        <activity android:name=".Activity_DanhSach_BTS" />
         <activity android:name=".Activity_DanhSach_Cot" />
         <activity android:name=".Activity_MenuTram">
             <intent-filter>
