@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/shadow"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="15dp"
+        android:padding="15dp"
+        android:elevation="6dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="10dp"
+            >
+            <ImageButton
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:layout_width="25dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:background="@drawable/icons8_company1" />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="Công trình thấp hơn"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:layout_weight="1"/>
+
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:background="@drawable/arrow_down" />
+
+        </LinearLayout>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/line"/>
+        <!--Tên công trình-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Tên công trình:"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:textSize="15dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            >
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/arrow_down" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/line"/>
+
+            <EditText
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Tên công trình"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtChungLoai"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:textSize="15dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Chiều cao công trình-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Chiều cao công trình-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Chiều cao công trình:"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        >
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/pencil" />
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="80"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtChieucaoCot"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="m"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Chiều cao công trình:"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        >
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/pencil" />
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="30"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtKhoangCach"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="m"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_weight="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/caotang">
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Số tầng vs Góc phương vị-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Chiều cao công trình-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Số tầng:"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        >
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/pencil" />
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="3"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtSoTang"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Tầng"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Góc phuong vị:"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        >
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:background="@drawable/pencil" />
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="65"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtGocPhuongVi"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="Độ"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/goc_phuong_vi"
+                    android:orientation="vertical"
+
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="30dp">
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--Kích thước nhà-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <!-- Chiều cao công trình-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="Số tầng:"
+                        android:layout_marginTop="5dp"
+                        android:textColor="#000"
+                        android:textSize="15dp"
+                        android:textStyle="normal" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+
+                        android:layout_marginBottom="10dp">
+                        <ImageButton
+                            android:layout_width="25dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="0dp"
+                            android:background="@drawable/icons3" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="W"
+                            android:textSize="17dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="#686868"/>
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="150"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtWeight"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="m"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        >
+
+                        <ImageButton
+                            android:layout_width="25dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginRight="0dp"
+                            android:background="@drawable/icons3" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="H"
+                            android:textSize="17dp"
+                            android:textStyle="bold"
+                            android:gravity="center"
+                            android:textColor="#686868"/>
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <EditText
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="150"
+                            android:gravity="center"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtHeight"
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+
+                            android:textSize="15dp" />
+
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+
+                            android:background="@drawable/line"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="m"
+                            android:gravity="center"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@drawable/nhadattram"
+                    android:orientation="vertical"
+                    android:layout_marginTop="10dp">
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

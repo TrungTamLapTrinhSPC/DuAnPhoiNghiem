@@ -11,14 +11,14 @@ import android.widget.BaseAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_DoiTuong_Anten extends BaseAdapter {
-    private ArrayList<DoiTuong_Anten> arraylist;
-    private List<DoiTuong_Anten> myobjects = null;
+public class Adapter_DoiTuong_CongTrinh extends BaseAdapter {
+    private ArrayList<DoiTuong_CongTrinh> arraylist;
+    private List<DoiTuong_CongTrinh> myobjects = null;
     private ArrayList<String> myList = new ArrayList<String>();
     Context mycontext;
     int myreaource;
 
-    public Adapter_DoiTuong_Anten(List<DoiTuong_Anten> myobjects, Context mycontext, int myreaource) {
+    public Adapter_DoiTuong_CongTrinh(List<DoiTuong_CongTrinh> myobjects, Context mycontext, int myreaource) {
         this.myobjects = myobjects;
         this.mycontext = mycontext;
         this.myreaource = myreaource;
@@ -49,7 +49,7 @@ public class Adapter_DoiTuong_Anten extends BaseAdapter {
         if (null == V)
         {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            V = inflater.inflate(R.layout.item_anten, null);
+            V = inflater.inflate(R.layout.item_congtrinh, null);
         }
 
         return V;
