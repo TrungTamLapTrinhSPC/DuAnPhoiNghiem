@@ -21,10 +21,9 @@
             android:layout_marginRight="10dp"
             >
             <ImageButton
-                android:layout_weight="1"
                 android:layout_margin="5dp"
-                android:layout_width="25dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
                 android:background="@drawable/icons8_company1" />
 
@@ -59,10 +58,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:text="Tên công trình:"
             android:layout_marginTop="5dp"
-            android:textColor="#000"
+            android:textColor="#686868"
             android:textSize="15dp"
             android:textStyle="normal" />
         <LinearLayout
@@ -97,7 +95,6 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -121,7 +118,7 @@
 
                         android:text="Chiều cao công trình:"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:textSize="15dp"
                         android:textStyle="normal" />
                     <LinearLayout
@@ -132,6 +129,7 @@
                         android:layout_marginRight="10dp"
                         >
                         <ImageButton
+                            android:layout_weight="1"
                             android:layout_margin="5dp"
                             android:layout_width="25dp"
                             android:layout_height="25dp"
@@ -147,7 +145,8 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="80"
+                            android:hint="Chiều cao"
+                            android:layout_weight="50"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtChieucaoCot"
@@ -161,24 +160,20 @@
                             android:layout_marginBottom="5dp"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
-
                             android:background="@drawable/line"/>
-
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
-                            android:text="m"
-                            android:gravity="center"/>
-
+                            android:gravity="center"
+                            android:text="m" />
                     </LinearLayout>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
-                        android:text="Chiều cao công trình:"
+                        android:text="Khoảng cách đến chân cột:"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:textSize="15dp"
                         android:textStyle="normal" />
                     <LinearLayout
@@ -204,12 +199,13 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="30"
+                            android:hint="Khoảng cách"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtKhoangCach"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="50"
 
                             android:textSize="15dp" />
 
@@ -222,7 +218,7 @@
                             android:background="@drawable/line"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text="m"
                             android:gravity="center"/>
@@ -231,14 +227,13 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="100dp"
                     android:orientation="vertical"
 
                     android:layout_marginTop="20dp"
-                    android:layout_marginBottom="15dp"
-                    android:background="@drawable/caotang">
+                    android:background="@drawable/thaptang">
 
                 </LinearLayout>
             </LinearLayout>
@@ -261,7 +256,7 @@
 
                         android:text="Số tầng:"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:textSize="15dp"
                         android:textStyle="normal" />
                     <LinearLayout
@@ -287,12 +282,13 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="3"
+                            android:hint="Số tầng"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtSoTang"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="50"
 
                             android:textSize="15dp" />
 
@@ -305,7 +301,7 @@
                             android:background="@drawable/line"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text="Tầng"
                             android:gravity="center"/>
@@ -316,9 +312,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="Góc phuong vị:"
+                        android:text="Góc phương vị:"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:textSize="15dp"
                         android:textStyle="normal" />
                     <LinearLayout
@@ -344,12 +340,13 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="65"
+                            android:hint="Góc phương vị"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtGocPhuongVi"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="50"
 
                             android:textSize="15dp" />
 
@@ -362,7 +359,7 @@
                             android:background="@drawable/line"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text="Độ"
                             android:gravity="center"/>
@@ -373,10 +370,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:background="@drawable/goc_phuong_vi"
                     android:orientation="vertical"
-
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="30dp">
 
@@ -399,9 +395,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:text="Số tầng:"
+                        android:text="Kích thước công trình:"
                         android:layout_marginTop="5dp"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:textSize="15dp"
                         android:textStyle="normal" />
                     <LinearLayout
@@ -415,19 +411,9 @@
                         <ImageButton
                             android:layout_width="25dp"
                             android:layout_height="30dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginRight="0dp"
+                            android:layout_margin="5dp"
                             android:background="@drawable/icons3" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="W"
-                            android:textSize="17dp"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textColor="#686868"/>
+
                         <ImageButton
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
@@ -439,12 +425,13 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="150"
+                            android:hint="Độ dày"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtWeight"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="50"
 
                             android:textSize="15dp" />
 
@@ -457,7 +444,7 @@
                             android:background="@drawable/line"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text="m"
                             android:gravity="center"/>
@@ -469,30 +456,18 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="@drawable/hinhcovienxam"
-                        android:layout_marginRight="10dp"
-                        >
+                        android:layout_marginRight="10dp">
 
                         <ImageButton
                             android:layout_width="25dp"
                             android:layout_height="30dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginRight="0dp"
-                            android:background="@drawable/icons3" />
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="H"
-                            android:textSize="17dp"
-                            android:textStyle="bold"
-                            android:gravity="center"
-                            android:textColor="#686868"/>
+                            android:layout_margin="5dp"
+                            android:background="@drawable/ic_width" />
+
                         <ImageButton
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
                             android:layout_width="1dp"
-
                             android:layout_height="match_parent"
 
                             android:background="@drawable/line"/>
@@ -500,12 +475,13 @@
                         <EditText
                             android:textColor="#111"
                             android:layout_margin="5dp"
-                            android:hint="150"
+                            android:hint="Độ rộng"
                             android:gravity="center"
                             android:background="@drawable/backgound_edittext"
                             android:id="@+id/edtHeight"
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
+                            android:layout_weight="50"
 
                             android:textSize="15dp" />
 
@@ -518,7 +494,7 @@
                             android:background="@drawable/line"/>
 
                         <TextView
-                            android:layout_width="match_parent"
+                            android:layout_width="60dp"
                             android:layout_height="match_parent"
                             android:text="m"
                             android:gravity="center"/>
@@ -529,10 +505,10 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="3"
                     android:background="@drawable/nhadattram"
                     android:orientation="vertical"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="20dp">
 
                 </LinearLayout>
             </LinearLayout>

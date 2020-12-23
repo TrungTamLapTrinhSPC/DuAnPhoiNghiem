@@ -33,6 +33,8 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danhsach_cot);
+        getWindow().setSoftInputMode(WindowManager.
+                LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         AnhXa();
         NhanBien();
         SuKien();
@@ -112,7 +114,6 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
         windowArr.gravity = gravity;
         window.setAttributes(windowArr);
         dialogthongso.show();
-
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title);
     };
