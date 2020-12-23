@@ -47,7 +47,7 @@
                     android:orientation="horizontal">
 
                     <ImageButton
-                        android:id="@+id/btnGrid"
+                        android:id="@+id/btnMenu"
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_marginRight="20dp"
@@ -324,7 +324,7 @@
         </ListView>
 
         <ImageButton
-            android:id="@+id/fab"
+            android:id="@+id/btnThemCot"
             android:layout_width="170dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"

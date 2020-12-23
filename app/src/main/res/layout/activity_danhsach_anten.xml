@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".Activity_DanhSach_BTS">
+    tools:context=".Activity_DanhSach_Anten">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
                     android:textStyle="bold"
                     android:textSize="24dp"
                     android:minHeight="?actionBarSize"
-                    android:text="HNI1234"
+                    android:text="HNI1234-BTS1"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -117,136 +117,6 @@
             android:inflatedId="@+id/showlayout"
             android:layout="@layout/my_grid_view"/>
     </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thiết kế cột : "
-        android:textSize="20dp"
-        android:layout_marginLeft="10dp"
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/hinhcovienxanh2"
-        android:orientation="vertical">
-
-
-
-        <!--Chi tiết thiết kế trạm-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/dobong"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:elevation="6dp">
-
-            <LinearLayout
-                android:layout_width="250dp"
-                android:paddingBottom="10dp"
-                android:paddingTop="10dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Tên cột:"
-                        android:textColor="#000"
-                        android:paddingLeft="10dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:id="@+id/tvCotA"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cột A"
-                        android:textColor="#000"
-                        android:paddingLeft="10dp"
-                        android:textSize="18dp"
-                        android:textStyle="bold"/>
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@drawable/line">
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_width="25dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="@drawable/x"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12m"
-                        android:textColor="#686868"
-                        android:textSize="14dp"
-                        android:layout_gravity="center_vertical"/>
-
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="@drawable/y"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="12m"
-                        android:textColor="#686868"
-                        android:textSize="15dp"
-                        android:layout_gravity="center_vertical"/>
-
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="15dp"
-                        android:background="@drawable/height_tower"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="14m"
-                        android:textColor="#686868"
-                        android:textSize="14dp"
-                        android:layout_gravity="center_vertical"/>
-                </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@drawable/header_panel_4"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center">
-                <ImageButton
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/icons8_radio_tower" />
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </LinearLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -256,13 +126,13 @@
             android:layout_marginLeft="15dp"
             android:layout_marginBottom="5dp"
             android:textSize="20dp"
-            android:text="Danh sách trạm gốc: "
+            android:text="Danh sách anten: "
             android:layout_height="wrap_content" />
         <ListView
             android:layout_marginTop="35dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/listview_bts"
+            android:id="@+id/listview_anten"
             android:cacheColorHint="#0000"
             android:paddingTop="10dp"
             android:background="@drawable/hinhcovienxanh"
@@ -281,7 +151,7 @@
             android:layout_alignParentRight="true"
             android:layout_margin="@dimen/fab_margin"
             android:scaleType="fitXY"
-            android:src="@drawable/btn_themtram"
+            android:src="@drawable/btn_add_anten"
             android:background="@drawable/shadow"
             android:elevation="10dp"/>
     </RelativeLayout>

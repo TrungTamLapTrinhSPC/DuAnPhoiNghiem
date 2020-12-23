@@ -5,19 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Activity_DanhSach_BTS extends AppCompatActivity {
+public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     ListView listview;
-    List<DoiTuong_BTS> list_BTS = new ArrayList<>();
-    Adapter_DoiTuong_BTS adapter_doiTuong_bts;
+
+    List<DoiTuong_CongTrinh> list_CongTrinh = new ArrayList<>();
+    Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_danhsach_bts);
+        setContentView(R.layout.activity_danhsach_congtrinh);
         AnhXa();
         SuKien();
         NhanBien();
@@ -26,12 +28,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
 
     private void SettupListView()
     {
-        list_BTS.clear();
-        list_BTS.add(new DoiTuong_BTS("","","","",""));
+        list_CongTrinh.clear();
+        list_CongTrinh.add(new DoiTuong_CongTrinh("","","","",""));
         //Thay đổi thử dòng 30
         /**HIỂN THỊ RA MÀN HÌNH*/
-        adapter_doiTuong_bts = new Adapter_DoiTuong_BTS(list_BTS, Activity_DanhSach_BTS.this,R.layout.item_bts);
-        listview.setAdapter(adapter_doiTuong_bts);
+        adapter_doiTuong_CongTrinh = new Adapter_DoiTuong_CongTrinh(list_CongTrinh, Activity_DanhSach_CongTrinh.this,R.layout.item_congtrinh);
+        listview.setAdapter(adapter_doiTuong_CongTrinh);
     }
 
     private void NhanBien() {
@@ -43,13 +45,13 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent= new Intent(Activity_DanhSach_BTS.this,Activity_DanhSach_Anten.class);
+                Intent intent= new Intent(Activity_DanhSach_CongTrinh.this,Activity_DanhSach_Anten.class);
                 startActivity(intent);
             }
         });
     }
     private void AnhXa() {
-        listview = findViewById(R.id.listview_bts);
+        listview = findViewById(R.id.listview_congtrinh);
 
     }
 
