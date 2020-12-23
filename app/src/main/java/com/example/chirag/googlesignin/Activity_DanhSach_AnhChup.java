@@ -29,7 +29,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
 
     private void SettupListView()
     {
-        list_AnhChup.clear();
+        list_AnhChup.clear();//Hoan thay đổi
         list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
         list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
         list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
