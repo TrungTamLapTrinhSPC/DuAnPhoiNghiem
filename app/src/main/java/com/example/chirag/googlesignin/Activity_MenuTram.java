@@ -205,6 +205,8 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
             File[] files=f.listFiles();
             listFile.clear();
 
+            //Thêm try catch p1
+            try{
                 for (File file:files)
                 {
                     String[] output = file.getName().split("_");
@@ -212,10 +214,11 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                     listTram.add(output[1]);
                     doiTuongTramList.add(new DoiTuong_Tram(R.drawable.cotdayco, output[0], output[1]));
                 }
+                listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, doiTuongTramList);
+                listView.setAdapter(listViewAdapterListview);
+            }
+            catch (Exception e){}
 
-
-            listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, doiTuongTramList);
-            listView.setAdapter(listViewAdapterListview);
             return doiTuongTramList;
         }
     //endregion
