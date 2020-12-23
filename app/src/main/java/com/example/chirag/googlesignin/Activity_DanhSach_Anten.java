@@ -29,6 +29,8 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danhsach_anten);
+        getWindow().setSoftInputMode(WindowManager.
+                LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
         AnhXa();
         NhanBien();
         SuKien();
