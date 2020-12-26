@@ -1,37 +1,47 @@
 package com.example.chirag.googlesignin;
 
 public class DoiTuong_Tram {
-    private int imageID;
-    private String title;
-    private String description;
+    private String MaTram;
+    private String NgaySua;
+    private String DiaDiem;
+    private String SoTramGoc;
 
-    public DoiTuong_Tram(int imageID, String title, String description) {
-        this.imageID = imageID;
-        this.title = title;
-        this.description = description;
+    public DoiTuong_Tram(String maTram, String ngaySua, String diaDiem, String soTramGoc) {
+        MaTram = maTram;
+        NgaySua = ngaySua;
+        DiaDiem = diaDiem;
+        SoTramGoc = soTramGoc;
     }
 
-    public int getImageID() {
-        return imageID;
+    public String getMaTram() {
+        return MaTram;
     }
 
-    public void setImageID(int imageID) {
-        this.imageID = imageID;
+    public void setMaTram(String maTram) {
+        MaTram = maTram;
     }
 
-    public String getTitle() {
-        return title;
+    public String getNgaySua() {
+        return NgaySua;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setNgaySua(String ngaySua) {
+        NgaySua = ngaySua;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDiaDiem() {
+        return DiaDiem;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDiaDiem(String diaDiem) {
+        DiaDiem = diaDiem;
+    }
+
+    public String getSoTramGoc() {
+        return SoTramGoc;
+    }
+
+    public void setSoTramGoc(String soTramGoc) {
+        SoTramGoc = soTramGoc;
     }
 }

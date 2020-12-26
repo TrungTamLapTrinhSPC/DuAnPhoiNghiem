@@ -3,7 +3,7 @@
          xmlns:android="http://schemas.android.com/apk/res/android"
          xmlns:card_view="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical">
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -11,28 +11,24 @@
             android:layout_marginRight="25dp"
             android:layout_marginLeft="25dp"
             android:layout_marginBottom="10dp"
-            android:layout_height="500dp"
+            android:layout_height="wrap_content"
             android:elevation="6dp"
             card_view:cardCornerRadius="20dp">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
+                android:layout_height="wrap_content">
                 <ImageView
-                    android:visibility="visible"
+                    android:id="@+id/imageview"
+                    android:visibility="gone"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/biennhatram" />
-
+                    android:layout_height="400dp"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:background="#fff"
-                    android:paddingTop="10dp"
                     android:paddingRight="10dp"
                     android:paddingBottom="10dp">
-
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -44,6 +40,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/tvTenHinhAnh"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:paddingLeft="15dp"
@@ -64,6 +61,7 @@
                                     android:background="@drawable/icons8_quaterly" />
 
                                 <TextView
+                                    android:id="@+id/tvNgayChup"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center_vertical"
@@ -77,26 +75,32 @@
 
                     </LinearLayout>
                 </LinearLayout>
-
                 <LinearLayout
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:layout_alignParentBottom="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginBottom="30dp"
-                    android:layout_marginRight="30dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_nut_chup">
+                    android:gravity="bottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+                    <LinearLayout
+                        android:id="@+id/btnChupAnh"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:gravity="center"
+                        android:layout_marginLeft="10dp"
+                        android:layout_alignParentBottom="true"
 
-                    <ImageButton
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@drawable/camera" />
+                        android:layout_marginBottom="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/background_nut_chup">
+                        <ImageButton
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:background="@drawable/camera" />
+                    </LinearLayout>
                 </LinearLayout>
 
                 <ImageButton
+                    android:visibility="gone"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_alignParentEnd="true"
@@ -104,7 +108,5 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/crop"/>
             </RelativeLayout>
-
         </androidx.cardview.widget.CardView>
-
      </LinearLayout>

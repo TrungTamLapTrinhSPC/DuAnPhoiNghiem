@@ -138,6 +138,7 @@
 
         <!--Chi tiết thiết kế trạm-->
         <LinearLayout
+            android:id="@+id/btnThietKe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -274,7 +275,7 @@
         </ListView>
 
         <ImageButton
-            android:id="@+id/fab"
+            android:id="@+id/btnThemBTS"
             android:layout_width="170dp"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"

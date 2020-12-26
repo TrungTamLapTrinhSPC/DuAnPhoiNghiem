@@ -18,7 +18,7 @@
             android:orientation="vertical">
             <TextView
                 android:background="@color/color_Blue1"
-                android:id="@+id/txtTen"
+                android:id="@+id/txtMaTram"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

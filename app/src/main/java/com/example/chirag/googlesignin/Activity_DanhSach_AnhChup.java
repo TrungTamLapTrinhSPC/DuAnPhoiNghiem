@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class Activity_DanhSach_AnhChup extends AppCompatActivity {
     ListView listview;
+    ImageButton btnBack;
     List<DoiTuong_AnhChup> list_AnhChup = new ArrayList<>();
     Adapter_DoiTuong_AnhChup adapter_doiTuong_AnhChup;
     @Override
@@ -30,9 +32,9 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
     private void SettupListView()
     {
         list_AnhChup.clear();//Hoan thay đổi
-        list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
-        list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
-        list_AnhChup.add(new DoiTuong_AnhChup("","","","",""));
+        list_AnhChup.add(new DoiTuong_AnhChup("",null,""));
+        list_AnhChup.add(new DoiTuong_AnhChup("",null,""));
+        list_AnhChup.add(new DoiTuong_AnhChup("",null,""));
         //Thay đổi thử dòng 30
         /**HIỂN THỊ RA MÀN HÌNH*/
         adapter_doiTuong_AnhChup = new Adapter_DoiTuong_AnhChup(list_AnhChup, Activity_DanhSach_AnhChup.this,R.layout.item_anh_chup);
@@ -41,10 +43,10 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
 
     private void NhanBien() {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
-
     }
 
-    private void SuKien() {
+    private void SuKien()
+    {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -52,10 +54,16 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private void AnhXa() {
         listview = findViewById(R.id.listview_AnhChup);
-
+        btnBack = findViewById(R.id.btnBack);
     }
 
 }

@@ -26,12 +26,13 @@ public class Adapter_Gridview extends ArrayAdapter<DoiTuong_Tram> {
             V = inflater.inflate(R.layout.grid_item, null);
         }
         DoiTuong_Tram doiTuongTram = getItem(position);
-        ImageView img = (ImageView) V.findViewById(R.id.imageView2);
-        TextView txtTen = (TextView) V.findViewById(R.id.txtTen);
-        TextView txtToado = (TextView) V.findViewById(R.id.txtToaDo);
-        img.setImageResource(doiTuongTram.getImageID());
-        txtTen.setText(doiTuongTram.getTitle());
-        //txtToado.setText(product.getDescription());
+        TextView txtMaTram = (TextView) V.findViewById(R.id.txtMaTram);
+        TextView txtNgay = (TextView) V.findViewById(R.id.txtNgay);
+        TextView txtTramGoc = (TextView) V.findViewById(R.id.txtTramGoc);
+
+        txtMaTram.setText(doiTuongTram.getMaTram());
+        txtNgay.setText(doiTuongTram.getNgaySua());
+        txtTramGoc.setText(doiTuongTram.getSoTramGoc());
         return V;
     }
 }

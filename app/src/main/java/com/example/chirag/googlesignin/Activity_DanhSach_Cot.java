@@ -74,7 +74,8 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
         });
         btnAnhChup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent= new Intent(Activity_DanhSach_Cot.this,Activity_DanhSach_AnhChup.class);
                 startActivity(intent);
             }
@@ -82,7 +83,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
         btnThietKe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogThemTram(Gravity.CENTER,"Thiết kế");
+                DialogThemTram(Gravity.CENTER,"Thiết kế","Lưu thiết kế");
 
             }
         });
@@ -102,7 +103,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
     };
     //endregion
     //region Dialog
-    private void DialogThemTram(int gravity,String title){
+    private void DialogThemTram(int gravity,String title,String titleButton){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Cot.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogthongso.setContentView(R.layout.dialog_themtram);
@@ -114,8 +115,11 @@ public class Activity_DanhSach_Cot extends AppCompatActivity {
         windowArr.gravity = gravity;
         window.setAttributes(windowArr);
         dialogthongso.show();
+
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title);
+        Button btnLuuThongSo = dialogthongso.findViewById(R.id.btnLuuThongSo);
+        btnLuuThongSo.setText(titleButton);
     };
     private void DialogThemCot(int gravity,String title){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Cot.this,R.style.PauseDialog);

@@ -53,13 +53,15 @@ public class Adapter_Listview extends BaseAdapter {
             V = inflater.inflate(R.layout.list_item, null);
         }
 
-        ImageView img = (ImageView) V.findViewById(R.id.imageView2);
-        TextView txtTen = (TextView) V.findViewById(R.id.txtTen);
-        TextView txtToado = (TextView) V.findViewById(R.id.txtToaDo);
+        TextView txtMaTram = (TextView) V.findViewById(R.id.txtMaTram);
+        TextView txtDiaDiem = (TextView) V.findViewById(R.id.txtDiaDiem);
+        TextView txtNgay = (TextView) V.findViewById(R.id.txtNgay);
+        TextView txtTramGoc = (TextView) V.findViewById(R.id.txtTramGoc);
 
-        img.setImageResource(myobjects.get(position).getImageID());
-        txtTen.setText(myobjects.get(position).getTitle());
-        txtToado.setText(myobjects.get(position).getDescription());
+        txtMaTram.setText(myobjects.get(position).getMaTram());
+        txtDiaDiem.setText(myobjects.get(position).getDiaDiem());
+        txtNgay.setText(myobjects.get(position).getNgaySua());
+        txtTramGoc.setText(myobjects.get(position).getSoTramGoc());
     return V;
 
     }
@@ -71,8 +73,8 @@ public class Adapter_Listview extends BaseAdapter {
             myobjects.addAll(arraylist);
         } else {
             for (DoiTuong_Tram wp : arraylist) {
-                if (wp.getTitle().toLowerCase(Locale.getDefault())
-                        .contains(charText) || wp.getDescription().toLowerCase(Locale.getDefault())
+                if (wp.getMaTram().toLowerCase(Locale.getDefault())
+                        .contains(charText) || wp.getMaTram().toLowerCase(Locale.getDefault())
                         .contains(charText)) {
                     myobjects.add(wp);
                 }

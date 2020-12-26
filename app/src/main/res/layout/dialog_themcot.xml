@@ -21,7 +21,7 @@
             android:layout_gravity="center"
             android:text="Thêm cột mới"
             android:textColor="@color/color_Blue2"
-            android:textSize="40dp"
+            android:textSize="30dp"
             android:textStyle="bold" />
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:text="Chiều cao cột:"
             android:layout_marginTop="10dp"
             android:textColor="#000"
@@ -46,7 +46,7 @@
             android:orientation="horizontal"
             android:background="@drawable/hinhcovienxam"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="10dp">
             <ImageButton
                 android:layout_margin="5dp"
                 android:layout_width="30dp"
@@ -69,6 +69,8 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="50"
+
                 android:textSize="18dp" />
 
             <ImageButton
@@ -77,10 +79,11 @@
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+
                 android:background="@drawable/line"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:text="m"
@@ -95,44 +98,47 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-            android:text="Số hướng :"
+            android:text="Số chân :"
             android:textSize="20dp"
             android:textColor="#000"
             android:textStyle="normal" />
-        <LinearLayout
+        <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp">
-            <CheckBox
-                android:id="@+id/checkbox_3huong"
-                android:text="3"
-                android:checked="true"
+            android:gravity="center"
+            android:id="@+id/radioGroup">
+            <RadioButton
+                android:id="@+id/checkbox_trenmai"
+                android:text="3 chân"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:scaleX="1.5"
+                android:textColor="#111"
+                android:textSize="13dp"
                 android:scaleY="1.5"
                 android:layout_marginLeft="20dp"
                 android:buttonTint="@color/color_Blue2" />
-            <CheckBox
-                android:id="@+id/checkbox_4huong"
-                android:text="4"
-                android:checked="false"
+            <RadioButton
+                android:id="@+id/checkbox_duoidat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:buttonTint="@color/color_Blue2"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:layout_marginLeft="60dp"
-                android:buttonTint="@color/color_Blue2" />
-        </LinearLayout>
+                android:text="4 chân"
+                android:textColor="#111"
+                android:textSize="13dp" />
+        </RadioGroup>
+
         <!-- Kích thước thân cột-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:text="Kích thước thân cột:"
             android:layout_marginTop="10dp"
             android:textColor="#000"
@@ -144,7 +150,7 @@
             android:orientation="horizontal"
             android:background="@drawable/hinhcovienxam"
             android:layout_marginRight="10dp"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="10dp">
             <ImageButton
                 android:layout_margin="5dp"
                 android:layout_width="30dp"
@@ -163,6 +169,7 @@
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="50"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/backgound_edittext"
                 android:hint="Kích thước thân cột:"
@@ -176,23 +183,21 @@
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/line"/>
-
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="30dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:text="m"
                 android:textSize="15dp"
                 android:textStyle="bold"
                 android:gravity="center" />
-
         </LinearLayout>
 
         <!--Vị trí đặt cột-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
+            android:layout_marginLeft="10dp"
             android:text="Vị trí đặt cột:"
             android:textColor="#000"
             android:textSize="20dp"
@@ -203,8 +208,9 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginLeft="10dp"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/vitricot"/>
 
@@ -235,7 +241,7 @@
                         android:text="X"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:gravity="center" />
 
                     <ImageButton
@@ -249,6 +255,7 @@
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:hint="Rộng"
+                        android:layout_weight="50"
                         android:background="@drawable/backgound_edittext"
                         android:id="@+id/edtChieuX"
                         android:layout_width="70dp"
@@ -266,7 +273,7 @@
                         android:background="@drawable/line"/>
 
                     <TextView
-                        android:layout_width="50dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|fill_horizontal"
                         android:text="m"
@@ -297,7 +304,7 @@
                         android:text="Y"
                         android:textSize="20dp"
                         android:textStyle="bold"
-                        android:textColor="#000"
+                        android:textColor="#686868"
                         android:gravity="center" />
 
                     <ImageButton
@@ -314,6 +321,7 @@
                         android:background="@drawable/backgound_edittext"
                         android:id="@+id/edtChieuY"
                         android:layout_width="70dp"
+                        android:layout_weight="50"
                         android:layout_height="match_parent"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
@@ -327,7 +335,7 @@
                         android:background="@drawable/line"/>
 
                     <TextView
-                        android:layout_width="50dp"
+                        android:layout_width="30dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="end|fill_horizontal"
                         android:text="m"
@@ -339,16 +347,16 @@
             </LinearLayout>
         </LinearLayout>
         <Button
-            android:id="@+id/btnLuuThongSo"
+            android:id="@+id/btnLuu"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginLeft="60dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/backgound_header_4"
             android:layout_gravity="center_horizontal"
-            android:text="Thêm trạm"
+            android:text="Thêm cột"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="28dp"

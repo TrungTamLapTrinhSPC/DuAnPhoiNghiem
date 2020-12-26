@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -14,7 +15,7 @@ import java.util.List;
 
 public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     ListView listview;
-
+    ImageButton btnBack;
     List<DoiTuong_CongTrinh> list_CongTrinh = new ArrayList<>();
     Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
     @Override
@@ -52,9 +53,16 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
     private void AnhXa() {
         listview = findViewById(R.id.listview_congtrinh);
+        btnBack = findViewById(R.id.btnBack);
 
     }
 

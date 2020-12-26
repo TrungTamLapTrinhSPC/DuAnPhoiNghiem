@@ -5,10 +5,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class Activity_ChiTiet_Anten extends AppCompatActivity {
     LinearLayout btnDanhSachCongTrinh;
+    ImageButton btnBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,16 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
     }
 
     private void AnhXa() {
+        btnBack = findViewById(R.id.btnBack);
         btnDanhSachCongTrinh = findViewById(R.id.btnDanhSachCongTrinh);
     }
 }

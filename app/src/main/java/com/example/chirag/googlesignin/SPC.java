@@ -2,6 +2,9 @@ package com.example.chirag.googlesignin;
 
 import android.os.Environment;
 import android.util.Log;
+import android.widget.EditText;
+
+import com.google.api.services.driveactivity.v2.model.Edit;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -9,8 +12,31 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
 
 final class SPC { private SPC() {}
+
+    /**
+     *Vị trisbangr thiết kế trạm
+     */
+
+    static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
+    static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "ChieuCaoNha", "ChieuRong", "ChieuDai"));
+    static final int TimViTri(String key, ArrayList<String> list){
+        int vt= -1;
+        vt = list.indexOf(key);
+        return vt;
+    }
+    static final String getLastModified(File file){
+        String date = "";
+        date = new SimpleDateFormat("dd-MM-yyyy").format(
+                new Date(new File(String.valueOf(file)).lastModified())
+        );
+        return date;
+    }
     static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
         long factor = (long) Math.pow(10, places);
@@ -68,6 +94,17 @@ final class SPC { private SPC() {}
         }
     }
     static final File pathDataApp_PNDT =  new File(Environment.getExternalStorageDirectory(),"DataAppPNDT");
-
+    static void SaveListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
+        String text = "";
+        for(EditText edt:listEditText)
+        {
+            if(text.equals(""))
+            {
+                text += edt.getText().toString().trim().replace("\n","");
+            }
+            else text += "&"+ edt.getText().toString().trim().replace("\n","");
+        }
+        saveTextFile(nameFile,text,pathFile);
+    }
 
 }

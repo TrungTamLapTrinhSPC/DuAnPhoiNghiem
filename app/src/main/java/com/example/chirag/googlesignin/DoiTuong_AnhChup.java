@@ -1,57 +1,39 @@
 package com.example.chirag.googlesignin;
 
+import android.net.Uri;
+
 public class DoiTuong_AnhChup {
-    private String ChieuCaoCot;
-    private String TenCot;
-    private String SoChan;
-    private String ViTriX;
-    private String ViTriY;
+    private String TenAnh;
+    private Uri imageUri;
+    private String NgayChup;
 
-    public DoiTuong_AnhChup(String chieuCaoCot, String tenCot, String soChan, String viTriX, String viTriY) {
-        ChieuCaoCot = chieuCaoCot;
-        TenCot = tenCot;
-        SoChan = soChan;
-        ViTriX = viTriX;
-        ViTriY = viTriY;
+    public DoiTuong_AnhChup(String tenAnh, Uri imageUri, String ngayChup) {
+        TenAnh = tenAnh;
+        this.imageUri = imageUri;
+        NgayChup = ngayChup;
     }
 
-    public String getChieuCaoCot() {
-        return ChieuCaoCot;
+    public String getTenAnh() {
+        return TenAnh;
     }
 
-    public void setChieuCaoCot(String chieuCaoCot) {
-        ChieuCaoCot = chieuCaoCot;
+    public void setTenAnh(String tenAnh) {
+        TenAnh = tenAnh;
     }
 
-    public String getTenCot() {
-        return TenCot;
+    public Uri getImageUri() {
+        return imageUri;
     }
 
-    public void setTenCot(String tenCot) {
-        TenCot = tenCot;
+    public void setImageUri(Uri imageUri) {
+        this.imageUri = imageUri;
     }
 
-    public String getSoChan() {
-        return SoChan;
+    public String getNgayChup() {
+        return NgayChup;
     }
 
-    public void setSoChan(String soChan) {
-        SoChan = soChan;
-    }
-
-    public String getViTriX() {
-        return ViTriX;
-    }
-
-    public void setViTriX(String viTriX) {
-        ViTriX = viTriX;
-    }
-
-    public String getViTriY() {
-        return ViTriY;
-    }
-
-    public void setViTriY(String viTriY) {
-        ViTriY = viTriY;
+    public void setNgayChup(String ngayChup) {
+        NgayChup = ngayChup;
     }
 }

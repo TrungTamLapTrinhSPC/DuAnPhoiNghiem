@@ -18,6 +18,7 @@
 
         <LinearLayout
             android:layout_marginLeft="10dp"
+            android:layout_weight="90"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -39,24 +40,22 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Công nghệ:"
-                    android:textColor="#686868"
                     android:paddingLeft="10dp"
+                    android:text="Chủng loại: "
+                    android:textColor="#686868"
                     android:textSize="15dp" />
                 <TextView
                     android:id="@+id/tvCongNghe"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="2G 900"
+                    android:text="RFS APX18-206516L-CT6"
                     android:textColor="#686868"
-                    android:paddingLeft="10dp"
                     android:textSize="15dp" />
             </LinearLayout>
             <LinearLayout
@@ -108,16 +107,20 @@
                     android:layout_gravity="center_vertical"/>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
-            android:gravity="right"
-            android:layout_width="fill_parent"
+            android:layout_weight="8"
+            android:layout_width="70dp"
             android:layout_height="match_parent"
+            android:gravity="right"
             android:orientation="horizontal">
+
             <LinearLayout
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:background="@drawable/header_panel_4"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:background="@drawable/header_panel_4">
+
                 <ImageButton
                     android:layout_width="20dp"
                     android:layout_height="65dp"

@@ -22,7 +22,7 @@ import java.util.List;
 
 public class Activity_DanhSach_Anten extends AppCompatActivity {
     ListView listview;
-    ImageButton btnBack;
+    ImageButton btnBack,btnThemAnten;
     List<DoiTuong_Anten> list_Anten = new ArrayList<>();
     Adapter_DoiTuong_Anten adapter_doiTuongAnten;
     @Override
@@ -62,6 +62,12 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
                 onBackPressed();
             }
         });
+        btnThemAnten.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogThemAnten(Gravity.CENTER);
+            }
+        });
 
     }
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
@@ -73,10 +79,10 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
     };
     //endregion
     //region Dialog
-    private void DialogThemTram(int gravity,String title){
+    private void DialogThemAnten(int gravity){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Anten.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogthongso.setContentView(R.layout.dialog_themtram);
+        dialogthongso.setContentView(R.layout.dialog_them_anten);
         Window window= dialogthongso.getWindow();
         if (window==null){return;}
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -86,13 +92,12 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
 
-        TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
-        tvTitle.setText(title);
     };
     //endregion
     private void AnhXa() {
         listview = findViewById(R.id.listview_anten);
         btnBack = findViewById(R.id.btnBack);
+        btnThemAnten = findViewById(R.id.btnThemAnten);
 
     }
 

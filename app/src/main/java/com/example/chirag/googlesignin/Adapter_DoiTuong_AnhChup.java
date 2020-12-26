@@ -23,7 +23,9 @@ public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
         this.mycontext = mycontext;
         this.myreaource = myreaource;
     }
+    public interface iClickCamera{
 
+    }
 
 
     @Override
