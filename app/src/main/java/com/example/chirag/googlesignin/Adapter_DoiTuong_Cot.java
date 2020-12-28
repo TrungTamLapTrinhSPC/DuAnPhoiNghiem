@@ -27,9 +27,6 @@ public class Adapter_DoiTuong_Cot extends BaseAdapter {
         this.mycontext = mycontext;
         this.myreaource = myreaource;
     }
-
-
-
     @Override
     public int getCount() {
         return myobjects.size();

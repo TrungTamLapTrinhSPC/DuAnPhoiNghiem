@@ -133,11 +133,9 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/hinhcovienxanh2"
         android:orientation="vertical">
-
-
-
         <!--Chi tiết thiết kế trạm-->
         <LinearLayout
+            android:id="@+id/btnThietKe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
@@ -146,12 +144,11 @@
             android:layout_marginRight="5dp"
             android:gravity="center"
             android:background="@drawable/dobong"
+            android:descendantFocusability="blocksDescendants"
             android:elevation="10dp">
             <LinearLayout
-                android:id="@+id/btnThietKe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:descendantFocusability="blocksDescendants"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -170,6 +167,7 @@
                         android:layout_height="1dp"
                         android:background="@drawable/line">
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
@@ -180,14 +178,32 @@
                             android:layout_height="20dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginTop="5dp"
+                            android:background="@drawable/ic11"/>
+                        <TextView
+                            android:id="@+id/tvMaTram"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HNI1234"
+                            android:layout_marginLeft="3dp"
+                            android:textColor="#686868"
+                            android:textSize="14dp"
+                            android:layout_gravity="center_vertical"/>
+                        <ImageButton
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
                             android:background="@drawable/cottrenmai"/>
                         <TextView
+                            android:id="@+id/tvViTriDat"
+                            android:layout_marginLeft="3dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Trên mái"
                             android:textColor="#686868"
                             android:textSize="14dp"
                             android:layout_gravity="center_vertical"/>
+
                     </LinearLayout>
                 </LinearLayout>
 
@@ -214,18 +230,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:id="@+id/btnAnhChup"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:background="@drawable/dobong"
+            android:descendantFocusability="blocksDescendants"
             android:elevation="10dp">
             <LinearLayout
-                android:id="@+id/btnAnhChup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:descendantFocusability="blocksDescendants"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -257,6 +274,7 @@
 
                             android:background="@drawable/icons8_quaterly"/>
                         <TextView
+                            android:id="@+id/tvNgaySua"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="20-11-2020"
@@ -270,6 +288,7 @@
                             android:layout_marginTop="5dp"
                             android:background="@drawable/icons8_image_gallery"/>
                         <TextView
+                            android:id="@+id/tvSoAnh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="0"

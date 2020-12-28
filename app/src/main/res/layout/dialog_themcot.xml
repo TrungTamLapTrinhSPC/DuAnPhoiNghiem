@@ -29,7 +29,47 @@
             android:background="@drawable/line"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
+        <!-- Mã trạm-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tên cột:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="20dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/ic11" />
+            <ImageButton
+                android:layout_width="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/line"/>
 
+            <EditText
+                android:hint="Tên cột"
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:id="@+id/edtTenCot"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/backgound_edittext"
+                android:textSize="18dp" />
+        </LinearLayout>
         <!-- Chiều cao cột-->
         <TextView
             android:layout_width="wrap_content"
@@ -94,33 +134,48 @@
         </LinearLayout>
 
         <!--Số hướng-->
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Số chân :"
-            android:textSize="20dp"
-            android:textColor="#000"
-            android:textStyle="normal" />
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Số chân cột:"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <EditText
+                android:visibility="gone"
+                android:textColor="#111"
+                android:hint="Tọa độ đặt trạm"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtSoChan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp" />
+        </LinearLayout>
         <RadioGroup
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
             android:id="@+id/radioGroup">
+
             <RadioButton
                 android:id="@+id/checkbox_trenmai"
-                android:text="3 chân"
                 android:layout_width="100dp"
                 android:layout_height="50dp"
-                android:scaleX="1.5"
-                android:textColor="#111"
-                android:textSize="13dp"
-                android:scaleY="1.5"
                 android:layout_marginLeft="20dp"
-                android:buttonTint="@color/color_Blue2" />
+                android:buttonTint="@color/color_Blue2"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="3"
+                android:textColor="#111"
+                android:textSize="13dp" />
+
             <RadioButton
                 android:id="@+id/checkbox_duoidat"
                 android:layout_width="wrap_content"
@@ -129,7 +184,7 @@
                 android:buttonTint="@color/color_Blue2"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:text="4 chân"
+                android:text="4"
                 android:textColor="#111"
                 android:textSize="13dp" />
         </RadioGroup>

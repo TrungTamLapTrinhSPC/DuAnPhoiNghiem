@@ -1,6 +1,6 @@
 package com.example.chirag.googlesignin;
 
-        import android.Manifest;
+import android.Manifest;
         import android.app.Activity;
         import android.app.AlertDialog;
         import android.app.Dialog;
@@ -81,7 +81,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
     private GridView girdView;
     private Adapter_Listview listViewAdapterListview;
     private Adapter_Gridview adapterGridview;
-    private List<DoiTuong_Tram> doiTuongTramList;
+    private List<DoiTuong_Tram> danhsachTram;
     List<String> listFile = new ArrayList<String>();
     ArrayList<String> listTram = new ArrayList<String>();
     int vt;
@@ -141,6 +141,9 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             Intent intent = new Intent(Activity_MenuTram.this, Activity_DanhSach_Cot.class);
+            intent.putExtra("MaTram",danhsachTram.get(position).getMaTram());
+            intent.putExtra("DiaDiem",vitrichup);
+            intent.putExtra("ToaDo",tvToaDo.getText().toString());
             startActivity(intent);
         }
     };
@@ -201,16 +204,16 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
     }
     private void setAdapters(){
         if(VIEW_MODE_LISTVIEW == curnntView) {
-            listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, doiTuongTramList);
+            listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, danhsachTram);
             listView.setAdapter(listViewAdapterListview);
         } else
         {
-            adapterGridview = new Adapter_Gridview(this, R.layout.grid_item, doiTuongTramList);
+            adapterGridview = new Adapter_Gridview(this, R.layout.grid_item, danhsachTram);
             girdView.setAdapter(adapterGridview);
         }
     }
     public List<DoiTuong_Tram> getProductList(){
-        doiTuongTramList = new ArrayList<>();
+        danhsachTram = new ArrayList<>();
         File[] files=SPC.pathDataApp_PNDT.listFiles();
         listFile.clear();
         try{
@@ -227,15 +230,15 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                         String[] listThietke = thietke.split("&");
                         String MaTram = listThietke[SPC.TimViTri("MaTram",SPC.ThietKeTram)];
                         String DiaDiem = listThietke[SPC.TimViTri("DiaDiem",SPC.ThietKeTram)];
-                        doiTuongTramList.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
+                        danhsachTram.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
                     }
                 }
             }
-            listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, doiTuongTramList);
+            listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, danhsachTram);
             listView.setAdapter(listViewAdapterListview);
         }
         catch (Exception e){}
-        return doiTuongTramList;
+        return danhsachTram;
     }
     private String DemSoTramGoc(File fileTram){
 
@@ -449,6 +452,8 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         vt = vt2;
         Button btnupload = (Button) dialogthongso.findViewById(R.id.btnupload);
         Button btnXoa = (Button) dialogthongso.findViewById(R.id.btnXoa);
+        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnmenudoiten);
+
         btnupload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -468,21 +473,21 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Activity_MenuTram.this);
-                builder.setTitle("Bạn muốn xóa folder này không?");
+                builder.setTitle("Bạn muốn xóa trạm này không?");
                 builder.setMessage("Thư mục sẽ bị xóa vĩnh viễn khỏi thiết bị!!");
                 // add the buttons
                 builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        File file = new File(SPC.pathDataApp_PNDT,doiTuongTramList.get(vt).getMaTram());
+                        File file = new File(SPC.pathDataApp_PNDT,danhsachTram.get(vt).getMaTram());
                         try {
                             FileUtils.deleteDirectory(file);
                             Toast.makeText(getApplicationContext(),"Đã xóa thư mục ảnh!", Toast.LENGTH_SHORT).show();
                             getProductList();
-                        } catch (IOException e) {
+                        } catch (IOException e)
+                        {
                             e.printStackTrace();
                         }
-
                         dialogthongso.dismiss();
                     }
                 });
@@ -490,6 +495,65 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                 // create and show the alert dialog
                 AlertDialog dialog2 = builder.create();
                 dialog2.show();
+            }
+        });
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogDoiten(vt);
+                dialogthongso.dismiss();
+
+            }
+        });
+    }
+    private void DialogDoiten(int vt2){
+        final Dialog dialogthongso = new Dialog(Activity_MenuTram.this,R.style.PauseDialog);
+        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogthongso.setContentView(R.layout.dialog_edit);
+        Window window= dialogthongso.getWindow();
+        if (window==null){return;}
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowArr = window.getAttributes();
+        windowArr.gravity = Gravity.CENTER;
+        window.setAttributes(windowArr);
+        dialogthongso.show();
+        vt = vt2;
+
+        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
+        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        edtMaTram.setText(danhsachTram.get(vt).getMaTram());
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!edtMaTram.getText().toString().trim().equals(""))
+                {
+                    AlertDialog.Builder builder;
+                    builder = new AlertDialog.Builder(Activity_MenuTram.this);
+                    builder.setTitle("Bạn muốn đổi tên trạm này không?");
+                    // add the buttons
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            File fileOld = new File(SPC.pathDataApp_PNDT,danhsachTram.get(vt).getMaTram());
+                            File fileNew = new File(SPC.pathDataApp_PNDT,edtMaTram.getText().toString());
+
+                            if(!fileNew.exists()){
+                                boolean result= fileOld.renameTo(fileNew);
+                                if (result) Toast.makeText(Activity_MenuTram.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
+                            }
+                            else Toast.makeText(Activity_MenuTram.this, "Đã có trạm này!", Toast.LENGTH_SHORT).show();
+                            getProductList();
+                            dialogthongso.dismiss();
+                        }
+                    });
+                    builder.setNegativeButton("không", null);
+                    // create and show the alert dialog
+                    AlertDialog dialog2 = builder.create();
+                    dialog2.show();
+                }
+
             }
         });
     }

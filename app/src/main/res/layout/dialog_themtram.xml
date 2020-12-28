@@ -35,7 +35,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="Mã trạm:"
                 android:layout_marginTop="10dp"
                 android:textColor="#000"
@@ -47,7 +47,7 @@
                 android:orientation="horizontal"
                 android:background="@drawable/hinhcovienxam"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginLeft="10dp">
                 <ImageButton
                     android:layout_margin="5dp"
                     android:layout_width="30dp"
@@ -77,7 +77,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="Địa điểm:"
                 android:layout_marginTop="10dp"
                 android:textColor="#000"
@@ -89,9 +89,10 @@
                 android:orientation="horizontal"
                 android:background="@drawable/hinhcovienxam"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginLeft="10dp">
                 <ImageButton
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/icons2" />
@@ -110,7 +111,7 @@
                     android:background="@drawable/backgound_edittext"
                     android:id="@+id/edtDiaDiem"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="40dp"
                     android:layout_marginLeft="10dp"
                     android:textSize="18dp" />
 
@@ -120,7 +121,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="Tọa độ:"
                 android:layout_marginTop="10dp"
                 android:textColor="#000"
@@ -132,9 +133,10 @@
                 android:orientation="horizontal"
                 android:background="@drawable/hinhcovienxam"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginLeft="10dp">
                 <ImageButton
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:background="@drawable/toa_do" />
@@ -166,7 +168,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="10dp"
                     android:text="Vị trí đặt:"
                     android:textColor="#000"
                     android:textSize="20dp"
@@ -216,7 +218,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="Chiều cao nhà đặt trạm:"
                 android:layout_marginTop="10dp"
                 android:textColor="#000"
@@ -228,7 +230,7 @@
                 android:orientation="horizontal"
                 android:background="@drawable/hinhcovienxam"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="30dp">
+                android:layout_marginLeft="10dp">
                 <ImageButton
                     android:layout_margin="5dp"
                     android:layout_width="30dp"
@@ -279,7 +281,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="30dp"
+                android:layout_marginLeft="10dp"
                 android:text="Vị trí đặt cột:"
                 android:textColor="#000"
                 android:textSize="20dp"

@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,15 +48,28 @@ public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
 
     @NonNull
     @Override
-    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent)
+    {
         View V = convertView;
         if (null == V)
         {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             V = inflater.inflate(R.layout.item_anh_chup, null);
         }
+        TextView tvTenHinhAnh = V.findViewById(R.id.tvTenHinhAnh);
+        TextView tvNgayChup = V.findViewById(R.id.tvNgayChup);
+        ImageView imageview = V.findViewById(R.id.imageview);
+        ImageView btnEditImage = V.findViewById(R.id.btnEditImage);
 
+        tvTenHinhAnh.setText(myobjects.get(position).getTenAnh());
+        tvNgayChup.setText(myobjects.get(position).getNgayChup());
+
+        if (myobjects.get(position).getImageUri()!=null)
+        {
+            imageview.setVisibility(View.VISIBLE);
+            btnEditImage.setVisibility(View.VISIBLE);
+            imageview.setImageURI(myobjects.get(position).getImageUri());
+        }
         return V;
     }
-
 }

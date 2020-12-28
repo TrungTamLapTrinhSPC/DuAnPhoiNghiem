@@ -7,7 +7,7 @@ public class DoiTuong_Cot {
     private String ViTriX;
     private String ViTriY;
 
-    public DoiTuong_Cot(String chieuCaoCot, String tenCot, String soChan, String viTriX, String viTriY) {
+    public DoiTuong_Cot(String tenCot,String chieuCaoCot,  String soChan, String viTriX, String viTriY) {
         ChieuCaoCot = chieuCaoCot;
         TenCot = tenCot;
         SoChan = soChan;

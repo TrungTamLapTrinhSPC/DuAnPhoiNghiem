@@ -24,7 +24,9 @@ final class SPC { private SPC() {}
      */
 
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
+    static final String DuongDanThuMucHinhAnh = "/HinhAnh";
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "ChieuCaoNha", "ChieuRong", "ChieuDai"));
+    static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
     static final int TimViTri(String key, ArrayList<String> list){
         int vt= -1;
         vt = list.indexOf(key);
@@ -54,7 +56,8 @@ final class SPC { private SPC() {}
             while ((line = input.readLine()) != null) {
                 buffer.append(line).append("\n");
             }
-            text = buffer.toString();
+
+            text = buffer.toString().trim();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -105,6 +108,20 @@ final class SPC { private SPC() {}
             else text += "&"+ edt.getText().toString().trim().replace("\n","");
         }
         saveTextFile(nameFile,text,pathFile);
+    }
+    static void ReadListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
+        File fileData = new File(pathFile,nameFile);
+        if(fileData.exists())
+        {
+            String[] text = readText(fileData).split("&");
+            for(int i=0;i<text.length;i++)
+            {
+                try{
+                    listEditText.get(i).setText(text[i].trim());
+                }catch (Exception e) {}
+            }
+        }
+
     }
 
 }
