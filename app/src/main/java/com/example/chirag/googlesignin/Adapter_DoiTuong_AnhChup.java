@@ -70,6 +70,11 @@ public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
             btnEditImage.setVisibility(View.VISIBLE);
             imageview.setImageURI(myobjects.get(position).getImageUri());
         }
+        else
+        {
+            imageview.setVisibility(View.GONE);
+            btnEditImage.setVisibility(View.GONE);
+        }
         return V;
     }
 }

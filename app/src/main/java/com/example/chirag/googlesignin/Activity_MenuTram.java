@@ -181,8 +181,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
 
     }
     //region Settup ListView
-    private void SettupListView()
-    {
+    private void SettupListView() {
         getProductList();
         SharedPreferences sharedPreferences = getSharedPreferences("ViewsMode", MODE_PRIVATE);
         curnntView = sharedPreferences.getInt("currentView", VIEW_MODE_LISTVIEW);
@@ -241,7 +240,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         return danhsachTram;
     }
     private String DemSoTramGoc(File fileTram){
-
         int sotram = 0;
         File[] listCot = new File(fileTram,"DuLieu").listFiles();
         for (File cot:listCot)

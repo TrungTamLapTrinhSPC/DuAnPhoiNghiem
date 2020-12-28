@@ -17,14 +17,16 @@
         android:elevation="6dp">
 
         <LinearLayout
-            android:layout_width="250dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="90"
+            android:paddingLeft="10dp"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -36,7 +38,7 @@
                     android:textSize="18dp"
                     android:textStyle="bold"/>
                 <TextView
-                    android:id="@+id/tvCotA"
+                    android:id="@+id/tvTenTramgoc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BTS1"
@@ -47,7 +49,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="250dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
@@ -58,7 +60,7 @@
                     android:textColor="#686868"
                     android:textSize="14dp" />
                 <TextView
-                    android:id="@+id/tvCongNghe"
+                    android:id="@+id/tvChungLoaiThietBi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Ericsson RBS 2216"
@@ -78,6 +80,7 @@
                     android:layout_gravity="center_vertical"
                     android:textSize="14dp" />
                 <TextView
+                    android:id="@+id/tvBangTanHoatDong"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="1800"
@@ -99,6 +102,7 @@
                     android:textSize="14dp"
                     android:layout_gravity="center_vertical"/>
                 <TextView
+                    android:id="@+id/tvSoAnTen"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="03"
@@ -113,13 +117,14 @@
             android:layout_height="60dp"
             android:background="@drawable/header_panel_4"
             android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:layout_gravity="center">
-            <ImageButton
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+            <ImageView
+                android:layout_width="55dp"
+                android:layout_marginLeft="0dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/icons8_radio_tower" />
+                android:src="@drawable/cot_3g" />
         </LinearLayout>
 
     </LinearLayout>

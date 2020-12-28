@@ -29,7 +29,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/tvCotA"
+                    android:id="@+id/tvTenAnten"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Anten1"
@@ -51,7 +51,7 @@
                     android:textColor="#686868"
                     android:textSize="15dp" />
                 <TextView
-                    android:id="@+id/tvCongNghe"
+                    android:id="@+id/tvChungLoaiAnten"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="RFS APX18-206516L-CT6"
@@ -70,6 +70,7 @@
 
                     android:background="@drawable/icons8_quaterly"/>
                 <TextView
+                    android:id="@+id/tvNgaySua"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="20-11-2020"
@@ -84,6 +85,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/goc_vuong"/>
                 <TextView
+                    android:id="@+id/tvGocPhuongVi"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="30"
@@ -99,6 +101,7 @@
                     android:layout_marginLeft="15dp"
                     android:background="@drawable/icons3"/>
                 <TextView
+                    android:id="@+id/tvCaoDo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="30m"

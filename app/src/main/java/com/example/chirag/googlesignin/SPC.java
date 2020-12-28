@@ -27,6 +27,7 @@ final class SPC { private SPC() {}
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "ChieuCaoNha", "ChieuRong", "ChieuDai"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
+    static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));
     static final int TimViTri(String key, ArrayList<String> list){
         int vt= -1;
         vt = list.indexOf(key);

@@ -72,9 +72,11 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
 
     private void SuKien()
     {
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 Intent intent= new Intent(Activity_DanhSach_AnhChup.this,Activity_DanhSach_Cot.class);
                 startActivity(intent);
             }

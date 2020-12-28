@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +50,14 @@ public class Adapter_DoiTuong_BTS extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             V = inflater.inflate(R.layout.item_bts, null);
         }
-
+        TextView tvTentramGoc = V.findViewById(R.id.tvTenTramgoc);
+        TextView tvChungLoaiThietBi = V.findViewById(R.id.tvChungLoaiThietBi);
+        TextView tvBangTanHoatDong = V.findViewById(R.id.tvBangTanHoatDong);
+        TextView tvSoAnten = V.findViewById(R.id.tvSoAnTen);
+        tvTentramGoc.setText(myobjects.get(position).getTenTramGoc());
+        tvChungLoaiThietBi.setText(myobjects.get(position).getChungLoaiThietBi());
+        tvBangTanHoatDong.setText(myobjects.get(position).getBangTanHoatDong() + " MHz");
+        tvSoAnten.setText(myobjects.get(position).getSoAnten());
         return V;
     }
 

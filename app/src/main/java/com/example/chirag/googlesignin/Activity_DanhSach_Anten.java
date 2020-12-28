@@ -40,8 +40,7 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
     private void SettupListView() {
         list_Anten.clear();
         list_Anten.add(new DoiTuong_Anten("14","Cột A","3","14.9","12.3"));
-        list_Anten.add(new DoiTuong_Anten("14","Cột A","3","14.9","12.3"));
-        list_Anten.add(new DoiTuong_Anten("14","Cột A","3","14.9","12.3"));
+
 
         /**HIỂN THỊ RA MÀN HÌNH*/
         adapter_doiTuongAnten = new Adapter_DoiTuong_Anten(list_Anten, Activity_DanhSach_Anten.this,R.layout.item_anten);

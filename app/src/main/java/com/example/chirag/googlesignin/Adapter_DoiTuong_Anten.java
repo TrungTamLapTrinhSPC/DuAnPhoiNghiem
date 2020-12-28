@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +24,6 @@ public class Adapter_DoiTuong_Anten extends BaseAdapter {
         this.mycontext = mycontext;
         this.myreaource = myreaource;
     }
-
-
 
     @Override
     public int getCount() {
@@ -51,7 +50,15 @@ public class Adapter_DoiTuong_Anten extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             V = inflater.inflate(R.layout.item_anten, null);
         }
+        TextView tvTenCot = V.findViewById(R.id.tvTenAnten);
+        TextView tvChungLoaiAnten = V.findViewById(R.id.tvChungLoaiAnten);
+        TextView tvGocPhuongVi = V.findViewById(R.id.tvGocPhuongVi);
+        TextView tvCaoDoAnTen = V.findViewById(R.id.tvCaoDo);
 
+        tvTenCot.setText(myobjects.get(position).getTenAnten());
+        tvChungLoaiAnten.setText(myobjects.get(position).getChungLoaiAnTen());
+        tvGocPhuongVi.setText(myobjects.get(position).getGocPhuongVi());
+        tvCaoDoAnTen.setText(myobjects.get(position).getCaoDoAnTen());
         return V;
     }
 

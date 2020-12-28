@@ -1,57 +1,57 @@
 package com.example.chirag.googlesignin;
 
 public class DoiTuong_Anten {
-    private String ChieuCaoCot;
-    private String TenCot;
-    private String SoChan;
-    private String ViTriX;
-    private String ViTriY;
+    private String TenAnten;
+    private String ChungLoaiAnTen;
+    private String NgaySua;
+    private String GocPhuongVi;
+    private String CaoDoAnTen;
 
-    public DoiTuong_Anten(String chieuCaoCot, String tenCot, String soChan, String viTriX, String viTriY) {
-        ChieuCaoCot = chieuCaoCot;
-        TenCot = tenCot;
-        SoChan = soChan;
-        ViTriX = viTriX;
-        ViTriY = viTriY;
+    public DoiTuong_Anten(String tenAnten, String chungLoaiAnTen, String ngaySua, String gocPhuongVi, String caoDoAnTen) {
+        TenAnten = tenAnten;
+        ChungLoaiAnTen = chungLoaiAnTen;
+        NgaySua = ngaySua;
+        GocPhuongVi = gocPhuongVi;
+        CaoDoAnTen = caoDoAnTen;
     }
 
-    public String getChieuCaoCot() {
-        return ChieuCaoCot;
+    public String getTenAnten() {
+        return TenAnten;
     }
 
-    public void setChieuCaoCot(String chieuCaoCot) {
-        ChieuCaoCot = chieuCaoCot;
+    public void setTenAnten(String tenAnten) {
+        TenAnten = tenAnten;
     }
 
-    public String getTenCot() {
-        return TenCot;
+    public String getChungLoaiAnTen() {
+        return ChungLoaiAnTen;
     }
 
-    public void setTenCot(String tenCot) {
-        TenCot = tenCot;
+    public void setChungLoaiAnTen(String chungLoaiAnTen) {
+        ChungLoaiAnTen = chungLoaiAnTen;
     }
 
-    public String getSoChan() {
-        return SoChan;
+    public String getNgaySua() {
+        return NgaySua;
     }
 
-    public void setSoChan(String soChan) {
-        SoChan = soChan;
+    public void setNgaySua(String ngaySua) {
+        NgaySua = ngaySua;
     }
 
-    public String getViTriX() {
-        return ViTriX;
+    public String getGocPhuongVi() {
+        return GocPhuongVi;
     }
 
-    public void setViTriX(String viTriX) {
-        ViTriX = viTriX;
+    public void setGocPhuongVi(String gocPhuongVi) {
+        GocPhuongVi = gocPhuongVi;
     }
 
-    public String getViTriY() {
-        return ViTriY;
+    public String getCaoDoAnTen() {
+        return CaoDoAnTen;
     }
 
-    public void setViTriY(String viTriY) {
-        ViTriY = viTriY;
+    public void setCaoDoAnTen(String caoDoAnTen) {
+        CaoDoAnTen = caoDoAnTen;
     }
 }

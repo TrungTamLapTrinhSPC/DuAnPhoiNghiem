@@ -38,6 +38,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
 {
     ListView listview;
     TextView title,tvToaDo,tvViTri,tvMaTram,tvViTriDat,tvNgaySua,tvSoAnh;
+
     ImageButton btnBack,btnMenu,btnThemCot;
     LinearLayout btnAnhChup,btnThietKe;
     List<DoiTuong_Cot> list_Cot = new ArrayList<>();
@@ -113,13 +114,10 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         Intent intent = getIntent();
         MaTram =intent.getStringExtra("MaTram");
         title.setText(MaTram);
-
         DiaDiem=intent.getStringExtra("DiaDiem");
         tvViTri.setText(DiaDiem);
         ToaDo = intent.getStringExtra("ToaDo");
         tvToaDo.setText(ToaDo);
-
-
     }
     public void setupThietKeTram(){
         File fileThietKe = new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanFileThietKeTram);
@@ -155,13 +153,16 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         }
     }
     //endregion
-
     //region Sự kiện
-    private void SuKien(){
+    private void SuKien() {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent= new Intent(Activity_DanhSach_Cot.this,Activity_DanhSach_BTS.class);
+                intent.putExtra("MaTram",MaTram);
+                intent.putExtra("TenCot",list_Cot.get(position).getTenCot());
+                intent.putExtra("DiaDiem",tvViTri.getText().toString());
+                intent.putExtra("ToaDo",tvToaDo.getText().toString());
                 startActivity(intent);
             }
         });
@@ -195,7 +196,8 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         });
         btnThemCot.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 DialogThemCot(Gravity.CENTER,"Thêm cột anten");
             }
         });
@@ -269,6 +271,41 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         dialogthongso.show();
         Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
         EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        edtMaTram.setText(list_Cot.get(vt).getTenCot());
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!edtMaTram.getText().toString().trim().equals(""))
+                {
+                    AlertDialog.Builder builder;
+                    builder = new AlertDialog.Builder(Activity_DanhSach_Cot.this);
+                    builder.setTitle("Bạn muốn đổi tên trạm này không?");
+                    // add the buttons
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            File fileOld = new File(pathDanhSachCot,list_Cot.get(vt).getTenCot());
+                            File fileNew = new File(pathDanhSachCot,edtMaTram.getText().toString());
+
+                            if(!fileNew.exists()){
+                                boolean result= fileOld.renameTo(fileNew);
+                                if (result) Toast.makeText(Activity_DanhSach_Cot.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
+                            }
+                            else Toast.makeText(Activity_DanhSach_Cot.this, "Đã có trạm này!", Toast.LENGTH_SHORT).show();
+                            SettupListView();
+                            dialogthongso.dismiss();
+                        }
+                    });
+                    builder.setNegativeButton("không", null);
+                    // create and show the alert dialog
+                    AlertDialog dialog2 = builder.create();
+                    dialog2.show();
+                }
+
+            }
+        });
+
     }
     private void DialogThietKe(int gravity,String title2,String titleButton){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Cot.this,R.style.PauseDialog);
@@ -303,11 +340,13 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         /**
          * Nhận dữ liệu
          */
-        if(edtViTriDat.equals("Dưới đất")) checkbox_duoidat.setChecked(true);
-        else checkbox_trenmai.setChecked(true);
+
         File pathTramMoi = new File(SPC.pathDataApp_PNDT, edtMaTram.getText().toString());
         File pathDuLieu = new File(pathTramMoi, "DuLieu");
         SPC.ReadListEditText("ThietKeTram.txt",pathDuLieu,listEditText);
+        if(edtViTriDat.equals("Dưới đất")) checkbox_duoidat.setChecked(true);
+        else checkbox_trenmai.setChecked(true);
+
         /**
          * Sự kiện
          */
