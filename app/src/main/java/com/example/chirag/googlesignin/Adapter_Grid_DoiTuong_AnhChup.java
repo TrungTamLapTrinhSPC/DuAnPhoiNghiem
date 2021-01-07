@@ -25,10 +25,6 @@ public class Adapter_Grid_DoiTuong_AnhChup extends BaseAdapter {
         this.mycontext = mycontext;
         this.myreaource = myreaource;
     }
-    public interface iClickCamera{
-
-    }
-
 
     @Override
     public int getCount() {

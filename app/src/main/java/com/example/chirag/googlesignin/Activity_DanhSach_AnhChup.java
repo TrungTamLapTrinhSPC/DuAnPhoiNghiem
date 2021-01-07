@@ -2,7 +2,10 @@ package com.example.chirag.googlesignin;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.ContentValues;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -12,20 +15,27 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewStub;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.apache.commons.io.FileUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -110,9 +120,10 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         tvToaDo.setText(ToaDo);
         pathHinhAnh= new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanThuMucHinhAnh);
     }
-
     private void SuKien(){
         listview.setOnItemClickListener(onItemClickListener);
+        listview.setOnItemLongClickListener(onItemLongClickListener);
+        girdView.setOnItemLongClickListener(onItemLongClickListener);
         girdView.setOnItemClickListener(onItemClickListener);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -151,7 +162,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
     AdapterView.OnItemLongClickListener onItemLongClickListener = new AdapterView.OnItemLongClickListener() {
         @Override
         public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
+            DialogMenu(position);
             return true;
         }
     };
@@ -215,7 +226,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
 
             byte[] byteArray = stream.toByteArray();
             try {
-                output = new FileOutputStream(new File(mFile,"aa"+".jpg"));
+                output = new FileOutputStream(new File(mFile,"image"+".jpg"));
                 output.write(byteArray);
             } catch (IOException e) {
                 e.printStackTrace();
@@ -296,4 +307,120 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                 break;
         }
     }
+    private void DialogMenu(int vt){
+        final Dialog dialogthongso = new Dialog(Activity_DanhSach_AnhChup.this,R.style.PauseDialog);
+        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogthongso.setContentView(R.layout.dialog_menu_anh_chup);
+        Window window= dialogthongso.getWindow();
+        if (window==null){return;}
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowArr = window.getAttributes();
+        windowArr.gravity = Gravity.CENTER;
+        window.setAttributes(windowArr);
+        dialogthongso.show();
+        Button btnXoa = (Button) dialogthongso.findViewById(R.id.btnXoa);
+        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnSua);
+        Button btnDanhSachAnh = (Button) dialogthongso.findViewById(R.id.btnDanhSachAnh);
+        Button btnXemAnh = (Button) dialogthongso.findViewById(R.id.btnXemAnh);
+        btnXemAnh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(Activity_DanhSach_AnhChup.this,Activity_SuaHinhAnh.class);
+                intent.putExtra("MaTram",MaTram);
+                intent.putExtra("DiaDiem",tvViTri.getText().toString());
+                intent.putExtra("ToaDo",tvToaDo.getText().toString());
+                intent.putExtra("TenHinhAnh",list_AnhChup.get(vt).getTenAnh());
+                startActivity(intent);
+                dialogthongso.dismiss();
+            }
+        });
+        btnXoa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Activity_DanhSach_AnhChup.this);
+                builder.setTitle("Bạn muốn xóa trạm này không?");
+                builder.setMessage("Thư mục sẽ bị xóa vĩnh viễn khỏi thiết bị!!");
+                // add the buttons
+                builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        File file = new File(pathHinhAnh,list_AnhChup.get(vt).getTenAnh());
+                        try {
+                            FileUtils.deleteDirectory(file);
+                            Toast.makeText(getApplicationContext(),"Đã xóa!", Toast.LENGTH_SHORT).show();
+                            SettupListView();
+                        } catch (IOException e)
+                        {
+                            e.printStackTrace();
+                        }
+                        dialogthongso.dismiss();
+                    }
+                });
+                builder.setNegativeButton("không", null);
+                // create and show the alert dialog
+                AlertDialog dialog2 = builder.create();
+                dialog2.show();
+            }
+        });
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DialogDoiten(vt);
+                dialogthongso.dismiss();
+
+            }
+        });
+    }
+    private void DialogDoiten(int vt){
+        final Dialog dialogthongso = new Dialog(Activity_DanhSach_AnhChup.this,R.style.PauseDialog);
+        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogthongso.setContentView(R.layout.dialog_edit);
+        Window window= dialogthongso.getWindow();
+        if (window==null){return;}
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowArr = window.getAttributes();
+        windowArr.gravity = Gravity.CENTER;
+        window.setAttributes(windowArr);
+        dialogthongso.show();
+        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
+        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        edtMaTram.setText(list_AnhChup.get(vt).getTenAnh());
+        btnSua.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!edtMaTram.getText().toString().trim().equals(""))
+                {
+                    AlertDialog.Builder builder;
+                    builder = new AlertDialog.Builder(Activity_DanhSach_AnhChup.this);
+                    builder.setTitle("Bạn muốn đổi tên trạm này không?");
+                    // add the buttons
+                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                            File fileOld = new File(pathHinhAnh,list_AnhChup.get(vt).getTenAnh());
+                            File fileNew = new File(pathHinhAnh,edtMaTram.getText().toString());
+
+                            if(!fileNew.exists()){
+                                boolean result= fileOld.renameTo(fileNew);
+                                if (result) Toast.makeText(Activity_DanhSach_AnhChup.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
+                            }
+                            else Toast.makeText(Activity_DanhSach_AnhChup.this, "Đã có trạm này!", Toast.LENGTH_SHORT).show();
+                            SettupListView();
+                            dialogthongso.dismiss();
+                        }
+                    });
+                    builder.setNegativeButton("không", null);
+                    // create and show the alert dialog
+                    AlertDialog dialog2 = builder.create();
+                    dialog2.show();
+                }
+
+            }
+        });
+
+    }
+
 }

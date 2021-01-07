@@ -21,7 +21,8 @@
         android:roundIcon="@drawable/ivccico"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_DanhSach_CongTrinh"></activity>
+        <activity android:name=".Activity_SuaHinhAnh"></activity>
+        <activity android:name=".Activity_DanhSach_CongTrinh" />
         <activity android:name=".Activity_ChiTiet_Anten" />
         <activity android:name=".Activity_DanhSach_Anten" />
         <activity android:name=".Activity_DanhSach_AnhChup" />
@@ -30,6 +31,7 @@
         <activity android:name=".Activity_MenuTram">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
