@@ -48,7 +48,7 @@
                 android:layout_margin="5dp"
                 android:hint="Chiều cao cột"
                 android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtChieucaoCot"
+                android:id="@+id/edtChieuCaoCongTrinh"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"

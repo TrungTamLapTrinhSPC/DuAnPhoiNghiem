@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Path;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,10 +23,10 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-
 import org.apache.commons.io.FileUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
@@ -70,12 +69,17 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                     if (fileThietKe.exists())
                     {
                         String thietke = SPC.readText(fileThietKe);
+                        JSONObject jsonObject = new JSONObject(thietke);
                         if (!thietke.equals(""))
                         {
-                            String[] listThietke = thietke.split("&");
-                            String TenTramGoc = listThietke[SPC.TimViTri("TenTramGoc",SPC.ThietKeBTS)];
-                            String BangTanHoatDong = listThietke[SPC.TimViTri("BangTanHoatDong",SPC.ThietKeBTS)];
-                            String ChungLoaiThietBi = listThietke[SPC.TimViTri("ChungLoaiThietBi",SPC.ThietKeBTS)];
+//                            String[] listThietke = thietke.split("&");
+//                            String TenTramGoc = listThietke[SPC.TimViTri("TenTramGoc",SPC.ThietKeBTS)];
+//                            String BangTanHoatDong = listThietke[SPC.TimViTri("BangTanHoatDong",SPC.ThietKeBTS)];
+//                            String ChungLoaiThietBi = listThietke[SPC.TimViTri("ChungLoaiThietBi",SPC.ThietKeBTS)];
+                            String TenTramGoc = jsonObject.getString("TenTramGoc");
+                            String BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
+                            String ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
+
                             String SoAnten ="0"+ DemSoAnTen(file);
                             list_BTS.add(new DoiTuong_BTS(TenTramGoc,ChungLoaiThietBi,BangTanHoatDong,SoAnten));
                         }
@@ -91,17 +95,21 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         adapter_doiTuong_bts = new Adapter_DoiTuong_BTS(list_BTS, Activity_DanhSach_BTS.this,R.layout.item_bts);
         listview.setAdapter(adapter_doiTuong_bts);
     }
-    private void getThietKeCot(){
+    private void getThietKeCot() throws JSONException {
         File fileThietKe = new File(pathTramGoc, "ThietKeCot.txt");
         if (fileThietKe.exists())
         {
             String thietke = SPC.readText(fileThietKe);
+            JSONObject jsonObject = new JSONObject(thietke);
             if (!thietke.equals(""))
             {
-                String[] listThietke = thietke.split("&");
-                String ChieuCaoCot = listThietke[SPC.TimViTri("ChieuCaoCot",SPC.ThietKeCot)]+ " m";
-                String ViTriX = listThietke[SPC.TimViTri("ViTriX",SPC.ThietKeCot)] + " m";
-                String ViTriY = listThietke[SPC.TimViTri("ViTriY",SPC.ThietKeCot)]+ " m";
+//                String[] listThietke = thietke.split("&");
+//                String ChieuCaoCot = listThietke[SPC.TimViTri("ChieuCaoCot",SPC.ThietKeCot)]+ " m";
+//                String ViTriX = listThietke[SPC.TimViTri("ViTriX",SPC.ThietKeCot)] + " m";
+//                String ViTriY = listThietke[SPC.TimViTri("ViTriY",SPC.ThietKeCot)]+ " m";
+                String ChieuCaoCot = jsonObject.getString("ChieuCaoCot")+ " m";
+                String ViTriX = jsonObject.getString("ViTriX")+ " m";
+                String ViTriY = jsonObject.getString("ViTriY")+ " m";
                 tvChieuCaoCot.setText(ChieuCaoCot);
                 tvViTriX.setText(ViTriX);
                 tvViTriY.setText(ViTriY);
@@ -131,6 +139,11 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent= new Intent(Activity_DanhSach_BTS.this,Activity_DanhSach_Anten.class);
+                intent.putExtra("MaTram",MaTram);
+                intent.putExtra("TenCot",TenCot);
+                intent.putExtra("TenTramGoc",list_BTS.get(position).getTenTramGoc());
+                intent.putExtra("DiaDiem",tvViTri.getText().toString());
+                intent.putExtra("ToaDo",tvToaDo.getText().toString());
                 startActivity(intent);
             }
         });
@@ -156,7 +169,13 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         btnThietKe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogThietKeCot("Thiết kế cột","Lưu thiết kế");
+                try {
+                    DialogThietKeCot("Thiết kế cột","Lưu thiết kế");
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
@@ -186,9 +205,45 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
 
-    };
+        EditText edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
+        EditText edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        EditText edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
+                for( EditText edt:listEditText){
+                    if(edt.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    else
+                    {
+                        File pathDuLieu = new File(pathTramGoc, edtTenTramGoc.getText().toString());
+                        SPC.TaoThuMuc(pathDuLieu);
+                        if(pathDuLieu.exists())
+                        {
+                            try {
+                                SPC.SaveListEditText_json("ThietKeBTS",pathDuLieu,listEditText,SPC.ThietKeBTS);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                            SettupListView();
+                            Toast.makeText(Activity_DanhSach_BTS.this, "Đã tạo tram " + pathDuLieu.getName(), Toast.LENGTH_SHORT).show();
+                            dialogthongso.dismiss();
+                        }
+                    }
 
-    private void DialogThietKeCot(String title2,String title3){
+                }
+            }
+        });
+
+
+
+    };
+    private void DialogThietKeCot(String title2,String title3) throws ParseException, JSONException {
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_BTS.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogthongso.setContentView(R.layout.dialog_themcot);
@@ -203,8 +258,8 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title2);
 
-        EditText edtTenCot = dialogthongso.findViewById(R.id.edtTenCot);
-        EditText edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieucaoCot);
+        EditText edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
+        EditText edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
         EditText edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
         EditText edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
         EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
@@ -218,7 +273,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
          * NHẬN BIẾN
          */
         ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
-        SPC.ReadListEditText("ThietKeCot.txt",pathTramGoc,listEditText);
+        SPC.ReadListEditText_Json("ThietKeCot.txt",pathTramGoc,listEditText,SPC.ThietKeCot);
         if(edtSoChan.equals("3")) checkbox_duoidat.setChecked(true);
         else checkbox_trenmai.setChecked(true);
         /**
@@ -246,7 +301,11 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         File pathDuLieu = pathTramGoc;
                         if(pathDuLieu.exists())
                         {
-                            SPC.SaveListEditText("ThietKeCot",pathDuLieu,listEditText);
+                            try {
+                                SPC.SaveListEditText_json("ThietKeCot",pathDuLieu,listEditText,SPC.ThietKeCot);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             SettupListView();
                             Toast.makeText(Activity_DanhSach_BTS.this, "Đã Lưu thiết kế " + pathDuLieu.getName(), Toast.LENGTH_SHORT).show();
                             dialogthongso.dismiss();
@@ -286,7 +345,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         File file = new File(pathTramGoc,list_BTS.get(vt).getTenTramGoc());
                         try {
                             FileUtils.deleteDirectory(file);
-                            Toast.makeText(getApplicationContext(),"Đã xóa thư mục ảnh!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Đã xóa trạm gốc!", Toast.LENGTH_SHORT).show();
                             SettupListView();
                         } catch (IOException e)
                         {

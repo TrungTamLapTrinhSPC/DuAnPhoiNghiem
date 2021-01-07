@@ -63,8 +63,9 @@
                 android:layout_margin="5dp"
                 android:hint="Tên trạm gốc"
                 android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtTenBts"
-                android:layout_width="200dp"
+                android:id="@+id/edtTenTramGoc"
+                android:layout_weight="90"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:textSize="16dp" />
 
@@ -77,7 +78,7 @@
                 android:background="@drawable/line"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:text="MHz"
@@ -121,7 +122,7 @@
                 android:layout_margin="5dp"
                 android:hint="Chủng loại thiết bị"
                 android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtChungLoai"
+                android:id="@+id/edtTenCongTrinh"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
@@ -162,8 +163,9 @@
                 android:layout_margin="5dp"
                 android:hint="Băng tần hoạt động"
                 android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtBangTan"
-                android:layout_width="200dp"
+                android:id="@+id/edtBangTanHoatDong"
+                android:layout_width="match_parent"
+                android:layout_weight="90"
                 android:layout_height="match_parent"
                 android:textSize="16dp" />
 
@@ -176,7 +178,7 @@
                 android:background="@drawable/line"/>
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="40dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:text="MHz"

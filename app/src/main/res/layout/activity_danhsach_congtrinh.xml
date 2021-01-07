@@ -236,11 +236,11 @@
                 android:orientation="vertical"
                 android:background="@drawable/shadow"
                 android:layout_marginTop="15dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginBottom="15dp"
-                android:layout_marginRight="25dp"
+                android:layout_marginRight="15dp"
                 android:padding="15dp"
-                android:elevation="10dp">
+                android:elevation="6dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -315,11 +315,12 @@
                         android:background="@drawable/line"/>
 
                     <EditText
+
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:hint="Tên công trình"
                         android:background="@drawable/backgound_edittext"
-                        android:id="@+id/edtChungLoai"
+                        android:id="@+id/edtTenCongTrinh"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
 
@@ -380,7 +381,7 @@
                                     android:layout_weight="50"
                                     android:gravity="center"
                                     android:background="@drawable/backgound_edittext"
-                                    android:id="@+id/edtChieucaoCot"
+                                    android:id="@+id/edtChieuCaoCongTrinh"
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
 
@@ -658,7 +659,7 @@
                                     android:hint="Độ dày"
                                     android:gravity="center"
                                     android:background="@drawable/backgound_edittext"
-                                    android:id="@+id/edtWeight"
+                                    android:id="@+id/edtDoDay"
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="50"
@@ -708,11 +709,10 @@
                                     android:hint="Độ rộng"
                                     android:gravity="center"
                                     android:background="@drawable/backgound_edittext"
-                                    android:id="@+id/edtHeight"
+                                    android:id="@+id/edtDoRong"
                                     android:layout_width="100dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="50"
-
                                     android:textSize="15dp" />
 
                                 <ImageButton
@@ -742,20 +742,47 @@
 
                         </LinearLayout>
                     </LinearLayout>
-
+                    <Button
+                        android:id="@+id/btnLuu"
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="40dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="40dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/backgound_header_4"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Lưu"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textSize="18dp"
+                        android:textStyle="normal" />
                 </LinearLayout>
             </LinearLayout>
-
-            <ListView
+            <android.support.design.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content">
+            <com.example.chirag.googlesignin.HorizontalListView
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:widget="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="540dp"
+                android:transcriptMode="alwaysScroll"
                 android:id="@+id/listview_congtrinh"
                 android:divider="@null"
                 android:dividerHeight="0dp"
-                android:layout_marginBottom="20dp"
-
-                android:layout_marginRight="10dp">
-            </ListView>
+                android:layout_marginBottom="40dp">
+            </com.example.chirag.googlesignin.HorizontalListView>
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="65dp"
+                android:layout_height="64dp"
+                android:layout_gravity="bottom|center"
+                android:layout_margin="@dimen/fab_margin"
+                android:src="@drawable/ic_add_black_24dp"
+                android:scaleType="fitXY"
+                app:backgroundTint="@color/color_Blue1" />
+        </android.support.design.widget.CoordinatorLayout>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

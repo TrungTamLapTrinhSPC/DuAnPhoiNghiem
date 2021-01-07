@@ -13,14 +13,14 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Adapter_DoiTuong_AnhChup extends BaseAdapter {
+public class Adapter_List_DoiTuong_AnhChup extends BaseAdapter {
     private ArrayList<DoiTuong_AnhChup> arraylist;
     private List<DoiTuong_AnhChup> myobjects = null;
     private ArrayList<String> myList = new ArrayList<String>();
     Context mycontext;
     int myreaource;
 
-    public Adapter_DoiTuong_AnhChup(List<DoiTuong_AnhChup> myobjects, Context mycontext, int myreaource) {
+    public Adapter_List_DoiTuong_AnhChup(List<DoiTuong_AnhChup> myobjects, Context mycontext, int myreaource) {
         this.myobjects = myobjects;
         this.mycontext = mycontext;
         this.myreaource = myreaource;

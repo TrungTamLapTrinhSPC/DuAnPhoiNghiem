@@ -57,8 +57,10 @@ import android.Manifest;
         import com.google.android.gms.tasks.Task;
 
         import org.apache.commons.io.FileUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-        import java.io.File;
+import java.io.File;
         import java.io.IOException;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
@@ -222,14 +224,18 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                 if (fileThietKe.exists())
                 {
                     String NgaySua = SPC.getLastModified(fileThietKe);
-                    String thietke = SPC.readText(fileThietKe);
+                    //String thietke = SPC.readText(fileThietKe);
                     String SoTramGoc = "0"+DemSoTramGoc(file);
+                    String thietke = SPC.readText(fileThietKe);
+                    JSONObject jsonObject = new JSONObject(thietke);
                     if (!thietke.equals(""))
                     {
-                        String[] listThietke = thietke.split("&");
-                        String MaTram = listThietke[SPC.TimViTri("MaTram",SPC.ThietKeTram)];
-                        String DiaDiem = listThietke[SPC.TimViTri("DiaDiem",SPC.ThietKeTram)];
-                        danhsachTram.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
+                        //String[] listThietke = thietke.split("&");
+//                        String MaTram = listThietke[SPC.TimViTri("MaTram",SPC.ThietKeTram)];
+//                        String DiaDiem = listThietke[SPC.TimViTri("DiaDiem",SPC.ThietKeTram)];
+                          String MaTram = jsonObject.getString("MaTram");
+                          String DiaDiem = jsonObject.getString("DiaDiem");
+                          danhsachTram.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
                     }
                 }
             }
@@ -614,7 +620,12 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                         SPC.TaoThuMuc(pathHinhAnh);
                         if(pathDuLieu.exists())
                         {
-                            SPC.SaveListEditText("ThietKeTram",pathDuLieu,listEditText);
+                            //SPC.SaveListEditText("ThietKeTram",pathDuLieu,listEditText);
+                            try {
+                                SPC.SaveListEditText_json("ThietKeTram",pathDuLieu,listEditText,SPC.ThietKeTram);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             getProductList();
                             Toast.makeText(Activity_MenuTram.this, "Đã tạo trạm " + pathTramMoi.getName(), Toast.LENGTH_SHORT).show();
                             dialogthongso.dismiss();

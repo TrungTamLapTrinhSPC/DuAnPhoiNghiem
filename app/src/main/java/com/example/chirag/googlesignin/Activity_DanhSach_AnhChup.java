@@ -1,26 +1,60 @@
 package com.example.chirag.googlesignin;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.net.Uri;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewStub;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 public class Activity_DanhSach_AnhChup extends AppCompatActivity {
     ListView listview;
-    ImageButton btnBack;
+    ImageButton btnBack,btnGrid;
+    private ViewStub stubGrid;
+    private ViewStub stubList;
     List<DoiTuong_AnhChup> list_AnhChup = new ArrayList<>();
-    Adapter_DoiTuong_AnhChup adapter_doiTuong_AnhChup;
+    Adapter_List_DoiTuong_AnhChup adapter_List_doiTuong_AnhChup;
+    Adapter_Grid_DoiTuong_AnhChup adapter_grid_doiTuong_anhChup;
     File pathHinhAnh;
     String MaTram;
+    File mFile;
+    private GridView girdView;
+
+    TextView title,tvToaDo,tvViTri;
+    String DiaDiem,ToaDo;
+    Uri imageUri;
+    static final  int VIEW_MODE_LISTVIEW = 0;
+    static final  int VIEW_MODE_GRIDVIEW = 1;
+    private int curnntView = VIEW_MODE_GRIDVIEW;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,10 +65,9 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         SuKien();
         NhanBien();
         SettupListView();
+        EnableRuntimePermission();
     }
-
-    private void SettupListView()
-    {
+    private void SettupListView(){
         list_AnhChup.clear();//Hoan thay đổi
         if (pathHinhAnh.isDirectory())
         {
@@ -58,39 +91,209 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         }
 
         /**HIỂN THỊ RA MÀN HÌNH*/
-        adapter_doiTuong_AnhChup = new Adapter_DoiTuong_AnhChup(list_AnhChup, Activity_DanhSach_AnhChup.this,R.layout.item_anh_chup);
-        listview.setAdapter(adapter_doiTuong_AnhChup);
-
+        adapter_List_doiTuong_AnhChup = new Adapter_List_DoiTuong_AnhChup(list_AnhChup, Activity_DanhSach_AnhChup.this,R.layout.item_anh_chup);
+        listview.setAdapter(adapter_List_doiTuong_AnhChup);
+        SharedPreferences sharedPreferences = getSharedPreferences("ViewsMode", MODE_PRIVATE);
+        curnntView = sharedPreferences.getInt("currentView", VIEW_MODE_GRIDVIEW);
+        switchView();
 
     }
 
+    @SuppressLint("SetTextI18n")
     private void NhanBien() {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
         MaTram= intent.getStringExtra("MaTram");
+        title.setText("Hình ảnh trạm "+MaTram);
+        DiaDiem=intent.getStringExtra("DiaDiem");
+        tvViTri.setText(DiaDiem);
+        ToaDo = intent.getStringExtra("ToaDo");
+        tvToaDo.setText(ToaDo);
         pathHinhAnh= new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanThuMucHinhAnh);
     }
 
-    private void SuKien()
-    {
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener()
-        {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-            {
-                Intent intent= new Intent(Activity_DanhSach_AnhChup.this,Activity_DanhSach_Cot.class);
-                startActivity(intent);
-            }
-        });
+    private void SuKien(){
+        listview.setOnItemClickListener(onItemClickListener);
+        girdView.setOnItemClickListener(onItemClickListener);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
             }
         });
+        btnGrid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if(VIEW_MODE_LISTVIEW == curnntView) {
+                    curnntView = VIEW_MODE_GRIDVIEW;
+                    btnGrid.setImageResource(R.drawable.ic_view_module_black_24dp);
+                } else {
+                    curnntView = VIEW_MODE_LISTVIEW;
+                    btnGrid.setImageResource(R.drawable.ic_view_list_black_24dp);
+                }
+                switchView();
+            }
+        });
+    }
+    AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            mFile = new File(pathHinhAnh,list_AnhChup.get(position).getTenAnh());
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.TITLE, "New Picture");
+            values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+            imageUri = getContentResolver().insert( MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+            startActivityForResult(intent, 7);
+        }
+    };
+    AdapterView.OnItemLongClickListener onItemLongClickListener = new AdapterView.OnItemLongClickListener() {
+        @Override
+        public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+            return true;
+        }
+    };
+    private void switchView(){
+        if(VIEW_MODE_LISTVIEW == curnntView) {
+            //Display listview
+            stubList.setVisibility(View.VISIBLE);
+            //Hide gridview
+            stubGrid.setVisibility(View.GONE);
+        } else {
+            //Hide listview
+            stubList.setVisibility(View.GONE);
+            //Display gridview
+            stubGrid.setVisibility(View.VISIBLE);
+        }
+        setAdapters();
+    }
+    private void setAdapters(){
+        if(VIEW_MODE_LISTVIEW == curnntView) {
+            adapter_List_doiTuong_AnhChup = new Adapter_List_DoiTuong_AnhChup(list_AnhChup, Activity_DanhSach_AnhChup.this,R.layout.item_anh_chup);
+            listview.setAdapter(adapter_List_doiTuong_AnhChup);
+        } else
+        {
+            adapter_grid_doiTuong_anhChup = new Adapter_Grid_DoiTuong_AnhChup(list_AnhChup, Activity_DanhSach_AnhChup.this,R.layout.grid_item_anh_chup);
+            girdView.setAdapter(adapter_grid_doiTuong_anhChup);
+        }
     }
     private void AnhXa() {
-        listview = findViewById(R.id.listview_AnhChup);
+        //listview = findViewById(R.id.listview_AnhChup);
         btnBack = findViewById(R.id.btnBack);
+        title = findViewById(R.id.title);
+        tvToaDo = findViewById(R.id.tvToaDo);
+        tvViTri = findViewById(R.id.tvViTri);
+        btnGrid = findViewById(R.id.btnGrid);
+
+        stubGrid = (ViewStub) findViewById(R.id.stub_grid1);
+        stubList = (ViewStub) findViewById(R.id.stub_list);
+        stubList.inflate();
+        stubGrid.inflate();
+        girdView = (GridView) findViewById(R.id.myGrid);
+        listview = (ListView) findViewById(R.id.mylistView);
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 7 && resultCode == RESULT_OK) {
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), imageUri);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            assert bitmap != null;
+            Bitmap bitmap2 = GanToaDo(bitmap);
+            FileOutputStream output = null;
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap2.compress(Bitmap.CompressFormat.JPEG,100,stream);
+            @SuppressLint("SimpleDateFormat") String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+
+            byte[] byteArray = stream.toByteArray();
+            try {
+                output = new FileOutputStream(new File(mFile,"aa"+".jpg"));
+                output.write(byteArray);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (null != output)
+                {
+                    try
+                    {
+                        output.close();
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            SettupListView();
+        }
+    }
+    public Bitmap GanToaDo(Bitmap bitmap){
+        Bitmap AnhDauRa = null;
+        Bitmap newbitmap = null;
+        Bitmap bitmap2 = null;
+        /**XOAY ẢNH**/
+        if (bitmap.getWidth()> bitmap.getHeight())
+        {
+            Matrix matrix = new Matrix();
+            matrix.postRotate(90);
+            bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(),matrix, true);
+        }
+        else bitmap2 = bitmap;
+
+
+        Bitmap.Config config = bitmap2.getConfig();
+        config = Bitmap.Config.ARGB_8888;
+        newbitmap=Bitmap.createBitmap(bitmap2.getWidth(),bitmap2.getHeight(),config);
+        Canvas newcanvas = new Canvas(newbitmap);
+        newcanvas.drawBitmap(bitmap2,0,0,null);
+        Paint painttext = new Paint(Paint.ANTI_ALIAS_FLAG);
+        painttext.setColor(Color.WHITE);
+        painttext.setTextSize(bitmap2.getWidth()/35);
+        //painttext.setShadowLayer(10f,10f,10f,Color.BLACK);
+        Rect rectText = new Rect();
+        String text ="Mã trạm:"+ MaTram;
+        String text2 =ToaDo;
+        String text3 =DiaDiem;
+
+        painttext.getTextBounds(text,0,text.length(),rectText);
+        newcanvas.drawText(text,0,rectText.height(),painttext);
+        newcanvas.drawText(text2,0,2*rectText.height(),painttext);
+        newcanvas.drawText(text3,0,3*rectText.height(),painttext);
+
+        AnhDauRa = newbitmap;
+
+
+
+
+        return AnhDauRa;
     }
 
+    public void EnableRuntimePermission(){
+        if (ActivityCompat.shouldShowRequestPermissionRationale(Activity_DanhSach_AnhChup.this,
+                Manifest.permission.CAMERA)) {
+            Toast.makeText(Activity_DanhSach_AnhChup.this,"CAMERA permission allows us to Access CAMERA app",     Toast.LENGTH_LONG).show();
+        } else {
+            ActivityCompat.requestPermissions(Activity_DanhSach_AnhChup.this,new String[]{
+                    Manifest.permission.CAMERA}, 7);
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] result) {
+        switch (requestCode) {
+            case 7:
+                if (result.length > 0 && result[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(Activity_DanhSach_AnhChup.this, "Permission Granted, Now your application can access CAMERA.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(Activity_DanhSach_AnhChup.this, "Permission Canceled, Now your application cannot access CAMERA.", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
 }
