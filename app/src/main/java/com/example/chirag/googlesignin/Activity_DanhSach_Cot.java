@@ -219,6 +219,12 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                 DialogThemCot(Gravity.CENTER,"Thêm cột anten");
             }
         });
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+            }
+        });
     }
     //endregion
     //region Dialog
@@ -476,5 +482,11 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
             }
         });
     };
+
+    private void showMenu() {
+        Intent intent= new Intent(Activity_DanhSach_Cot.this,ActivityMenu.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.zoom, R.anim.zoomin);
+    }
     //endregion
 }
