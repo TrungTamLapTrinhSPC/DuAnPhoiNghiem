@@ -50,7 +50,7 @@
                 android:layout_margin="5dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:background="@drawable/arrow_down" />
+                android:background="@drawable/pencil" />
             <ImageButton
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -69,22 +69,6 @@
                 android:layout_height="match_parent"
                 android:textSize="16dp" />
 
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/line"/>
-
-            <TextView
-                android:layout_width="40dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:text="MHz"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:gravity="center" />
 
         </LinearLayout>
         <!-- Chủng loại thiết bị-->
@@ -105,6 +89,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp">
             <ImageButton
+                android:id="@+id/btnChonChungLoai"
                 android:layout_margin="5dp"
                 android:layout_width="25dp"
                 android:layout_height="25dp"

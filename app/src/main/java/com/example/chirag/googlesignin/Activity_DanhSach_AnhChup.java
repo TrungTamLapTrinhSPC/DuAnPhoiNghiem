@@ -399,7 +399,6 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
                             File fileOld = new File(pathHinhAnh,list_AnhChup.get(vt).getTenAnh());
                             File fileNew = new File(pathHinhAnh,edtMaTram.getText().toString());
 
