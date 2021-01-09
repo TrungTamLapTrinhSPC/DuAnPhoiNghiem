@@ -35,7 +35,7 @@ import java.util.List;
 
 public class Activity_ChiTiet_Anten extends AppCompatActivity {
     LinearLayout btnDanhSachCongTrinh;
-    ImageButton btnBack,btnMolayoutThietBi,btnMolayoutAnten,btnMolayoutSuyHao;
+    ImageButton btnBack,btnMolayoutThietBi,btnMolayoutAnten,btnMolayoutSuyHao,btnMenu;
     Button btnLuuThietBi,btnLuuAnten,btnLuuSuyHao;
     LinearLayout layoutThietBi,layoutAnten,layoutSuyHao;
     FloatingActionButton fab;
@@ -154,6 +154,14 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 intent.putExtra("DiaDiem",tvViTri.getText().toString());
                 intent.putExtra("ToaDo",tvToaDo.getText().toString());
                 startActivity(intent);
+            }
+        });
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Activity_ChiTiet_Anten.this,ActivityMenu.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.zoom, R.anim.zoomin);
             }
         });
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -278,6 +286,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     }
 
     private void AnhXa() {
+        btnMenu = findViewById(R.id.btnMenu);
         btnBack = findViewById(R.id.btnBack);
         fab = findViewById(R.id.fab);
         title = findViewById(R.id.title);
