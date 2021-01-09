@@ -6,8 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -16,7 +16,6 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,7 +31,7 @@ import java.util.List;
 
 public class Activity_DanhSach_Anten extends AppCompatActivity {
     ListView listview;
-    ImageButton btnBack,btnThemAnten;
+    ImageButton btnBack,btnThemAnten,btnMenu;
     TextView title,tvToaDo,tvViTri;
 
     List<DoiTuong_Anten> list_Anten = new ArrayList<>();
@@ -133,7 +132,14 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
                 DialogThemAnten(Gravity.CENTER);
             }
         });
-
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Activity_DanhSach_Anten.this,ActivityMenu.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.zoom, R.anim.zoomin);
+            }
+        });
     }
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
@@ -206,7 +212,7 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
         title = findViewById(R.id.title);
         tvToaDo = findViewById(R.id.tvToaDo);
         tvViTri = findViewById(R.id.tvViTri);
-
+        btnMenu = findViewById(R.id.btnMenu);
     }
     private void DialogMenu(int vt){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Anten.this,R.style.PauseDialog);

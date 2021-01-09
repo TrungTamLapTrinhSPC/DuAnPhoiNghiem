@@ -35,7 +35,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Activity_DanhSach_BTS extends AppCompatActivity {
-    ImageButton btnBack,btnThemBTS;
+    ImageButton btnBack,btnThemBTS,btnMenu;
     TextView title,tvToaDo,tvViTri;
     //THIẾT KẾ CỘT
     TextView tvViTriX,tvViTriY,tvChieuCaoCot;
@@ -178,6 +178,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                 }
             }
         });
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showMenu();
+            }
+        });
     }
     private void AnhXa() {
         listview = findViewById(R.id.listview_bts);
@@ -190,6 +196,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         tvViTriX = findViewById(R.id.tvViTriX);
         tvViTriY = findViewById(R.id.tvViTriY);
         tvChieuCaoCot = findViewById(R.id.tvChieuCaoCot);
+        btnMenu = findViewById(R.id.btnMenu);
     }
     //region Dialog
     private void DialogThemBTS(int gravity){
@@ -418,6 +425,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showMenu() {
+        Intent intent= new Intent(Activity_DanhSach_BTS.this,ActivityMenu.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.zoom, R.anim.zoomin);
     }
     //endregion
 }
