@@ -108,7 +108,6 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         switchView();
 
     }
-
     @SuppressLint("SetTextI18n")
     private void NhanBien() {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
@@ -218,7 +217,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                 e.printStackTrace();
             }
             assert bitmap != null;
-            Bitmap bitmap2 = GanToaDo(bitmap);
+            Bitmap bitmap2 = SPC.GanToaDo(bitmap,MaTram,ToaDo,DiaDiem);
             FileOutputStream output = null;
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap2.compress(Bitmap.CompressFormat.JPEG,100,stream);
@@ -245,47 +244,6 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
             SettupListView();
         }
     }
-    public Bitmap GanToaDo(Bitmap bitmap){
-        Bitmap AnhDauRa = null;
-        Bitmap newbitmap = null;
-        Bitmap bitmap2 = null;
-        /**XOAY ẢNH**/
-        if (bitmap.getWidth()> bitmap.getHeight())
-        {
-            Matrix matrix = new Matrix();
-            matrix.postRotate(90);
-            bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(),matrix, true);
-        }
-        else bitmap2 = bitmap;
-
-
-        Bitmap.Config config = bitmap2.getConfig();
-        config = Bitmap.Config.ARGB_8888;
-        newbitmap=Bitmap.createBitmap(bitmap2.getWidth(),bitmap2.getHeight(),config);
-        Canvas newcanvas = new Canvas(newbitmap);
-        newcanvas.drawBitmap(bitmap2,0,0,null);
-        Paint painttext = new Paint(Paint.ANTI_ALIAS_FLAG);
-        painttext.setColor(Color.WHITE);
-        painttext.setTextSize(bitmap2.getWidth()/35);
-        //painttext.setShadowLayer(10f,10f,10f,Color.BLACK);
-        Rect rectText = new Rect();
-        String text ="Mã trạm:"+ MaTram;
-        String text2 =ToaDo;
-        String text3 =DiaDiem;
-
-        painttext.getTextBounds(text,0,text.length(),rectText);
-        newcanvas.drawText(text,0,rectText.height(),painttext);
-        newcanvas.drawText(text2,0,2*rectText.height(),painttext);
-        newcanvas.drawText(text3,0,3*rectText.height(),painttext);
-
-        AnhDauRa = newbitmap;
-
-
-
-
-        return AnhDauRa;
-    }
-
     public void EnableRuntimePermission(){
         if (ActivityCompat.shouldShowRequestPermissionRationale(Activity_DanhSach_AnhChup.this,
                 Manifest.permission.CAMERA)) {
@@ -300,7 +258,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         switch (requestCode) {
             case 7:
                 if (result.length > 0 && result[0] == PackageManager.PERMISSION_GRANTED) {
-                    Toast.makeText(Activity_DanhSach_AnhChup.this, "Permission Granted, Now your application can access CAMERA.", Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Activity_DanhSach_AnhChup.this, "Permission Granted, Now your application can access CAMERA.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(Activity_DanhSach_AnhChup.this, "Permission Canceled, Now your application cannot access CAMERA.", Toast.LENGTH_LONG).show();
                 }

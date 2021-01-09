@@ -39,7 +39,7 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
     Adapter_DoiTuong_Anten adapter_doiTuongAnten;
     String MaTram,TenCot,TenTramGoc,DiaDiem,ToaDo;
 
-    File pathDanhSachAnten;
+    File pathDanhSachAnten,pathHinhAnh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,6 +144,7 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
             intent.putExtra("TenCot",TenCot);
             intent.putExtra("TenTramGoc",TenTramGoc);
             intent.putExtra("TenAnten",list_Anten.get(position).getTenAnten());
+            intent.putExtra("ThuTuAnten",String.valueOf(position));
             intent.putExtra("DiaDiem",tvViTri.getText().toString());
             intent.putExtra("ToaDo",tvToaDo.getText().toString());
             startActivity(intent);

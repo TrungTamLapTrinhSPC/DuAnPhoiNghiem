@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Thêm công trình"
+            android:text="Nhà đặt trạm"
             android:textColor="@color/color_Blue2"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -51,9 +51,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:background="@drawable/hinhcovienxam"
-                android:layout_marginRight="10dp"
-                >
-
+                android:layout_marginRight="10dp">
                 <ImageButton
                     android:layout_width="25dp"
                     android:layout_height="25dp"
@@ -64,9 +62,7 @@
                     android:layout_marginBottom="5dp"
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
-
                     android:background="@drawable/line"/>
-
                 <EditText
                     android:textColor="#111"
                     android:layout_margin="5dp"
@@ -83,139 +79,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-
-                <!--Chiều cao công trình-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_weight="1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-                        <!-- Chiều cao công trình-->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:text="Chiều cao công trình:"
-                            android:layout_marginTop="5dp"
-                            android:textColor="#686868"
-                            android:textSize="15dp"
-                            android:textStyle="normal" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:background="@drawable/hinhcovienxam"
-                            android:layout_marginRight="10dp"
-                            >
-                            <ImageButton
-                                android:layout_weight="1"
-                                android:layout_margin="5dp"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:background="@drawable/pencil" />
-                            <ImageButton
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-
-                                android:background="@drawable/line"/>
-
-                            <EditText
-                                android:textColor="#111"
-                                android:layout_margin="5dp"
-                                android:hint="Chiều cao"
-                                android:layout_weight="50"
-                                android:gravity="center"
-                                android:background="@drawable/backgound_edittext"
-                                android:id="@+id/edtChieuCaoCongTrinh"
-                                android:layout_width="100dp"
-                                android:layout_height="match_parent"
-                                android:textSize="15dp" />
-
-                            <ImageButton
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/line"/>
-                            <TextView
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:gravity="center"
-                                android:text="m" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Khoảng cách đến chân cột:"
-                            android:layout_marginTop="5dp"
-                            android:textColor="#686868"
-                            android:textSize="15dp"
-                            android:textStyle="normal" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:background="@drawable/hinhcovienxam"
-                            android:layout_marginRight="10dp">
-                            <ImageButton
-                                android:layout_margin="5dp"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:background="@drawable/pencil" />
-                            <ImageButton
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/line"/>
-                            <EditText
-                                android:textColor="#111"
-                                android:layout_margin="5dp"
-                                android:hint="Khoảng cách"
-                                android:gravity="center"
-                                android:background="@drawable/backgound_edittext"
-                                android:id="@+id/edtKhoangCach"
-                                android:layout_width="100dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="50"
-                                android:textSize="15dp" />
-                            <ImageButton
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-
-                                android:background="@drawable/line"/>
-
-                            <TextView
-                                android:layout_width="60dp"
-                                android:layout_height="match_parent"
-                                android:text="m"
-                                android:gravity="center"/>
-
-                        </LinearLayout>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="100dp"
-                        android:orientation="vertical"
-
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/thaptang">
-
-                    </LinearLayout>
-                </LinearLayout>
-
                 <!--Số tầng vs Góc phương vị-->
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -231,9 +94,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:text="Số tầng:"
-                            android:layout_marginTop="5dp"
                             android:textColor="#686868"
                             android:textSize="15dp"
                             android:textStyle="normal" />
@@ -286,12 +147,25 @@
 
                         </LinearLayout>
 
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--Chiều cao công trình-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_weight="1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+                        <!-- Chiều cao công trình-->
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:text="Góc phương vị:"
-                            android:layout_marginTop="5dp"
+                            android:text="Chiều cao công trình:"
                             android:textColor="#686868"
                             android:textSize="15dp"
                             android:textStyle="normal" />
@@ -300,9 +174,9 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:background="@drawable/hinhcovienxam"
-                            android:layout_marginRight="10dp"
-                            >
+                            android:layout_marginRight="10dp">
                             <ImageButton
+                                android:layout_weight="1"
                                 android:layout_margin="5dp"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
@@ -318,14 +192,13 @@
                             <EditText
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
-                                android:hint="Góc phương vị"
+                                android:hint="Chiều cao"
+                                android:layout_weight="50"
                                 android:gravity="center"
                                 android:background="@drawable/backgound_edittext"
-                                android:id="@+id/edtGocPhuongVi"
+                                android:id="@+id/edtChieuCaoCongTrinh"
                                 android:layout_width="100dp"
                                 android:layout_height="match_parent"
-                                android:layout_weight="50"
-
                                 android:textSize="15dp" />
 
                             <ImageButton
@@ -333,28 +206,19 @@
                                 android:layout_marginBottom="5dp"
                                 android:layout_width="1dp"
                                 android:layout_height="match_parent"
-
                                 android:background="@drawable/line"/>
-
                             <TextView
                                 android:layout_width="60dp"
                                 android:layout_height="match_parent"
-                                android:text="Độ"
-                                android:gravity="center"/>
-
+                                android:gravity="center"
+                                android:text="m" />
                         </LinearLayout>
+
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:background="@drawable/goc_phuong_vi"
-                        android:orientation="vertical"
-                        android:layout_marginBottom="10dp"
-                        android:layout_marginTop="30dp">
-                    </LinearLayout>
                 </LinearLayout>
+
+
 
                 <!--Kích thước nhà-->
                 <LinearLayout
@@ -373,7 +237,6 @@
                             android:layout_height="wrap_content"
 
                             android:text="Kích thước công trình:"
-                            android:layout_marginTop="5dp"
                             android:textColor="#686868"
                             android:textSize="15dp"
                             android:textStyle="normal" />
@@ -477,15 +340,6 @@
                         </LinearLayout>
                     </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_weight="3"
-                        android:background="@drawable/nhadattram"
-                        android:orientation="vertical"
-                        android:layout_marginTop="20dp">
-
-                    </LinearLayout>
                 </LinearLayout>
 
             </LinearLayout>
@@ -502,7 +356,7 @@
             android:layout_marginRight="40dp"
             android:layout_marginBottom="15dp"
             android:background="@drawable/backgound_header_4"
-            android:text="Thêm"
+            android:text="Lưu thiết kế"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="28dp"

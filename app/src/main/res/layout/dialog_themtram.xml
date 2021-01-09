@@ -184,7 +184,48 @@
                     android:layout_marginLeft="10dp"
                     android:textSize="18dp" />
             </LinearLayout>
+            <!-- Chiều cao nhà đặt trạm-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Ngày đo kiểm:"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <ImageButton
+                    android:layout_margin="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/icons8_quaterly" />
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/line"/>
 
+                <EditText
+                    android:textColor="#111"
+                    android:layout_margin="5dp"
+                    android:hint="Chiều cao nhà đặt trạm"
+                    android:background="@drawable/backgound_edittext"
+                    android:id="@+id/edtNgayDo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18dp" />
+
+            </LinearLayout>
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -214,223 +255,6 @@
                     android:textColor="#111"
                     android:textSize="13dp" />
             </RadioGroup>
-            <!-- Chiều cao nhà đặt trạm-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Chiều cao nhà đặt trạm:"
-                android:layout_marginTop="10dp"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="normal" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@drawable/hinhcovienxam"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp">
-                <ImageButton
-                    android:layout_margin="5dp"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:background="@drawable/icons8_truck_height" />
-                <ImageButton
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/line"/>
-
-                <EditText
-                    android:textColor="#111"
-                    android:layout_margin="5dp"
-                    android:hint="Chiều cao nhà đặt trạm"
-                    android:background="@drawable/backgound_edittext"
-                    android:id="@+id/edtChieuCaoNha"
-                    android:layout_width="150dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:textSize="18dp" />
-
-                <ImageButton
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:background="@drawable/line"/>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="end"
-                    android:text="m"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:gravity="center" />
-
-            </LinearLayout>
-
-
-
-
-            <!--Vị trí đặt cột-->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="Kích thước nhà đặt trạm:"
-                android:textColor="#000"
-                android:textSize="20dp"
-                android:textStyle="normal" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="140dp"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_marginTop="20dp"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/nhadattram"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-                    <!--X-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@drawable/hinhcovienxam"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp">
-                        <ImageButton
-                            android:layout_margin="5dp"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/icons3" />
-
-                        <TextView
-                            android:layout_width="20dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="end"
-                            android:text="W"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:textColor="#686868"
-                            android:gravity="center" />
-
-                        <ImageButton
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/line"/>
-
-                        <EditText
-                            android:textColor="#111"
-                            android:layout_margin="5dp"
-                            android:hint="Rộng"
-                            android:background="@drawable/backgound_edittext"
-                            android:id="@+id/edtChieuX"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:textSize="18dp" />
-
-                        <ImageButton
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/line"/>
-
-                        <TextView
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="end|fill_horizontal"
-                            android:text="m"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:gravity="start|center_vertical" />
-
-                    </LinearLayout>
-                    <!--Y-->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@drawable/hinhcovienxam"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginBottom="20dp">
-                        <ImageButton
-                            android:layout_margin="5dp"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:background="@drawable/icons3" />
-
-                        <TextView
-                            android:layout_width="20dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="end"
-                            android:text="H"
-                            android:textSize="20dp"
-                            android:textStyle="bold"
-                            android:textColor="#686868"
-                            android:gravity="center" />
-
-                        <ImageButton
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_marginLeft="5dp"
-
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/line"/>
-
-                        <EditText
-                            android:textColor="#111"
-                            android:layout_margin="5dp"
-                            android:hint="Dài"
-                            android:background="@drawable/backgound_edittext"
-                            android:id="@+id/edtChieuY"
-                            android:layout_width="70dp"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:textSize="18dp" />
-
-                        <ImageButton
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/line"/>
-
-                        <TextView
-                            android:layout_width="50dp"
-                            android:layout_height="match_parent"
-                            android:layout_gravity="end|fill_horizontal"
-                            android:text="m"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:layout_marginLeft="10dp"
-                            android:gravity="start|center_vertical" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
 
 
             <Button

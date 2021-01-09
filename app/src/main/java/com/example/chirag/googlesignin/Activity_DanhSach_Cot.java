@@ -40,7 +40,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
     TextView title,tvToaDo,tvViTri,tvMaTram,tvViTriDat,tvNgaySua,tvSoAnh;
 
     ImageButton btnBack,btnMenu,btnThemCot;
-    LinearLayout btnAnhChup,btnThietKe;
+    LinearLayout btnAnhChup,btnThietKe,btnNhaDatTram;
     List<DoiTuong_Cot> list_Cot = new ArrayList<>();
     Adapter_DoiTuong_Cot adapter_doiTuongCot;
     File pathDanhSachCot ;
@@ -65,6 +65,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         btnThietKe = findViewById(R.id.btnThietKe);
         btnMenu = findViewById(R.id.btnMenu);
         btnThemCot = findViewById(R.id.btnThemCot);
+        btnNhaDatTram = findViewById(R.id.btnNhaDatTram);
         title = findViewById(R.id.title);
         tvToaDo = findViewById(R.id.tvToaDo);
         tvViTri = findViewById(R.id.tvViTri);
@@ -200,16 +201,26 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                 startActivity(intent);
             }
         });
-        btnThietKe.setOnClickListener(new View.OnClickListener() {
+        btnNhaDatTram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    DialogThietKe(Gravity.CENTER,"Thiết kế","Lưu thiết kế");
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                    DialogThietKeNhaTram();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+        btnThietKe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                    try {
+                        DialogThietKe(Gravity.CENTER,"Thiết kế","Lưu thiết kế");
+                    } catch (JSONException ex) {
+                        ex.printStackTrace();
+                    }
+
             }
         });
         btnThemCot.setOnClickListener(new View.OnClickListener() {
@@ -325,7 +336,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         });
 
     }
-    private void DialogThietKe(int gravity,String title2,String titleButton) throws ParseException, JSONException {
+    private void DialogThietKe(int gravity,String title2,String titleButton) throws JSONException {
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_Cot.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogthongso.setContentView(R.layout.dialog_themtram);
@@ -348,17 +359,14 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         EditText edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
         EditText edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);
         EditText edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
-        EditText edtChieuCaoNha = dialogthongso.findViewById(R.id.edtChieuCaoNha);
-        EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        EditText edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
+        EditText edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
         RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
         RadioGroup radioGroup = (RadioGroup) dialogthongso.findViewById(R.id.radioGroup);
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtViTriDat,edtChieuCaoNha,edtChieuX,edtChieuY));
+        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
         /**
          * Nhận dữ liệu
          */
-
         File pathTramMoi = new File(SPC.pathDataApp_PNDT, edtMaTram.getText().toString());
         File pathDuLieu = new File(pathTramMoi, "DuLieu");
         //SPC.ReadListEditText("ThietKeTram.txt",pathDuLieu,listEditText);
@@ -401,6 +409,60 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                             }
 
                             Toast.makeText(Activity_DanhSach_Cot.this, "Đã tạo trạm " + pathTramMoi.getName(), Toast.LENGTH_SHORT).show();
+                            dialogthongso.dismiss();
+                        }
+                    }
+
+                }
+            }
+        });
+
+    };
+    private void DialogThietKeNhaTram() throws  JSONException {
+        final Dialog dialogthongso = new Dialog(Activity_DanhSach_Cot.this,R.style.PauseDialog);
+        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogthongso.setContentView(R.layout.dialog_nha_dat_tram);
+        Window window= dialogthongso.getWindow();
+        if (window==null){return;}
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowArr = window.getAttributes();
+        windowArr.gravity = Gravity.CENTER;
+        window.setAttributes(windowArr);
+        dialogthongso.show();
+        /**
+         * Ánh xạ
+         */
+        EditText edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        EditText edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
+        EditText edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        EditText edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
+        EditText edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
+
+        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtSoTang,edtChieuCaoCongTrinh,edtDoDay,edtDoRong));
+        File pathTramMoi = new File(SPC.pathDataApp_PNDT, MaTram);
+        File pathDuLieu = new File(pathTramMoi, "DuLieu");
+        SPC.ReadListEditText_Json("ThietKeNhaTram.txt",pathDuLieu,listEditText,SPC.ThietKeNhaDatTram);
+        Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for( EditText edt:listEditText){
+                    if(edt.getText().toString().trim().equals("")){
+                        Toast.makeText(Activity_DanhSach_Cot.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    else
+                    {
+                        File pathTramMoi = new File(SPC.pathDataApp_PNDT, MaTram);
+                        File pathDuLieu = new File(pathTramMoi, "DuLieu");
+                        if(pathDuLieu.exists())
+                        {
+                            try {
+                                SPC.SaveListEditText_json("ThietKeNhaTram",pathDuLieu,listEditText,SPC.ThietKeNhaDatTram);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                             dialogthongso.dismiss();
                         }
                     }

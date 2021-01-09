@@ -39,7 +39,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     Button btnLuuThietBi,btnLuuAnten,btnLuuSuyHao;
     LinearLayout layoutThietBi,layoutAnten,layoutSuyHao;
     FloatingActionButton fab;
-    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo;
+    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten;
     TextView title,tvToaDo,tvViTri;
     File pathThietKeAnten;
     ArrayList<EditText> listEditText;
@@ -132,6 +132,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         TenCot =intent.getStringExtra("TenCot");
         TenAnten =intent.getStringExtra("TenAnten");
         TenTramGoc =intent.getStringExtra("TenTramGoc");
+        ThuTuAnten =intent.getStringExtra("ThuTuAnten");
         title.setText(MaTram+" - "+TenAnten);
         DiaDiem=intent.getStringExtra("DiaDiem");
         tvViTri.setText(DiaDiem);
@@ -148,6 +149,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 intent.putExtra("MaTram",MaTram);
                 intent.putExtra("TenCot",TenCot);
                 intent.putExtra("TenTramGoc",TenTramGoc);
+                intent.putExtra("ThuTuAnten",ThuTuAnten);
                 intent.putExtra("TenAnten",TenAnten);
                 intent.putExtra("DiaDiem",tvViTri.getText().toString());
                 intent.putExtra("ToaDo",tvToaDo.getText().toString());

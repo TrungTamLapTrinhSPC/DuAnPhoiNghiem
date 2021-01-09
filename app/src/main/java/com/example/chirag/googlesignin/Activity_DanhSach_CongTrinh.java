@@ -1,12 +1,19 @@
 package com.example.chirag.googlesignin;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -27,25 +34,32 @@ import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     HorizontalListView listview;
-    ImageButton btnBack;
+    ImageButton btnBack,btnSua;
     List<DoiTuong_CongTrinh> list_CongTrinh = new ArrayList<>();
     Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
     FloatingActionButton fab;
-    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo;
+    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten;
     TextView title,tvToaDo,tvViTri;
     File pathThietKeAnten;
     ArrayList<EditText> listEditText;
     int [] listID;
     EditText[] listedt;
     Button btnLuu;
+    File mFile;
+    Uri imageUri;
+    LinearLayout btnChup;
     //EDITTEXT
     EditText edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong;
     @Override
@@ -136,13 +150,13 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         adapter_doiTuong_CongTrinh = new Adapter_DoiTuong_CongTrinh(list_CongTrinh, Activity_DanhSach_CongTrinh.this,R.layout.item_congtrinh);
         listview.setAdapter(adapter_doiTuong_CongTrinh);
     }
-
     private void NhanBien() {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
         MaTram =intent.getStringExtra("MaTram");
         TenCot =intent.getStringExtra("TenCot");
         TenAnten =intent.getStringExtra("TenAnten");
         TenTramGoc =intent.getStringExtra("TenTramGoc");
+        ThuTuAnten =intent.getStringExtra("ThuTuAnten");
         title.setText(MaTram+" - "+TenAnten);
         DiaDiem=intent.getStringExtra("DiaDiem");
         tvViTri.setText(DiaDiem);
@@ -150,9 +164,13 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         tvToaDo.setText(ToaDo);
         pathThietKeAnten = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/" + TenCot + "/" + TenTramGoc+ "/" + TenAnten);
     }
-
     private void SuKien() {
+        btnChup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+            }
+        });
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -236,6 +254,8 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         tvToaDo = findViewById(R.id.tvToaDo);
         tvViTri = findViewById(R.id.tvViTri);
         btnLuu = findViewById(R.id.btnLuu);
+        btnChup = findViewById(R.id.btnChup);
+        btnSua = findViewById(R.id.btnSua);
         listID = new int[]{R.id.edtTenCongTrinh,R.id.edtChieuCaoCongTrinh,R.id.edtKhoangCach,R.id.edtSoTang,R.id.edtGocPhuongVi,R.id.edtDoDay,R.id.edtDoRong};
         listedt = new EditText[]{edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong};
         listEditText = new ArrayList<EditText>();
@@ -265,9 +285,9 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         EditText edtGocPhuongVi = dialogthongso.findViewById(R.id.edtGocPhuongVi);
         EditText edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
         EditText edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
-
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
-        btnLuu.setOnClickListener(new View.OnClickListener() {
+        btnLuu.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
@@ -435,4 +455,43 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         });
 
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 7 && resultCode == RESULT_OK) {
+            Bitmap bitmap = null;
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), imageUri);
+            } catch (IOException e)
+            {
+                e.printStackTrace();
+            }
+            assert bitmap != null;
+            Bitmap bitmap2 = SPC.GanToaDo(bitmap,MaTram,ToaDo,DiaDiem);
+            FileOutputStream output = null;
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap2.compress(Bitmap.CompressFormat.JPEG,100,stream);
+            byte[] byteArray = stream.toByteArray();
+            try {
+                output = new FileOutputStream(new File(mFile,"image"+".jpg"));
+                output.write(byteArray);
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (null != output)
+                {
+                    try
+                    {
+                        output.close();
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        }
+    }
+
 }

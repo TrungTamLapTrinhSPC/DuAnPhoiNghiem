@@ -32,7 +32,7 @@
                     android:layout_marginLeft="10dp"
                     android:gravity="center"
                     android:minHeight="?actionBarSize"
-                    android:text="Phơi nghiệm điện tử"
+                    android:text="Phơi nhiễm điện tử"
                     android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
                 <LinearLayout
                     android:layout_width="match_parent"

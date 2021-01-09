@@ -1,6 +1,7 @@
 package com.example.chirag.googlesignin;
 
-import android.Manifest;
+        import android.Manifest;
+        import android.annotation.SuppressLint;
         import android.app.Activity;
         import android.app.AlertDialog;
         import android.app.Dialog;
@@ -57,10 +58,10 @@ import android.Manifest;
         import com.google.android.gms.tasks.Task;
 
         import org.apache.commons.io.FileUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+        import org.json.JSONException;
+        import org.json.JSONObject;
 
-import java.io.File;
+        import java.io.File;
         import java.io.IOException;
         import java.text.SimpleDateFormat;
         import java.util.ArrayList;
@@ -180,7 +181,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         btnSearch = findViewById(R.id.btnSearch);
         btnGrid = findViewById(R.id.btnGrid);
         fab = (FloatingActionButton) findViewById(R.id.fab);
-
     }
     //region Settup ListView
     private void SettupListView() {
@@ -223,7 +223,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                 File fileThietKe = new File(SPC.pathDataApp_PNDT,file.getName().trim()+ SPC.DuongDanFileThietKeTram);
                 if (fileThietKe.exists())
                 {
-                    String NgaySua = SPC.getLastModified(fileThietKe);
+                    //String NgaySua = SPC.getLastModified(fileThietKe);
                     //String thietke = SPC.readText(fileThietKe);
                     String SoTramGoc = "0"+DemSoTramGoc(file);
                     String thietke = SPC.readText(fileThietKe);
@@ -233,9 +233,11 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                         //String[] listThietke = thietke.split("&");
 //                        String MaTram = listThietke[SPC.TimViTri("MaTram",SPC.ThietKeTram)];
 //                        String DiaDiem = listThietke[SPC.TimViTri("DiaDiem",SPC.ThietKeTram)];
-                          String MaTram = jsonObject.getString("MaTram");
-                          String DiaDiem = jsonObject.getString("DiaDiem");
-                          danhsachTram.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
+                        String MaTram = jsonObject.getString("MaTram");
+                        String DiaDiem = jsonObject.getString("DiaDiem");
+                        String NgaySua = jsonObject.getString("NgayDo");
+
+                        danhsachTram.add(new DoiTuong_Tram( MaTram,NgaySua, DiaDiem,SoTramGoc));
                     }
                 }
             }
@@ -581,13 +583,12 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         Button btnLuuThongSo = dialogthongso.findViewById(R.id.btnLuuThongSo);
         btnLuuThongSo.setText(titleButton);
         EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
-        EditText edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem); edtDiaDiem.setText(thanhpho);
+        EditText edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
+        edtDiaDiem.setText(thanhpho);
         EditText edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);edtToaDo.setText(longi + "'N" +"  "+ latgi+ "'E");
-
+        @SuppressLint("SimpleDateFormat") String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
         EditText edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
-        EditText edtChieuCaoNha = dialogthongso.findViewById(R.id.edtChieuCaoNha);
-        EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        EditText edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
+        EditText edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo); edtNgayDo.setText(timeStamp);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
         RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
         RadioGroup radioGroup = (RadioGroup) dialogthongso.findViewById(R.id.radioGroup);
@@ -604,7 +605,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         btnLuuThongSo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtViTriDat,edtChieuCaoNha,edtChieuX,edtChieuY));
+                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
                 for( EditText edt:listEditText){
                     if(edt.getText().toString().trim().equals("")){
                         Toast.makeText(Activity_MenuTram.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();

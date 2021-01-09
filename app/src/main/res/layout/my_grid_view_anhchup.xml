@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <GridView
-        android:layout_width="600dp"
+        android:layout_width="400dp"
         android:layout_height="match_parent"
         android:id="@+id/myGrid"
         android:gravity="center_vertical"
         android:layout_marginLeft="5dp"
         android:horizontalSpacing="10dp"
         android:numColumns="2"
-        android:columnWidth="270dp"
+        android:columnWidth="180dp"
         android:stretchMode="none"
         android:verticalSpacing="10dp">
     </GridView>

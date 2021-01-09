@@ -1,5 +1,11 @@
 package com.example.chirag.googlesignin;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.os.Environment;
 import android.util.Log;
 import android.widget.EditText;
@@ -32,7 +38,9 @@ final class SPC { private SPC() {}
 
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
-    static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "NgayDo"));
+    static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
+    static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
+    static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));
     static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));
@@ -179,5 +187,44 @@ final class SPC { private SPC() {}
 //        }
 //
 //    }
+    static Bitmap GanToaDo(Bitmap bitmap,String MaTram,String ToaDo,String DiaDiem){
+    Bitmap AnhDauRa = null;
+    Bitmap newbitmap = null;
+    Bitmap bitmap2 = null;
+    /**XOAY ẢNH**/
+    if (bitmap.getWidth()> bitmap.getHeight())
+    {
+        Matrix matrix = new Matrix();
+        matrix.postRotate(90);
+        bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(),matrix, true);
+    }
+    else bitmap2 = bitmap;
 
+
+    Bitmap.Config config = bitmap2.getConfig();
+    config = Bitmap.Config.ARGB_8888;
+    newbitmap=Bitmap.createBitmap(bitmap2.getWidth(),bitmap2.getHeight(),config);
+    Canvas newcanvas = new Canvas(newbitmap);
+    newcanvas.drawBitmap(bitmap2,0,0,null);
+    Paint painttext = new Paint(Paint.ANTI_ALIAS_FLAG);
+    painttext.setColor(Color.WHITE);
+    painttext.setTextSize(bitmap2.getWidth()/35);
+    //painttext.setShadowLayer(10f,10f,10f,Color.BLACK);
+    Rect rectText = new Rect();
+    String text ="Mã trạm:"+ MaTram;
+    String text2 =ToaDo;
+    String text3 =DiaDiem;
+
+    painttext.getTextBounds(text,0,text.length(),rectText);
+    newcanvas.drawText(text,0,rectText.height(),painttext);
+    newcanvas.drawText(text2,0,2*rectText.height(),painttext);
+    newcanvas.drawText(text3,0,3*rectText.height(),painttext);
+
+    AnhDauRa = newbitmap;
+
+
+
+
+    return AnhDauRa;
+}
 }
