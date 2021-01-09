@@ -4,7 +4,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.google.api.services.driveactivity.v2.model.Edit;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -13,16 +14,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.util.Date;
 
 final class SPC { private SPC() {}
 
@@ -32,7 +26,7 @@ final class SPC { private SPC() {}
 
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
-    static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "NgayDo"));
+    static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "ViTriDat", "ChieuCaoNha", "ChieuRong", "ChieuDai"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));
     static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));

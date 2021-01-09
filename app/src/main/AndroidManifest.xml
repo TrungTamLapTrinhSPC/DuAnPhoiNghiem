@@ -21,7 +21,9 @@
         android:roundIcon="@drawable/ivccico"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity_SuaHinhAnh"></activity>
+        <activity android:name=".ActivityXemTruocBaoCao"></activity>
+        <activity android:name=".ActivityMenu" />
+        <activity android:name=".Activity_SuaHinhAnh" />
         <activity android:name=".Activity_DanhSach_CongTrinh" />
         <activity android:name=".Activity_ChiTiet_Anten" />
         <activity android:name=".Activity_DanhSach_Anten" />
