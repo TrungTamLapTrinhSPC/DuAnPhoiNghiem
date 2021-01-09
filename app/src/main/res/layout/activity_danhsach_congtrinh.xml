@@ -131,6 +131,7 @@
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="25dp"
                     android:layout_marginLeft="25dp"
+                    android:layout_marginBottom="10dp"
                     android:layout_height="300dp"
                     android:elevation="10dp"
                     app:cardCornerRadius="20dp">
@@ -232,8 +233,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/shadow"
-                android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="15dp"
                 android:layout_marginRight="15dp"
                 android:padding="15dp"
