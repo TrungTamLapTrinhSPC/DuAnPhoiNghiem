@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -80,7 +82,6 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                             String TenTramGoc = jsonObject.getString("TenTramGoc");
                             String BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
                             String ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
-
                             String SoAnten ="0"+ DemSoAnTen(file);
                             list_BTS.add(new DoiTuong_BTS(TenTramGoc,ChungLoaiThietBi,BangTanHoatDong,SoAnten));
                         }
@@ -212,11 +213,15 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         windowArr.gravity = gravity;
         window.setAttributes(windowArr);
         dialogthongso.show();
-
+        ImageButton tvChonBangTanHoatDong = dialogthongso.findViewById(R.id.tvChonBangTanHoatDong);
+        ImageButton btnChonChungLoai = dialogthongso.findViewById(R.id.btnChonChungLoai);
         AutoCompleteTextView edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
         AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        SPC.setPopUp(this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),btnChonChungLoai);
         AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        SPC.setPopUp(this,edtBangTanHoatDong,SPC.listBangTan,tvChonBangTanHoatDong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);
+
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -233,7 +238,8 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         SPC.TaoThuMuc(pathDuLieu);
                         if(pathDuLieu.exists())
                         {
-                            try {
+                            try
+                            {
                                 SPC.SaveListAutoCompleteTextView_json("ThietKeBTS",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeBTS);
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -247,9 +253,6 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                 }
             }
         });
-
-
-
     };
     private void DialogThietKeCot(String title2,String title3) throws ParseException, JSONException {
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_BTS.this,R.style.PauseDialog);
@@ -427,7 +430,6 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         });
 
     }
-
     private void showMenu() {
         Intent intent= new Intent(Activity_DanhSach_BTS.this,ActivityMenu.class);
         startActivity(intent);

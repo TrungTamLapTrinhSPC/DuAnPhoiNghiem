@@ -1,5 +1,6 @@
 package com.example.chirag.googlesignin;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,7 +9,12 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Environment;
 import android.util.Log;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
 import com.google.api.services.driveactivity.v2.model.Edit;
 
@@ -38,6 +44,7 @@ final class SPC { private SPC() {}
 
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
+    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
@@ -230,5 +237,137 @@ final class SPC { private SPC() {}
         }
         return lstThietBi;
     }
+    static ArrayList LayDanhSachAnten(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[1];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+    static void setPopUp(Context context, AutoCompleteTextView edt, ArrayList<String> arrayList,ImageButton imageButton){
+        ArrayAdapter<String> adapterHT = new ArrayAdapter<String>(context, R.layout.custom_list_item, R.id.text_view_list_item, arrayList);
+        edt.setAdapter(adapterHT);
+        edt.setThreshold(1);
+        edt.setDropDownHeight(400);
+        if (imageButton != null)
+        {
+            imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final PopupMenu popupMenu = new PopupMenu(context, imageButton);
 
+                    for (String s : arrayList)
+                    { popupMenu.getMenu().add(s); }
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(final MenuItem menuItem) {
+                            edt.setText(menuItem.getTitle());
+                            return false;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+        }
+    }
+    static ArrayList<String> layCongSuatPhat1(String ChungLoaiThietBi, String BangTanHoatDong){
+        ArrayList<String> CongSuat = new ArrayList<String>();
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+                String CS = item.split("&")[4];
+                CongSuat.add(CS);
+            }
+        }
+        return CongSuat;
+    }
+    static String layDoTangIchAnten(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[3];
+                        }
+                    }
+                }
+            }
+        }
+        return DoTangIchAnten;
+    }
+    static String layDoDaiBucXa(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[4];
+                        }
+                    }
+                }
+            }
+        }
+        return DoTangIchAnten;
+    }
+    static ArrayList<String> layGocNgang(String ChungLoaiThietBi, String BangTanHoatDong){
+        ArrayList<String> CongSuat = new ArrayList<String>();
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+                String CS = item.split("&")[4];
+                CongSuat.add(CS);
+            }
+        }
+        return CongSuat;
+    }
+
+    //region Công thức tính
+    static String TinhCongSuatPhat2(String CongSuatPhat1){
+        String CongSuatPhat2 = "";
+        Double double_CongSuatPhat2 = 0.0;
+        if(isNumeric(CongSuatPhat1))
+        {
+            Double CS1 = Double.valueOf(CongSuatPhat1);
+            double_CongSuatPhat2 = 10 * Math.log10(CS1*1000);
+        }
+        CongSuatPhat2 = String.valueOf(round(double_CongSuatPhat2,1));
+
+        return CongSuatPhat2;
+    }
+    static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+    //endregion
 }
