@@ -230,7 +230,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Tên anten"
@@ -273,7 +273,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Chủng loại thiết bị"
@@ -315,7 +315,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Số máy thu phát sóng"
@@ -350,7 +350,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp">
 
-                                <EditText
+                                <AutoCompleteTextView
                                     android:id="@+id/edtCongXuatPhat1"
                                     android:layout_weight="80"
                                     android:textColor="#111"
@@ -387,7 +387,7 @@
                                 android:layout_marginRight="10dp"
                                 android:layout_marginLeft="10dp">
 
-                                <EditText
+                                <AutoCompleteTextView
                                     android:id="@+id/edtCongXuatPhat2"
                                     android:layout_weight="90"
                                     android:textColor="#111"
@@ -519,7 +519,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Chủng loại anten"
@@ -560,7 +560,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:text="Định hướng"
                                 android:layout_margin="5dp"
@@ -602,7 +602,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ tăng ích "
@@ -661,7 +661,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Băng tần hoạt động"
@@ -718,7 +718,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ dài mặt bức xạ"
@@ -776,7 +776,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Góc ngẩng (Downtilt)"
@@ -834,7 +834,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Góc phương vị (azimuth)"
@@ -893,7 +893,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ cao anten"
@@ -950,7 +950,7 @@
                                 android:layout_height="match_parent"
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ cao anten"
@@ -1114,7 +1114,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:hint="Chủng loại Feeder"
@@ -1154,7 +1154,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:hint="Chiều dài Feeder"
@@ -1194,7 +1194,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:background="@drawable/backgound_edittext"
@@ -1233,7 +1233,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:background="@drawable/backgound_edittext"
@@ -1303,7 +1303,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:id="@+id/edtChungLoaiJumper"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -1342,7 +1342,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:id="@+id/edtChieuDaiJumper"
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
@@ -1382,7 +1382,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:background="@drawable/backgound_edittext"
@@ -1421,7 +1421,7 @@
                                             android:layout_height="match_parent"
                                             android:background="@drawable/line"/>
 
-                                        <EditText
+                                        <AutoCompleteTextView
                                             android:textColor="#111"
                                             android:layout_margin="5dp"
                                             android:background="@drawable/backgound_edittext"
@@ -1465,7 +1465,7 @@
                                     android:layout_height="match_parent"
                                     android:background="@drawable/line"/>
 
-                                <EditText
+                                <AutoCompleteTextView
                                     android:textColor="#111"
                                     android:layout_margin="5dp"
                                     android:hint="Độ tăng ích "

@@ -60,7 +60,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/line"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:hint="Tên thành phần"
                 android:textColor="#111"
                 android:layout_margin="5dp"
@@ -143,7 +143,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:background="@drawable/backgound_edittext"
@@ -182,7 +182,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:background="@drawable/backgound_edittext"
@@ -221,7 +221,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:background="@drawable/backgound_edittext"
@@ -260,7 +260,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:background="@drawable/backgound_edittext"

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -51,10 +52,10 @@ public class Adapter_DoiTuong_ThanhPhan extends BaseAdapter {
             V = inflater.inflate(R.layout.item_thanhphan, null);
         }
         TextView edtTenThanhPhan = V.findViewById(R.id.tvTenThanhPhan);
-        EditText edtChieuDai = V.findViewById(R.id.edtChieuDai);
-        EditText edtChungLoai = V.findViewById(R.id.edtTenCongTrinh);
-        EditText edtSuyHaodB = V.findViewById(R.id.edtSuyHaodB);
-        EditText edtSuyHao = V.findViewById(R.id.edtSuyHao);
+        AutoCompleteTextView edtChieuDai = V.findViewById(R.id.edtChieuDai);
+        AutoCompleteTextView edtChungLoai = V.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtSuyHaodB = V.findViewById(R.id.edtSuyHaodB);
+        AutoCompleteTextView edtSuyHao = V.findViewById(R.id.edtSuyHao);
 
         edtTenThanhPhan.setText(myobjects.get(position).getTenThanhPhan());
         edtChieuDai.setText(myobjects.get(position).getChieuDai());

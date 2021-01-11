@@ -8,7 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 
 import com.google.api.services.driveactivity.v2.model.Edit;
 
@@ -50,11 +50,11 @@ final class SPC { private SPC() {}
             "ChungLoaiAnten", "LoaiAnten", "DoTangIch", "BangTanHoatDong", "DoDaiBucXa", "GocNgang", "GocPhuongVi", "DoCaoAnten1", "DoCaoAnten2",
             "ChungLoaiJumper", "ChieuDaiJumper", "SuyHaodBJumper","SuyHaoJumper",
             "ChungLoaiFeeder", "ChieuDaiFeeder", "SuyHaodBFeeder","SuyHaoFeeder","TongSuyHao"));
-    static void SaveListEditText_json(String nameFile,File pathFile,ArrayList<EditText> listEditText,ArrayList<String> arrayList) throws JSONException {
+    static void SaveListAutoCompleteTextView_json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
         JSONObject obj = new JSONObject();
-        for(int i=0;i<listEditText.size();i++)
+        for(int i=0;i<listAutoCompleteTextView.size();i++)
         {
-            obj.put(arrayList.get(i),listEditText.get(i).getText().toString());
+            obj.put(arrayList.get(i),listAutoCompleteTextView.get(i).getText().toString());
         }
         saveTextFile(nameFile,obj.toString(),pathFile);
     }
@@ -105,9 +105,25 @@ final class SPC { private SPC() {}
             while ((line = input.readLine()) != null) {
                 buffer.append(line).append("\n");
             }
-
             text = buffer.toString().trim();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text;
+    }
+    static ArrayList<String> readAllLineText(File file){
+        ArrayList<String> text = new ArrayList<String>();
+        BufferedReader input = null;
+        try {
+            input = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line;
+            //StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                //buffer.append(line).append("\n");
+                text.add(line);
+            }
+            //text = buffer.toString().trim();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -146,19 +162,8 @@ final class SPC { private SPC() {}
         }
     }
     static final File pathDataApp_PNDT =  new File(Environment.getExternalStorageDirectory(),"DataAppPNDT");
-//    static void SaveListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
-//        String text = "";
-//        for(EditText edt:listEditText)
-//        {
-//            if(text.equals(""))
-//            {
-//                text += edt.getText().toString().trim().replace("\n","");
-//            }
-//            else text += "&"+ edt.getText().toString().trim().replace("\n","");
-//        }
-//        saveTextFile(nameFile,text,pathFile);
-//    }
-    static void ReadListEditText_Json(String nameFile,File pathFile,ArrayList<EditText> listEditText,ArrayList<String> arrayList) throws JSONException {
+    static final File pathTemplate =  new File(Environment.getExternalStorageDirectory(),"Template");
+    static void ReadListAutoCompleteTextView_Json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
         File fileData = new File(pathFile,nameFile);
         if(fileData.exists())
         {
@@ -167,26 +172,11 @@ final class SPC { private SPC() {}
 
             for(int i=0;i<arrayList.size();i++)
             {
-                listEditText.get(i).setText(jsonObject.getString(arrayList.get(i)));
+                listAutoCompleteTextView.get(i).setText(jsonObject.getString(arrayList.get(i)));
             }
         }
 
     }
-//    static void ReadListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
-//        File fileData = new File(pathFile,nameFile);
-//        if(fileData.exists())
-//        {
-//            String[] text = readText(fileData).split("&");
-//            for(int i=0;i<text.length;i++)
-//            {
-//                try{
-//                    String data = text[i].trim();
-//                    listEditText.get(i).setText(data);
-//                }catch (Exception e) {}
-//            }
-//        }
-//
-//    }
     static Bitmap GanToaDo(Bitmap bitmap,String MaTram,String ToaDo,String DiaDiem){
     Bitmap AnhDauRa = null;
     Bitmap newbitmap = null;
@@ -227,4 +217,18 @@ final class SPC { private SPC() {}
 
     return AnhDauRa;
 }
+    static ArrayList LayDanhSachThietBi(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[1];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+
 }

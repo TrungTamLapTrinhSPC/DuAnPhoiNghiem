@@ -34,7 +34,7 @@ package com.example.chirag.googlesignin;
         import android.widget.AdapterView;
         import android.widget.Button;
         import android.widget.CompoundButton;
-        import android.widget.EditText;
+        import android.widget.AutoCompleteTextView;
         import android.widget.GridView;
         import android.widget.ImageButton;
         import android.widget.ListView;
@@ -164,9 +164,13 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
     //endregion
     private void NhanBien() {
     }
-    private void TaoThuVien(){
+    private void TaoThuVien()
+    {
         if(SPC.TaoThuMuc(SPC.pathDataApp_PNDT))
+            Toast.makeText(Activity_MenuTram.this,"Đã tạo bộ nhớ", Toast.LENGTH_SHORT).show();
+        if(SPC.TaoThuMuc(SPC.pathTemplate))
             Toast.makeText(Activity_MenuTram.this,"Đã lưu thư viện", Toast.LENGTH_SHORT).show();
+        SPC.LayDanhSachThietBi();
     }
     private void AnhXa() {
         stubGrid = (ViewStub) findViewById(R.id.stub_grid1);
@@ -527,7 +531,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         vt = vt2;
 
         Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        AutoCompleteTextView edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
         edtMaTram.setText(danhsachTram.get(vt).getMaTram());
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -582,13 +586,13 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         tvTitle.setText(title);
         Button btnLuuThongSo = dialogthongso.findViewById(R.id.btnLuuThongSo);
         btnLuuThongSo.setText(titleButton);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
-        EditText edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
+        AutoCompleteTextView edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        AutoCompleteTextView edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
         edtDiaDiem.setText(thanhpho);
-        EditText edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);edtToaDo.setText(longi + "'N" +"  "+ latgi+ "'E");
+        AutoCompleteTextView edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);edtToaDo.setText(longi + "'N" +"  "+ latgi+ "'E");
         @SuppressLint("SimpleDateFormat") String timeStamp = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
-        EditText edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
-        EditText edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo); edtNgayDo.setText(timeStamp);
+        AutoCompleteTextView edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
+        AutoCompleteTextView edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo); edtNgayDo.setText(timeStamp);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
         RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
         RadioGroup radioGroup = (RadioGroup) dialogthongso.findViewById(R.id.radioGroup);
@@ -605,8 +609,8 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         btnLuuThongSo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals("")){
                         Toast.makeText(Activity_MenuTram.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
                         break;
@@ -621,9 +625,9 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
                         SPC.TaoThuMuc(pathHinhAnh);
                         if(pathDuLieu.exists())
                         {
-                            //SPC.SaveListEditText("ThietKeTram",pathDuLieu,listEditText);
+                            //SPC.SaveListAutoCompleteTextView("ThietKeTram",pathDuLieu,listAutoCompleteTextView);
                             try {
-                                SPC.SaveListEditText_json("ThietKeTram",pathDuLieu,listEditText,SPC.ThietKeTram);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeTram",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeTram);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

@@ -59,7 +59,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/line"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:hint="Tên cột"
                 android:textColor="#111"
                 android:layout_margin="5dp"
@@ -100,7 +100,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/line"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:textColor="#111"
                 android:layout_margin="5dp"
                 android:hint="Chiều cao cột"
@@ -146,7 +146,7 @@
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="normal" />
-            <EditText
+            <AutoCompleteTextView
                 android:visibility="gone"
                 android:textColor="#111"
                 android:hint="Tọa độ đặt trạm"
@@ -219,7 +219,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/line"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:id="@+id/edtKichThuocThanCot"
                 android:layout_width="150dp"
                 android:layout_height="match_parent"
@@ -306,7 +306,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:hint="Rộng"
@@ -369,7 +369,7 @@
                         android:layout_height="match_parent"
                         android:background="@drawable/line"/>
 
-                    <EditText
+                    <AutoCompleteTextView
                         android:textColor="#111"
                         android:layout_margin="5dp"
                         android:hint="Dài"

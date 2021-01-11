@@ -16,7 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,15 +42,15 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten;
     TextView title,tvToaDo,tvViTri;
     File pathThietKeAnten;
-    ArrayList<EditText> listEditText;
+    ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
     ViewGroup viewgroup;
     int [] listID;
-    EditText[] list;
+    AutoCompleteTextView[] list;
     HorizontalListView listview_thanhphan;
     List<DoiTuong_ThanhPhan> list_ThanhPhan = new ArrayList<>();
     Adapter_DoiTuong_ThanhPhan adapter_doiTuong_thanhphan;
-    //EDITTEXT THIẾT KẾ ANTEN
-    EditText edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao;
+    //AutoCompleteTextView THIẾT KẾ ANTEN
+    AutoCompleteTextView edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,11 +122,12 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     private void setUpView() throws JSONException {
         File filethietKe = new File(pathThietKeAnten,"ThietKeAnten.txt");
         if(filethietKe.exists()){
-            SPC.ReadListEditText_Json("ThietKeAnten.txt",pathThietKeAnten,listEditText,SPC.ThietKeAnten);
+            SPC.ReadListAutoCompleteTextView_Json("ThietKeAnten.txt",pathThietKeAnten,listAutoCompleteTextView,SPC.ThietKeAnten);
         }
     }
 
-    private void NhanBien(){
+    private void NhanBien()
+    {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
         MaTram =intent.getStringExtra("MaTram");
         TenCot =intent.getStringExtra("TenCot");
@@ -280,7 +281,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     private void LuuThietKeAnten() throws JSONException {
         if (pathThietKeAnten.isDirectory())
         {
-            SPC.SaveListEditText_json("ThietKeAnten",pathThietKeAnten,listEditText,SPC.ThietKeAnten);
+            SPC.SaveListAutoCompleteTextView_json("ThietKeAnten",pathThietKeAnten,listAutoCompleteTextView,SPC.ThietKeAnten);
             Toast.makeText(getApplicationContext(),"Đã lưu!", Toast.LENGTH_SHORT).show();
         }
     }
@@ -310,15 +311,14 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         btnLuuSuyHao.setVisibility(layoutSuyHao.getVisibility());
 
         listID = new int[]{R.id.edtTenAnten, R.id.edtChungLoaiThietBi, R.id.edtChieuCaoCongTrinh, R.id.edtCongXuatPhat1, R.id.edtCongXuatPhat2, R.id.edtChungLoaiAnten, R.id.edtLoaiAnten, R.id.edtDoTangIch, R.id.edtBangTan, R.id.edtDoDaiBucXa, R.id.edtGocNgang, R.id.edtGocPhuongVi, R.id.edtDoCao_vs_ChanCot, R.id.edtDoCao_vs_MatDat, R.id.edtChungLoaiFeeder, R.id.edtChieuDaiFeeder, R.id.edtSuyHaodBFeeder, R.id.edtSuyHaoFeeder, R.id.edtChungLoaiJumper, R.id.edtChieuDaiJumper, R.id.edtSuyHaodBJumper, R.id.edtSuyHaoJumper, R.id.edtTongSuyHao};
-        list = new EditText[]{edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao};
-        listEditText = new ArrayList<EditText>();
+        list = new AutoCompleteTextView[]{edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao};
+        listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>();
         for(int i= 0;i<list.length;i++)
         {
-            list[i] =  (EditText) findViewById(listID[i]);
-            listEditText.add(list[i]);
+            list[i] =  (AutoCompleteTextView) findViewById(listID[i]);
+            listAutoCompleteTextView.add(list[i]);
         }
-        //listEditText = new ArrayList<EditText>(Arrays.asList(edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao));
-
+        //listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtTongSuyHao));
     }
 
     private void DialogThemThanhPhan(){
@@ -334,11 +334,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
 
-        EditText edtTenThanhPhan = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        EditText edtChungLoai = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtChieuDai = dialogthongso.findViewById(R.id.edtChieuDai);
-        EditText edtSuyHaodB = dialogthongso.findViewById(R.id.edtSuyHaodB);
-        EditText edtSuyHao = dialogthongso.findViewById(R.id.edtSuyHao);
+        AutoCompleteTextView edtTenThanhPhan = dialogthongso.findViewById(R.id.edtTenThanhPhan);
+        AutoCompleteTextView edtChungLoai = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtChieuDai = dialogthongso.findViewById(R.id.edtChieuDai);
+        AutoCompleteTextView edtSuyHaodB = dialogthongso.findViewById(R.id.edtSuyHaodB);
+        AutoCompleteTextView edtSuyHao = dialogthongso.findViewById(R.id.edtSuyHao);
         TextView Title = dialogthongso.findViewById(R.id.title);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         Button btnOK = dialogthongso.findViewById(R.id.btnOK);
@@ -351,8 +351,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenThanhPhan,edtChungLoai,edtChieuDai,edtSuyHaodB,edtSuyHao));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenThanhPhan,edtChungLoai,edtChieuDai,edtSuyHaodB,edtSuyHao));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_ChiTiet_Anten.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -364,7 +364,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json(edtTenThanhPhan.getText().toString().trim(),pathDuLieu,listEditText,SPC.ThietKeThanhPhan);
+                                SPC.SaveListAutoCompleteTextView_json(edtTenThanhPhan.getText().toString().trim(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeThanhPhan);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

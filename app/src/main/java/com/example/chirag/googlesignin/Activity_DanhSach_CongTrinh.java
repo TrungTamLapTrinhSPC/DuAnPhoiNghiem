@@ -4,12 +4,14 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
@@ -23,8 +25,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -46,22 +49,22 @@ import java.util.List;
 
 public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     HorizontalListView listview;
-    ImageButton btnBack,btnSua;
+    ImageButton btnBack,btnSua,btnChup;
+    ImageView imgHinh;
     List<DoiTuong_CongTrinh> list_CongTrinh = new ArrayList<>();
     Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
     FloatingActionButton fab;
     String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten;
     TextView title,tvToaDo,tvViTri;
-    File pathThietKeAnten;
-    ArrayList<EditText> listEditText;
+    File pathThietKeAnten,pathHinhAnh;
+    ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
     int [] listID;
-    EditText[] listedt;
+    AutoCompleteTextView[] listedt;
     Button btnLuu;
     File mFile;
     Uri imageUri;
-    LinearLayout btnChup;
-    //EDITTEXT
-    EditText edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong;
+    //AutoCompleteTextView
+    AutoCompleteTextView edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -93,7 +96,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                 {
                     if(congtrinh.getName().contains(".txt"))
                     {
-                        SPC.ReadListEditText_Json(congtrinh.getName(),filecongtrinh,listEditText,SPC.ThietKeCongTrinh);
+                        SPC.ReadListAutoCompleteTextView_Json(congtrinh.getName(),filecongtrinh,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
                     }
                 }
             }
@@ -163,12 +166,38 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         ToaDo = intent.getStringExtra("ToaDo");
         tvToaDo.setText(ToaDo);
         pathThietKeAnten = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/" + TenCot + "/" + TenTramGoc+ "/" + TenAnten);
+        pathHinhAnh= new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanThuMucHinhAnh);
+        mFile = new File(pathHinhAnh,SPC.TenHinhAnh.get(Integer.parseInt(ThuTuAnten)));
+        if (mFile.exists())
+        {
+            mFile= new File(mFile,"image"+".jpg");
+            if (mFile.exists())
+            {
+                Uri uriImage = Uri.parse(mFile.getPath());
+                imgHinh.setImageURI(uriImage);
+            }
+        }
+        else
+        {
+            SPC.TaoThuMuc(mFile);
+            mFile= new File(mFile,"image"+".jpg");
+        }
+
+
+
     }
     private void SuKien() {
         btnChup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                    ContentValues values = new ContentValues();
+                    values.put(MediaStore.Images.Media.TITLE, "New Picture");
+                    values.put(MediaStore.Images.Media.DESCRIPTION, "From your Camera");
+                    imageUri = getContentResolver().insert( MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+                    startActivityForResult(intent, 7);
             }
         });
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
@@ -195,19 +224,19 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText edtTenCongTrinh = findViewById(R.id.edtTenCongTrinh);
-                EditText edtChieuCaoCongTrinh =findViewById(R.id.edtChieuCaoCongTrinh);
-                EditText edtKhoangCach = findViewById(R.id.edtKhoangCach);
-                EditText edtSoTang = findViewById(R.id.edtSoTang);
-                EditText edtGocPhuongVi = findViewById(R.id.edtGocPhuongVi);
-                EditText edtDoDay = findViewById(R.id.edtDoDay);
-                EditText edtDoRong = findViewById(R.id.edtDoRong);
+                AutoCompleteTextView edtTenCongTrinh = findViewById(R.id.edtTenCongTrinh);
+                AutoCompleteTextView edtChieuCaoCongTrinh =findViewById(R.id.edtChieuCaoCongTrinh);
+                @SuppressLint("WrongViewCast") AutoCompleteTextView edtKhoangCach = findViewById(R.id.edtKhoangCach);
+                @SuppressLint("WrongViewCast")  AutoCompleteTextView edtSoTang = findViewById(R.id.edtSoTang);
+                @SuppressLint("WrongViewCast")  AutoCompleteTextView edtGocPhuongVi = findViewById(R.id.edtGocPhuongVi);
+                @SuppressLint("WrongViewCast")  AutoCompleteTextView edtDoDay = findViewById(R.id.edtDoDay);
+                @SuppressLint("WrongViewCast")  AutoCompleteTextView edtDoRong = findViewById(R.id.edtDoRong);
                 Button btnLuu = findViewById(R.id.btnLuu);
                 btnLuu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
-                        for( EditText edt:listEditText){
+                        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
+                        for( AutoCompleteTextView edt:listAutoCompleteTextView){
                             if(edt.getText().toString().trim().equals(""))
                             {
                                 Toast.makeText(Activity_DanhSach_CongTrinh.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -219,7 +248,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                                 if(pathDuLieu.exists())
                                 {
                                     try {
-                                        SPC.SaveListEditText_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listEditText,SPC.ThietKeCongTrinh);
+                                        SPC.SaveListAutoCompleteTextView_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
                                         Toast.makeText(Activity_DanhSach_CongTrinh.this, "Đã lưu dữ liệu!", Toast.LENGTH_SHORT).show();
 
                                     } catch (JSONException e) {
@@ -256,13 +285,14 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         btnLuu = findViewById(R.id.btnLuu);
         btnChup = findViewById(R.id.btnChup);
         btnSua = findViewById(R.id.btnSua);
+        imgHinh = findViewById(R.id.imgHinh);
         listID = new int[]{R.id.edtTenCongTrinh,R.id.edtChieuCaoCongTrinh,R.id.edtKhoangCach,R.id.edtSoTang,R.id.edtGocPhuongVi,R.id.edtDoDay,R.id.edtDoRong};
-        listedt = new EditText[]{edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong};
-        listEditText = new ArrayList<EditText>();
+        listedt = new AutoCompleteTextView[]{edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong};
+        listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>();
         for(int i= 0;i<listedt.length;i++)
         {
-            listedt[i] =  (EditText) findViewById(listID[i]);
-            listEditText.add(listedt[i]);
+            listedt[i] =  (AutoCompleteTextView) findViewById(listID[i]);
+            listAutoCompleteTextView.add(listedt[i]);
         }
     }
     private void DialogThemCongtrinh() {
@@ -278,20 +308,20 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
 
-        EditText edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtKhoangCach = dialogthongso.findViewById(R.id.edtKhoangCach);
-        EditText edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
-        EditText edtGocPhuongVi = dialogthongso.findViewById(R.id.edtGocPhuongVi);
-        EditText edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
-        EditText edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
+        AutoCompleteTextView edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtKhoangCach = dialogthongso.findViewById(R.id.edtKhoangCach);
+        AutoCompleteTextView edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
+        AutoCompleteTextView edtGocPhuongVi = dialogthongso.findViewById(R.id.edtGocPhuongVi);
+        AutoCompleteTextView edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
+        AutoCompleteTextView edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         btnLuu.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_CongTrinh.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -303,7 +333,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listEditText,SPC.ThietKeCongTrinh);
+                                SPC.SaveListAutoCompleteTextView_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
                                 Toast.makeText(Activity_DanhSach_CongTrinh.this, "Đã lưu dữ liệu!", Toast.LENGTH_SHORT).show();
 
                             } catch (JSONException e) {
@@ -399,17 +429,17 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);tvTitle.setText("Chỉnh sửa");
-        EditText edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtKhoangCach = dialogthongso.findViewById(R.id.edtKhoangCach);
-        EditText edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
-        EditText edtGocPhuongVi = dialogthongso.findViewById(R.id.edtGocPhuongVi);
-        EditText edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
-        EditText edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
+        AutoCompleteTextView edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtKhoangCach = dialogthongso.findViewById(R.id.edtKhoangCach);
+        AutoCompleteTextView edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
+        AutoCompleteTextView edtGocPhuongVi = dialogthongso.findViewById(R.id.edtGocPhuongVi);
+        AutoCompleteTextView edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
+        AutoCompleteTextView edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
+        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCongTrinh,edtChieuCaoCongTrinh,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong));
         File filecongtrinh = new File(pathThietKeAnten, "CongTrinhThapTang");
         try {
-            SPC.ReadListEditText_Json(list_CongTrinh.get(vt).getTenCongTrinh()+".txt",filecongtrinh,listEditText,SPC.ThietKeCongTrinh);
+            SPC.ReadListAutoCompleteTextView_Json(list_CongTrinh.get(vt).getTenCongTrinh()+".txt",filecongtrinh,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -418,7 +448,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                for( EditText edt:listEditText){
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_CongTrinh.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -430,7 +460,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listEditText,SPC.ThietKeCongTrinh);
+                                SPC.SaveListAutoCompleteTextView_json(edtTenCongTrinh.getText().toString(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
                                 Toast.makeText(Activity_DanhSach_CongTrinh.this, "Đã lưu dữ liệu!", Toast.LENGTH_SHORT).show();
 
                             } catch (JSONException e) {
@@ -469,12 +499,14 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
             }
             assert bitmap != null;
             Bitmap bitmap2 = SPC.GanToaDo(bitmap,MaTram,ToaDo,DiaDiem);
+            imgHinh.setImageBitmap(bitmap2);
             FileOutputStream output = null;
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             bitmap2.compress(Bitmap.CompressFormat.JPEG,100,stream);
             byte[] byteArray = stream.toByteArray();
-            try {
-                output = new FileOutputStream(new File(mFile,"image"+".jpg"));
+            try
+            {
+                output = new FileOutputStream(mFile);
                 output.write(byteArray);
             } catch (IOException e) {
                 e.printStackTrace();

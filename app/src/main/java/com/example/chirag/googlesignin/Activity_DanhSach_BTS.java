@@ -14,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -56,6 +56,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         NhanBien();
         SettupListView();
     }
+
     private void SettupListView(){
         list_BTS.clear();
         list_BTS = new ArrayList<>();
@@ -212,15 +213,15 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
 
-        EditText edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
-        EditText edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        AutoCompleteTextView edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
+        AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -233,7 +234,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeBTS",pathDuLieu,listEditText,SPC.ThietKeBTS);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeBTS",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeBTS);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -265,12 +266,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title2);
 
-        EditText edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        EditText edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
-        EditText edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
-        EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        EditText edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
+        AutoCompleteTextView edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
+        AutoCompleteTextView edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
+        AutoCompleteTextView edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
+        AutoCompleteTextView edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
+        AutoCompleteTextView edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         btnLuu.setText(title3);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
@@ -279,8 +280,8 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         /**
          * NHẬN BIẾN
          */
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
-        SPC.ReadListEditText_Json("ThietKeCot.txt",pathTramGoc,listEditText,SPC.ThietKeCot);
+        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
+        SPC.ReadListAutoCompleteTextView_Json("ThietKeCot.txt",pathTramGoc,listAutoCompleteTextView,SPC.ThietKeCot);
         if(edtSoChan.equals("3")) checkbox_duoidat.setChecked(true);
         else checkbox_trenmai.setChecked(true);
         /**
@@ -297,7 +298,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for( EditText edt:listEditText){
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -309,7 +310,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeCot",pathDuLieu,listEditText,SPC.ThietKeCot);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeCot",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCot);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -389,7 +390,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
         Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        AutoCompleteTextView edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
         edtMaTram.setText(list_BTS.get(vt).getTenTramGoc());
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -14,7 +14,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -305,7 +305,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         window.setAttributes(windowArr);
         dialogthongso.show();
         Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
+        AutoCompleteTextView edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
         edtMaTram.setText(list_Cot.get(vt).getTenCot());
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -361,22 +361,22 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         tvTitle.setText(title2);
         Button btnLuuThongSo = dialogthongso.findViewById(R.id.btnLuuThongSo);
         btnLuuThongSo.setText(titleButton);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);edtMaTram.setText(title.getText());
-        EditText edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
-        EditText edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);
-        EditText edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
-        EditText edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo);
+        AutoCompleteTextView edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);edtMaTram.setText(title.getText());
+        AutoCompleteTextView edtDiaDiem = dialogthongso.findViewById(R.id.edtDiaDiem);
+        AutoCompleteTextView edtToaDo = dialogthongso.findViewById(R.id.edtToaDo);
+        AutoCompleteTextView edtViTriDat = dialogthongso.findViewById(R.id.edtViTriDat);
+        AutoCompleteTextView edtNgayDo = dialogthongso.findViewById(R.id.edtNgayDo);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
         RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
         RadioGroup radioGroup = (RadioGroup) dialogthongso.findViewById(R.id.radioGroup);
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
+        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
         /**
          * Nhận dữ liệu
          */
         File pathTramMoi = new File(SPC.pathDataApp_PNDT, edtMaTram.getText().toString());
         File pathDuLieu = new File(pathTramMoi, "DuLieu");
-        //SPC.ReadListEditText("ThietKeTram.txt",pathDuLieu,listEditText);
-        SPC.ReadListEditText_Json("ThietKeTram.txt",pathDuLieu,listEditText,SPC.ThietKeTram);
+        //SPC.ReadListAutoCompleteTextView("ThietKeTram.txt",pathDuLieu,listAutoCompleteTextView);
+        SPC.ReadListAutoCompleteTextView_Json("ThietKeTram.txt",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeTram);
         if(edtViTriDat.equals("Dưới đất")) checkbox_duoidat.setChecked(true);
         else checkbox_trenmai.setChecked(true);
 
@@ -393,7 +393,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         btnLuuThongSo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for( EditText edt:listEditText){
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals("")){
                         Toast.makeText(Activity_DanhSach_Cot.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
                         break;
@@ -409,7 +409,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeTram",pathDuLieu,listEditText,SPC.ThietKeTram);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeTram",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeTram);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -439,21 +439,21 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         /**
          * Ánh xạ
          */
-        EditText edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
-        EditText edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
-        EditText edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
+        AutoCompleteTextView edtTenCongTrinh = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        AutoCompleteTextView edtSoTang = dialogthongso.findViewById(R.id.edtSoTang);
+        AutoCompleteTextView edtChieuCaoCongTrinh = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
+        AutoCompleteTextView edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
 
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCongTrinh,edtSoTang,edtChieuCaoCongTrinh,edtDoDay,edtDoRong));
+        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCongTrinh,edtSoTang,edtChieuCaoCongTrinh,edtDoDay,edtDoRong));
         File pathTramMoi = new File(SPC.pathDataApp_PNDT, MaTram);
         File pathDuLieu = new File(pathTramMoi, "DuLieu");
-        SPC.ReadListEditText_Json("ThietKeNhaTram.txt",pathDuLieu,listEditText,SPC.ThietKeNhaDatTram);
+        SPC.ReadListAutoCompleteTextView_Json("ThietKeNhaTram.txt",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeNhaDatTram);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for( EditText edt:listEditText){
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals("")){
                         Toast.makeText(Activity_DanhSach_Cot.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
                         break;
@@ -465,7 +465,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeNhaTram",pathDuLieu,listEditText,SPC.ThietKeNhaDatTram);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeNhaTram",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeNhaDatTram);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -492,12 +492,12 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         dialogthongso.show();
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title);
-        EditText edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        EditText edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
-        EditText edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
-        EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        EditText edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
+        AutoCompleteTextView edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
+        AutoCompleteTextView edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
+        AutoCompleteTextView edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
+        AutoCompleteTextView edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
+        AutoCompleteTextView edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
         RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
@@ -516,8 +516,8 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_Cot.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -530,7 +530,7 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeCot",pathDuLieu,listEditText,SPC.ThietKeCot);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeCot",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCot);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }

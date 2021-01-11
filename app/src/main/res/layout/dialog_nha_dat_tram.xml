@@ -63,7 +63,7 @@
                     android:layout_width="1dp"
                     android:layout_height="match_parent"
                     android:background="@drawable/line"/>
-                <EditText
+                <AutoCompleteTextView
                     android:textColor="#111"
                     android:layout_margin="5dp"
                     android:hint="Tên công trình"
@@ -118,7 +118,7 @@
 
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Số tầng"
@@ -189,7 +189,7 @@
 
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Chiều cao"
@@ -262,7 +262,7 @@
 
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ dày"
@@ -310,7 +310,7 @@
 
                                 android:background="@drawable/line"/>
 
-                            <EditText
+                            <AutoCompleteTextView
                                 android:textColor="#111"
                                 android:layout_margin="5dp"
                                 android:hint="Độ rộng"

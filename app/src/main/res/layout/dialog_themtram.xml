@@ -61,7 +61,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/line"/>
 
-                <EditText
+                <AutoCompleteTextView
                     android:hint="Mã trạm"
                     android:textColor="#111"
                     android:layout_margin="5dp"
@@ -104,7 +104,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/line"/>
 
-                <EditText
+                <AutoCompleteTextView
                     android:textColor="#111"
                     android:layout_margin="5dp"
                     android:hint="Địa điểm đặt trạm"
@@ -148,7 +148,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/line"/>
 
-                <EditText
+                <AutoCompleteTextView
                     android:textColor="#111"
                     android:layout_margin="5dp"
                     android:hint="Tọa độ đặt trạm"
@@ -173,7 +173,7 @@
                     android:textColor="#000"
                     android:textSize="20dp"
                     android:textStyle="normal" />
-                <EditText
+                <AutoCompleteTextView
                     android:visibility="gone"
                     android:textColor="#111"
                     android:hint="Tọa độ đặt trạm"
@@ -214,7 +214,7 @@
                     android:layout_marginLeft="10dp"
                     android:background="@drawable/line"/>
 
-                <EditText
+                <AutoCompleteTextView
                     android:textColor="#111"
                     android:layout_margin="5dp"
                     android:hint="Chiều cao nhà đặt trạm"
