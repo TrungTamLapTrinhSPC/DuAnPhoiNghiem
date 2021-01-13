@@ -120,46 +120,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="Chủng loại:"
-                    android:textColor="#000"
-                    android:textSize="15dp"
-                    android:textStyle="normal" />
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/hinhcovienxam"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp">
-                    <ImageButton
-                        android:layout_margin="5dp"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:background="@drawable/arrow_down" />
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/line"/>
-
-                    <AutoCompleteTextView
-                        android:textColor="#111"
-                        android:layout_margin="5dp"
-                        android:background="@drawable/backgound_edittext"
-                        android:id="@+id/edtTenCongTrinh"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:textSize="16dp" />
-
-                </LinearLayout>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
                     android:text="Chiều dài:"
-                    android:layout_marginTop="5dp"
                     android:textColor="#000"
                     android:textSize="15dp"
                     android:textStyle="normal" />
@@ -193,6 +154,48 @@
                         android:textSize="16dp" />
 
                 </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Chủng loại:"
+                    android:textColor="#000"
+                    android:textSize="15dp"
+                    android:textStyle="normal" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/hinhcovienxam"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="10dp">
+                    <ImageButton
+                        android:id="@+id/img_ChungLoai"
+                        android:layout_margin="5dp"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:background="@drawable/arrow_down" />
+                    <ImageButton
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/line"/>
+
+                    <AutoCompleteTextView
+                        android:textColor="#111"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/backgound_edittext"
+                        android:id="@+id/edtChungLoai"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:textSize="16dp" />
+
+                </LinearLayout>
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

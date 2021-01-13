@@ -200,7 +200,7 @@
                 android:layout_marginLeft="20dp"
                 android:text="0 %"
                 android:textSize="18dp"
-                android:textColor="#fff"
+                android:textColor="#686868"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
             <ProgressBar
@@ -213,5 +213,17 @@
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"/>
 
         </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtKQ"
+                android:textSize="14sp"
+                android:textColor="#686868"
+                android:layout_gravity="center"/>
+
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>

@@ -580,8 +580,8 @@ public class Class_DriveServiceHelper {
                 GoogleDriveFileHolder googleDriveFileHolder = new GoogleDriveFileHolder();
                 googleDriveFileHolder.setId(result.getFiles().get(i).getId());
                 googleDriveFileHolder.setName(result.getFiles().get(i).getName());
-
                 googleDriveFileHolderList.add(googleDriveFileHolder);
+
             }
         } catch (IOException e) {
             e.printStackTrace();

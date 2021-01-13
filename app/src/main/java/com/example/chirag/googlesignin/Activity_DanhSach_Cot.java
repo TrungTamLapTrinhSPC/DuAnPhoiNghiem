@@ -547,6 +547,9 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
 
     private void showMenu() {
         Intent intent= new Intent(Activity_DanhSach_Cot.this,ActivityMenu.class);
+        intent.putExtra("MaTram",MaTram);
+        intent.putExtra("DiaDiem",tvViTri.getText().toString());
+        intent.putExtra("ToaDo",tvToaDo.getText().toString());
         startActivity(intent);
         overridePendingTransition(R.anim.zoom, R.anim.zoomin);
     }

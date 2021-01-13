@@ -49,7 +49,7 @@ import java.util.List;
 
 public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     HorizontalListView listview;
-    ImageButton btnBack,btnSua,btnChup;
+    ImageButton btnBack,btnSua,btnChup,btnMenu;
     ImageView imgHinh;
     List<DoiTuong_CongTrinh> list_CongTrinh = new ArrayList<>();
     Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
@@ -221,6 +221,15 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
 
 
         });
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(Activity_DanhSach_CongTrinh.this,ActivityMenu.class);
+                intent.putExtra("MaTram",MaTram);
+                startActivity(intent);
+                overridePendingTransition(R.anim.zoom, R.anim.zoomin);
+            }
+        });
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -281,6 +290,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         title = findViewById(R.id.title);
         tvToaDo = findViewById(R.id.tvToaDo);
+        btnMenu = findViewById(R.id.btnMenu);
         tvViTri = findViewById(R.id.tvViTri);
         btnLuu = findViewById(R.id.btnLuu);
         btnChup = findViewById(R.id.btnChup);

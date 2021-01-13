@@ -44,7 +44,8 @@ final class SPC { private SPC() {}
 
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
-    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100"));
+    static final String DuongDanThuMucDuLieu = "/DuLieu";
+    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
@@ -250,6 +251,20 @@ final class SPC { private SPC() {}
         }
         return lstThietBi;
     }
+    static ArrayList LayDanhSachSuyHao(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[0];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+
     static void setPopUp(Context context, AutoCompleteTextView edt, ArrayList<String> arrayList,ImageButton imageButton){
         ArrayAdapter<String> adapterHT = new ArrayAdapter<String>(context, R.layout.custom_list_item, R.id.text_view_list_item, arrayList);
         edt.setAdapter(adapterHT);
@@ -336,17 +351,41 @@ final class SPC { private SPC() {}
         }
         return DoTangIchAnten;
     }
-    static ArrayList<String> layGocNgang(String ChungLoaiThietBi, String BangTanHoatDong){
-        ArrayList<String> CongSuat = new ArrayList<String>();
-        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+    static String layGocNgang(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
         for(String item:listThietBi){
-            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
-                String CS = item.split("&")[4];
-                CongSuat.add(CS);
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[6];
+                        }
+                    }
+                }
             }
         }
-        return CongSuat;
+        return "TILT cơ: " +DoTangIchAnten;
     }
+    static String laySuyHaodB(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong) ){
+                DoTangIchAnten = item.split("&")[4];
+            }
+        }
+        return DoTangIchAnten;
+    }
+
 
     //region Công thức tính
     static String TinhCongSuatPhat2(String CongSuatPhat1){
@@ -361,6 +400,21 @@ final class SPC { private SPC() {}
 
         return CongSuatPhat2;
     }
+    static String TinhSuyHao(String ChieuDai,String SuyHaodB){
+        String SuyHao = "";
+        Double double_CongSuatPhat2 = 0.0;
+        if(isNumeric(ChieuDai) && isNumeric(SuyHaodB))
+        {
+            Double CS1 = Double.valueOf(ChieuDai);
+            Double CS2 = Double.valueOf(SuyHaodB);
+
+            double_CongSuatPhat2 = (CS1/100) * CS2;
+        }
+        SuyHao = String.valueOf(round(double_CongSuatPhat2,4));
+
+        return SuyHao;
+    }
+
     static boolean isNumeric(String str) {
         try {
             Double.parseDouble(str);

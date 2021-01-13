@@ -665,7 +665,6 @@ public class Activity_GoogleDrive extends AppCompatActivity {
                                         mClassDriveServiceHelper.delete(cvs.get(0).getId());
                                         File fl = new File(folderData + "/" + fileDATA.getName());///tên hình ảnh
                                         String IDImage = findOrCreateFolder(IDfolderDataTRAM, fl.getName(),"text",fl);
-
                                     } catch (Exception e) {
                                         e.printStackTrace();
                                     }
