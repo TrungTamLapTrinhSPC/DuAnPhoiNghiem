@@ -10,7 +10,8 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.EditText;
 
-import com.google.api.services.driveactivity.v2.model.Edit;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -19,23 +20,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import java.util.ArrayList;
 import java.util.Arrays;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+import java.util.Date;
 
 final class SPC { private SPC() {}
 
     /**
      *Vị trisbangr thiết kế trạm
      */
-
+    // comit
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
@@ -222,9 +216,6 @@ final class SPC { private SPC() {}
 
     AnhDauRa = newbitmap;
 
-
-
-
     return AnhDauRa;
-}
+    }
 }
