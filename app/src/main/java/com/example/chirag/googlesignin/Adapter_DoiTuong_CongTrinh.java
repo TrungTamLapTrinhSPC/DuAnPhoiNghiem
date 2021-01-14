@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
 
@@ -49,13 +50,13 @@ public class Adapter_DoiTuong_CongTrinh extends BaseAdapter {
         {
             LayoutInflater inflater = (LayoutInflater) mycontext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             V = inflater.inflate(R.layout.item_congtrinh, null);
-            EditText edtTenCongTrinh = V.findViewById(R.id.edtTenCongTrinh);
-            EditText edtChieuCaoCongTrinh = V.findViewById(R.id.edtChieuCaoCongTrinh);
-            EditText edtKhoangCach = V.findViewById(R.id.edtKhoangCach);
-            EditText edtSoTang = V.findViewById(R.id.edtSoTang);
-            EditText edtGocPhuongVi = V.findViewById(R.id.edtGocPhuongVi);
-            EditText edtDoDay = V.findViewById(R.id.edtDoDay);
-            EditText edtDoRong = V.findViewById(R.id.edtDoRong);
+            AutoCompleteTextView edtTenCongTrinh = V.findViewById(R.id.edtTenCongTrinh);
+            AutoCompleteTextView edtChieuCaoCongTrinh = V.findViewById(R.id.edtChieuCaoCongTrinh);
+            AutoCompleteTextView edtKhoangCach = V.findViewById(R.id.edtKhoangCach);
+            AutoCompleteTextView edtSoTang = V.findViewById(R.id.edtSoTang);
+            AutoCompleteTextView edtGocPhuongVi = V.findViewById(R.id.edtGocPhuongVi);
+            AutoCompleteTextView edtDoDay = V.findViewById(R.id.edtDoDay);
+            AutoCompleteTextView edtDoRong = V.findViewById(R.id.edtDoRong);
 
             edtTenCongTrinh.setText(myobjects.get(position).getTenCongTrinh());
             edtChieuCaoCongTrinh.setText(myobjects.get(position).getChieuCao());

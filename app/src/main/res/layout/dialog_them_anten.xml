@@ -57,7 +57,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/line"/>
 
-            <EditText
+            <AutoCompleteTextView
                 android:textColor="#111"
                 android:layout_margin="5dp"
                 android:hint="Tên anten"

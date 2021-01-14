@@ -225,7 +225,6 @@
                             </LinearLayout>
 
                             <LinearLayout
-                                android:id="@+id/btnChup"
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
                                 android:gravity="center"
@@ -235,10 +234,10 @@
                                 android:layout_marginBottom="30dp"
                                 android:layout_marginRight="30dp"
                                 android:layout_weight="1"
-                                android:descendantFocusability="blocksDescendants"
                                 android:background="@drawable/background_nut_chup">
 
                                 <ImageButton
+                                    android:id="@+id/btnChup"
                                     android:layout_width="40dp"
                                     android:layout_height="40dp"
                                     android:background="@drawable/camera" />
@@ -342,7 +341,7 @@
 
                             android:background="@drawable/line"/>
 
-                        <EditText
+                        <AutoCompleteTextView
 
                             android:textColor="#111"
                             android:layout_margin="5dp"
@@ -402,7 +401,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Chiều cao"
@@ -456,7 +455,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Khoảng cách"
@@ -540,7 +539,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Số tầng"
@@ -596,7 +595,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Góc phương vị"
@@ -681,7 +680,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Độ dày"
@@ -731,7 +730,7 @@
 
                                         android:background="@drawable/line"/>
 
-                                    <EditText
+                                    <AutoCompleteTextView
                                         android:textColor="#111"
                                         android:layout_margin="5dp"
                                         android:hint="Độ rộng"

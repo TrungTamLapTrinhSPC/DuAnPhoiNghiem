@@ -1,22 +1,16 @@
 package com.example.chirag.googlesignin;
 
 import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Environment;
 import android.provider.OpenableColumns;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.Pair;
-import android.widget.Toast;
 
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.Tasks;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -50,13 +44,12 @@ import javax.annotation.Nullable;
  * A utility for performing read/write operations on Drive files via the REST API and opening a
  * file picker UI via Storage Access Framework.
  */
-public class Class_DriveServiceHelper {
+public class DriveServiceHelper {
     private final Executor mExecutor = Executors.newSingleThreadExecutor();
     private final Drive mDriveService;
     private static boolean mBusy;
     String title,IDfolderHM;
-    public Class_DriveServiceHelper(Drive driveService) {
-
+    public DriveServiceHelper(Drive driveService) {
         mDriveService = driveService;
     }
     public static Drive getGoogleDriveService(Context context, GoogleSignInAccount account, String appName) {
@@ -287,7 +280,7 @@ public class Class_DriveServiceHelper {
             }
         });
     }
-    private List<GoogleDriveFileHolder> seachFold(String prnId,String folderName) {
+    private List<GoogleDriveFileHolder> seachFold(String prnId, String folderName) {
         List<GoogleDriveFileHolder> googleDriveFileHolderList = new ArrayList<>();
         // Retrive the metadata as a File object.
         FileList result = null;
@@ -562,7 +555,7 @@ public class Class_DriveServiceHelper {
         return googleDriveFileHolder.getId();
 
     }
-    public List<GoogleDriveFileHolder> search( String parentId ,String fileName){
+    public List<GoogleDriveFileHolder> search(String parentId , String fileName){
         File file = null;
         FileList result = null;
         StringBuffer fileQuery = new StringBuffer();
@@ -580,8 +573,8 @@ public class Class_DriveServiceHelper {
                 GoogleDriveFileHolder googleDriveFileHolder = new GoogleDriveFileHolder();
                 googleDriveFileHolder.setId(result.getFiles().get(i).getId());
                 googleDriveFileHolder.setName(result.getFiles().get(i).getName());
-                googleDriveFileHolderList.add(googleDriveFileHolder);
 
+                googleDriveFileHolderList.add(googleDriveFileHolder);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -589,7 +582,7 @@ public class Class_DriveServiceHelper {
 
         return googleDriveFileHolderList;
     }
-    public List<GoogleDriveFileHolder> seachFile(String parentId ,String fileName,String mimeType) {
+    public List<GoogleDriveFileHolder> seachFile(String parentId , String fileName, String mimeType) {
         List<GoogleDriveFileHolder> googleDriveFileHolderList = new ArrayList<>();
         // Retrive the metadata as a File object.
         FileList result = null;
@@ -776,13 +769,13 @@ public class Class_DriveServiceHelper {
                                         if (cvs.size() == 0) {
                                             java.io.File fl = new java.io.File(folderData + "/" + fileDATA.getName());///tên hình ảnh
                                             //PHẢI KIỂM TRA tRỐNG
-                                            uploadImage(fl,UT.MIME_TXT, IDfolderDataTRAM);
+                                            uploadImage(fl, UT.MIME_TXT, IDfolderDataTRAM);
 
                                         } else if (cvs.size() != 0) {
                                             try {
                                                 mDriveService.files().delete(cvs.get(0).getId()).execute();
                                                 java.io.File fl = new java.io.File(folderData + "/" + fileDATA.getName());///tên hình ảnh
-                                                uploadImage(fl,UT.MIME_TXT, IDfolderDataTRAM);
+                                                uploadImage(fl, UT.MIME_TXT, IDfolderDataTRAM);
 
                                             } catch (IOException e) {
                                                 e.printStackTrace();

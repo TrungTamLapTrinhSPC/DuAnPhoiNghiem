@@ -8,13 +8,15 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -56,6 +58,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         NhanBien();
         SettupListView();
     }
+
     private void SettupListView(){
         list_BTS.clear();
         list_BTS = new ArrayList<>();
@@ -79,7 +82,6 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                             String TenTramGoc = jsonObject.getString("TenTramGoc");
                             String BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
                             String ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
-
                             String SoAnten ="0"+ DemSoAnTen(file);
                             list_BTS.add(new DoiTuong_BTS(TenTramGoc,ChungLoaiThietBi,BangTanHoatDong,SoAnten));
                         }
@@ -211,16 +213,20 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         windowArr.gravity = gravity;
         window.setAttributes(windowArr);
         dialogthongso.show();
-
-        EditText edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
-        EditText edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
-        EditText edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        ImageButton tvChonBangTanHoatDong = dialogthongso.findViewById(R.id.tvChonBangTanHoatDong);
+        ImageButton btnChonChungLoai = dialogthongso.findViewById(R.id.btnChonChungLoai);
+        AutoCompleteTextView edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);
+        AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
+        SPC.setPopUp(this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),btnChonChungLoai);
+        AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        SPC.setPopUp(this,edtBangTanHoatDong,SPC.listBangTan,tvChonBangTanHoatDong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);
+
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
-                for( EditText edt:listEditText){
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -232,8 +238,9 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         SPC.TaoThuMuc(pathDuLieu);
                         if(pathDuLieu.exists())
                         {
-                            try {
-                                SPC.SaveListEditText_json("ThietKeBTS",pathDuLieu,listEditText,SPC.ThietKeBTS);
+                            try
+                            {
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeBTS",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeBTS);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -246,9 +253,6 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                 }
             }
         });
-
-
-
     };
     private void DialogThietKeCot(String title2,String title3) throws ParseException, JSONException {
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_BTS.this,R.style.PauseDialog);
@@ -265,12 +269,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText(title2);
 
-        EditText edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        EditText edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        EditText edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
-        EditText edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
-        EditText edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        EditText edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
+        AutoCompleteTextView edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
+        AutoCompleteTextView edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
+        AutoCompleteTextView edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
+        AutoCompleteTextView edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
+        AutoCompleteTextView edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
+        AutoCompleteTextView edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
         btnLuu.setText(title3);
         RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
@@ -279,8 +283,8 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         /**
          * NHẬN BIẾN
          */
-        ArrayList<EditText> listEditText = new ArrayList<EditText>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
-        SPC.ReadListEditText_Json("ThietKeCot.txt",pathTramGoc,listEditText,SPC.ThietKeCot);
+        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
+        SPC.ReadListAutoCompleteTextView_Json("ThietKeCot.txt",pathTramGoc,listAutoCompleteTextView,SPC.ThietKeCot);
         if(edtSoChan.equals("3")) checkbox_duoidat.setChecked(true);
         else checkbox_trenmai.setChecked(true);
         /**
@@ -297,7 +301,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for( EditText edt:listEditText){
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
                         Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
@@ -309,7 +313,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                         if(pathDuLieu.exists())
                         {
                             try {
-                                SPC.SaveListEditText_json("ThietKeCot",pathDuLieu,listEditText,SPC.ThietKeCot);
+                                SPC.SaveListAutoCompleteTextView_json("ThietKeCot",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCot);
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -336,7 +340,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         window.setAttributes(windowArr);
         dialogthongso.show();
         Button btnXoa = (Button) dialogthongso.findViewById(R.id.btnXoa);
-        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnmenudoiten);
+        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnmenudoiten);btnSua.setText("Chỉnh sửa");
         Button btnLoad = (Button) dialogthongso.findViewById(R.id.btnupload);btnLoad.setVisibility(View.GONE);
 
         btnXoa.setOnClickListener(new View.OnClickListener() {
@@ -370,16 +374,15 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogDoiten(vt);
+                DialogChinhSua(vt);
                 dialogthongso.dismiss();
-
             }
         });
     }
-    private void DialogDoiten(int vt){
+    private void DialogChinhSua(int vt){
         final Dialog dialogthongso = new Dialog(Activity_DanhSach_BTS.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogthongso.setContentView(R.layout.dialog_edit);
+        dialogthongso.setContentView(R.layout.dialog_them_bts);
         Window window= dialogthongso.getWindow();
         if (window==null){return;}
         window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
@@ -388,47 +391,50 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         windowArr.gravity = Gravity.CENTER;
         window.setAttributes(windowArr);
         dialogthongso.show();
-        Button btnSua = (Button) dialogthongso.findViewById(R.id.btnLuuThongSo);
-        EditText edtMaTram = dialogthongso.findViewById(R.id.edtMaTram);
-        edtMaTram.setText(list_BTS.get(vt).getTenTramGoc());
-        btnSua.setOnClickListener(new View.OnClickListener() {
+
+        ImageButton tvChonBangTanHoatDong = dialogthongso.findViewById(R.id.tvChonBangTanHoatDong);
+        TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle); tvTitle.setText("Chỉnh sửa");
+        ImageButton btnChonChungLoai = dialogthongso.findViewById(R.id.btnChonChungLoai);
+        AutoCompleteTextView edtTenTramGoc = dialogthongso.findViewById(R.id.edtTenTramGoc);edtTenTramGoc.setText(list_BTS.get(vt).getTenTramGoc());
+        AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);edtChungLoaiThietBi.setText(list_BTS.get(vt).getChungLoaiThietBi());
+        SPC.setPopUp(this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),btnChonChungLoai);
+        AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);edtBangTanHoatDong.setText(list_BTS.get(vt).getBangTanHoatDong());
+        SPC.setPopUp(this,edtBangTanHoatDong,SPC.listBangTan,tvChonBangTanHoatDong);
+        Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);btnLuu.setText("Lưu thông số");
+
+        btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!edtMaTram.getText().toString().trim().equals(""))
-                {
-                    AlertDialog.Builder builder;
-                    builder = new AlertDialog.Builder(Activity_DanhSach_BTS.this);
-                    builder.setTitle("Bạn muốn đổi tên trạm này không?");
-                    // add the buttons
-                    builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-
-                            File fileOld = new File(pathTramGoc,list_BTS.get(vt).getTenTramGoc());
-                            File fileNew = new File(pathTramGoc,edtMaTram.getText().toString());
-
-                            if(!fileNew.exists()){
-                                boolean result= fileOld.renameTo(fileNew);
-                                if (result) Toast.makeText(Activity_DanhSach_BTS.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
-                            }
-                            else Toast.makeText(Activity_DanhSach_BTS.this, "Đã có trạm này!", Toast.LENGTH_SHORT).show();
-                            SettupListView();
-                            dialogthongso.dismiss();
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
+                for( AutoCompleteTextView edt:listAutoCompleteTextView){
+                    if(edt.getText().toString().trim().equals(""))
+                    {
+                        Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
+                        break;
+                    }
+                    else
+                    {
+                        File pathDuLieu = new File(pathTramGoc, list_BTS.get(vt).getTenTramGoc());
+                        try
+                        {
+                            SPC.SaveListAutoCompleteTextView_json("ThietKeBTS",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeBTS);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
-                    });
-                    builder.setNegativeButton("không", null);
-                    // create and show the alert dialog
-                    AlertDialog dialog2 = builder.create();
-                    dialog2.show();
-                }
+                        SettupListView();
+                        Toast.makeText(Activity_DanhSach_BTS.this, "Đã tạo tram " + pathDuLieu.getName(), Toast.LENGTH_SHORT).show();
+                        dialogthongso.dismiss();
+                    }
 
+                }
             }
         });
-
     }
-
     private void showMenu() {
         Intent intent= new Intent(Activity_DanhSach_BTS.this,ActivityMenu.class);
+        intent.putExtra("MaTram",MaTram);
+        intent.putExtra("DiaDiem",tvViTri.getText().toString());
+        intent.putExtra("ToaDo",tvToaDo.getText().toString());
         startActivity(intent);
         overridePendingTransition(R.anim.zoom, R.anim.zoomin);
     }

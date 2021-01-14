@@ -136,6 +136,9 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(Activity_DanhSach_Anten.this,ActivityMenu.class);
+                intent.putExtra("MaTram",MaTram);
+                intent.putExtra("DiaDiem",tvViTri.getText().toString());
+                intent.putExtra("ToaDo",tvToaDo.getText().toString());
                 startActivity(intent);
                 overridePendingTransition(R.anim.zoom, R.anim.zoomin);
             }

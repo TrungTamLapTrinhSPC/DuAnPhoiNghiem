@@ -1,5 +1,6 @@
 package com.example.chirag.googlesignin;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,10 +9,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.EditText;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.ImageButton;
+import android.widget.PopupMenu;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.api.services.driveactivity.v2.model.Edit;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -20,18 +25,27 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 final class SPC { private SPC() {}
 
     /**
      *Vị trisbangr thiết kế trạm
      */
-    // comit
+
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
+    static final String DuongDanThuMucDuLieu = "/DuLieu";
+    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
@@ -39,12 +53,16 @@ final class SPC { private SPC() {}
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));
     static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));
     static final ArrayList<String> ThietKeCongTrinh = new ArrayList<String>(Arrays.asList("TenCongTrinh","ChieuCao", "KhoangCach","SoTang", "GocPhuongVi", "DoDay", "DoRong"));
-    static final ArrayList<String> ThietKeAnten = new ArrayList<String>(Arrays.asList("TenAnten", "ChungLoaiThietBi", "SoMayPhat", "TongCongSuatPhat1", "TongCongSuatPhat2", "ChungLoaiAnten", "LoaiAnten", "DoTangIch", "BangTanHoatDong", "DoDaiBucXa", "GocNgang", "GocPhuongVi", "DoCaoAnten1", "DoCaoAnten2", "ChungLoaiJumper", "ChieuDaiJumper", "SuyHaodBJumper","SuyHaoJumper", "ChungLoaiFeeder", "ChieuDaiFeeder", "SuyHaodBFeeder","SuyHaoFeeder","TongSuyHao"));
-    static void SaveListEditText_json(String nameFile,File pathFile,ArrayList<EditText> listEditText,ArrayList<String> arrayList) throws JSONException {
+    static final ArrayList<String> ThietKeAnten = new ArrayList<String>
+            (Arrays.asList("TenAnten", "ChungLoaiThietBi", "SoMayPhat", "TongCongSuatPhat1", "TongCongSuatPhat2",
+            "ChungLoaiAnten", "LoaiAnten", "DoTangIch", "BangTanHoatDong", "DoDaiBucXa", "GocNgang", "GocPhuongVi", "DoCaoAnten1", "DoCaoAnten2",
+            "ChungLoaiJumper", "ChieuDaiJumper", "SuyHaodBJumper","SuyHaoJumper",
+            "ChungLoaiFeeder", "ChieuDaiFeeder", "SuyHaodBFeeder","SuyHaoFeeder","TongSuyHao"));
+    static void SaveListAutoCompleteTextView_json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
         JSONObject obj = new JSONObject();
-        for(int i=0;i<listEditText.size();i++)
+        for(int i=0;i<listAutoCompleteTextView.size();i++)
         {
-            obj.put(arrayList.get(i),listEditText.get(i).getText().toString());
+            obj.put(arrayList.get(i),listAutoCompleteTextView.get(i).getText().toString());
         }
         saveTextFile(nameFile,obj.toString(),pathFile);
     }
@@ -95,9 +113,25 @@ final class SPC { private SPC() {}
             while ((line = input.readLine()) != null) {
                 buffer.append(line).append("\n");
             }
-
             text = buffer.toString().trim();
 
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return text;
+    }
+    static ArrayList<String> readAllLineText(File file){
+        ArrayList<String> text = new ArrayList<String>();
+        BufferedReader input = null;
+        try {
+            input = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line;
+            //StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                //buffer.append(line).append("\n");
+                text.add(line);
+            }
+            //text = buffer.toString().trim();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -136,19 +170,8 @@ final class SPC { private SPC() {}
         }
     }
     static final File pathDataApp_PNDT =  new File(Environment.getExternalStorageDirectory(),"DataAppPNDT");
-//    static void SaveListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
-//        String text = "";
-//        for(EditText edt:listEditText)
-//        {
-//            if(text.equals(""))
-//            {
-//                text += edt.getText().toString().trim().replace("\n","");
-//            }
-//            else text += "&"+ edt.getText().toString().trim().replace("\n","");
-//        }
-//        saveTextFile(nameFile,text,pathFile);
-//    }
-    static void ReadListEditText_Json(String nameFile,File pathFile,ArrayList<EditText> listEditText,ArrayList<String> arrayList) throws JSONException {
+    static final File pathTemplate =  new File(Environment.getExternalStorageDirectory(),"Template");
+    static void ReadListAutoCompleteTextView_Json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
         File fileData = new File(pathFile,nameFile);
         if(fileData.exists())
         {
@@ -157,26 +180,11 @@ final class SPC { private SPC() {}
 
             for(int i=0;i<arrayList.size();i++)
             {
-                listEditText.get(i).setText(jsonObject.getString(arrayList.get(i)));
+                listAutoCompleteTextView.get(i).setText(jsonObject.getString(arrayList.get(i)));
             }
         }
 
     }
-//    static void ReadListEditText(String nameFile,File pathFile,ArrayList<EditText> listEditText){
-//        File fileData = new File(pathFile,nameFile);
-//        if(fileData.exists())
-//        {
-//            String[] text = readText(fileData).split("&");
-//            for(int i=0;i<text.length;i++)
-//            {
-//                try{
-//                    String data = text[i].trim();
-//                    listEditText.get(i).setText(data);
-//                }catch (Exception e) {}
-//            }
-//        }
-//
-//    }
     static Bitmap GanToaDo(Bitmap bitmap,String MaTram,String ToaDo,String DiaDiem){
     Bitmap AnhDauRa = null;
     Bitmap newbitmap = null;
@@ -212,6 +220,208 @@ final class SPC { private SPC() {}
 
     AnhDauRa = newbitmap;
 
+
+
+
     return AnhDauRa;
+}
+    static ArrayList LayDanhSachThietBi(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[1];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
     }
+    static ArrayList LayDanhSachAnten(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[1];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+    static ArrayList LayDanhSachSuyHao(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[0];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+
+    static void setPopUp(Context context, AutoCompleteTextView edt, ArrayList<String> arrayList,ImageButton imageButton){
+        ArrayAdapter<String> adapterHT = new ArrayAdapter<String>(context, R.layout.custom_list_item, R.id.text_view_list_item, arrayList);
+        edt.setAdapter(adapterHT);
+        edt.setThreshold(1);
+        edt.setDropDownHeight(400);
+        if (imageButton != null)
+        {
+            imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final PopupMenu popupMenu = new PopupMenu(context, imageButton);
+
+                    for (String s : arrayList)
+                    { popupMenu.getMenu().add(s); }
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(final MenuItem menuItem) {
+                            edt.setText(menuItem.getTitle());
+                            return false;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+        }
+    }
+    static ArrayList<String> layCongSuatPhat1(String ChungLoaiThietBi, String BangTanHoatDong){
+        ArrayList<String> CongSuat = new ArrayList<String>();
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+                String CS = item.split("&")[4];
+                CongSuat.add(CS);
+            }
+        }
+        return CongSuat;
+    }
+    static String layDoTangIchAnten(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[3];
+                        }
+                    }
+                }
+            }
+        }
+        return DoTangIchAnten;
+    }
+    static String layDoDaiBucXa(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[4];
+                        }
+                    }
+                }
+            }
+        }
+        return DoTangIchAnten;
+    }
+    static String layGocNgang(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListAnten.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi)){
+                String TanSo = item.split("&")[2];
+                if(TanSo.contains("-"))
+                {
+                    String[] mangTanSo = TanSo.split("-");
+                    Double to = Double.valueOf(mangTanSo[0]);
+                    Double from = Double.valueOf(mangTanSo[1]);
+                    if(isNumeric(BangTanHoatDong))
+                    {
+                        Double BangTan = Double.valueOf(BangTanHoatDong);
+                        if(BangTan >= to && BangTan < from)
+                        {
+                            DoTangIchAnten = item.split("&")[6];
+                        }
+                    }
+                }
+            }
+        }
+        return DoTangIchAnten;
+    }
+    static String laySuyHaodB(String ChungLoaiThietBi, String BangTanHoatDong){
+        String DoTangIchAnten = "0.0";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong) ){
+                DoTangIchAnten = item.split("&")[4];
+            }
+        }
+        return DoTangIchAnten;
+    }
+
+
+    //region Công thức tính
+    static String TinhCongSuatPhat2(String CongSuatPhat1){
+        String CongSuatPhat2 = "";
+        Double double_CongSuatPhat2 = 0.0;
+        if(isNumeric(CongSuatPhat1))
+        {
+            Double CS1 = Double.valueOf(CongSuatPhat1);
+            double_CongSuatPhat2 = 10 * Math.log10(CS1*1000);
+        }
+        CongSuatPhat2 = String.valueOf(round(double_CongSuatPhat2,1));
+
+        return CongSuatPhat2;
+    }
+    static String TinhSuyHao(String ChieuDai,String SuyHaodB){
+        String SuyHao = "";
+        Double double_CongSuatPhat2 = 0.0;
+        if(isNumeric(ChieuDai) && isNumeric(SuyHaodB))
+        {
+            Double CS1 = Double.valueOf(ChieuDai);
+            Double CS2 = Double.valueOf(SuyHaodB);
+
+            double_CongSuatPhat2 = (CS1/100) * CS2;
+        }
+        SuyHao = String.valueOf(round(double_CongSuatPhat2,4));
+
+        return SuyHao;
+    }
+
+    static boolean isNumeric(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch(NumberFormatException e){
+            return false;
+        }
+    }
+    //endregion
 }
