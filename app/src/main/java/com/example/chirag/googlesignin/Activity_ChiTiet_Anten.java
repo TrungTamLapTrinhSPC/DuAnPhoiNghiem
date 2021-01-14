@@ -19,6 +19,7 @@ import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -48,7 +49,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     File pathThietKeAnten;
     ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
     ViewGroup viewgroup;
-    TextView edtTITLCo;
+    EditText edtTITLDien,edtTITLCo;
     int [] listID;
     AutoCompleteTextView[] list;
     HorizontalListView listview_thanhphan;
@@ -163,6 +164,23 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     edtCongXuatPhat2.setText(SPC.TinhCongSuatPhat2(edtCongXuatPhat1.getText().toString()));
                 }
             });
+            //TINH GOC NGANG
+            edtTITLCo.setText(SPC.layGocNgang(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+            if(!edtTITLCo.getText().toString().trim().equals(""))
+            {
+                if(SPC.isNumeric(edtTITLCo.getText().toString().trim()))
+                {
+                    if(!edtGocNgang.getText().toString().trim().equals(""))
+                    {
+                        if(SPC.isNumeric(edtGocNgang.getText().toString().trim()))
+                        {
+                            Double TillTong = Double.valueOf(edtGocNgang.getText().toString().trim());
+                            Double TillCo = Double.valueOf(edtTITLCo.getText().toString().trim());
+                            edtTITLDien.setText(String.valueOf(TillTong-TillCo));
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -341,9 +359,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 edtDoTangIch.setText(SPC.layDoTangIchAnten(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
                 edtDoDaiBucXa.setText(SPC.layDoDaiBucXa(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
                 edtTITLCo.setText(SPC.layGocNgang(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+
             }
         });
         SPC.setPopUp(this,edtChungLoaiFeeder,SPC.LayDanhSachSuyHao(),img_ChungLoaiFeeder);
@@ -412,6 +432,67 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 edtSuyHaoJumper.setText(SPC.TinhSuyHao(edtChieuDaiJumper.getText().toString(),edtSuyHaodBJumper.getText().toString()));
             }
         });
+        edtTITLDien.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!edtTITLCo.getText().toString().trim().equals(""))
+                {
+                    if(SPC.isNumeric(edtTITLCo.getText().toString().trim()))
+                    {
+                        if(!edtTITLDien.getText().toString().trim().equals(""))
+                        {
+                            if(SPC.isNumeric(edtTITLDien.getText().toString().trim()))
+                            {
+                                Double TillDien = Double.valueOf(edtTITLDien.getText().toString().trim());
+                                Double TillCo = Double.valueOf(edtTITLCo.getText().toString().trim());
+                                edtGocNgang.setText(String.valueOf(TillCo + TillDien));
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        edtTITLCo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(!edtTITLCo.getText().toString().trim().equals(""))
+                {
+                    if(SPC.isNumeric(edtTITLCo.getText().toString().trim()))
+                    {
+                        if(!edtTITLDien.getText().toString().trim().equals(""))
+                        {
+                            if(SPC.isNumeric(edtTITLDien.getText().toString().trim()))
+                            {
+                                Double TillDien = Double.valueOf(edtTITLDien.getText().toString().trim());
+                                Double TillCo = Double.valueOf(edtTITLCo.getText().toString().trim());
+                                edtGocNgang.setText(String.valueOf(TillCo + TillDien));
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
     }
 
     private void LuuThietKeAnten() throws JSONException {
@@ -431,6 +512,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         tvViTri = findViewById(R.id.tvViTri);
         viewgroup = findViewById(R.id.viewgroup);
         edtTITLCo = findViewById(R.id.edtTITLCo);
+        edtTITLDien = findViewById(R.id.edtTITLDien);
+
         listview_thanhphan = findViewById(R.id.listview_thanhphan);
         btnDanhSachCongTrinh = findViewById(R.id.btnDanhSachCongTrinh);
         btnMolayoutThietBi = findViewById(R.id.btnMolayoutThietBi);

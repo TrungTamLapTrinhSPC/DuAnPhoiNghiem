@@ -373,7 +373,7 @@ final class SPC { private SPC() {}
                 }
             }
         }
-        return "TILT cơ: " +DoTangIchAnten;
+        return DoTangIchAnten;
     }
     static String laySuyHaodB(String ChungLoaiThietBi, String BangTanHoatDong){
         String DoTangIchAnten = "0.0";
