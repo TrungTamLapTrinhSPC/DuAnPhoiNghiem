@@ -30,6 +30,7 @@
             android:layout_marginRight="20dp"/>
         <!-- Tên anten-->
         <TextView
+            android:id="@+id/tvTen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -65,10 +66,8 @@
                 android:id="@+id/edtTenAnten"
                 android:layout_width="200dp"
                 android:layout_weight="50"
-
                 android:layout_height="match_parent"
                 android:textSize="16dp" />
-
         </LinearLayout>
 
         <Button
@@ -81,7 +80,7 @@
             android:layout_marginBottom="15dp"
             android:background="@drawable/backgound_header_4"
             android:layout_gravity="center_horizontal"
-            android:text="Thêm bts"
+            android:text="Thêm anten"
             android:textAllCaps="false"
             android:textColor="#fff"
             android:textSize="28dp"

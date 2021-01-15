@@ -81,6 +81,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
+            listview.setVisibility(View.GONE);
             SettupListView();
         } catch (JSONException e) {
             e.printStackTrace();

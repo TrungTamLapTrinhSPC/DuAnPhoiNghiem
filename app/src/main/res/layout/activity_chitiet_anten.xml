@@ -565,6 +565,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginLeft="10dp">
                             <ImageButton
+                                android:id="@+id/img_LoaiAnten"
                                 android:layout_margin="5dp"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"
@@ -667,6 +668,7 @@
                             android:layout_marginRight="10dp"
                             android:layout_marginLeft="10dp">
                             <ImageButton
+                                android:id="@+id/img_BangTan"
                                 android:layout_margin="5dp"
                                 android:layout_width="25dp"
                                 android:layout_height="25dp"

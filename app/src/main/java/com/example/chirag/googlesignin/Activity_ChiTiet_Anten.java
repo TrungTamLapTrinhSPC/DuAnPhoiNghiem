@@ -40,7 +40,7 @@ import java.util.List;
 public class Activity_ChiTiet_Anten extends AppCompatActivity {
     LinearLayout btnDanhSachCongTrinh;
     ImageButton btnBack,btnMolayoutThietBi,btnMolayoutAnten,btnMolayoutSuyHao,btnMenu,
-            img_ChungLoaiThietBi,img_CongXuatPhat1,img_ChungLoaiAnten,img_ChungLoaiFeeder,img_ChungLoaiJumper;
+            img_ChungLoaiThietBi,img_CongXuatPhat1,img_ChungLoaiAnten,img_ChungLoaiFeeder,img_ChungLoaiJumper,img_BangTan,img_LoaiAnten;
     Button btnLuuThietBi,btnLuuAnten,btnLuuSuyHao;
     LinearLayout layoutThietBi,layoutAnten,layoutSuyHao;
     FloatingActionButton fab;
@@ -76,6 +76,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             e.printStackTrace();
         }
         try {
+            listview_thanhphan.setVisibility(View.GONE);
             setUpListView();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -130,6 +131,25 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             edtBangTan.setText(BangTanHoatDong);
             SPC.setPopUp(Activity_ChiTiet_Anten.this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),img_ChungLoaiThietBi);
             edtChungLoaiThietBi.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                }
+                @Override
+                public void afterTextChanged(Editable s) {
+                    ArrayList<String> lstCongSuat=  SPC.layCongSuatPhat1(edtChungLoaiThietBi.getText().toString(),edtBangTan.getText().toString());
+                    if(lstCongSuat.size()>0)
+                    {
+                        edtCongXuatPhat1.setText(lstCongSuat.get(0));
+                        SPC.setPopUp(Activity_ChiTiet_Anten.this,edtCongXuatPhat1,lstCongSuat,img_CongXuatPhat1);
+                    }
+                }
+            });
+            edtSoMayThu.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -346,6 +366,9 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             }
         });
         SPC.setPopUp(this,edtChungLoaiAnten,SPC.LayDanhSachAnten(),img_ChungLoaiAnten);
+        SPC.setPopUp(this,edtBangTan,SPC.listBangTan,img_BangTan);
+        SPC.setPopUp(this,edtLoaiAnten,SPC.listLoaiAnten,img_LoaiAnten);
+
         edtChungLoaiAnten.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -384,7 +407,39 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
             }
         });
+        edtChieuDaiFeeder.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
+            }
+        });
         edtChungLoaiJumper.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                edtSuyHaodBJumper.setText(SPC.laySuyHaodB(edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
+            }
+        });
+        edtChieuDaiJumper.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -524,6 +579,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         img_ChungLoaiAnten = findViewById(R.id.img_ChungLoaiAnten);
         img_ChungLoaiFeeder = findViewById(R.id.img_ChungLoaiFeeder);
         img_ChungLoaiJumper = findViewById(R.id.img_ChungLoaiJumper);
+        img_BangTan = findViewById(R.id.img_BangTan);
+        img_LoaiAnten = findViewById(R.id.img_LoaiAnten);
         //BUTTON LƯU
         btnLuuThietBi = findViewById(R.id.btnLuuThietBi);
         btnLuuAnten = findViewById(R.id.btnLuuAnten);

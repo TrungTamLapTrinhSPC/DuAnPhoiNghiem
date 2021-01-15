@@ -45,9 +45,13 @@ final class SPC { private SPC() {}
     static final String DuongDanFileThietKeTram = "/DuLieu/ThietKeTram.txt";
     static final String DuongDanThuMucHinhAnh = "/HinhAnh";
     static final String DuongDanThuMucDuLieu = "/DuLieu";
+    static final ArrayList<String> listLoaiAnten = new ArrayList<String>(Arrays.asList("Định hướng"));
+
     static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
+    static final ArrayList<String> TenHinhAnhTongThe = new ArrayList<String>(Arrays.asList("Hình ảnh biển nhà trạm", "Hình ảnh tổng thể cột anten", "Hình ảnh tổng thể các thiết bị trong phòng máy", "Thiết bị 2G",
+            "Thiết bị 3G","Thiết bị 4G","Hình ảnh thiết bị treo trên cột","Hình ảnh anten 4G","Hình ảnh anten 2G","Hình ảnh anten 3G"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));

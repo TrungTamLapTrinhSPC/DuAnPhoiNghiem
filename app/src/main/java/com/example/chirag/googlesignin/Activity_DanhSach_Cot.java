@@ -126,6 +126,12 @@ public class Activity_DanhSach_Cot extends AppCompatActivity
         tvViTri.setText(DiaDiem);
         ToaDo = intent.getStringExtra("ToaDo");
         tvToaDo.setText(ToaDo);
+        for(String img:SPC.TenHinhAnhTongThe)
+        {
+            File imgPath = new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanThuMucHinhAnh);
+             imgPath = new File(imgPath,img);
+            SPC.TaoThuMuc(imgPath);
+        }
     }
     public void setupThietKeTram() throws JSONException {
         File fileThietKe = new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanFileThietKeTram);

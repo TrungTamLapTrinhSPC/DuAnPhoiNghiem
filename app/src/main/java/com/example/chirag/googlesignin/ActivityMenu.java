@@ -101,7 +101,20 @@ public class ActivityMenu extends AppCompatActivity {
         upload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadToDrive(MaTram);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ActivityMenu.this);
+                builder.setTitle("Bạn muốn gửi folder này lên Google drive?");
+                // add the buttons
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        uploadToDrive(MaTram);
+                    }
+                });
+                builder.setNegativeButton("không", null);
+                // create and show the alert dialog
+                AlertDialog dialog2 = builder.create();
+                dialog2.show();
+
             }
         });
 
