@@ -37,7 +37,7 @@
                 android:background="@drawable/duongbotron2"
                 android:scrollbars="horizontal|vertical">
                 <TableLayout
-                    android:id="@+id/TableMstower"
+                    android:id="@+id/TableXemTruocBaoCao"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="#3e3d3d">
@@ -68,7 +68,7 @@
                             android:textStyle="bold" />
                         <TextView
                             android:layout_width="300dp"
-                            android:layout_height="30dp"
+                            android:layout_height="fill_parent"
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
                             android:layout_weight="0.5"
@@ -87,7 +87,7 @@
                             android:background="#F1f1f1"
                             android:gravity="center"
                             android:padding="2dp"
-                            android:text="Anten 1"
+                            android:text=""
                             android:textStyle="bold" />
                         <TextView
                             android:layout_width="fill_parent"
@@ -97,7 +97,7 @@
                             android:layout_weight="0.5"
                             android:background="#F1f1f1"
                             android:gravity="center"
-                            android:text="Anten 2"
+                            android:text=""
                             android:padding="2dp"
                             android:textStyle="bold" />
                         <TextView
@@ -108,56 +108,64 @@
                             android:layout_weight="0.5"
                             android:background="#F1f1f1"
                             android:gravity="center"
-                            android:text="Anten 3"
+                            android:text=""
+                            android:padding="2dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:text=""
+                            android:padding="2dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:text=""
+                            android:padding="2dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:text=""
+                            android:padding="2dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:text=""
                             android:padding="2dp"
                             android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
                             android:layout_weight="0.5"
                             android:background="#F1f1f1"
                             android:gravity="center"
-                            android:text="Anten 4"
-                            android:padding="2dp"
                             android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#F1f1f1"
-                            android:gravity="center"
-                            android:text="Anten 5"
-                            android:padding="2dp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#F1f1f1"
-                            android:gravity="center"
-                            android:text="Anten 6"
-                            android:padding="2dp"
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#F1f1f1"
-                            android:gravity="center"
-                            android:text="Anten 7"
-                            android:padding="2dp"
-                            android:textStyle="bold" />
-
-
                     </TableRow>
 
                     <TableRow>
@@ -181,6 +189,7 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:textColor="#000"
+                            android:paddingLeft="2dp"
                             android:text="Thiết bị phát sóng tần số radio"
                             android:textStyle="bold" />
                         <TextView
@@ -206,6 +215,7 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
 
                         <EditText
@@ -218,6 +228,7 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
                         <EditText
                             android:layout_width="fill_parent"
@@ -229,6 +240,7 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
                         <EditText
                             android:layout_width="fill_parent"
@@ -240,6 +252,7 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
                         <EditText
                             android:layout_width="fill_parent"
@@ -250,7 +263,7 @@
                             android:background="#fff"
                             android:gravity="center"
                             android:layout_column="0"
-                            android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
                         <EditText
                             android:layout_width="fill_parent"
@@ -261,7 +274,7 @@
                             android:background="#fff"
                             android:gravity="center"
                             android:layout_column="0"
-                            android:text=""
+                            android:padding="4dp"
                             android:textStyle="bold" />
                         <EditText
                             android:layout_width="fill_parent"
@@ -272,7 +285,16 @@
                             android:background="#fff"
                             android:gravity="center"
                             android:layout_column="0"
-                            android:text=""
+                            android:padding="4dp"
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="50dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
                             android:textStyle="bold" />
 
                     </TableRow>
@@ -308,7 +330,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -391,6 +413,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -424,7 +455,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -507,6 +538,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -530,7 +570,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="center"
                             android:textSize="16dp"
                             android:textStyle="bold"
                             android:textColor="#000"
@@ -543,7 +583,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -626,6 +666,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -659,7 +708,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -742,6 +791,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -775,7 +833,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -858,6 +916,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -891,7 +958,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -974,6 +1041,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1007,7 +1083,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1090,7 +1166,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
-
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1124,7 +1208,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1207,6 +1291,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1240,7 +1333,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1323,6 +1416,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1356,7 +1458,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1439,6 +1541,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1471,7 +1582,7 @@
                             android:layout_weight="0.5"
                             android:padding="2dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="16dp"
                             android:textStyle="bold"
                             android:textColor="#000"
@@ -1554,6 +1665,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1585,7 +1705,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1668,6 +1788,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1699,7 +1828,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1782,6 +1911,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1813,7 +1951,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -1896,6 +2034,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -1927,7 +2074,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -2010,6 +2157,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -2041,7 +2197,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -2124,6 +2280,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -2155,7 +2320,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -2238,6 +2403,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -2269,7 +2443,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:padding="2dp"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -2352,6 +2526,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -2382,7 +2565,7 @@
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:padding="2dp"
                             android:textSize="15dp"
                             android:textStyle="normal"
@@ -2466,6 +2649,15 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
+                            android:textStyle="bold" />
                     </TableRow>
 
                     <TableRow>
@@ -2496,7 +2688,7 @@
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
-                            android:gravity="start"
+                            android:gravity="start|center_vertical"
                             android:padding="2dp"
                             android:textSize="15dp"
                             android:textStyle="normal"
@@ -2580,118 +2772,14 @@
                             android:layout_column="0"
                             android:text=""
                             android:textStyle="bold" />
-                    </TableRow>
-
-                    <TableRow>
-
                         <TextView
-                            android:layout_width="30dp"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <TextView
-                            android:layout_width="100dp"
-                            android:layout_height="fill_parent"
+                            android:layout_width="0.1dp"
+                            android:layout_height="30dp"
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:text="4.Các thành phần khác (nếu có)"
-                            android:textSize="15dp"
-                            android:textColor="#000"/>
-                        <TextView
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:textSize="15dp"
-                            android:textStyle="normal"
-                            android:textColor="#000"
-                            android:text="0"/>
-
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
                             android:layout_weight="0.5"
-                            android:background="#fff"
+                            android:background="#F1f1f1"
                             android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
-                            android:textStyle="bold" />
-                        <EditText
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_marginHorizontal="0.5dp"
-                            android:layout_marginBottom="0.5dp"
-                            android:layout_weight="0.5"
-                            android:background="#fff"
-                            android:gravity="center"
-                            android:layout_column="0"
-                            android:text=""
                             android:textStyle="bold" />
                     </TableRow>
 
@@ -2714,7 +2802,7 @@
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
                             android:gravity="center"
-                            android:text="5.Tổng suy hao Lsh"
+                            android:text="4.Tổng suy hao Lsh"
                             android:textSize="15dp"
                             android:textColor="#000"/>
                         <TextView
@@ -2723,7 +2811,7 @@
                             android:layout_marginBottom="0.5dp"
                             android:layout_marginHorizontal="0.5dp"
                             android:background="#fff"
-                            android:gravity="center"
+                            android:gravity="start|center_vertical"
                             android:textSize="15dp"
                             android:textStyle="normal"
                             android:textColor="#000"
@@ -2805,6 +2893,15 @@
                             android:gravity="center"
                             android:layout_column="0"
                             android:text=""
+                            android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="0.1dp"
+                            android:layout_height="50dp"
+                            android:layout_marginBottom="0.5dp"
+                            android:layout_marginHorizontal="0.5dp"
+                            android:layout_weight="0.5"
+                            android:background="#F1f1f1"
+                            android:gravity="center"
                             android:textStyle="bold" />
                     </TableRow>
 
