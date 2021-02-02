@@ -293,7 +293,8 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         Button btnXemAnh = (Button) dialogthongso.findViewById(R.id.btnXemAnh);
         btnXemAnh.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent= new Intent(Activity_DanhSach_AnhChup.this,Activity_SuaHinhAnh.class);
                 intent.putExtra("MaTram",MaTram);
                 intent.putExtra("DiaDiem",tvViTri.getText().toString());
@@ -333,10 +334,10 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         });
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 DialogDoiten(vt);
                 dialogthongso.dismiss();
-
             }
         });
     }
@@ -366,11 +367,13 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                     // add the buttons
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
                             File fileOld = new File(pathHinhAnh,list_AnhChup.get(vt).getTenAnh());
                             File fileNew = new File(pathHinhAnh,edtMaTram.getText().toString());
 
-                            if(!fileNew.exists()){
+                            if(!fileNew.exists())
+                            {
                                 boolean result= fileOld.renameTo(fileNew);
                                 if (result) Toast.makeText(Activity_DanhSach_AnhChup.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
                             }
@@ -384,7 +387,6 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                     AlertDialog dialog2 = builder.create();
                     dialog2.show();
                 }
-
             }
         });
 

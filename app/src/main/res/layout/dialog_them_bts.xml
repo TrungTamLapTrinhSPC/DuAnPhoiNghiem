@@ -29,48 +29,7 @@
             android:background="@drawable/line"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
-        <!-- Tên anten-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Tên trạm gốc:"
-            android:layout_marginTop="15dp"
-            android:textColor="#000"
-            android:textSize="16dp"
-            android:textStyle="normal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/hinhcovienxam"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
-            <ImageButton
-                android:layout_margin="5dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:background="@drawable/pencil" />
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="@drawable/line"/>
 
-            <AutoCompleteTextView
-                android:textColor="#111"
-                android:layout_margin="5dp"
-                android:hint="Tên trạm gốc"
-                android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtTenTramGoc"
-                android:layout_weight="90"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="16dp" />
-
-
-        </LinearLayout>
         <!-- Chủng loại thiết bị-->
         <TextView
             android:layout_width="wrap_content"
@@ -171,6 +130,90 @@
                 android:textSize="15dp"
                 android:textStyle="bold"
                 android:gravity="center" />
+
+        </LinearLayout>
+        <!-- Tên anten-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Mạng sử dụng:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="16dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pencil" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/line"/>
+
+            <AutoCompleteTextView
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Mạng sử dụng"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtMangSuDung"
+                android:layout_weight="90"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16dp" />
+
+
+        </LinearLayout>
+        <!-- Tên anten-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="Tên trạm gốc:"
+            android:layout_marginTop="10dp"
+            android:textColor="#000"
+            android:textSize="16dp"
+            android:textStyle="normal" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/hinhcovienxam"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp">
+            <ImageButton
+                android:layout_margin="5dp"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/pencil" />
+            <ImageButton
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/line"/>
+
+            <AutoCompleteTextView
+                android:textColor="#111"
+                android:layout_margin="5dp"
+                android:hint="Tên trạm gốc"
+                android:background="@drawable/backgound_edittext"
+                android:id="@+id/edtTenTramGoc"
+                android:layout_weight="90"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textSize="16dp" />
+
 
         </LinearLayout>
         <Button

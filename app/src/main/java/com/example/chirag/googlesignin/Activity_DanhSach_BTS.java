@@ -39,16 +39,14 @@ import java.util.List;
 public class Activity_DanhSach_BTS extends AppCompatActivity {
     ImageButton btnBack,btnThemBTS,btnMenu;
     TextView title,tvToaDo,tvViTri;
-    //THIẾT KẾ CỘT
-    TextView tvViTriX,tvViTriY,tvChieuCaoCot;
     ListView listview;
-    LinearLayout btnThietKe;
     List<DoiTuong_BTS> list_BTS = new ArrayList<>();
     Adapter_DoiTuong_BTS adapter_doiTuong_bts;
     String MaTram,TenCot,DiaDiem,ToaDo;
     File pathTramGoc;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_danhsach_bts);
         getWindow().setSoftInputMode(WindowManager.
@@ -64,60 +62,32 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         list_BTS = new ArrayList<>();
         File[] files=pathTramGoc.listFiles();
         try{
-            for (File file:files)
+            for (File fileThietKe:files)
             {
-                if(file.isDirectory())
+                if(fileThietKe.exists())
                 {
-                    File fileThietKe = new File(pathTramGoc,file.getName().trim()+ "/ThietKeBTS.txt");
-                    if (fileThietKe.exists())
-                    {
                         String thietke = SPC.readText(fileThietKe);
                         JSONObject jsonObject = new JSONObject(thietke);
                         if (!thietke.equals(""))
                         {
-//                            String[] listThietke = thietke.split("&");
-//                            String TenTramGoc = listThietke[SPC.TimViTri("TenTramGoc",SPC.ThietKeBTS)];
-//                            String BangTanHoatDong = listThietke[SPC.TimViTri("BangTanHoatDong",SPC.ThietKeBTS)];
-//                            String ChungLoaiThietBi = listThietke[SPC.TimViTri("ChungLoaiThietBi",SPC.ThietKeBTS)];
                             String TenTramGoc = jsonObject.getString("TenTramGoc");
                             String BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
                             String ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
-                            String SoAnten ="0"+ DemSoAnTen(file);
-                            list_BTS.add(new DoiTuong_BTS(TenTramGoc,ChungLoaiThietBi,BangTanHoatDong,SoAnten));
+                            String MangSuDung = jsonObject.getString("MangSuDung");
+                            list_BTS.add(new DoiTuong_BTS(TenTramGoc,ChungLoaiThietBi,BangTanHoatDong,MangSuDung));
                         }
-                    }
                 }
             }
-            getThietKeCot();
+
         }
-        catch (Exception e){}
+        catch (Exception ignored){}
 
         //Thay đổi thử dòng 30
         /**HIỂN THỊ RA MÀN HÌNH*/
         adapter_doiTuong_bts = new Adapter_DoiTuong_BTS(list_BTS, Activity_DanhSach_BTS.this,R.layout.item_bts);
         listview.setAdapter(adapter_doiTuong_bts);
     }
-    private void getThietKeCot() throws JSONException {
-        File fileThietKe = new File(pathTramGoc, "ThietKeCot.txt");
-        if (fileThietKe.exists())
-        {
-            String thietke = SPC.readText(fileThietKe);
-            JSONObject jsonObject = new JSONObject(thietke);
-            if (!thietke.equals(""))
-            {
-//                String[] listThietke = thietke.split("&");
-//                String ChieuCaoCot = listThietke[SPC.TimViTri("ChieuCaoCot",SPC.ThietKeCot)]+ " m";
-//                String ViTriX = listThietke[SPC.TimViTri("ViTriX",SPC.ThietKeCot)] + " m";
-//                String ViTriY = listThietke[SPC.TimViTri("ViTriY",SPC.ThietKeCot)]+ " m";
-                String ChieuCaoCot = jsonObject.getString("ChieuCaoCot")+ " m";
-                String ViTriX = jsonObject.getString("ViTriX")+ " m";
-                String ViTriY = jsonObject.getString("ViTriY")+ " m";
-                tvChieuCaoCot.setText(ChieuCaoCot);
-                tvViTriX.setText(ViTriX);
-                tvViTriY.setText(ViTriY);
-            }
-        }
-    }
+
     private String DemSoAnTen(File fileTram){
         int sotram = 0;
         File[] listCot = fileTram.listFiles();
@@ -126,33 +96,34 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
     }
     private void NhanBien() {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
-        TenCot =intent.getStringExtra("TenCot");
+        //TenCot =intent.getStringExtra("TenCot");
         MaTram =intent.getStringExtra("MaTram");
-        title.setText(MaTram+" - "+TenCot);
+        title.setText(MaTram);
         DiaDiem=intent.getStringExtra("DiaDiem");
         tvViTri.setText(DiaDiem);
         ToaDo = intent.getStringExtra("ToaDo");
         tvToaDo.setText(ToaDo);
-        pathTramGoc = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/" + TenCot);
-
+        pathTramGoc = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/DanhSachBTS");
+        if (!pathTramGoc.exists()) SPC.TaoThuMuc(pathTramGoc);
     }
     private void SuKien() {
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent= new Intent(Activity_DanhSach_BTS.this,Activity_DanhSach_Anten.class);
-                intent.putExtra("MaTram",MaTram);
-                intent.putExtra("TenCot",TenCot);
-                intent.putExtra("TenTramGoc",list_BTS.get(position).getTenTramGoc());
-                intent.putExtra("DiaDiem",tvViTri.getText().toString());
-                intent.putExtra("ToaDo",tvToaDo.getText().toString());
-                startActivity(intent);
+//                Intent intent= new Intent(Activity_DanhSach_BTS.this,Activity_DanhSach_Anten.class);
+//                intent.putExtra("MaTram",MaTram);
+//                intent.putExtra("TenCot",TenCot);
+//                intent.putExtra("TenTramGoc",list_BTS.get(position).getTenTramGoc());
+//                intent.putExtra("DiaDiem",tvViTri.getText().toString());
+//                intent.putExtra("ToaDo",tvToaDo.getText().toString());
+//                startActivity(intent);
+                DialogMenu(position);
             }
         });
         listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                    DialogMenu(position);
+
                 return true;
             }
         });
@@ -168,7 +139,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                 onBackPressed();
             }
         });
-        btnThietKe.setOnClickListener(new View.OnClickListener() {
+       /* btnThietKe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
@@ -179,7 +150,7 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                     e.printStackTrace();
                 }
             }
-        });
+        });*/
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -191,13 +162,10 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         listview = findViewById(R.id.listview_bts);
         btnThemBTS = findViewById(R.id.btnThemBTS);
         btnBack = findViewById(R.id.btnBack);
-        btnThietKe = findViewById(R.id.btnThietKe);
+        //btnThietKe = findViewById(R.id.btnThietKe);
         title = findViewById(R.id.title);
         tvToaDo = findViewById(R.id.tvToaDo);
         tvViTri = findViewById(R.id.tvViTri);
-        tvViTriX = findViewById(R.id.tvViTriX);
-        tvViTriY = findViewById(R.id.tvViTriY);
-        tvChieuCaoCot = findViewById(R.id.tvChieuCaoCot);
         btnMenu = findViewById(R.id.btnMenu);
     }
     //region Dialog
@@ -219,88 +187,32 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);
         SPC.setPopUp(this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),btnChonChungLoai);
         AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);
+        AutoCompleteTextView edtMangSuDung = dialogthongso.findViewById(R.id.edtMangSuDung);
         SPC.setPopUp(this,edtBangTanHoatDong,SPC.listBangTan,tvChonBangTanHoatDong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);
-
-        btnLuu.setOnClickListener(new View.OnClickListener() {
+        edtBangTanHoatDong.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onClick(View v) {
-                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
-                for( AutoCompleteTextView edt:listAutoCompleteTextView){
-                    if(edt.getText().toString().trim().equals(""))
-                    {
-                        Toast.makeText(Activity_DanhSach_BTS.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
-                        break;
-                    }
-                    else
-                    {
-                        File pathDuLieu = new File(pathTramGoc, edtTenTramGoc.getText().toString());
-                        SPC.TaoThuMuc(pathDuLieu);
-                        if(pathDuLieu.exists())
-                        {
-                            try
-                            {
-                                SPC.SaveListAutoCompleteTextView_json("ThietKeBTS",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeBTS);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                            SettupListView();
-                            Toast.makeText(Activity_DanhSach_BTS.this, "Đã tạo tram " + pathDuLieu.getName(), Toast.LENGTH_SHORT).show();
-                            dialogthongso.dismiss();
-                        }
-                    }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!edtBangTanHoatDong.getText().toString().trim().equals("")){
+                    edtMangSuDung.setText(SPC.layMangSuDung(edtChungLoaiThietBi.getText().toString(),edtBangTanHoatDong.getText().toString()));
+                    edtTenTramGoc.setText("BTS " + edtMangSuDung.getText().toString() + " " + edtBangTanHoatDong.getText().toString());
                 }
             }
         });
-    };
-    private void DialogThietKeCot(String title2,String title3) throws ParseException, JSONException {
-        final Dialog dialogthongso = new Dialog(Activity_DanhSach_BTS.this,R.style.PauseDialog);
-        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialogthongso.setContentView(R.layout.dialog_themcot);
-        Window window= dialogthongso.getWindow();
-        if (window==null){return;}
-        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        WindowManager.LayoutParams windowArr = window.getAttributes();
-        windowArr.gravity = Gravity.CENTER;
-        window.setAttributes(windowArr);
-        dialogthongso.show();
-        TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
-        tvTitle.setText(title2);
-
-        AutoCompleteTextView edtTenCot = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        AutoCompleteTextView edtChieucaoCot = dialogthongso.findViewById(R.id.edtChieuCaoCongTrinh);
-        AutoCompleteTextView edtSoChan = dialogthongso.findViewById(R.id.edtSoChan);
-        AutoCompleteTextView edtKichThuocThanCot = dialogthongso.findViewById(R.id.edtKichThuocThanCot);
-        AutoCompleteTextView edtChieuX = dialogthongso.findViewById(R.id.edtChieuX);
-        AutoCompleteTextView edtChieuY = dialogthongso.findViewById(R.id.edtChieuY);
-        Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
-        btnLuu.setText(title3);
-        RadioButton checkbox_trenmai = dialogthongso.findViewById(R.id.checkbox_trenmai);
-        RadioButton checkbox_duoidat = dialogthongso.findViewById(R.id.checkbox_duoidat);
-        RadioGroup radioGroup = (RadioGroup) dialogthongso.findViewById(R.id.radioGroup);
-        /**
-         * NHẬN BIẾN
-         */
-        ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenCot,edtChieucaoCot,edtSoChan,edtKichThuocThanCot,edtChieuX,edtChieuY));
-        SPC.ReadListAutoCompleteTextView_Json("ThietKeCot.txt",pathTramGoc,listAutoCompleteTextView,SPC.ThietKeCot);
-        if(edtSoChan.equals("3")) checkbox_duoidat.setChecked(true);
-        else checkbox_trenmai.setChecked(true);
-        /**
-         * Sự kiện
-         */
-        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId)
-            {
-                if(checkbox_trenmai.isChecked())  edtSoChan.setText("3");
-                else edtSoChan.setText("4");
-            }
-        });
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong,edtMangSuDung));
                 for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {
@@ -309,16 +221,21 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                     }
                     else
                     {
-                        File pathDuLieu = pathTramGoc;
-                        if(pathDuLieu.exists())
+                        //File pathDuLieu = new File(pathTramGoc, edtTenTramGoc.getText().toString());
+                        //SPC.TaoThuMuc(pathDuLieu);
+                        if(pathTramGoc.exists())
                         {
-                            try {
-                                SPC.SaveListAutoCompleteTextView_json("ThietKeCot",pathDuLieu,listAutoCompleteTextView,SPC.ThietKeCot);
+                            try
+                            {
+                                SPC.SaveListAutoCompleteTextView_json(edtTenTramGoc.getText().toString(),pathTramGoc,listAutoCompleteTextView,SPC.ThietKeBTS);
+                                File pathHinhAnh= new File(SPC.pathDataApp_PNDT,MaTram+ SPC.DuongDanThuMucHinhAnh);
+                                SPC.TaoThuMuc(new File( pathHinhAnh,"Thiết bị " + edtTenTramGoc.getText().toString().replace("BTS ","")));
+                                SPC.TaoThuMuc(new File( pathHinhAnh,"Hình ảnh anten " + edtTenTramGoc.getText().toString().replace("BTS ","")));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                             SettupListView();
-                            Toast.makeText(Activity_DanhSach_BTS.this, "Đã Lưu thiết kế " + pathDuLieu.getName(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Activity_DanhSach_BTS.this, "Đã tạo tram " + pathTramGoc.getName(), Toast.LENGTH_SHORT).show();
                             dialogthongso.dismiss();
                         }
                     }
@@ -354,14 +271,12 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         File file = new File(pathTramGoc,list_BTS.get(vt).getTenTramGoc());
-                        try {
-                            FileUtils.deleteDirectory(file);
+
+                            //FileUtils.deleteDirectory(file);
+                            file.delete();
                             Toast.makeText(getApplicationContext(),"Đã xóa trạm gốc!", Toast.LENGTH_SHORT).show();
                             SettupListView();
-                        } catch (IOException e)
-                        {
-                            e.printStackTrace();
-                        }
+
                         dialogthongso.dismiss();
                     }
                 });
@@ -399,13 +314,32 @@ public class Activity_DanhSach_BTS extends AppCompatActivity {
         AutoCompleteTextView edtChungLoaiThietBi = dialogthongso.findViewById(R.id.edtTenCongTrinh);edtChungLoaiThietBi.setText(list_BTS.get(vt).getChungLoaiThietBi());
         SPC.setPopUp(this,edtChungLoaiThietBi,SPC.LayDanhSachThietBi(),btnChonChungLoai);
         AutoCompleteTextView edtBangTanHoatDong = dialogthongso.findViewById(R.id.edtBangTanHoatDong);edtBangTanHoatDong.setText(list_BTS.get(vt).getBangTanHoatDong());
+        AutoCompleteTextView edtMangSuDung = dialogthongso.findViewById(R.id.edtMangSuDung);edtBangTanHoatDong.setText(list_BTS.get(vt).getMangSuDung());
         SPC.setPopUp(this,edtBangTanHoatDong,SPC.listBangTan,tvChonBangTanHoatDong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);btnLuu.setText("Lưu thông số");
+        edtBangTanHoatDong.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!edtBangTanHoatDong.getText().toString().trim().equals("")){
+                    edtMangSuDung.setText(SPC.layMangSuDung(edtChungLoaiThietBi.getText().toString(),edtBangTanHoatDong.getText().toString()));
+                    edtTenTramGoc.setText("BTS " + edtMangSuDung.getText().toString() + " " + edtBangTanHoatDong.getText().toString());
+                }
+            }
+        });
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong));
+                ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenTramGoc,edtChungLoaiThietBi,edtBangTanHoatDong,edtMangSuDung));
                 for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals(""))
                     {

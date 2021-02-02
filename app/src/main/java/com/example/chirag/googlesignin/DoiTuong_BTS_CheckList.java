@@ -1,16 +1,18 @@
 package com.example.chirag.googlesignin;
 
-public class DoiTuong_BTS {
+public class DoiTuong_BTS_CheckList {
     private String TenTramGoc;
     private String ChungLoaiThietBi;
     private String BangTanHoatDong;
     private String MangSuDung;
+    private boolean active= false;
 
-    public DoiTuong_BTS(String tenTramGoc, String chungLoaiThietBi, String bangTanHoatDong, String mangSuDung) {
+    public DoiTuong_BTS_CheckList(String tenTramGoc, String chungLoaiThietBi, String bangTanHoatDong, String mangSuDung, boolean active) {
         TenTramGoc = tenTramGoc;
         ChungLoaiThietBi = chungLoaiThietBi;
         BangTanHoatDong = bangTanHoatDong;
         MangSuDung = mangSuDung;
+        this.active = active;
     }
 
     public String getTenTramGoc() {
@@ -43,5 +45,13 @@ public class DoiTuong_BTS {
 
     public void setMangSuDung(String MangSuDung) {
         MangSuDung = MangSuDung;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
     }
 }

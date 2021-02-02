@@ -107,7 +107,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="20dp" />
                     </LinearLayout>
-
                 </LinearLayout>
                 <ViewStub
                     android:id="@+id/stub_list"
@@ -131,282 +130,369 @@
                 android:textSize="20dp"
                 android:layout_marginLeft="10dp"
                 />
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:background="@drawable/hinhcovienxanh2"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/hinhcovienxanh2"
-                android:orientation="vertical">
-                <!--Chi tiết thiết kế trạm-->
+                android:layout_height="280dp">
                 <LinearLayout
-                    android:id="@+id/btnThietKe"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:gravity="center"
-                    android:background="@drawable/dobong"
-                    android:descendantFocusability="blocksDescendants"
-                    android:elevation="10dp">
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
+                    android:orientation="vertical">
+                    <!--Chi tiết thiết kế trạm-->
+                    <LinearLayout
+                        android:id="@+id/btnThietKe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:layout_marginRight="5dp"
+                        android:gravity="center"
+                        android:background="@drawable/dobong"
+                        android:descendantFocusability="blocksDescendants"
+                        android:elevation="10dp">
                         <LinearLayout
-                            android:layout_width="250dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
-                            <TextView
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="250dp"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Chi tiết thiết kế trạm"
+                                    android:textColor="#000"
+                                    android:paddingLeft="10dp"
+                                    android:textSize="18dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/line">
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
+                                    android:layout_marginTop="5dp"
+                                    android:orientation="horizontal">
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/ic11"/>
+                                    <TextView
+                                        android:id="@+id/tvMaTram"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="HNI1234"
+                                        android:layout_marginLeft="3dp"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="15dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/cottrenmai"/>
+                                    <TextView
+                                        android:id="@+id/tvViTriDat"
+                                        android:layout_marginLeft="3dp"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Trên mái"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/header_panel_4"
+                                android:layout_marginLeft="10dp"
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/icons8" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+                    <!--Chi tiết thiết kế Nhà đặt trạm-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:id="@+id/btnNhaDatTram"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:background="@drawable/dobong"
+                        android:descendantFocusability="blocksDescendants"
+                        android:elevation="10dp">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Chi tiết thiết kế trạm"
-                                android:textColor="#000"
-                                android:paddingLeft="10dp"
-                                android:textSize="18dp"/>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@drawable/line">
-                            </LinearLayout>
+                                android:orientation="vertical">
 
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="5dp"
-                                android:orientation="horizontal">
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="15dp"
-                                    android:layout_marginTop="5dp"
-                                    android:background="@drawable/ic11"/>
                                 <TextView
-                                    android:id="@+id/tvMaTram"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="250dp"
                                     android:layout_height="wrap_content"
-                                    android:text="HNI1234"
-                                    android:layout_marginLeft="3dp"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="15dp"
+                                    android:text="Nhà đặt trạm"
+                                    android:textColor="#000"
+                                    android:textSize="18dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/line">
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
                                     android:layout_marginTop="5dp"
-                                    android:background="@drawable/cottrenmai"/>
-                                <TextView
-                                    android:id="@+id/tvViTriDat"
-                                    android:layout_marginLeft="3dp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Trên mái"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
-
+                                    android:orientation="horizontal">
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/ic_width"/>
+                                    <TextView
+                                        android:id="@+id/tvWidth"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0m"
+                                        android:layout_marginLeft="5dp"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="40dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/icons3"/>
+                                    <TextView
+                                        android:id="@+id/tvHeight"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0m"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+                                </LinearLayout>
                             </LinearLayout>
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="@drawable/header_panel_4"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                            <ImageButton
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/header_panel_4"
                                 android:layout_marginLeft="10dp"
-                                android:background="@drawable/icons8" />
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:layout_width="43dp"
+                                    android:layout_height="43dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/ic_contrinh" />
+                            </LinearLayout>
                         </LinearLayout>
-
                     </LinearLayout>
-                </LinearLayout>
-                <!--Chi tiết thiết kế Nhà đặt trạm-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:id="@+id/btnNhaDatTram"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:background="@drawable/dobong"
-                    android:descendantFocusability="blocksDescendants"
-                    android:elevation="10dp">
+                    <!--Danh sách trạm gốc-->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:gravity="center"
+                        android:id="@+id/btnDanhSachBTS"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:background="@drawable/dobong"
+                        android:descendantFocusability="blocksDescendants"
+                        android:elevation="10dp">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="250dp"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Nhà đặt trạm"
-                                android:textColor="#000"
-                                android:textSize="18dp"/>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@drawable/line">
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="5dp"
-                                android:orientation="horizontal">
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="5dp"
-                                    android:background="@drawable/ic_width"/>
+                                android:orientation="vertical">
+
                                 <TextView
-                                    android:id="@+id/tvWidth"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="250dp"
                                     android:layout_height="wrap_content"
-                                    android:text="0m"
-                                    android:layout_marginLeft="5dp"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="40dp"
+                                    android:text="Danh sách trạm gốc"
+                                    android:textColor="#000"
+                                    android:textSize="18dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/line">
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
                                     android:layout_marginTop="5dp"
-                                    android:background="@drawable/icons3"/>
-                                <TextView
-                                    android:id="@+id/tvHeight"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0m"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/antena"/>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Số trạm gốc: "
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+                                    <TextView
+                                        android:id="@+id/tvTramGoc"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+
+                                </LinearLayout>
                             </LinearLayout>
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="@drawable/header_panel_4"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                            <ImageButton
-                                android:layout_width="43dp"
-                                android:layout_height="43dp"
-                                android:layout_gravity="center"
+
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/header_panel_4"
                                 android:layout_marginLeft="10dp"
-                                android:background="@drawable/ic_contrinh" />
+                                android:layout_gravity="center">
+                                <ImageView
+                                    android:layout_width="55dp"
+                                    android:layout_marginLeft="0dp"
+                                    android:layout_height="55dp"
+                                    android:layout_gravity="center"
+                                    android:src="@drawable/cot_3g" />
+                            </LinearLayout>
+
                         </LinearLayout>
                     </LinearLayout>
-                </LinearLayout>
-                <!--Hình ảnh tổng thể-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:id="@+id/btnAnhChup"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:paddingBottom="10dp"
-                    android:paddingTop="10dp"
-                    android:background="@drawable/dobong"
-                    android:descendantFocusability="blocksDescendants"
-                    android:elevation="10dp">
+                    <!--Hình ảnh tổng thể-->
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
-
+                        android:gravity="center"
+                        android:id="@+id/btnAnhChup"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:background="@drawable/dobong"
+                        android:descendantFocusability="blocksDescendants"
+                        android:elevation="10dp">
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical">
+                            android:orientation="horizontal">
 
-                            <TextView
-                                android:layout_width="250dp"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Các hình ảnh tổng thể"
-                                android:textColor="#000"
-                                android:textSize="18dp"/>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="@drawable/line">
-                            </LinearLayout>
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginTop="5dp"
-                                android:orientation="horizontal">
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:layout_marginTop="5dp"
+                                android:orientation="vertical">
 
-                                    android:background="@drawable/icons8_quaterly"/>
                                 <TextView
-                                    android:id="@+id/tvNgaySua"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="250dp"
                                     android:layout_height="wrap_content"
-                                    android:text="20-11-2020"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
-                                <ImageButton
-                                    android:layout_width="20dp"
-                                    android:layout_height="20dp"
-                                    android:layout_marginLeft="10dp"
+                                    android:text="Các hình ảnh tổng thể"
+                                    android:textColor="#000"
+                                    android:textSize="18dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@drawable/line">
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="30dp"
                                     android:layout_marginTop="5dp"
-                                    android:background="@drawable/icons8_image_gallery"/>
-                                <TextView
-                                    android:id="@+id/tvSoAnh"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="0"
-                                    android:textColor="#686868"
-                                    android:textSize="14dp"
-                                    android:layout_gravity="center_vertical"/>
+                                    android:orientation="horizontal">
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="5dp"
 
+                                        android:background="@drawable/icons8_quaterly"/>
+                                    <TextView
+                                        android:id="@+id/tvNgaySua"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="20-11-2020"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+                                    <ImageButton
+                                        android:layout_width="20dp"
+                                        android:layout_height="20dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginTop="5dp"
+                                        android:background="@drawable/icons8_image_gallery"/>
+                                    <TextView
+                                        android:id="@+id/tvSoAnh"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="0"
+                                        android:textColor="#686868"
+                                        android:textSize="14dp"
+                                        android:layout_gravity="center_vertical"/>
+
+                                </LinearLayout>
                             </LinearLayout>
-                        </LinearLayout>
 
-                        <LinearLayout
-                            android:layout_width="60dp"
-                            android:layout_height="60dp"
-                            android:background="@drawable/header_panel_4"
-                            android:layout_marginLeft="10dp"
-                            android:layout_gravity="center">
-                            <ImageButton
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_gravity="center"
+                            <LinearLayout
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:background="@drawable/header_panel_4"
                                 android:layout_marginLeft="10dp"
-                                android:background="@drawable/icons9" />
-                        </LinearLayout>
+                                android:layout_gravity="center">
+                                <ImageButton
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/icons9" />
+                            </LinearLayout>
 
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
+
+            </ScrollView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_marginTop="5dp"

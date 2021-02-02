@@ -13,8 +13,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
+import android.widget.TextView;
 
 import com.google.api.services.driveactivity.v2.model.Edit;
 
@@ -50,11 +52,10 @@ final class SPC { private SPC() {}
     static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
-    static final ArrayList<String> TenHinhAnhTongThe = new ArrayList<String>(Arrays.asList("Hình ảnh biển nhà trạm", "Hình ảnh tổng thể cột anten", "Hình ảnh tổng thể các thiết bị trong phòng máy", "Thiết bị 2G",
-            "Thiết bị 3G","Thiết bị 4G","Hình ảnh thiết bị treo trên cột","Hình ảnh anten 4G","Hình ảnh anten 2G","Hình ảnh anten 3G"));
+    static final ArrayList<String> TenHinhAnhTongThe = new ArrayList<String>(Arrays.asList("Hình ảnh biển nhà trạm", "Hình ảnh tổng thể cột anten", "Hình ảnh tổng thể các thiết bị trong phòng máy", "Hình ảnh thiết bị treo trên cột"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
-    static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY"));
-    static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong"));
+    static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY","DanhSachTramGoc"));
+    static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong","MangSuDung"));
     static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));
     static final ArrayList<String> ThietKeCongTrinh = new ArrayList<String>(Arrays.asList("TenCongTrinh","ChieuCao", "KhoangCach","SoTang", "GocPhuongVi", "DoDay", "DoRong"));
     static final ArrayList<String> ThietKeAnten = new ArrayList<String>
@@ -268,7 +269,47 @@ final class SPC { private SPC() {}
         }
         return lstThietBi;
     }
+    static void setPopUp_img(Context context, TextView edt, ArrayList<String> arrayList, ImageButton imageButton){
+        if (imageButton != null)
+        {
+            imageButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final PopupMenu popupMenu = new PopupMenu(context, imageButton);
 
+                    for (String s : arrayList)
+                    { popupMenu.getMenu().add(s); }
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(final MenuItem menuItem) {
+                            edt.setText(menuItem.getTitle());
+                            return false;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+            edt.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    final PopupMenu popupMenu = new PopupMenu(context, edt);
+
+                    for (String s : arrayList)
+                    { popupMenu.getMenu().add(s); }
+                    popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(final MenuItem menuItem) {
+                            edt.setText(menuItem.getTitle());
+                            return false;
+                        }
+                    });
+
+                    popupMenu.show();
+                }
+            });
+        }
+    }
     static void setPopUp(Context context, AutoCompleteTextView edt, ArrayList<String> arrayList,ImageButton imageButton){
         ArrayAdapter<String> adapterHT = new ArrayAdapter<String>(context, R.layout.custom_list_item, R.id.text_view_list_item, arrayList);
         edt.setAdapter(adapterHT);
@@ -303,6 +344,16 @@ final class SPC { private SPC() {}
             if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
                 String CS = item.split("&")[4];
                 CongSuat.add(CS);
+            }
+        }
+        return CongSuat;
+    }
+    static String layMangSuDung(String ChungLoaiThietBi, String BangTanHoatDong){
+        String CongSuat ="";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+                CongSuat = item.split("&")[2];
             }
         }
         return CongSuat;

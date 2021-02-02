@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:layout_height="wrap_content">
+    <LinearLayout
+        android:background="@drawable/hinhcovienxam"
+        android:orientation="vertical"
+        android:layout_width="350dp"
+        android:layout_height="530dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:text="Chọn trạm gốc có trên cột:"
+            android:textSize="25sp"
+            android:padding="10dp"
+            android:textColor="#fff"
+            android:background="@color/color_Blue1"
+            android:layout_height="60dp"/>
+
+        <EditText
+            android:layout_margin="2dp"
+            android:id="@+id/edittext"
+            android:textColor="#686868"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+        <ListView
+            android:id="@+id/listHienTrang"
+            android:layout_margin="2dp"
+            android:background="@drawable/backgound_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="370dp">
+        </ListView>
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp">
+            <Button
+                android:layout_margin="5dp"
+                android:id="@+id/button"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/backgound_header_4"
+                android:text="Xong"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="normal" />
+
+            <android.support.v7.widget.SearchView
+                android:id="@+id/SearchViewCT"
+                android:layout_width="match_parent"
+                app:searchHintIcon="@drawable/ic_search_xam_24dp"
+                app:searchIcon="@drawable/ic_search_xam_24dp"
+                app:iconifiedByDefault="false"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

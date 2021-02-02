@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="600dp"
     android:background="@drawable/backgound_dialog"
@@ -261,7 +262,7 @@
                 android:textStyle="normal" />
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="120dp"
                 android:orientation="horizontal">
 
                 <ImageView
@@ -283,8 +284,8 @@
                         android:background="@drawable/hinhcovienxam"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="5dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="20dp">
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
                         <ImageButton
                             android:layout_margin="5dp"
                             android:layout_width="30dp"
@@ -402,6 +403,47 @@
 
                     </LinearLayout>
                 </LinearLayout>
+            </LinearLayout>
+            <!-- Mã trạm-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Trạm gốc có trên cột:"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <AutoCompleteTextView
+                    android:hint="Danh sách BTS"
+                    android:textColor="#111"
+                    android:layout_margin="5dp"
+                    android:editable="false"
+                    android:id="@+id/edtDanhSachTramGoc"
+                    android:layout_weight="80"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/backgound_edittext"
+                    android:textSize="18dp"
+                    tools:ignore="Deprecated" />
+                <Button
+                    android:layout_margin="5dp"
+                    android:id="@+id/btnChonTramGoc"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/backgound_header_4"
+                    android:text="Chọn"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18dp"
+                    android:textStyle="normal" />
             </LinearLayout>
             <Button
                 android:id="@+id/btnLuu"

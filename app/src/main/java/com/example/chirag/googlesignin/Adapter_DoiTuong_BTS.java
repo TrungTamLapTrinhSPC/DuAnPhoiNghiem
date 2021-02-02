@@ -57,7 +57,7 @@ public class Adapter_DoiTuong_BTS extends BaseAdapter {
         tvTentramGoc.setText(myobjects.get(position).getTenTramGoc());
         tvChungLoaiThietBi.setText(myobjects.get(position).getChungLoaiThietBi());
         tvBangTanHoatDong.setText(myobjects.get(position).getBangTanHoatDong() + " MHz");
-        tvSoAnten.setText(myobjects.get(position).getSoAnten());
+        tvSoAnten.setText(myobjects.get(position).getMangSuDung());
         return V;
     }
 
