@@ -48,93 +48,78 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="40dp"
                                 android:layout_marginLeft="10dp"
+                                android:layout_weight="90"
                                 android:gravity="center"
                                 android:textStyle="bold"
                                 android:textSize="20dp"
                                 android:minHeight="?actionBarSize"
                                 android:text="KẾT QUẢ ĐO KIỂM"
                                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:gravity="right"
-                                android:paddingTop="5dp"
-                                android:orientation="horizontal">
+                            <ImageButton
+                                android:layout_weight="1"
+                                android:id="@+id/btnBack"
+                                android:layout_marginRight="15dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:background="@drawable/btn_menu" />
 
-                                <ImageButton
-                                    android:id="@+id/btnBack"
-                                    android:layout_marginRight="15dp"
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:background="@drawable/btn_menu" />
-                            </LinearLayout>
                         </LinearLayout>
-                        <SearchView
-                            android:visibility="visible"
-                            android:id="@+id/search_bar"
-                            android:iconifiedByDefault="false"
-                            android:layout_marginLeft="30dp"
-                            android:focusable="false"
-                            android:layout_marginRight="30dp"
-                            android:layout_marginTop="10dp"
-                            android:background="@drawable/hinhcovienden"
-                            android:layout_width="match_parent"
-                            android:layout_height="35dp"
-                            android:queryHint="Tìm kiếm"/>
                         <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_marginTop="10dp"
+                            android:orientation="vertical"
+                            android:background="@drawable/duongbotron2"
+                            android:layout_marginTop="5dp"
                             android:layout_marginLeft="15dp"
                             android:layout_marginRight="15dp"
-                            android:layout_marginBottom="10dp"
                             android:layout_width="match_parent"
-                            android:padding="0dp"
                             android:layout_height="wrap_content">
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:textSize="18dp"
-                                android:minHeight="?actionBarSize"
-                                android:text="BTS2G"
-                                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="10dp"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:textSize="18dp"
-                                android:minHeight="?actionBarSize"
-                                android:text="BTS3G"
-                                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-                            <TextView
-
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="10dp"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:textSize="18dp"
-                                android:minHeight="?actionBarSize"
-                                android:text="BTS RRU"
-                                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="40dp"
-                                android:layout_marginLeft="10dp"
-                                android:gravity="center"
-                                android:textStyle="bold"
-                                android:textSize="18dp"
-                                android:minHeight="?actionBarSize"
-                                android:text="BTS4G"
-                                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
-
+                            <!--Chọn BTS-->
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:paddingTop="5dp"
+                                    android:textSize="16dp"
+                                    android:layout_width="70dp"
+                                    android:textColor="#fff"
+                                    android:text="Tên BTS:"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="20"/>
+                                <TextView
+                                    android:id="@+id/tvTenBTS"
+                                    android:textSize="16dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="5dp"
+                                    android:textColor="#fff"
+                                    android:hint="Chọn BTS cần thêm anten"
+                                    android:layout_weight="70"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="100dp" />
+                                <ImageButton
+                                    android:id="@+id/btnChonBTS"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/ic_arrow_down_24dp" />
+                            </LinearLayout>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/line_trang"/>
                         </LinearLayout>
+                        <TextView
+                            android:paddingTop="5dp"
+                            android:textSize="12dp"
+                            android:layout_width="match_parent"
+                            android:textColor="#fff"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="Chọn trạm gốc để xem báo cáo"
+                            android:layout_height="match_parent"
+                            />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -168,7 +153,8 @@
                 <HorizontalScrollView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/duongbotron2"
+                    android:background="@drawable/hinhcovienxam"
+                    android:padding="10dp"
                     android:scrollbars="horizontal|vertical">
                     <TableLayout
                         android:id="@+id/TableXemTruocBaoCao"

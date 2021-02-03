@@ -79,6 +79,7 @@ public class ActivityMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(ActivityMenu.this,ActivityXemTruocBaoCao.class);
+                intent.putExtra("MaTram",MaTram);
                 startActivity(intent);
             }
         });

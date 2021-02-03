@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +31,8 @@ import android.widget.TextView;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.widget.Toast;
+
+import androidx.annotation.RequiresApi;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,6 +77,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
         /*try {
             setUpView();
         } catch (JSONException e) {
@@ -158,8 +162,28 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     setPopupBTS(tvTenCot.getText().toString());
                 }
             });
+            tvTenCot.setText(TenCot);
         }
+        /**KIỂM TRA XEM ĐÃ CHỌN CỘT VÀ BTS CHƯA*/
+        edtTenAnten.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (tvTenBTS.getText().toString().equals("") || tvTenCot.getText().toString().equals("")){
+                    Toast.makeText(Activity_ChiTiet_Anten.this,"Bạn chưa chọn thiết bị!",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
     private void setPopupBTS(String tenCot){
@@ -198,6 +222,10 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                                     JSONObject jsonObject = new JSONObject(thietke);
                                     if (!thietke.equals(""))
                                     {
+                                        for(AutoCompleteTextView edt : listAutoCompleteTextView)
+                                        {
+                                            edt.setText("");
+                                        }
                                         BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
                                         ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
                                         edtChungLoaiThietBi.setText(ChungLoaiThietBi);
@@ -217,6 +245,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     }
                     catch (Exception ignored){}
                     setPopupAnten(tvTenBTS.getText().toString());
+
                 }
             });
         }
@@ -261,7 +290,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     }
                 });
             }
-/*            SPC.setPopUp(Activity_ChiTiet_Anten.this,edtTenAnten,arr_Anten,btnChonAnten);
+
+            /*SPC.setPopUp(Activity_ChiTiet_Anten.this,edtTenAnten,arr_Anten,btnChonAnten);
             edtTenAnten.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -282,13 +312,14 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        *//*try {
+
+                    try {
                             setUpView();
                             listview_thanhphan.setVisibility(View.GONE);
                             setUpListView();
                         } catch (JSONException e) {
                             e.printStackTrace();
-                        }*//*
+                        }
                     }
 
                 }
@@ -387,13 +418,14 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     private void NhanBien() throws JSONException {
         Intent intent =getIntent();//Nhận biến truyền từ trang danh sách cột
         MaTram =intent.getStringExtra("MaTram");
-        //TenCot =intent.getStringExtra("TenCot");
+        TenCot =intent.getStringExtra("TenCot");
         TenAnten =intent.getStringExtra("TenAnten");
         //TenTramGoc =intent.getStringExtra("TenTramGoc");
         ThuTuAnten =intent.getStringExtra("ThuTuAnten");
         title.setText(MaTram);
         DiaDiem=intent.getStringExtra("DiaDiem");
         ToaDo = intent.getStringExtra("ToaDo");
+
         /*pathThietKeAnten = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/" + TenCot + "/" + TenTramGoc+ "/" + TenAnten);
         File fileThietKe = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/" + TenCot + "/" + TenTramGoc + "/ThietKeBTS.txt");
         String thietke = SPC.readText(fileThietKe);
@@ -406,19 +438,38 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         }*/
     }
 
-    private void SuKien(){
+    private void SuKien() {
         btnDanhSachCongTrinh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent= new Intent(Activity_ChiTiet_Anten.this,Activity_DanhSach_CongTrinh.class);
-                intent.putExtra("MaTram",MaTram);
-                intent.putExtra("TenCot",TenCot);
-                intent.putExtra("TenTramGoc",TenTramGoc);
-                intent.putExtra("ThuTuAnten",ThuTuAnten);
-                intent.putExtra("TenAnten",TenAnten);
-                intent.putExtra("DiaDiem",DiaDiem);
-                intent.putExtra("ToaDo",ToaDo);
-                startActivity(intent);
+                if (!tvTenBTS.getText().toString().equals("") && !tvTenCot.getText().toString().equals("") && !edtTenAnten.getText().toString().equals("")){
+                    /**LẤY VỊ TRÍ ANTEN TRONG DANH SÁCH*/
+                            ArrayList<String> arr_Anten = new ArrayList<>();
+                            if (pathDanhSachAnten.exists())
+                            {
+                                File[] files = pathDanhSachAnten.listFiles();
+                                for (File file : files) {
+                                    if (file.isDirectory()) arr_Anten.add(file.getName());
+                                }
+                               int sttAnten = arr_Anten.indexOf(edtTenAnten.getText().toString());
+                               if (sttAnten >=0 ) {
+                                   ThuTuAnten = String.valueOf(sttAnten);
+                                   /**TRUYỀN CÁC BIẾN DANG TRANG CÔNG TRÌNH*/
+                                   Intent intent= new Intent(Activity_ChiTiet_Anten.this,Activity_DanhSach_CongTrinh.class);
+                                   intent.putExtra("MaTram",MaTram);
+                                   intent.putExtra("TenCot",tvTenCot.getText().toString());
+                                   intent.putExtra("TenTramGoc",tvTenBTS.getText().toString());
+                                   intent.putExtra("ThuTuAnten",ThuTuAnten);
+                                   intent.putExtra("TenAnten",edtTenAnten.getText().toString());
+                                   intent.putExtra("DiaDiem",DiaDiem);
+                                   intent.putExtra("ToaDo",ToaDo);
+                                   startActivity(intent);
+                               }
+                               else Toast.makeText(Activity_ChiTiet_Anten.this,"Bạn chưa có anten!",Toast.LENGTH_SHORT).show();
+
+                            }
+                }
+                else Toast.makeText(Activity_ChiTiet_Anten.this,"Bạn chưa chọn thiết bị!",Toast.LENGTH_SHORT).show();
             }
         });
         btnMenu.setOnClickListener(new View.OnClickListener() {
@@ -966,6 +1017,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             }
         });
     }
+
     private void DialogChinhSua(int i){
         final Dialog dialogthongso = new Dialog(Activity_ChiTiet_Anten.this,R.style.PauseDialog);
         dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);

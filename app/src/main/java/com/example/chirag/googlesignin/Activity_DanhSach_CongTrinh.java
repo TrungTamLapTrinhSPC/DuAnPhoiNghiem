@@ -55,7 +55,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     Adapter_DoiTuong_CongTrinh adapter_doiTuong_CongTrinh;
     FloatingActionButton fab;
     String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten;
-    TextView title,tvToaDo,tvViTri;
+    TextView title,tvToaDo,tvViTri,tvTenHinhAnh;
     File pathThietKeAnten,pathHinhAnh;
     ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
     int [] listID;
@@ -103,8 +103,6 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
             }
         }
         else SPC.TaoThuMuc(filecongtrinh);
-
-
     }
     private void SettupListView() throws JSONException {
         list_CongTrinh.clear();
@@ -112,7 +110,8 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         if (filecongtrinh.exists()){
             if (filecongtrinh.isDirectory()){
                 File[] listcongtrinh = filecongtrinh.listFiles();
-                if (listcongtrinh.length ==0){
+                if (listcongtrinh.length ==0)
+                {
                     listview.setVisibility(View.GONE);
                 } else
                 {
@@ -171,6 +170,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         mFile = new File(pathHinhAnh,SPC.TenHinhAnh.get(Integer.parseInt(ThuTuAnten)));
         if (mFile.exists())
         {
+            tvTenHinhAnh.setText(mFile.getName());
             mFile= new File(mFile,"image"+".jpg");
             if (mFile.exists())
             {
@@ -183,9 +183,6 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
             SPC.TaoThuMuc(mFile);
             mFile= new File(mFile,"image"+".jpg");
         }
-
-
-
     }
     private void SuKien() {
         btnChup.setOnClickListener(new View.OnClickListener() {
@@ -297,6 +294,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         btnChup = findViewById(R.id.btnChup);
         btnSua = findViewById(R.id.btnSua);
         imgHinh = findViewById(R.id.imgHinh);
+        tvTenHinhAnh = findViewById(R.id.tvTenHinhAnh);
         listID = new int[]{R.id.edtTenCongTrinh,R.id.edtChieuCaoCongTrinh,R.id.edtKhoangCach,R.id.edtSoTang,R.id.edtGocPhuongVi,R.id.edtDoDay,R.id.edtDoRong};
         listedt = new AutoCompleteTextView[]{edtTenCongTrinh,edtChieuCao,edtKhoangCach,edtSoTang,edtGocPhuongVi,edtDoDay,edtDoRong};
         listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>();
@@ -327,6 +325,8 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         AutoCompleteTextView edtDoDay = dialogthongso.findViewById(R.id.edtDoDay);
         AutoCompleteTextView edtDoRong = dialogthongso.findViewById(R.id.edtDoRong);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
+        ImageButton btnChonCongTrinh = dialogthongso.findViewById(R.id.btnChonCongTrinh);
+        SPC.setPopUp(Activity_DanhSach_CongTrinh.this,edtTenCongTrinh,SPC.listLoaiCongTrinh,btnChonCongTrinh);
         btnLuu.setOnClickListener(new View.OnClickListener()
         {
             @Override

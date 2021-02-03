@@ -50,8 +50,9 @@ final class SPC { private SPC() {}
     static final ArrayList<String> listLoaiAnten = new ArrayList<String>(Arrays.asList("Định hướng"));
 
     static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
+    static final ArrayList<String> listLoaiCongTrinh = new ArrayList<String>(Arrays.asList("Khu nhà ở", "Khu đất trống", "Khu nhà 1 2 tầng", "Khu nhà 3 4 tầng","Khu nhà xưởng","Khu nhà cấp 4","Khu công nghiệp 1 2 tầng","Khu đường và đồng ruộng","Khu sân bay, nhà thấp tầng","Khu bãi xe"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
-    static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh công trình hướng sector 1", "Hình ảnh công trình hướng sector 2", "Hình ảnh công trình hướng sector 3", "Hình ảnh công trình hướng sector 4", "Hình ảnh công trình hướng sector 5"));
+    static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh các công trình hướng sector 1", "Hình ảnh các công trình hướng sector 2", "Hình ảnh các công trình hướng sector 3", "Hình ảnh các công trình hướng sector 4", "Hình ảnh các công trình hướng sector 5"));
     static final ArrayList<String> TenHinhAnhTongThe = new ArrayList<String>(Arrays.asList("Hình ảnh biển nhà trạm", "Hình ảnh tổng thể cột anten", "Hình ảnh tổng thể các thiết bị trong phòng máy", "Hình ảnh thiết bị treo trên cột"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY","DanhSachTramGoc"));
@@ -181,6 +182,7 @@ final class SPC { private SPC() {}
         if(fileData.exists())
         {
            String text = readText(fileData);
+
            JSONObject jsonObject = new JSONObject(text);
 
             for(int i=0;i<arrayList.size();i++)
@@ -440,8 +442,6 @@ final class SPC { private SPC() {}
         }
         return DoTangIchAnten;
     }
-
-
     //region Công thức tính
     static String TinhCongSuatPhat2(String CongSuatPhat1){
         String CongSuatPhat2 = "";
@@ -451,7 +451,7 @@ final class SPC { private SPC() {}
             Double CS1 = Double.valueOf(CongSuatPhat1);
             double_CongSuatPhat2 = 10 * Math.log10(CS1*1000);
         }
-        CongSuatPhat2 = String.valueOf(round(double_CongSuatPhat2,1));
+        CongSuatPhat2 = String.valueOf(round(double_CongSuatPhat2,2));
 
         return CongSuatPhat2;
     }
