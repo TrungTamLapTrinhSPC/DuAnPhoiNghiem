@@ -162,7 +162,7 @@
                         android:layout_marginRight="25dp"
                         android:layout_marginLeft="25dp"
                         android:layout_marginBottom="10dp"
-                        android:layout_height="300dp"
+                        android:layout_height="320dp"
                         android:elevation="10dp"
                         app:cardCornerRadius="20dp">
                         <RelativeLayout
@@ -193,8 +193,9 @@
                                         android:layout_height="wrap_content"
                                         android:orientation="vertical">
                                         <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
+                                            android:id="@+id/tvTenHinhAnh"
+                                            android:layout_width="260dp"
+                                            android:layout_height="40dp"
                                             android:paddingLeft="15dp"
                                             android:text="Hình ảnh công trình hướng"
                                             android:textColor="#686868"
@@ -273,8 +274,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:layout_marginRight="10dp"
-                        >
+                        android:layout_marginRight="10dp">
                         <ImageButton
                             android:layout_margin="5dp"
                             android:layout_width="30dp"
@@ -354,6 +354,13 @@
                             android:textSize="15dp" />
 
                     </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nhập công trình cao nhất trong hướng sector, không nhập tên 'Khu'"
+                        android:textColor="#686868"
+                        android:textSize="10dp"
+                        android:textStyle="normal" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

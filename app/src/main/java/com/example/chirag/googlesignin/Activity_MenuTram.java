@@ -171,6 +171,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         if(SPC.TaoThuMuc(SPC.pathTemplate))
             Toast.makeText(Activity_MenuTram.this,"Đã lưu thư viện", Toast.LENGTH_SHORT).show();
         SPC.LayDanhSachThietBi();
+
     }
     private void AnhXa() {
         stubGrid = (ViewStub) findViewById(R.id.stub_grid1);

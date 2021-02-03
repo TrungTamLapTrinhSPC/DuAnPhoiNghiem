@@ -18,6 +18,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.apache.commons.io.FileUtils;
+import org.json.JSONException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -58,7 +60,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
     String MaTram;
     File mFile;
     private GridView girdView;
-
+    FloatingActionButton fab;
     TextView title,tvToaDo,tvViTri;
     String DiaDiem,ToaDo;
     Uri imageUri;
@@ -144,6 +146,13 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                 switchView();
             }
         });
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                DialogThemAnh();
+            }
+        });
     }
     AdapterView.OnItemClickListener onItemClickListener = new AdapterView.OnItemClickListener() {
         @Override
@@ -196,6 +205,7 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         tvToaDo = findViewById(R.id.tvToaDo);
         tvViTri = findViewById(R.id.tvViTri);
         btnGrid = findViewById(R.id.btnGrid);
+        fab = findViewById(R.id.fab);
 
         stubGrid = (ViewStub) findViewById(R.id.stub_grid1);
         stubList = (ViewStub) findViewById(R.id.stub_list);
@@ -283,7 +293,8 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         Button btnXemAnh = (Button) dialogthongso.findViewById(R.id.btnXemAnh);
         btnXemAnh.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent intent= new Intent(Activity_DanhSach_AnhChup.this,Activity_SuaHinhAnh.class);
                 intent.putExtra("MaTram",MaTram);
                 intent.putExtra("DiaDiem",tvViTri.getText().toString());
@@ -323,10 +334,10 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
         });
         btnSua.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 DialogDoiten(vt);
                 dialogthongso.dismiss();
-
             }
         });
     }
@@ -356,11 +367,13 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                     // add the buttons
                     builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                        public void onClick(DialogInterface dialogInterface, int i)
+                        {
                             File fileOld = new File(pathHinhAnh,list_AnhChup.get(vt).getTenAnh());
                             File fileNew = new File(pathHinhAnh,edtMaTram.getText().toString());
 
-                            if(!fileNew.exists()){
+                            if(!fileNew.exists())
+                            {
                                 boolean result= fileOld.renameTo(fileNew);
                                 if (result) Toast.makeText(Activity_DanhSach_AnhChup.this, "Đã đổi tên!", Toast.LENGTH_SHORT).show();
                             }
@@ -374,10 +387,45 @@ public class Activity_DanhSach_AnhChup extends AppCompatActivity {
                     AlertDialog dialog2 = builder.create();
                     dialog2.show();
                 }
-
             }
         });
 
     }
+    private void DialogThemAnh(){
+        final Dialog dialogthongso = new Dialog(Activity_DanhSach_AnhChup.this,R.style.PauseDialog);
+        dialogthongso.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialogthongso.setContentView(R.layout.dialog_them_anten);
+        Window window= dialogthongso.getWindow();
+        if (window==null){return;}
+        window.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        WindowManager.LayoutParams windowArr = window.getAttributes();
+        windowArr.gravity = Gravity.CENTER;
+        window.setAttributes(windowArr);
+        dialogthongso.show();
 
+        TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);tvTitle.setText("Thêm hình ảnh");
+        TextView tvTen = dialogthongso.findViewById(R.id.tvTen);tvTen.setText("Tên hình ảnh");
+        Button btnLuu = dialogthongso.findViewById(R.id.btnLuuThongSo);btnLuu.setText("Thêm");
+        EditText edtTenAnten = dialogthongso.findViewById(R.id.edtTenAnten);edtTenAnten.setHint("Nhập tên hình ảnh");
+        btnLuu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(edtTenAnten.getText().toString().trim().equals(""))
+                {
+                    Toast.makeText(Activity_DanhSach_AnhChup.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    File pathDuLieu = new File(pathHinhAnh, edtTenAnten.getText().toString());
+                    SPC.TaoThuMuc(pathDuLieu);
+                    if(pathDuLieu.exists())
+                    {
+                        SettupListView();
+                        dialogthongso.dismiss();
+                    }
+                }
+            }
+        });
+    };
 }

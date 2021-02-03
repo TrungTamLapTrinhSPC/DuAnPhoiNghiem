@@ -1,422 +1,471 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="600dp"
     android:background="@drawable/backgound_dialog"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
     android:gravity="center"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:orientation="vertical"
-        android:elevation="10dp">
-        <TextView
-            android:id="@+id/tvTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="Thêm cột mới"
-            android:textColor="@color/color_Blue2"
-            android:textSize="30dp"
-            android:textStyle="bold" />
+        android:layout_height="wrap_content">
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@drawable/line"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"/>
-        <!-- Mã trạm-->
-        <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="320dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Tên cột:"
             android:layout_marginTop="10dp"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/hinhcovienxam"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
-            <ImageButton
-                android:layout_margin="5dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic11" />
-            <ImageButton
-                android:layout_width="1dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/line"/>
-
-            <AutoCompleteTextView
-                android:hint="Tên cột"
-                android:textColor="#111"
-                android:layout_margin="5dp"
-                android:id="@+id/edtTenThanhPhan"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/backgound_edittext"
-                android:textSize="18dp" />
-        </LinearLayout>
-        <!-- Chiều cao cột-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Chiều cao cột:"
-            android:layout_marginTop="10dp"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/hinhcovienxam"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
-            <ImageButton
-                android:layout_margin="5dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/icons2" />
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/line"/>
-
-            <AutoCompleteTextView
-                android:textColor="#111"
-                android:layout_margin="5dp"
-                android:hint="Chiều cao cột"
-                android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtChieuCaoCongTrinh"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="50"
-
-                android:textSize="18dp" />
-
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-
-                android:background="@drawable/line"/>
-
+            android:orientation="vertical"
+            android:elevation="10dp">
             <TextView
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:text="m"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:gravity="center" />
-
-        </LinearLayout>
-
-        <!--Số hướng-->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Thêm cột mới"
+                android:textColor="@color/color_Blue2"
+                android:textSize="30dp"
+                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/line"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"/>
+            <!-- Mã trạm-->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Số chân cột:"
+                android:text="Tên cột:"
+                android:layout_marginTop="10dp"
                 android:textColor="#000"
                 android:textSize="20dp"
                 android:textStyle="normal" />
-            <AutoCompleteTextView
-                android:visibility="gone"
-                android:textColor="#111"
-                android:hint="Tọa độ đặt trạm"
-                android:background="@drawable/backgound_edittext"
-                android:id="@+id/edtSoChan"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:textSize="18dp" />
-        </LinearLayout>
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:id="@+id/radioGroup">
-
-            <RadioButton
-                android:id="@+id/checkbox_trenmai"
-                android:layout_width="100dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="20dp"
-                android:buttonTint="@color/color_Blue2"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:text="3"
-                android:textColor="#111"
-                android:textSize="13dp" />
-
-            <RadioButton
-                android:id="@+id/checkbox_duoidat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:buttonTint="@color/color_Blue2"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:text="4"
-                android:textColor="#111"
-                android:textSize="13dp" />
-        </RadioGroup>
-
-        <!-- Kích thước thân cột-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Kích thước thân cột:"
-            android:layout_marginTop="10dp"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/hinhcovienxam"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp">
-            <ImageButton
-                android:layout_margin="5dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/thancot" />
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/line"/>
-
-            <AutoCompleteTextView
-                android:id="@+id/edtKichThuocThanCot"
-                android:layout_width="150dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:layout_weight="50"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/backgound_edittext"
-                android:hint="Kích thước thân cột:"
-                android:textColor="#111"
-                android:textSize="18dp" />
-
-            <ImageButton
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/line"/>
-            <TextView
-                android:layout_width="30dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="end"
-                android:text="m"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                android:gravity="center" />
-        </LinearLayout>
-
-        <!--Vị trí đặt cột-->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="Vị trí đặt cột:"
-            android:textColor="#000"
-            android:textSize="20dp"
-            android:textStyle="normal" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginLeft="10dp"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/vitricot"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <!--X-->
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <ImageButton
+                    android:layout_margin="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic11" />
+                <ImageButton
+                    android:layout_width="1dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/line"/>
+
+                <AutoCompleteTextView
+                    android:hint="Tên cột"
+                    android:textColor="#111"
+                    android:layout_margin="5dp"
+                    android:id="@+id/edtTenThanhPhan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/backgound_edittext"
+                    android:textSize="18dp" />
+            </LinearLayout>
+            <!-- Chiều cao cột-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Chiều cao cột:"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <ImageButton
+                    android:layout_margin="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/icons2" />
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/line"/>
+
+                <AutoCompleteTextView
+                    android:textColor="#111"
+                    android:layout_margin="5dp"
+                    android:hint="Chiều cao cột"
+                    android:background="@drawable/backgound_edittext"
+                    android:id="@+id/edtChieuCaoCongTrinh"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="50"
+
+                    android:textSize="18dp" />
+
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+
+                    android:background="@drawable/line"/>
+
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:text="m"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <!--Số hướng-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Số chân cột:"
+                    android:textColor="#000"
+                    android:textSize="20dp"
+                    android:textStyle="normal" />
+                <AutoCompleteTextView
+                    android:visibility="gone"
+                    android:textColor="#111"
+                    android:hint="Tọa độ đặt trạm"
+                    android:background="@drawable/backgound_edittext"
+                    android:id="@+id/edtSoChan"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:textSize="18dp" />
+            </LinearLayout>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/radioGroup">
+
+                <RadioButton
+                    android:id="@+id/checkbox_trenmai"
+                    android:layout_width="100dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:buttonTint="@color/color_Blue2"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:text="3"
+                    android:textColor="#111"
+                    android:textSize="13dp" />
+
+                <RadioButton
+                    android:id="@+id/checkbox_duoidat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:buttonTint="@color/color_Blue2"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    android:text="4"
+                    android:textColor="#111"
+                    android:textSize="13dp" />
+            </RadioGroup>
+
+            <!-- Kích thước thân cột-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Kích thước thân cột:"
+                android:layout_marginTop="10dp"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <ImageButton
+                    android:layout_margin="5dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/thancot" />
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/line"/>
+
+                <AutoCompleteTextView
+                    android:id="@+id/edtKichThuocThanCot"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="50"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/backgound_edittext"
+                    android:hint="Kích thước thân cột:"
+                    android:textColor="#111"
+                    android:textSize="18dp" />
+
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/line"/>
+                <TextView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:text="m"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+            </LinearLayout>
+
+            <!--Vị trí đặt cột-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Vị trí đặt cột:"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/vitricot"/>
+
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/hinhcovienxam"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginBottom="20dp">
-                    <ImageButton
-                        android:layout_margin="5dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/icons3" />
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <!--X-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/icons3" />
 
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="end"
-                        android:text="X"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textColor="#686868"
-                        android:gravity="center" />
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:text="X"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="#686868"
+                            android:gravity="center" />
 
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/line"/>
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line"/>
 
-                    <AutoCompleteTextView
-                        android:textColor="#111"
-                        android:layout_margin="5dp"
-                        android:hint="Rộng"
-                        android:layout_weight="50"
-                        android:background="@drawable/backgound_edittext"
-                        android:id="@+id/edtChieuX"
-                        android:layout_width="70dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:textSize="18dp" />
+                        <AutoCompleteTextView
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="Rộng"
+                            android:layout_weight="50"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtChieuX"
+                            android:layout_width="70dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:textSize="18dp" />
 
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
 
-                        android:background="@drawable/line"/>
+                            android:background="@drawable/line"/>
 
-                    <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="end|fill_horizontal"
-                        android:text="m"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end|fill_horizontal"
+                            android:text="m"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
 
-                </LinearLayout>
-                <!--Y-->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/hinhcovienxam"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="20dp">
-                    <ImageButton
-                        android:layout_margin="5dp"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/icons3" />
+                    </LinearLayout>
+                    <!--Y-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/hinhcovienxam"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginBottom="20dp">
+                        <ImageButton
+                            android:layout_margin="5dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:background="@drawable/icons3" />
 
-                    <TextView
-                        android:layout_width="20dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="end"
-                        android:text="Y"
-                        android:textSize="20dp"
-                        android:textStyle="bold"
-                        android:textColor="#686868"
-                        android:gravity="center" />
+                        <TextView
+                            android:layout_width="20dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end"
+                            android:text="Y"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            android:textColor="#686868"
+                            android:gravity="center" />
 
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/line"/>
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line"/>
 
-                    <AutoCompleteTextView
-                        android:textColor="#111"
-                        android:layout_margin="5dp"
-                        android:hint="Dài"
-                        android:background="@drawable/backgound_edittext"
-                        android:id="@+id/edtChieuY"
-                        android:layout_width="70dp"
-                        android:layout_weight="50"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:textSize="18dp" />
+                        <AutoCompleteTextView
+                            android:textColor="#111"
+                            android:layout_margin="5dp"
+                            android:hint="Dài"
+                            android:background="@drawable/backgound_edittext"
+                            android:id="@+id/edtChieuY"
+                            android:layout_width="70dp"
+                            android:layout_weight="50"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:textSize="18dp" />
 
-                    <ImageButton
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:layout_width="1dp"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/line"/>
+                        <ImageButton
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/line"/>
 
-                    <TextView
-                        android:layout_width="30dp"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="end|fill_horizontal"
-                        android:text="m"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:gravity="center" />
+                        <TextView
+                            android:layout_width="30dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="end|fill_horizontal"
+                            android:text="m"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:gravity="center" />
 
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+            <!-- Mã trạm-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Trạm gốc có trên cột:"
+                android:textColor="#000"
+                android:textSize="20dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/hinhcovienxam"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
+                <AutoCompleteTextView
+                    android:hint="Danh sách BTS"
+                    android:textColor="#111"
+                    android:layout_margin="5dp"
+                    android:editable="false"
+                    android:id="@+id/edtDanhSachTramGoc"
+                    android:layout_weight="80"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/backgound_edittext"
+                    android:textSize="18dp"
+                    tools:ignore="Deprecated" />
+                <Button
+                    android:layout_margin="5dp"
+                    android:id="@+id/btnChonTramGoc"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/backgound_header_4"
+                    android:text="Chọn"
+                    android:textAllCaps="false"
+                    android:textColor="#fff"
+                    android:textSize="18dp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+            <Button
+                android:id="@+id/btnLuu"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/backgound_header_4"
+                android:layout_gravity="center_horizontal"
+                android:text="Thêm cột"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="28dp"
+                android:textStyle="normal" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
         </LinearLayout>
-        <Button
-            android:id="@+id/btnLuu"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="40dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/backgound_header_4"
-            android:layout_gravity="center_horizontal"
-            android:text="Thêm cột"
-            android:textAllCaps="false"
-            android:textColor="#fff"
-            android:textSize="28dp"
-            android:textStyle="normal" />
+    </ScrollView>
 
-    </LinearLayout>
+
 
 </LinearLayout>
