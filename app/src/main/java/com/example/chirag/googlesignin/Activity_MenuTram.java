@@ -174,7 +174,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         SPC.saveTextFile("ListAnten",SPC.ListAnten,SPC.pathTemplate);
         SPC.saveTextFile("BangSuyHao",SPC.BangSuyHao,SPC.pathTemplate);
         SPC.saveTextFile("ListThietBi",SPC.ListThietBi,SPC.pathTemplate);
-
         SPC.LayDanhSachThietBi();
 
     }
