@@ -204,99 +204,100 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#F1f1f1"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Các thông số"
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
+                                <EditText
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <TextView
+                                <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
+                                    android:layout_column="0"
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-                                    android:background="#F1f1f1"
+                                    android:background="#fff"
                                     android:gravity="center"
-                                    android:padding="2dp"
+                                    android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
@@ -333,7 +334,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:paddingLeft="2dp"
                                     android:text="Thiết bị phát sóng tần số radio"
                                     android:textColor="#000" />
@@ -344,7 +345,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Chủng loại thiết bị phát"
                                     android:textColor="#000"
@@ -359,12 +360,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -373,12 +373,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -387,12 +386,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -401,12 +399,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -415,11 +412,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
+                                    android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -428,11 +425,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
+                                    android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -441,8 +438,9 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
+                                    android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
 
@@ -490,10 +488,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Số máy phát, thu-phát(Số sóng mang)"
                                     android:textColor="#000"
                                     android:textSize="15dp"
+                                    android:padding="2dp"
                                     android:textStyle="normal" />
 
                                 <EditText
@@ -504,12 +503,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -518,12 +516,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -532,12 +529,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -546,12 +542,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -560,12 +555,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -574,12 +568,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -588,7 +581,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -626,7 +619,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:paddingLeft="2dp"
                                     android:text="Tổng công suất "
                                     android:textColor="#000" />
@@ -638,7 +631,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Tổng công suất máy phát 1"
                                     android:textColor="#000"
@@ -653,12 +646,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -667,12 +659,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -681,12 +672,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -695,12 +685,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -709,12 +698,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -723,12 +711,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -737,7 +724,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -786,7 +773,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Tổng công suất máy phát 2"
                                     android:textColor="#000"
@@ -801,12 +788,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -815,12 +801,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -829,12 +814,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -843,12 +827,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -857,12 +840,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -871,12 +853,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -885,7 +866,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -923,7 +904,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Anten"
                                     android:textColor="#000"
@@ -936,7 +917,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Chủng loại anten"
                                     android:textColor="#000"
@@ -951,12 +932,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -965,12 +945,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -979,12 +958,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -993,12 +971,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1007,12 +984,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1021,12 +997,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1035,7 +1010,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1086,7 +1061,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Loại anten(Định hướng/Đẳng hướng)"
                                     android:textColor="#000"
@@ -1101,12 +1076,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1115,12 +1089,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1129,12 +1102,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1143,12 +1115,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1157,12 +1128,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1171,12 +1141,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1185,7 +1154,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1234,7 +1203,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Độ tăng ích của anten-G(dBi)"
                                     android:textColor="#000"
@@ -1249,12 +1218,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1263,12 +1231,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1277,12 +1244,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1291,12 +1257,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1305,12 +1270,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1319,12 +1283,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1333,7 +1296,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1382,7 +1345,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Băng tần hoạt động(MHz)"
                                     android:textColor="#000"
@@ -1397,12 +1360,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1411,12 +1373,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1425,12 +1386,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1439,12 +1399,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1453,12 +1412,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1467,12 +1425,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1481,7 +1438,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1530,7 +1487,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Độ dài bức xạ của anten-h(m)"
                                     android:textColor="#000"
@@ -1545,12 +1502,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1559,12 +1515,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1573,12 +1528,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1587,12 +1541,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1601,12 +1554,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1615,12 +1567,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1629,7 +1580,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1677,9 +1628,9 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
-
+                                    android:padding="2dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Góc ngẩng(Downlit)tổng cộng của anten(độ)"
                                     android:textColor="#000"
                                     android:textSize="15dp"
@@ -1693,12 +1644,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1707,12 +1657,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1721,12 +1670,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1735,12 +1683,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1749,12 +1696,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1763,12 +1709,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1777,7 +1722,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1826,7 +1771,8 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:padding="2dp"
+                                    android:gravity="start|center_vertical"
                                     android:text="Góc phương vị(azimuth)của anten(độ)"
                                     android:textColor="#000"
                                     android:textSize="15dp"
@@ -1840,12 +1786,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1854,12 +1799,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1868,12 +1812,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1882,12 +1825,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1896,12 +1838,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1910,12 +1851,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -1924,7 +1864,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -1973,7 +1913,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Độ cao anten so với mặt đất(1)(m)"
                                     android:textColor="#000"
@@ -1988,12 +1928,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2002,12 +1941,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2016,12 +1954,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2030,12 +1967,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2044,12 +1980,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2058,12 +1993,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2072,7 +2006,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2121,7 +2055,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Độ cao anten so với mặt đất(2)(m)"
                                     android:textColor="#000"
@@ -2136,12 +2070,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2150,12 +2083,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2164,12 +2096,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2178,12 +2109,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2192,12 +2122,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2206,12 +2135,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2220,7 +2148,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2256,7 +2184,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="1.Jumper"
                                     android:textColor="#000"
                                     android:textSize="15dp" />
@@ -2267,10 +2195,11 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Chủng loại jumper(hoặc kích thước ngang)"
                                     android:textColor="#000"
                                     android:textSize="15dp"
+                                    android:padding="2dp"
                                     android:textStyle="normal" />
 
                                 <EditText
@@ -2281,12 +2210,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2295,12 +2223,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2309,12 +2236,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2323,12 +2249,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2337,12 +2262,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2351,12 +2275,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2365,7 +2288,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2412,7 +2335,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Chiều dài jumper(m)"
                                     android:textColor="#000"
@@ -2427,12 +2350,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2441,12 +2363,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2455,12 +2376,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2469,12 +2389,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2483,12 +2402,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2497,12 +2415,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2511,7 +2428,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2558,10 +2475,11 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Suy hao dB/100m(Theo tài liệu kĩ thuật)dB"
                                     android:textColor="#000"
                                     android:textSize="15dp"
+                                    android:padding="2dp"
                                     android:textStyle="normal" />
 
                                 <EditText
@@ -2572,12 +2490,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2586,12 +2503,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2600,12 +2516,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2614,12 +2529,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2628,12 +2542,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2642,12 +2555,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2656,7 +2568,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2703,7 +2615,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Suy hao của jumper (dB)"
                                     android:textColor="#000"
@@ -2718,12 +2630,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2732,12 +2643,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2746,12 +2656,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2760,12 +2669,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2774,12 +2682,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2788,12 +2695,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2802,7 +2708,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2838,7 +2744,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="2.Feeder"
                                     android:textColor="#000"
                                     android:textSize="15dp" />
@@ -2849,10 +2755,11 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Chủng loại feeder(hoặc kích thước ngang)"
                                     android:textColor="#000"
                                     android:textSize="15dp"
+                                    android:padding="2dp"
                                     android:textStyle="normal" />
 
                                 <EditText
@@ -2863,12 +2770,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2877,12 +2783,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2891,12 +2796,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2905,12 +2809,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2919,12 +2822,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2933,12 +2835,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -2947,7 +2848,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -2994,7 +2895,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Chiều dài feeder(m)"
                                     android:textColor="#000"
@@ -3009,12 +2910,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3023,12 +2923,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3037,12 +2936,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3051,12 +2949,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3065,12 +2962,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3079,12 +2975,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3093,7 +2988,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -3140,10 +3035,11 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text="Suy hao dB/100m(Theo tài liệu kĩ thuật)dB"
                                     android:textColor="#000"
                                     android:textSize="15dp"
+                                    android:padding="2dp"
                                     android:textStyle="normal" />
 
                                 <EditText
@@ -3154,12 +3050,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3168,12 +3063,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3182,12 +3076,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3196,12 +3089,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3210,12 +3102,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3224,12 +3115,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3238,7 +3128,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -3285,7 +3175,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="Suy hao của feeder (dB)"
                                     android:textColor="#000"
@@ -3300,12 +3190,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3314,12 +3203,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3328,12 +3216,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3342,12 +3229,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3356,12 +3242,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3370,12 +3255,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3384,7 +3268,7 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
@@ -3420,7 +3304,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:padding="2dp"
                                     android:text="3.Tổng suy hao Lsh"
                                     android:textColor="#000"
@@ -3432,7 +3316,7 @@
                                     android:layout_marginHorizontal="0.5dp"
                                     android:layout_marginBottom="0.5dp"
                                     android:background="#fff"
-                                    android:gravity="center"
+                                    android:gravity="start|center_vertical"
                                     android:text=""
                                     android:textColor="#000"
                                     android:textSize="15dp"
@@ -3446,54 +3330,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
-                                <EditText
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent"
-                                    android:layout_column="0"
-                                    android:layout_marginHorizontal="0.5dp"
-                                    android:layout_marginBottom="0.5dp"
-                                    android:layout_weight="0.5"
-                                    android:background="#fff"
-                                    android:gravity="start|center_vertical"
-                                    android:padding="3dp"
-                                    android:text=""
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-
-                                <EditText
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent"
-                                    android:layout_column="0"
-                                    android:layout_marginHorizontal="0.5dp"
-                                    android:layout_marginBottom="0.5dp"
-                                    android:layout_weight="0.5"
-                                    android:background="#fff"
-                                    android:gravity="start|center_vertical"
-                                    android:padding="3dp"
-                                    android:text=""
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-
-                                <EditText
-                                    android:layout_width="fill_parent"
-                                    android:layout_height="fill_parent"
-                                    android:layout_column="0"
-                                    android:layout_marginHorizontal="0.5dp"
-                                    android:layout_marginBottom="0.5dp"
-                                    android:layout_weight="0.5"
-                                    android:background="#fff"
-                                    android:gravity="start|center_vertical"
-                                    android:padding="3dp"
-                                    android:text=""
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3507,7 +3348,6 @@
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3516,12 +3356,11 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
                                     android:textStyle="bold" />
-
                                 <EditText
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -3530,7 +3369,46 @@
                                     android:layout_marginBottom="0.5dp"
                                     android:layout_weight="0.5"
                                     android:background="#fff"
-                                    android:gravity="start|center_vertical"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text=""
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                                <EditText
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_column="0"
+                                    android:layout_marginHorizontal="0.5dp"
+                                    android:layout_marginBottom="0.5dp"
+                                    android:layout_weight="0.5"
+                                    android:background="#fff"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text=""
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                                <EditText
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_column="0"
+                                    android:layout_marginHorizontal="0.5dp"
+                                    android:layout_marginBottom="0.5dp"
+                                    android:layout_weight="0.5"
+                                    android:background="#fff"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text=""
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                                <EditText
+                                    android:layout_width="fill_parent"
+                                    android:layout_height="fill_parent"
+                                    android:layout_column="0"
+                                    android:layout_marginHorizontal="0.5dp"
+                                    android:layout_marginBottom="0.5dp"
+                                    android:layout_weight="0.5"
+                                    android:background="#fff"
+                                    android:gravity="center"
                                     android:padding="3dp"
                                     android:text=""
                                     android:textSize="15dp"
