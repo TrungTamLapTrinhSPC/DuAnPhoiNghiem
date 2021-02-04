@@ -163,6 +163,7 @@
                         android:background="@drawable/hinhcovienxam"
                         android:padding="10dp"
                         android:scrollbars="horizontal|vertical">
+
                         <TableLayout
                             android:id="@+id/TableXemTruocBaoCao"
                             android:layout_width="match_parent"
@@ -170,7 +171,6 @@
                             android:background="#3e3d3d">
 
                             <TableRow>
-
                                 <TextView
                                     android:layout_width="30dp"
                                     android:layout_height="fill_parent"
@@ -250,6 +250,7 @@
                                     android:text=""
                                     android:padding="2dp"
                                     android:textStyle="bold" />
+
                                 <TextView
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -261,6 +262,7 @@
                                     android:text=""
                                     android:padding="2dp"
                                     android:textStyle="bold" />
+
                                 <TextView
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
@@ -272,6 +274,7 @@
                                     android:text=""
                                     android:padding="2dp"
                                     android:textStyle="bold" />
+
                                 <TextView
                                     android:layout_width="fill_parent"
                                     android:layout_height="fill_parent"
