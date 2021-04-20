@@ -48,16 +48,18 @@
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp">
             <ImageButton
+                android:id="@+id/img_LoaiThietBi"
+
                 android:layout_margin="5dp"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:background="@drawable/ic11" />
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/arrow_down" />
             <ImageButton
                 android:layout_width="1dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="5dp"
                 android:background="@drawable/line"/>
 
             <AutoCompleteTextView

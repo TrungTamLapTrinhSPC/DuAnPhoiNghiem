@@ -50,7 +50,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     Button btnLuuThietBi,btnLuuAnten,btnLuuSuyHao;
     LinearLayout layoutThietBi,layoutAnten,layoutSuyHao;
     FloatingActionButton fab;
-    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten,BangTanHoatDong,ChungLoaiThietBi;
+    String MaTram,TenCot,TenTramGoc,TenAnten,DiaDiem,ToaDo,ThuTuAnten,BangTanHoatDong,ChungLoaiThietBi,SoMayThuPhatSong;
     TextView title,tvTenCot,tvTenBTS;
     File pathThietKeAnten,pathDanhSachCot,pathDanhSachBTS,pathDanhSachAnten;
     ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
@@ -135,7 +135,6 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         ArrayList<String> arr_Cot = new ArrayList<>();
         if (pathDanhSachCot.exists()){
             File[] files=pathDanhSachCot.listFiles();
-
             for (File file:files)
             {
                 if(file.isDirectory())
@@ -228,7 +227,9 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                                         }
                                         BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
                                         ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
+                                        SoMayThuPhatSong = jsonObject.getString("SoMayThuPhatSong");
                                         edtChungLoaiThietBi.setText(ChungLoaiThietBi);
+                                        edtSoMayThu.setText(SoMayThuPhatSong);
                                         edtBangTan.setText(BangTanHoatDong);
                                         ArrayList<String> lstCongSuat=  SPC.layCongSuatPhat1(ChungLoaiThietBi,BangTanHoatDong);
                                         if(lstCongSuat.size()>0)
@@ -564,11 +565,16 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 return true;
             }
         });
+
         btnLuuAnten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -578,7 +584,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -588,12 +598,17 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
+
         SPC.setPopUp(this,edtChungLoaiAnten,SPC.LayDanhSachAnten(),img_ChungLoaiAnten);
         SPC.setPopUp(this,edtBangTan,SPC.listBangTan,img_BangTan);
         SPC.setPopUp(this,edtLoaiAnten,SPC.listLoaiAnten,img_LoaiAnten);
@@ -615,6 +630,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 edtDoTangIch.setText(SPC.layDoTangIchAnten(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
                 edtDoDaiBucXa.setText(SPC.layDoDaiBucXa(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
                 edtTITLCo.setText(SPC.layGocNgang(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+                edtLoaiAnten.setText("Định hướng");
 
             }
         });
@@ -633,7 +649,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodBFeeder.setText(SPC.laySuyHaodB("Feeder",edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtChieuDaiFeeder.addTextChangedListener(new TextWatcher() {
@@ -649,7 +665,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodBFeeder.setText(SPC.laySuyHaodB("Feeder",edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtChungLoaiJumper.addTextChangedListener(new TextWatcher() {
@@ -665,7 +681,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodBJumper.setText(SPC.laySuyHaodB(edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodBJumper.setText(SPC.laySuyHaodB("Jumper",edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtChieuDaiJumper.addTextChangedListener(new TextWatcher() {
@@ -681,7 +697,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodBJumper.setText(SPC.laySuyHaodB(edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodBJumper.setText(SPC.laySuyHaodB("Jumper",edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtSuyHaodBFeeder.addTextChangedListener(new TextWatcher() {
@@ -883,8 +899,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         AutoCompleteTextView edtSuyHaodB = dialogthongso.findViewById(R.id.edtSuyHaodB);
         AutoCompleteTextView edtSuyHao = dialogthongso.findViewById(R.id.edtSuyHao);
         ImageButton img_ChungLoai = dialogthongso.findViewById(R.id.img_ChungLoai);
+        ImageButton img_LoaiThietBi = dialogthongso.findViewById(R.id.img_LoaiThietBi);
 
         SPC.setPopUp(this,edtChungLoai,SPC.LayDanhSachSuyHao(),img_ChungLoai);
+        SPC.setPopUp(this,edtTenThanhPhan,SPC.LayDanhSachTenThanhPhan(),img_LoaiThietBi);
+
         edtChungLoai.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -898,7 +917,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodB.setText(SPC.laySuyHaodB(edtChungLoai.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodB.setText(SPC.laySuyHaodB(edtTenThanhPhan.getText().toString(),edtChungLoai.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtSuyHaodB.addTextChangedListener(new TextWatcher() {
@@ -1052,7 +1071,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                edtSuyHaodB.setText(SPC.laySuyHaodB(edtChungLoai.getText().toString(),edtBangTan.getText().toString()));
+                edtSuyHaodB.setText(SPC.laySuyHaodB(edtTenThanhPhan.getText().toString(),edtChungLoai.getText().toString(),edtBangTan.getText().toString()));
             }
         });
         edtSuyHaodB.addTextChangedListener(new TextWatcher() {

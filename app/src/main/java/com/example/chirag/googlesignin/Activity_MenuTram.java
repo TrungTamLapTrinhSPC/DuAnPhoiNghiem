@@ -119,6 +119,13 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         listView.setOnItemClickListener(onItemClick);
         girdView.setOnItemLongClickListener(onItemLongClickListener);
         girdView.setOnItemClickListener(onItemClick);
+        btnRestart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Activity_MenuTram.this, Activity_MenuTram.class);
+                startActivity(intent);
+            }
+        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,8 +171,7 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
     //endregion
     private void NhanBien() {
     }
-    private void TaoThuVien()
-    {
+    private void TaoThuVien(){
         if(SPC.TaoThuMuc(SPC.pathDataApp_PNDT))
             Toast.makeText(Activity_MenuTram.this,"Đã tạo bộ nhớ", Toast.LENGTH_SHORT).show();
         if(SPC.TaoThuMuc(SPC.pathTemplate))
@@ -253,19 +259,27 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
             listViewAdapterListview = new Adapter_Listview(this, R.layout.list_item, danhsachTram);
             listView.setAdapter(listViewAdapterListview);
         }
-        catch (Exception e){}
+        catch (Exception e){
+            Toast.makeText(Activity_MenuTram.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+
+        }
         return danhsachTram;
     }
     private String DemSoTramGoc(File fileTram){
         int sotram = 0;
-        File[] listCot = new File(fileTram,"DuLieu").listFiles();
-        for (File cot:listCot)
+        File fileBTS =new File(fileTram,"DuLieu/DanhSachBTS");
+        if (fileBTS.exists())
         {
-            if(cot.isDirectory()){
-                File[] listTram = cot.listFiles();
-                sotram += listTram.length-1;
-            }
+            File[] listCot = fileBTS.listFiles();
+            sotram = listCot.length;
         }
+        else
+        {
+            SPC.TaoThuMuc(fileBTS);
+            sotram = 0;
+        }
+
+
         return String.valueOf(sotram);
     }
     //endregion
@@ -613,7 +627,8 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         });
         btnLuuThongSo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtMaTram,edtDiaDiem,edtToaDo,edtNgayDo,edtViTriDat));
                 for( AutoCompleteTextView edt:listAutoCompleteTextView){
                     if(edt.getText().toString().trim().equals("")){
