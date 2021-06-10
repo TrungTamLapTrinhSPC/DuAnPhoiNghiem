@@ -50,18 +50,18 @@
                         android:id="@+id/btnGrid"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginRight="20dp"
+                        android:layout_marginRight="10dp"
                         android:background="@color/colorTrongsuot"
                         android:scaleType="fitXY"
                         android:src="@drawable/ic_view_module_black_24dp" />
                     <ImageButton
-                        android:id="@+id/btnMenu"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginRight="20dp"
+                        android:id="@+id/btnSetting"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginRight="10dp"
                         android:background="@color/colorTrongsuot"
                         android:scaleType="fitXY"
-                        android:src="@drawable/btn_menu" />
+                        android:src="@drawable/ic_settings_24" />
 
                 </LinearLayout>
             </LinearLayout>

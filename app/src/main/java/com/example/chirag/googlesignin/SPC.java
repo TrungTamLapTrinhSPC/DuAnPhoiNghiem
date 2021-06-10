@@ -13,12 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
-
-import com.google.api.services.driveactivity.v2.model.Edit;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -32,11 +29,8 @@ import java.util.Date;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 final class SPC { private SPC() {}
 
@@ -49,6 +43,7 @@ final class SPC { private SPC() {}
     static final String DuongDanThuMucDuLieu = "/DuLieu";
     static final ArrayList<String> listLoaiAnten = new ArrayList<String>(Arrays.asList("Định hướng"));
     static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
+    static final ArrayList<String> listSoDauConnecter = new ArrayList<String>(Arrays.asList("2", "4"));
     static final ArrayList<String> listLoaiCongTrinh = new ArrayList<String>(Arrays.asList("Khu nhà ở", "Khu đất trống", "Khu nhà 1 2 tầng", "Khu nhà 3 4 tầng","Khu nhà xưởng","Khu nhà cấp 4","Khu công nghiệp 1 2 tầng","Khu đường và đồng ruộng","Khu sân bay, nhà thấp tầng","Khu bãi xe"));
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh các công trình hướng sector 1", "Hình ảnh các công trình hướng sector 2", "Hình ảnh các công trình hướng sector 3", "Hình ảnh các công trình hướng sector 4", "Hình ảnh các công trình hướng sector 5"));
@@ -56,12 +51,12 @@ final class SPC { private SPC() {}
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY","DanhSachTramGoc"));
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong","MangSuDung","SoMayThuPhatSong"));
-    static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));
+    static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan","SuyHao"));
     static final ArrayList<String> ThietKeCongTrinh = new ArrayList<String>(Arrays.asList("TenCongTrinh","ChieuCao", "KhoangCach","SoTang", "GocPhuongVi", "DoDay", "DoRong"));
     static final ArrayList<String> ThietKeAnten = new ArrayList<String>(Arrays.asList("TenAnten", "ChungLoaiThietBi", "SoMayPhat", "TongCongSuatPhat1", "TongCongSuatPhat2",
             "ChungLoaiAnten", "LoaiAnten", "DoTangIch", "BangTanHoatDong", "DoDaiBucXa", "GocNgang", "GocPhuongVi", "DoCaoAnten1", "DoCaoAnten2",
             "ChungLoaiJumper", "ChieuDaiJumper", "SuyHaodBJumper","SuyHaoJumper",
-            "ChungLoaiFeeder", "ChieuDaiFeeder", "SuyHaodBFeeder","SuyHaoFeeder","TongSuyHao"));
+            "ChungLoaiFeeder", "ChieuDaiFeeder", "SuyHaodBFeeder","SuyHaoFeeder","Connecter","TongSuyHaoConnecter","TongSuyHao"));
     static void SaveListAutoCompleteTextView_json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
         JSONObject obj = new JSONObject();
         for(int i=0;i<listAutoCompleteTextView.size();i++)
@@ -185,7 +180,13 @@ final class SPC { private SPC() {}
 
             for(int i=0;i<arrayList.size();i++)
             {
-                listAutoCompleteTextView.get(i).setText(jsonObject.getString(arrayList.get(i)));
+                try {
+                    listAutoCompleteTextView.get(i).setText(jsonObject.getString(arrayList.get(i)));
+
+                } catch (Exception e) {
+                    listAutoCompleteTextView.get(i).setText("0");
+                }
+
             }
         }
 
@@ -482,6 +483,72 @@ final class SPC { private SPC() {}
         }
         return DoTangIchAnten;
     }
+    public static Bitmap BITMAP_RESIZER(Bitmap bitmap, int newWidth, int newHeight){
+        Bitmap scaledBitmap = Bitmap.createBitmap(newWidth, newHeight, Bitmap.Config.ARGB_8888);
+
+        float ratioX = newWidth / (float) bitmap.getWidth();
+        float ratioY = newHeight / (float) bitmap.getHeight();
+        float middleX = newWidth / 2.0f;
+        float middleY = newHeight / 2.0f;
+
+        Matrix scaleMatrix = new Matrix();
+        scaleMatrix.setScale(ratioX, ratioY, middleX, middleY);
+
+        Canvas canvas = new Canvas(scaledBitmap);
+        canvas.setMatrix(scaleMatrix);
+        canvas.drawBitmap(bitmap, middleX - bitmap.getWidth() / 2, middleY - bitmap.getHeight() / 2, new Paint(Paint.FILTER_BITMAP_FLAG));
+        return scaledBitmap;
+
+    }
+    public static String DataforPath(String name){
+        String s=null;
+        BufferedReader input = null;
+        File file = null;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, name+".txt");
+            input = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line;
+            StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                buffer.append(line).append("\n");
+            }
+            s = buffer.toString();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
+    public void saveDataOnTemplate(String text, String Name){
+        String content = text;
+        File file;
+        FileOutputStream outputStream;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, Name+".txt");
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveDataOnCacher(String text, String Name){
+        String content = text;
+        File file;
+        FileOutputStream outputStream;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, Name+".txt");
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     //region Công thức tính
     static String TinhCongSuatPhat2(String CongSuatPhat1){
         String CongSuatPhat2 = "";

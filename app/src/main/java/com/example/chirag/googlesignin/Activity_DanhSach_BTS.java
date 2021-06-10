@@ -28,7 +28,6 @@ import android.widget.Toast;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.IOException;
