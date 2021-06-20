@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -59,7 +60,7 @@ public class Adapter_DoiTuong_CongTrinh extends BaseAdapter {
             AutoCompleteTextView edtGocPhuongVi = V.findViewById(R.id.edtGocPhuongVi);
             AutoCompleteTextView edtDoDay = V.findViewById(R.id.edtDoDay);
             AutoCompleteTextView edtDoRong = V.findViewById(R.id.edtDoRong);
-
+            LinearLayout layout = V.findViewById(R.id.layout);
             edtTenCongTrinh.setText(myobjects.get(position).getTenCongTrinh());
             edtChieuCaoCongTrinh.setText(myobjects.get(position).getChieuCao());
             edtKhoangCach.setText(myobjects.get(position).getKhoangCach());
@@ -67,6 +68,8 @@ public class Adapter_DoiTuong_CongTrinh extends BaseAdapter {
             edtGocPhuongVi.setText(myobjects.get(position).getGocPhuongVi());
             edtDoDay.setText(myobjects.get(position).getDoDay());
             edtDoRong.setText(myobjects.get(position).getDoRong());
+            LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) layout.getLayoutParams();
+            params.width = myobjects.get(position).getWidth()-100;
         }
 
         return V;

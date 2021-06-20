@@ -7,9 +7,9 @@
         android:color="@color/colorPrimary" />
     <!--đường viền-->
     <!--đường viền-->
-    <stroke
-        android:width="3dp"
-        android:color="#fff"/>
+        <stroke
+            android:width="3dp"
+            android:color="#fff"/>
     <corners
         android:bottomLeftRadius="50dp"
         android:bottomRightRadius="50dp"

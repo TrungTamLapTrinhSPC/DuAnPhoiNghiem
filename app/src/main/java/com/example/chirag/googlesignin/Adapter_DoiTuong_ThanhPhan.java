@@ -54,15 +54,9 @@ public class Adapter_DoiTuong_ThanhPhan extends BaseAdapter {
             V = inflater.inflate(R.layout.item_thanhphan, null);
         }
         TextView edtTenThanhPhan = V.findViewById(R.id.tvTenThanhPhan);
-        AutoCompleteTextView edtChieuDai = V.findViewById(R.id.edtChieuDai);
-        AutoCompleteTextView edtChungLoai = V.findViewById(R.id.edtTenCongTrinh);
-        AutoCompleteTextView edtSuyHaodB = V.findViewById(R.id.edtSuyHaodB);
         AutoCompleteTextView edtSuyHao = V.findViewById(R.id.edtSuyHao);
 
         edtTenThanhPhan.setText(myobjects.get(position).getTenThanhPhan());
-        edtChieuDai.setText(myobjects.get(position).getChieuDai());
-        edtChungLoai.setText(myobjects.get(position).getChungLoai());
-        edtSuyHaodB.setText(myobjects.get(position).getSuyHaodB());
         edtSuyHao.setText(myobjects.get(position).getSuyHao());
         return V;
     }

@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="match_parent">
-
+    android:layout_height="540dp"
+    android:background="@drawable/backgound_dialog"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
-        android:id="@+id/layout"
-        android:layout_width="320dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/shadow"
-        android:layout_marginTop="15dp"
         android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="15dp"
         android:layout_marginRight="15dp"
         android:padding="15dp"
         android:elevation="6dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginRight="10dp"
-            >
+            android:layout_marginRight="10dp">
             <ImageButton
                 android:layout_margin="5dp"
                 android:layout_width="30dp"
@@ -34,20 +35,21 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:text="Công trình thấp hơn"
+                android:text="Công trình cao nhất"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:textColor="#000"
+                android:textColor="#686868"
                 android:layout_weight="1"/>
 
             <ImageButton
-                android:layout_margin="5dp"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center"
+                android:layout_margin="5dp"
                 android:background="@drawable/arrow_down" />
 
         </LinearLayout>
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -56,6 +58,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:background="@drawable/line"/>
+
+
         <!--Tên công trình-->
         <TextView
             android:layout_width="wrap_content"
@@ -86,6 +90,7 @@
                 android:background="@drawable/line"/>
 
             <AutoCompleteTextView
+
                 android:textColor="#111"
                 android:layout_margin="5dp"
                 android:hint="Tên công trình"
@@ -97,6 +102,13 @@
                 android:textSize="15dp" />
 
         </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nhập công trình cao nhất trong hướng sector, không nhập tên 'Khu'"
+            android:textColor="#686868"
+            android:textSize="10dp"
+            android:textStyle="normal" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -231,11 +243,12 @@
                 <LinearLayout
                     android:layout_weight="3"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
+                    android:layout_height="match_parent"
                     android:orientation="vertical"
 
                     android:layout_marginTop="20dp"
-                    android:background="@drawable/thaptang">
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/caotang">
 
                 </LinearLayout>
             </LinearLayout>
@@ -313,7 +326,6 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:text="Góc phương vị:"
                         android:layout_marginTop="5dp"
                         android:textColor="#686868"
@@ -324,8 +336,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:background="@drawable/hinhcovienxam"
-                        android:layout_marginRight="10dp"
-                        >
+                        android:layout_marginRight="10dp">
                         <ImageButton
                             android:layout_margin="5dp"
                             android:layout_width="25dp"
@@ -484,7 +495,6 @@
                             android:layout_width="100dp"
                             android:layout_height="match_parent"
                             android:layout_weight="50"
-
                             android:textSize="15dp" />
 
                         <ImageButton
@@ -514,7 +524,26 @@
 
                 </LinearLayout>
             </LinearLayout>
-
+            <Button
+                android:id="@+id/btnLuu"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/backgound_header_4"
+                android:layout_gravity="center_horizontal"
+                android:text="Lưu"
+                android:textAllCaps="false"
+                android:textColor="#fff"
+                android:textSize="18dp"
+                android:textStyle="normal" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
     </LinearLayout>
-</LinearLayout>
+
+
+</ScrollView>

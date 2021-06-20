@@ -180,6 +180,43 @@
                                 android:layout_height="0.5dp"
                                 android:layout_marginBottom="5dp"
                                 android:background="@drawable/line_trang"/>
+                            <!--Chọn Anten-->
+                            <LinearLayout
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="30dp"
+                                android:orientation="horizontal">
+                                <TextView
+                                    android:paddingTop="5dp"
+                                    android:textSize="16dp"
+                                    android:layout_width="70dp"
+                                    android:textColor="#fff"
+                                    android:text="Tên anten:"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="20"/>
+                                <AutoCompleteTextView
+                                    android:id="@+id/edtTenAnten"
+                                    android:textSize="16dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="5dp"
+                                    android:background="@color/transparent"
+                                    android:backgroundTint="@color/transparent"
+                                    android:textColor="#fff"
+                                    android:hint="Tên anten theo sector"
+                                    android:layout_weight="70"
+                                    android:layout_height="match_parent"
+                                    android:layout_width="100dp" />
+                                <ImageButton
+                                    android:id="@+id/btnChonAnten"
+                                    android:layout_width="30dp"
+                                    android:layout_height="30dp"
+                                    android:background="@drawable/ic_arrow_down_24dp" />
+                            </LinearLayout>
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="0.5dp"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/line_trang"/>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
@@ -259,52 +296,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-                        <!-- Tên anten-->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:text="Tên anten:"
-                            android:layout_marginTop="15dp"
-                            android:textColor="#000"
-                            android:textSize="16dp"
-                            android:textStyle="normal" />
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:background="@drawable/hinhcovienxam"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp">
-                            <ImageButton
-                                android:layout_margin="5dp"
-                                android:layout_width="25dp"
-                                android:layout_height="25dp"
-                                android:background="@drawable/ic11" />
-                            <ImageButton
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:layout_width="1dp"
-                                android:layout_height="match_parent"
-                                android:background="@drawable/line"/>
 
-                            <AutoCompleteTextView
-                                android:textColor="#111"
-                                android:layout_margin="5dp"
-                                android:hint="Tên anten"
-                                android:background="@drawable/backgound_edittext"
-                                android:id="@+id/edtTenAnten"
-                                android:layout_width="200dp"
-                                android:layout_weight="50"
-                                android:layout_height="match_parent"
-                                android:textSize="16dp" />
-                            <ImageButton
-                                android:id="@+id/btnChonAnten"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:layout_gravity="center"
-                                android:background="@drawable/arrow_down" />
-                        </LinearLayout>
                         <!-- Chủng loại thiết bị-->
                         <TextView
                             android:layout_width="wrap_content"
@@ -1069,7 +1061,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="Độ cao anten so với chân cột:"
+                            android:text="Độ cao anten so với mặt đất:"
                             android:layout_marginTop="5dp"
                             android:textColor="#000"
                             android:layout_weight="80"
@@ -1096,11 +1088,12 @@
 
                             <AutoCompleteTextView
                                 android:textColor="#111"
+                                android:layout_weight="80"
                                 android:layout_margin="5dp"
                                 android:hint="Độ cao anten"
                                 android:background="@drawable/backgound_edittext"
                                 android:id="@+id/edtDoCao_vs_ChanCot"
-                                android:layout_width="200dp"
+                                android:layout_width="50dp"
                                 android:layout_height="match_parent"
                                 android:textSize="16dp" />
 
@@ -1124,10 +1117,11 @@
                         </LinearLayout>
                         <!-- Độ cao anten so với mặt đất-->
                         <TextView
+
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="10dp"
-                            android:text="Độ cao anten so với chân cột:"
+                            android:text="Độ cao cột anten so với mặt đất:"
                             android:layout_marginTop="5dp"
                             android:textColor="#000"
                             android:textSize="16dp"
@@ -1258,6 +1252,195 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_margin="10dp"
+                                android:elevation="6dp">
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+                                    <ImageView
+                                        android:id="@+id/imgViewJumper"
+                                        android:layout_margin="5dp"
+                                        android:layout_width="60dp"
+                                        android:layout_height="240dp"
+                                        android:background="@drawable/re3" />
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Jumper"
+                                        android:textSize="13dp"
+                                        android:textColor="#000"
+                                        android:textStyle="normal"
+                                        android:layout_centerInParent="true"
+                                        android:layout_alignParentStart="true"
+                                        android:layout_marginLeft="10dp"/>
+                                </RelativeLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical">
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Chủng loại Jumper:"
+                                        android:textColor="#000"
+                                        android:textSize="15dp"
+                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/hinhcovienxam"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginLeft="10dp">
+                                        <ImageButton
+                                            android:id="@+id/img_ChungLoaiJumper"
+                                            android:layout_margin="5dp"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/arrow_down" />
+                                        <ImageButton
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@drawable/line"/>
+
+                                        <AutoCompleteTextView
+                                            android:id="@+id/edtChungLoaiJumper"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/backgound_edittext"
+                                            android:hint="Chủng loại Jumper"
+                                            android:textColor="#111"
+                                            android:textSize="16dp" />
+                                    </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Chiều dài Jumper:"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#000"
+                                        android:textSize="15dp"
+                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/hinhcovienxam"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginLeft="10dp">
+                                        <ImageButton
+                                            android:layout_margin="5dp"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/pencil" />
+                                        <ImageButton
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@drawable/line"/>
+
+                                        <AutoCompleteTextView
+                                            android:id="@+id/edtChieuDaiJumper"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:background="@drawable/backgound_edittext"
+                                            android:hint="Chiều dài Jumper"
+                                            android:textColor="#111"
+                                            android:textSize="16dp" />
+
+                                    </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Suy hao dB/100m :"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#000"
+                                        android:textSize="15dp"
+                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/hinhcovienxam"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginLeft="10dp">
+                                        <ImageButton
+                                            android:layout_margin="5dp"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/pencil" />
+                                        <ImageButton
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@drawable/line"/>
+
+                                        <AutoCompleteTextView
+                                            android:textColor="#111"
+                                            android:layout_margin="5dp"
+                                            android:background="@drawable/backgound_edittext"
+                                            android:id="@+id/edtSuyHaodBJumper"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:textSize="16dp" />
+
+                                    </LinearLayout>
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:text="Suy hao Feeder:"
+                                        android:layout_marginTop="5dp"
+                                        android:textColor="#000"
+                                        android:textSize="15dp"
+                                        android:textStyle="normal" />
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        android:background="@drawable/hinhcovienxam"
+                                        android:layout_marginRight="10dp"
+                                        android:layout_marginLeft="10dp">
+                                        <ImageButton
+                                            android:layout_margin="5dp"
+                                            android:layout_width="25dp"
+                                            android:layout_height="25dp"
+                                            android:background="@drawable/pencil" />
+                                        <ImageButton
+                                            android:layout_marginTop="5dp"
+                                            android:layout_marginBottom="5dp"
+                                            android:layout_width="1dp"
+                                            android:layout_height="match_parent"
+                                            android:background="@drawable/line"/>
+
+                                        <AutoCompleteTextView
+                                            android:textColor="#111"
+                                            android:layout_margin="5dp"
+                                            android:background="@drawable/backgound_edittext"
+                                            android:id="@+id/edtSuyHaoJumper"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:layout_marginLeft="10dp"
+                                            android:textSize="16dp" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </LinearLayout>
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -1449,201 +1632,135 @@
                                     </LinearLayout>
                                 </LinearLayout>
                             </LinearLayout>
+
+                            <!-- Conector-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="Số đầu connector:"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="horizontal"
-                                android:layout_margin="10dp"
-                                android:elevation="6dp">
-                                <RelativeLayout
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content">
-                                    <ImageView
-                                        android:id="@+id/imgViewJumper"
-                                        android:layout_margin="5dp"
-                                        android:layout_width="60dp"
-                                        android:layout_height="240dp"
-                                        android:background="@drawable/re3" />
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:text="Jumper"
-                                        android:textSize="13dp"
-                                        android:textColor="#000"
-                                        android:textStyle="normal"
-                                        android:layout_centerInParent="true"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_marginLeft="10dp"/>
-                                </RelativeLayout>
-                                <LinearLayout
+                                android:background="@drawable/hinhcovienxam"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp">
+                                <ImageButton
+                                    android:id="@+id/img_Connector"
+
+                                    android:layout_margin="5dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:background="@drawable/arrow_down" />
+
+                                <ImageButton
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/line"/>
+
+                                <AutoCompleteTextView
+                                    android:textColor="#111"
+                                    android:layout_margin="5dp"
+                                    android:hint="Số đầu connector"
+                                    android:background="@drawable/backgound_edittext"
+                                    android:id="@+id/edtConnector"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="vertical">
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Chủng loại Jumper:"
-                                        android:textColor="#000"
-                                        android:textSize="15dp"
-                                        android:textStyle="normal" />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:background="@drawable/hinhcovienxam"
-                                        android:layout_marginRight="10dp"
-                                        android:layout_marginLeft="10dp">
-                                        <ImageButton
-                                            android:id="@+id/img_ChungLoaiJumper"
-                                            android:layout_margin="5dp"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:background="@drawable/arrow_down" />
-                                        <ImageButton
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:layout_width="1dp"
-                                            android:layout_height="match_parent"
-                                            android:background="@drawable/line"/>
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:textSize="16dp" />
 
-                                        <AutoCompleteTextView
-                                            android:id="@+id/edtChungLoaiJumper"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_margin="5dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:background="@drawable/backgound_edittext"
-                                            android:hint="Chủng loại Jumper"
-                                            android:textColor="#111"
-                                            android:textSize="16dp" />
-                                    </LinearLayout>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Chiều dài Jumper:"
-                                        android:layout_marginTop="5dp"
-                                        android:textColor="#000"
-                                        android:textSize="15dp"
-                                        android:textStyle="normal" />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:background="@drawable/hinhcovienxam"
-                                        android:layout_marginRight="10dp"
-                                        android:layout_marginLeft="10dp">
-                                        <ImageButton
-                                            android:layout_margin="5dp"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:background="@drawable/pencil" />
-                                        <ImageButton
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:layout_width="1dp"
-                                            android:layout_height="match_parent"
-                                            android:background="@drawable/line"/>
-
-                                        <AutoCompleteTextView
-                                            android:id="@+id/edtChieuDaiJumper"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_margin="5dp"
-                                            android:layout_marginLeft="10dp"
-                                            android:background="@drawable/backgound_edittext"
-                                            android:hint="Chiều dài Jumper"
-                                            android:textColor="#111"
-                                            android:textSize="16dp" />
-
-                                    </LinearLayout>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Suy hao dB/100m :"
-                                        android:layout_marginTop="5dp"
-                                        android:textColor="#000"
-                                        android:textSize="15dp"
-                                        android:textStyle="normal" />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:background="@drawable/hinhcovienxam"
-                                        android:layout_marginRight="10dp"
-                                        android:layout_marginLeft="10dp">
-                                        <ImageButton
-                                            android:layout_margin="5dp"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:background="@drawable/pencil" />
-                                        <ImageButton
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:layout_width="1dp"
-                                            android:layout_height="match_parent"
-                                            android:background="@drawable/line"/>
-
-                                        <AutoCompleteTextView
-                                            android:textColor="#111"
-                                            android:layout_margin="5dp"
-                                            android:background="@drawable/backgound_edittext"
-                                            android:id="@+id/edtSuyHaodBJumper"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginLeft="10dp"
-                                            android:textSize="16dp" />
-
-                                    </LinearLayout>
-                                    <TextView
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_marginLeft="10dp"
-                                        android:text="Suy hao Feeder:"
-                                        android:layout_marginTop="5dp"
-                                        android:textColor="#000"
-                                        android:textSize="15dp"
-                                        android:textStyle="normal" />
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:orientation="horizontal"
-                                        android:background="@drawable/hinhcovienxam"
-                                        android:layout_marginRight="10dp"
-                                        android:layout_marginLeft="10dp">
-                                        <ImageButton
-                                            android:layout_margin="5dp"
-                                            android:layout_width="25dp"
-                                            android:layout_height="25dp"
-                                            android:background="@drawable/pencil" />
-                                        <ImageButton
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="5dp"
-                                            android:layout_width="1dp"
-                                            android:layout_height="match_parent"
-                                            android:background="@drawable/line"/>
-
-                                        <AutoCompleteTextView
-                                            android:textColor="#111"
-                                            android:layout_margin="5dp"
-                                            android:background="@drawable/backgound_edittext"
-                                            android:id="@+id/edtSuyHaoJumper"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginLeft="10dp"
-                                            android:textSize="16dp" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
                             </LinearLayout>
+
                             <!-- Tổng suy hao-->
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:text="Tổng suy hao của các connector:"
+                                android:layout_marginTop="5dp"
+                                android:textColor="#000"
+                                android:textSize="16dp"
+                                android:textStyle="normal" />
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginBottom="15dp"
+                                android:background="@drawable/hinhcovienxam"
+                                android:layout_marginRight="10dp"
+                                android:layout_marginLeft="10dp">
+                                <ImageButton
+                                    android:layout_margin="5dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:background="@drawable/pencil" />
+                                <ImageButton
+
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_width="1dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/line"/>
+
+                                <AutoCompleteTextView
+                                    android:textColor="#111"
+                                    android:layout_margin="5dp"
+                                    android:hint="Connector "
+                                    android:background="@drawable/backgound_edittext"
+                                    android:id="@+id/edtTongSuyHao_Connector"
+                                    android:layout_width="200dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:textSize="16dp" />
+
+                                <ImageButton
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginLeft="10dp"
+                                    android:background="@drawable/line"
+                                    android:layout_width="1dp" />
+
+                                <TextView
+                                    android:layout_width="50dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="end"
+                                    android:layout_marginBottom="10dp"
+                                    android:text="(dB)"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold"
+                                    android:gravity="center" />
+
+                            </LinearLayout>
+
+
+                            <ListView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:visibility="gone"
+                                android:layout_height="90dp"
+                                android:id="@+id/listview_thanhphan"
+                                android:divider="@null"
+                                android:dividerHeight="0dp"
+                                android:nestedScrollingEnabled="true"
+                                android:scrollbars="vertical"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginRight="10dp"/>
+
+                         
+                            <!-- Tổng suy hao  Lsh (dB)-->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:text="Tổng suy hao:"
                                 android:layout_marginTop="5dp"
                                 android:textColor="#000"
                                 android:textSize="16dp"
@@ -1689,29 +1806,17 @@
                                     android:layout_width="1dp" />
 
                                 <TextView
-                                    android:layout_width="50dp"
+                                    android:layout_width="55dp"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="end"
                                     android:layout_marginBottom="10dp"
-                                    android:text="G(dBi)"
+                                    android:text="Lsh(dB)"
                                     android:textSize="15dp"
                                     android:textStyle="bold"
                                     android:gravity="center" />
 
                             </LinearLayout>
 
-                            <ListView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:visibility="gone"
-                                android:id="@+id/listview_thanhphan"
-                                android:divider="@null"
-                                android:dividerHeight="0dp"
-                                android:nestedScrollingEnabled="true"
-                                android:scrollbars="vertical"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginRight="10dp">
-                            </ListView>
                         </LinearLayout>
                         <Button
                             android:id="@+id/btnLuuSuyHao"
@@ -1805,14 +1910,14 @@
                             android:textColor="#000"
                             android:textSize="15dp"
                             android:layout_gravity="center_vertical"/>
-                        <TextView
+                       <!-- <TextView
                             android:id="@+id/tvCaoTang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="1"
                             android:textColor="#000"
                             android:textSize="15dp"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"/>-->
 
                         <ImageButton
                             android:layout_width="25dp"
@@ -1826,14 +1931,14 @@
                             android:textColor="#000"
                             android:textSize="15dp"
                             android:layout_gravity="center_vertical"/>
-                        <TextView
+                       <!-- <TextView
                             android:id="@+id/tvThapTang"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="2"
                             android:textColor="#000"
                             android:textSize="15dp"
-                            android:layout_gravity="center_vertical"/>
+                            android:layout_gravity="center_vertical"/>-->
                     </LinearLayout>
                 </LinearLayout>
                 <LinearLayout

@@ -55,15 +55,17 @@ import javax.xml.transform.TransformerException;
 
 public class Activity_ChiTiet_Anten extends AppCompatActivity {
     LinearLayout btnDanhSachCongTrinh;
+
     ImageButton btnBack, btnMolayoutThietBi, btnMolayoutAnten, btnMolayoutSuyHao, btnMenu, btnChonCot, btnChonBTS, btnChonAnten,
-            img_ChungLoaiThietBi, img_CongXuatPhat1, img_ChungLoaiAnten, img_ChungLoaiFeeder, img_ChungLoaiJumper, img_BangTan, img_LoaiAnten;
+            img_ChungLoaiThietBi, img_CongXuatPhat1, img_ChungLoaiAnten, img_ChungLoaiFeeder, img_ChungLoaiJumper, img_BangTan, img_LoaiAnten,img_Connector;
     Button btnLuuThietBi, btnLuuAnten, btnLuuSuyHao;
     LinearLayout layoutThietBi, layoutAnten, layoutSuyHao;
     FloatingActionButton fab;
-    String MaTram, TenCot, TenTramGoc, TenAnten, DiaDiem, ToaDo, ThuTuAnten, BangTanHoatDong, ChungLoaiThietBi;
+    String MaTram, TenCot, TenTramGoc, TenAnten, DiaDiem, ToaDo, ThuTuAnten, BangTanHoatDong, ChungLoaiThietBi,SoMayThuPhatSong;
     String indexCot, indexBts, indexAntens;
     TextView title, tvTenCot, tvTenBTS;
     File pathThietKeAnten, pathDanhSachCot, pathDanhSachBTS, pathDanhSachAnten;
+
     ArrayList<AutoCompleteTextView> listAutoCompleteTextView;
     ViewGroup viewgroup;
     EditText edtTITLDien, edtTITLCo;
@@ -78,7 +80,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
     XML_Tram xml_tramGlobal;
 
     //AutoCompleteTextView THIẾT KẾ ANTEN
-    AutoCompleteTextView edtTenAnten, edtChungLoaiThietBi, edtSoMayThu, edtCongXuatPhat1, edtCongXuatPhat2, edtChungLoaiAnten, edtLoaiAnten, edtDoTangIch, edtBangTan, edtDoDaiBucXa, edtGocNgang, edtGocPhuongVi, edtDoCao_vs_ChanCot, edtDoCao_vs_MatDat, edtChungLoaiFeeder, edtChieuDaiFeeder, edtSuyHaodBFeeder, edtSuyHaoFeeder, edtChungLoaiJumper, edtChieuDaiJumper, edtSuyHaodBJumper, edtSuyHaoJumper, edtTongSuyHao;
+
+    AutoCompleteTextView edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtConnector,edtTongSuyHao_Connector,edtTongSuyHao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,9 +110,21 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             e.printStackTrace();
         }*/
     }
-
+    private void TinhTongSuyHaodB()
+    {
+        try {
+            double _TongThanhPhan = setUpListView();
+            if(SPC.isNumeric(edtSuyHaoFeeder.getText().toString())) _TongThanhPhan += Double.valueOf(edtSuyHaoFeeder.getText().toString());
+            if(SPC.isNumeric(edtSuyHaoJumper.getText().toString())) _TongThanhPhan += Double.valueOf(edtSuyHaoJumper.getText().toString());
+            if(SPC.isNumeric(edtTongSuyHao_Connector.getText().toString())) _TongThanhPhan += Double.valueOf(edtTongSuyHao_Connector.getText().toString());
+            edtTongSuyHao.setText(String.valueOf(SPC.round(_TongThanhPhan,4)));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
     private void setUpListView() throws JSONException {
         list_ThanhPhan.clear();
+
 //        File fileThanhPhan = new File(pathThietKeAnten, "ThanhPhan");
 //        if (fileThanhPhan.exists()) {
 //            if (fileThanhPhan.isDirectory()) {
@@ -179,14 +194,49 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             e.printStackTrace();
         } catch (SAXException e) {
             e.printStackTrace();
-        }
-
+// =======
+//         double _TongSuyHao = 0.0;
+//         File fileThanhPhan = new File (pathThietKeAnten,"ThanhPhan");
+//         if (fileThanhPhan.exists()){
+//             if (fileThanhPhan.isDirectory()){
+//                 File[] listThanhPhan = fileThanhPhan.listFiles();
+//                 if (listThanhPhan.length ==0){
+//                     listview_thanhphan.setVisibility(View.GONE);
+//                 } else
+//                 {
+//                     listview_thanhphan.setVisibility(View.VISIBLE);
+//                     for(File thanhphan:listThanhPhan)
+//                     {
+//                         if(thanhphan.getName().contains(".txt"))
+//                         {
+//                             String thietkethanhphan = SPC.readText(thanhphan);
+//                             JSONObject jsonObject = new JSONObject(thietkethanhphan);
+//                             String TenThanhPhan = jsonObject.getString("TenThanhPhan");
+//                             String SuyHao = jsonObject.getString("SuyHao");
+//                             if(SPC.isNumeric(SuyHao)) _TongSuyHao += Double.valueOf(SuyHao);
+//                             list_ThanhPhan.add(new DoiTuong_ThanhPhan(TenThanhPhan,SuyHao));
+//                         }
+//                     }
+//                     /**HIỂN THỊ RA MÀN HÌNH*/
+//                     adapter_doiTuong_thanhphan = new Adapter_DoiTuong_ThanhPhan(list_ThanhPhan, Activity_ChiTiet_Anten.this,R.layout.item_thanhphan);
+//                     listview_thanhphan.setAdapter(adapter_doiTuong_thanhphan);
+//                 }
+//             }
+//         }
+//         else
+//         {
+//             SPC.TaoThuMuc(fileThanhPhan);
+//             Toast.makeText(Activity_ChiTiet_Anten.this, "Đã tạo " + fileThanhPhan.getName(), Toast.LENGTH_SHORT).show();
+// >>>>>>> main
+//         }
+//         return _TongSuyHao;
     }
 
     private void setPopupCot() throws IOException, SAXException, ParserConfigurationException, JSONException {
 //        pathDanhSachCot = new File(SPC.pathDataApp_PNDT, MaTram);
 //        pathDanhSachCot = new File(pathDanhSachCot, "DuLieu");
         ArrayList<String> arr_Cot = new ArrayList<>();
+
 //        if (pathDanhSachCot.exists()) {
 //            File[] files = pathDanhSachCot.listFiles();
 //
@@ -253,6 +303,22 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     tvTenCot.addTextChangedListener(new TextWatcher() {
                         @Override
                         public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+// =======
+//         if (pathDanhSachCot.exists()){
+//             File[] files=pathDanhSachCot.listFiles();
+//             for (File file:files)
+//             {
+//                 if(file.isDirectory())
+//                 {
+//                     if (!file.getName().equals("DanhSachBTS"))
+//                     arr_Cot.add(file.getName());
+//                 }
+//             }
+//             SPC.setPopUp_img(Activity_ChiTiet_Anten.this,tvTenCot,arr_Cot,btnChonCot);
+//             tvTenCot.addTextChangedListener(new TextWatcher() {
+//                 @Override
+//                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+// >>>>>>> main
 
                         }
 
@@ -332,6 +398,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     @Override
                     public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+
                     }
 
                     @Override
@@ -348,6 +415,40 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                                     if (tenBts.equals(tvTenBTS.getText().toString().trim())) {
                                         btsGoc = stringBts;
                                         indexBts = String.valueOf(i);
+// =======
+//                 @Override
+//                 public void afterTextChanged(Editable s) {
+//                     File fileTram = new File(SPC.pathDataApp_PNDT,MaTram + "/DuLieu/DanhSachBTS");
+//                     File[] files=fileTram.listFiles();
+//                     try{
+//                         for (File fileThietKe:files)
+//                         {
+//                             if(fileThietKe.getName().contains(tvTenBTS.getText().toString()))
+//                             {
+//                                 if(fileThietKe.exists())
+//                                 {
+//                                     String thietke = SPC.readText(fileThietKe);
+//                                     JSONObject jsonObject = new JSONObject(thietke);
+//                                     if (!thietke.equals(""))
+//                                     {
+//                                         for(AutoCompleteTextView edt : listAutoCompleteTextView)
+//                                         {
+//                                             edt.setText("");
+//                                         }
+//                                         BangTanHoatDong = jsonObject.getString("BangTanHoatDong");
+//                                         ChungLoaiThietBi = jsonObject.getString("ChungLoaiThietBi");
+//                                         SoMayThuPhatSong = jsonObject.getString("SoMayThuPhatSong");
+//                                         edtChungLoaiThietBi.setText(ChungLoaiThietBi);
+//                                         edtSoMayThu.setText(SoMayThuPhatSong);
+//                                         edtBangTan.setText(BangTanHoatDong);
+//                                         ArrayList<String> lstCongSuat=  SPC.layCongSuatPhat1(ChungLoaiThietBi,BangTanHoatDong);
+//                                         if(lstCongSuat.size()>0)
+//                                         {
+//                                             edtCongXuatPhat1.setText(lstCongSuat.get(0));
+//                                             edtCongXuatPhat2.setText(SPC.TinhCongSuatPhat2(edtCongXuatPhat1.getText().toString()));
+//                                             SPC.setPopUp(Activity_ChiTiet_Anten.this,edtCongXuatPhat1,lstCongSuat,img_CongXuatPhat1);
+//                                         }
+// >>>>>>> main
                                     }
                                 }
                             } catch (JSONException e) {
@@ -675,6 +776,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     }
                 }
             }
+            //setUpListView();
+            TinhTongSuyHaodB();
         }
 
 //        File filethietKe = new File(pathThietKeAnten, "ThietKeAnten.txt");
@@ -966,11 +1069,16 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 return true;
             }
         });
+
         btnLuuAnten.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -980,7 +1088,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -990,15 +1102,27 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 try {
-                    LuuThietKeAnten();
+                    if (!edtTenAnten.getText().toString().isEmpty())
+                        LuuThietKeAnten();
+                    else
+                        Toast.makeText(getApplicationContext(),"Chưa có tên anten để lưu!", Toast.LENGTH_SHORT).show();
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
+
         SPC.setPopUp(this, edtChungLoaiAnten, SPC.LayDanhSachAnten(), img_ChungLoaiAnten);
         SPC.setPopUp(this, edtBangTan, SPC.listBangTan, img_BangTan);
         SPC.setPopUp(this, edtLoaiAnten, SPC.listLoaiAnten, img_LoaiAnten);
+// =======
+
+//         SPC.setPopUp(this,edtChungLoaiAnten,SPC.LayDanhSachAnten(),img_ChungLoaiAnten);
+//         SPC.setPopUp(this,edtBangTan,SPC.listBangTan,img_BangTan);
+//         SPC.setPopUp(this,edtLoaiAnten,SPC.listLoaiAnten,img_LoaiAnten);
+//         SPC.setPopUp(this,edtConnector,SPC.listSoDauConnecter,img_Connector);
+// >>>>>>> main
 
         edtChungLoaiAnten.addTextChangedListener(new TextWatcher() {
             @Override
@@ -1014,9 +1138,17 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
+
                 edtDoTangIch.setText(SPC.layDoTangIchAnten(edtChungLoaiAnten.getText().toString(), edtBangTan.getText().toString()));
                 edtDoDaiBucXa.setText(SPC.layDoDaiBucXa(edtChungLoaiAnten.getText().toString(), edtBangTan.getText().toString()));
                 edtTITLCo.setText(SPC.layGocNgang(edtChungLoaiAnten.getText().toString(), edtBangTan.getText().toString()));
+// =======
+//                 edtDoTangIch.setText(SPC.layDoTangIchAnten(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+//                 edtDoDaiBucXa.setText(SPC.layDoDaiBucXa(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+//                 edtTITLCo.setText(SPC.layGocNgang(edtChungLoaiAnten.getText().toString(),edtBangTan.getText().toString()));
+//                 edtLoaiAnten.setText("Định hướng");
+//                 edtConnector.setText("4");
+// >>>>>>> main
 
             }
         });
@@ -1035,7 +1167,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(), edtBangTan.getText().toString()));
+// =======
+//                 edtSuyHaodBFeeder.setText(SPC.laySuyHaodB("Feeder",edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
+// >>>>>>> main
             }
         });
         edtChieuDaiFeeder.addTextChangedListener(new TextWatcher() {
@@ -1051,7 +1187,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 edtSuyHaodBFeeder.setText(SPC.laySuyHaodB(edtChungLoaiFeeder.getText().toString(), edtBangTan.getText().toString()));
+// =======
+//                 edtSuyHaodBFeeder.setText(SPC.laySuyHaodB("Feeder",edtChungLoaiFeeder.getText().toString(),edtBangTan.getText().toString()));
+// >>>>>>> main
             }
         });
         edtChungLoaiJumper.addTextChangedListener(new TextWatcher() {
@@ -1067,7 +1207,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 edtSuyHaodBJumper.setText(SPC.laySuyHaodB(edtChungLoaiJumper.getText().toString(), edtBangTan.getText().toString()));
+// =======
+//                 edtSuyHaodBJumper.setText(SPC.laySuyHaodB("Jumper",edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
+// >>>>>>> main
             }
         });
         edtChieuDaiJumper.addTextChangedListener(new TextWatcher() {
@@ -1083,7 +1227,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+
                 edtSuyHaodBJumper.setText(SPC.laySuyHaodB(edtChungLoaiJumper.getText().toString(), edtBangTan.getText().toString()));
+// =======
+//                 edtSuyHaodBJumper.setText(SPC.laySuyHaodB("Jumper",edtChungLoaiJumper.getText().toString(),edtBangTan.getText().toString()));
+// >>>>>>> main
             }
         });
         edtSuyHaodBFeeder.addTextChangedListener(new TextWatcher() {
@@ -1170,7 +1318,82 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 }
             }
         });
+        edtConnector.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                String _str_Connecter = SPC.laySuyHaodB("Connector","Connector",edtBangTan.getText().toString());
+                if(!_str_Connecter.isEmpty())
+                {
+                    double _dou_Connecter = Double.valueOf(_str_Connecter);
+                    if(SPC.isNumeric(edtConnector.getText().toString().trim()))
+                    {
+                        int _int_SoDau = Integer.parseInt(edtConnector.getText().toString().trim());
+                        edtTongSuyHao_Connector.setText(String.valueOf(_dou_Connecter * _int_SoDau));
+                    }
+                }
+
+
+            }
+        });
+        //Tinh tong suy hao
+        edtSuyHaoJumper.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                TinhTongSuyHaodB();
+            }
+        });
+        edtSuyHaoFeeder.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                TinhTongSuyHaodB();
+            }
+        });
+        edtTongSuyHao_Connector.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                TinhTongSuyHaodB();
+            }
+        });
     }
 
     private void LuuThietKeAnten() throws JSONException {
@@ -1238,8 +1461,11 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         img_ChungLoaiAnten = findViewById(R.id.img_ChungLoaiAnten);
         img_ChungLoaiFeeder = findViewById(R.id.img_ChungLoaiFeeder);
         img_ChungLoaiJumper = findViewById(R.id.img_ChungLoaiJumper);
+
         img_BangTan = findViewById(R.id.img_BangTan);
         img_LoaiAnten = findViewById(R.id.img_LoaiAnten);
+        img_Connector = findViewById(R.id.img_Connector);
+
         btnChonCot = findViewById(R.id.btnChonCot);
         btnChonBTS = findViewById(R.id.btnChonBTS);
         btnChonAnten = findViewById(R.id.btnChonAnten);
@@ -1286,11 +1512,20 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         edtChieuDaiJumper = findViewById(R.id.edtChieuDaiJumper);
         edtSuyHaodBJumper = findViewById(R.id.edtSuyHaodBJumper);
         edtSuyHaoJumper = findViewById(R.id.edtSuyHaoJumper);
+        edtConnector = findViewById(R.id.edtConnector);
+        edtTongSuyHao_Connector = findViewById(R.id.edtTongSuyHao_Connector);
         edtTongSuyHao = findViewById(R.id.edtTongSuyHao);
+
         listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenAnten, edtChungLoaiThietBi, edtSoMayThu,
                 edtCongXuatPhat1, edtCongXuatPhat2, edtChungLoaiAnten, edtLoaiAnten, edtDoTangIch, edtBangTan, edtDoDaiBucXa, edtGocNgang,
                 edtGocPhuongVi, edtDoCao_vs_ChanCot, edtDoCao_vs_MatDat, edtChungLoaiFeeder, edtChieuDaiFeeder, edtSuyHaodBFeeder,
                 edtSuyHaoFeeder, edtChungLoaiJumper, edtChieuDaiJumper, edtSuyHaodBJumper, edtSuyHaoJumper, edtTongSuyHao));
+// =======
+//         listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenAnten,edtChungLoaiThietBi,edtSoMayThu,
+//                 edtCongXuatPhat1,edtCongXuatPhat2,edtChungLoaiAnten,edtLoaiAnten,edtDoTangIch,edtBangTan,edtDoDaiBucXa,edtGocNgang,
+//                 edtGocPhuongVi,edtDoCao_vs_ChanCot,edtDoCao_vs_MatDat,edtChungLoaiFeeder,edtChieuDaiFeeder,edtSuyHaodBFeeder,
+//                 edtSuyHaoFeeder,edtChungLoaiJumper,edtChieuDaiJumper,edtSuyHaodBJumper,edtSuyHaoJumper,edtConnector,edtTongSuyHao_Connector,edtTongSuyHao));
+// >>>>>>> main
     }
 
     private void DialogThemThanhPhan() {
@@ -1309,10 +1544,8 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         dialogthongso.show();
 
         AutoCompleteTextView edtTenThanhPhan = dialogthongso.findViewById(R.id.edtTenThanhPhan);
-        AutoCompleteTextView edtChungLoai = dialogthongso.findViewById(R.id.edtChungLoai);
-        AutoCompleteTextView edtChieuDai = dialogthongso.findViewById(R.id.edtChieuDai);
-        AutoCompleteTextView edtSuyHaodB = dialogthongso.findViewById(R.id.edtSuyHaodB);
         AutoCompleteTextView edtSuyHao = dialogthongso.findViewById(R.id.edtSuyHao);
+// <<<<<<< DoXuanHieu
         ImageButton img_ChungLoai = dialogthongso.findViewById(R.id.img_ChungLoai);
 
         SPC.setPopUp(this, edtChungLoai, SPC.LayDanhSachSuyHao(), img_ChungLoai);
@@ -1348,19 +1581,19 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                 edtSuyHao.setText(SPC.TinhSuyHao(edtChieuDai.getText().toString(), edtSuyHaodB.getText().toString()));
             }
         });
+// =======
+//         ImageButton img_LoaiThietBi = dialogthongso.findViewById(R.id.img_LoaiThietBi);
+
+//         SPC.setPopUp(this,edtTenThanhPhan,SPC.LayDanhSachTenThanhPhan(),img_LoaiThietBi);
+// >>>>>>> main
 
         TextView Title = dialogthongso.findViewById(R.id.title);
         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);
-        Button btnOK = dialogthongso.findViewById(R.id.btnOK);
-        btnOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Title.setText(edtTenThanhPhan.getText());
-            }
-        });
+
         btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+// <<<<<<< DoXuanHieu
                 boolean check = true;
                 ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenThanhPhan, edtChungLoai, edtChieuDai, edtSuyHaodB, edtSuyHao));
                 for (AutoCompleteTextView edt : listAutoCompleteTextView) {
@@ -1446,7 +1679,24 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     } catch (TransformerException e) {
                         e.printStackTrace();
                     }
+// =======
+//                 ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenThanhPhan,edtSuyHao));
+
+//                 File pathDuLieu = new File(pathThietKeAnten,"ThanhPhan");
+//                 SPC.TaoThuMuc(pathDuLieu);
+//                 try {
+//                     SPC.SaveListAutoCompleteTextView_json(edtTenThanhPhan.getText().toString().trim(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeThanhPhan);
+//                 } catch (JSONException e) {
+//                     e.printStackTrace();
+// >>>>>>> main
                 }
+
+                    //setUpListView();
+                    TinhTongSuyHaodB();
+
+                Toast.makeText(Activity_ChiTiet_Anten.this, "Đã tạo thành phần " + edtTenThanhPhan.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+                dialogthongso.dismiss();
+
             }
         });
 
@@ -1484,6 +1734,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         try {
+// <<<<<<< DoXuanHieu
                             XML_Tram xml_tram = SPC.readXml(pathDataXmlGlobal);
                             List<String> listThanhPhan = xml_tram.getListCot().get(Integer.parseInt(indexCot)).getListBTS_inCot().get(Integer.parseInt(indexBts)).getListAnten_inBTS().get(Integer.parseInt(indexAntens)).getListThanhPhan();
                             if (listThanhPhan != null) {
@@ -1505,6 +1756,14 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                         } catch (TransformerException e) {
                             e.printStackTrace();
                         } catch (JSONException e) {
+// =======
+//                             file.delete();
+//                             Toast.makeText(getApplicationContext(),"Đã xóa thư mục ảnh!", Toast.LENGTH_SHORT).show();
+//                             //setUpListView();
+//                             TinhTongSuyHaodB();
+//                         } catch (Exception e)
+//                         {
+// >>>>>>> main
                             e.printStackTrace();
                         }
 //                        File file = new File(pathThietKeAnten, "ThanhPhan/" + list_ThanhPhan.get(vt).getTenThanhPhan() + ".txt");
@@ -1548,6 +1807,7 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
         windowArr.gravity = Gravity.CENTER;
         window.setAttributes(windowArr);
         dialogthongso.show();
+// <<<<<<< DoXuanHieu
         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle);
         tvTitle.setText("Chỉnh sửa");
         AutoCompleteTextView edtTenThanhPhan = dialogthongso.findViewById(R.id.edtTenThanhPhan);
@@ -1691,6 +1951,41 @@ public class Activity_ChiTiet_Anten extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 }
+// =======
+//         TextView tvTitle = dialogthongso.findViewById(R.id.tvTitle); tvTitle.setText("Chỉnh sửa");
+//         AutoCompleteTextView edtTenThanhPhan = dialogthongso.findViewById(R.id.edtTenThanhPhan);edtTenThanhPhan.setText(list_ThanhPhan.get(i).getTenThanhPhan());
+//         AutoCompleteTextView edtSuyHao = dialogthongso.findViewById(R.id.edtSuyHao);edtSuyHao.setText(list_ThanhPhan.get(i).getSuyHao());
+
+//         TextView Title = dialogthongso.findViewById(R.id.title);
+//         Button btnLuu = dialogthongso.findViewById(R.id.btnLuu);btnLuu.setText("Lưu thông số");
+//         btnLuu.setOnClickListener(new View.OnClickListener() {
+//             @Override
+//             public void onClick(View v) {
+//                 ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtTenThanhPhan,edtSuyHao));
+
+//                         File pathDuLieu = new File(pathThietKeAnten,"ThanhPhan");
+//                         if(pathDuLieu.exists())
+//                         {
+//                             try
+//                             {
+//                                 File old = new File( pathDuLieu,list_ThanhPhan.get(i).getTenThanhPhan() + ".txt");
+//                                 old.delete();
+//                                 SPC.SaveListAutoCompleteTextView_json(edtTenThanhPhan.getText().toString().trim(),pathDuLieu,listAutoCompleteTextView,SPC.ThietKeThanhPhan);
+//                                 Toast.makeText(Activity_ChiTiet_Anten.this, "Đã lưu thành phần " + edtTenThanhPhan.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+
+//                             } catch (JSONException e) {
+//                                 e.printStackTrace();
+//                             }
+//                             /*try {
+//                                 setUpListView();
+//                             } catch (JSONException e) {
+//                                 e.printStackTrace();
+//                             }*/
+//                             TinhTongSuyHaodB();
+//                             dialogthongso.dismiss();
+//                         }
+
+// >>>>>>> main
             }
         });
 

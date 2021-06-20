@@ -48,7 +48,7 @@ import java.util.List;
 import static com.example.chirag.googlesignin.DriveServiceHelper.getGoogleDriveService;
 
 public class ActivityMenu extends AppCompatActivity {
-    LinearLayout btn_TongQuanBaoCao,tv_PhuLucAnh,upload;
+    LinearLayout btn_TongQuanBaoCao,tv_PhuLucAnh,tv_TrangChinh,upload;
     ImageButton btn_BackMenu;
     private static final int REQUEST_CODE_SIGN_IN = 100;
     private GoogleSignInClient mGoogleSignInClient;
@@ -90,6 +90,15 @@ public class ActivityMenu extends AppCompatActivity {
                 onBackPressed();
             }
         });
+
+        tv_TrangChinh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent= new Intent(ActivityMenu.this,Activity_MenuTram.class);
+                startActivity(intent);
+            }
+        });
+
         tv_PhuLucAnh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -122,7 +131,8 @@ public class ActivityMenu extends AppCompatActivity {
 
     }
 
-    private void NhanBien() {
+    private void NhanBien()
+    {
             Intent intent = getIntent();
             MaTram = intent.getStringExtra("MaTram");
             ViTri = intent.getStringExtra("DiaDiem");
@@ -133,6 +143,7 @@ public class ActivityMenu extends AppCompatActivity {
     private void AnhXa() {
         btn_TongQuanBaoCao = findViewById(R.id.btn_TongQuanBaoCao);
         btn_BackMenu = findViewById(R.id.btnBackMenu);
+        tv_TrangChinh = findViewById(R.id.tv_TrangChinh);
         nameTV = findViewById(R.id.name);
         emailTV = findViewById(R.id.email);
         matram = findViewById(R.id.matram);
@@ -368,12 +379,17 @@ public class ActivityMenu extends AppCompatActivity {
             new AsyncTask<Void, String, Void>() {
                 private String findOrCreateFolder(String prnt, String titl,String kieu, final File fl){
                     String id = null;
-                    if (kieu.equals("folder")){
+                    if (kieu.equals("folder"))
+                    {
                         List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(prnt,titl);
-                        if (cvs.size() > 0) {
+                        BienDem++;
+                        if (cvs.size() > 0)
+                        {
                             title = "Đã có: ";
                             id =  cvs.get(0).getId();
-                        } else {
+                        }
+                        else
+                        {
                             id = mClassDriveServiceHelper.CreateFoler(prnt, titl);
                             title = "Đã đồng bộ: ";
                         }
@@ -384,8 +400,11 @@ public class ActivityMenu extends AppCompatActivity {
                         else
                             title = "Chưa tạo: " + titl;
                         publishProgress(title);
-                    }else if (kieu.equals("image")){
+                    }
+                    else if (kieu.equals("image"))
+                    {
                         List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(prnt,titl,"image/jpeg");
+                        BienDem++;
                         if (cvs.size() > 0) {
                             title = "Đã có: ";
                             id =  cvs.get(0).getId();
@@ -416,16 +435,18 @@ public class ActivityMenu extends AppCompatActivity {
                     {
                         if(child_file.isDirectory())
                         {
-                            BienDem++;
+
                             String id_img = findOrCreateFolder(id,child_file.getName(),"folder",null);
+                            BienDem++;
                             Log.d("TEST",child_file.getPath());
                             for (java.io.File img_file : child_file.listFiles())
                             {
-                                BienDem++;
+
                                 List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id_img,img_file.getName(),"image/jpeg");
                                 if (cvs.size() == 0)
                                 {
                                     try {
+                                        BienDem++;
                                         mClassDriveServiceHelper.uploadImage(img_file, "image/jpeg",id_img);
                                     }
                                     catch (Exception e)
@@ -440,257 +461,19 @@ public class ActivityMenu extends AppCompatActivity {
                     }
                     return id;
                 }
-                /*private String up_Tram(String id,java.io.File folder){
-                    File DuLieu = new File(folder,"DuLieu");
-                    String id_DuLieu = findOrCreateFolder(id,DuLieu.getName(),"folder",null);
-                    up_DuLieu(id_DuLieu,DuLieu);
 
-                    File HinhAnh = new File(folder,"HinhAnh");
-                    String id_HinhAnh = findOrCreateFolder(id,HinhAnh.getName(),"folder",null);
-                    up_HinhAnh(id_HinhAnh,HinhAnh);
-                    return id;
-                }
-
-                private String up_DuLieu(String id,java.io.File folder){
-                    for (java.io.File child_file : folder.listFiles())
-                    {
-                        if(child_file.isDirectory())
-                        {
-                            BienDem++;
-                            id = findOrCreateFolder(id,child_file.getName(),"folder",null);
-                            Log.d("TEST",child_file.getPath());
-                            up_Cot(id,child_file);
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
-                            //Log.d("TT", String.valueOf(cvs.size()));
-                            if (cvs.size() == 0) {
-                                mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id);
-
-                            } else if (cvs.size() != 0) {
-                                try {
-                                    mClassDriveServiceHelper.delete(cvs.get(0).getId());
-                                    String IDImage = findOrCreateFolder(id, child_file.getName(),"text",child_file);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
-                            if (cvs.size() == 0)
-                            {
-                                try {
-                                    mClassDriveServiceHelper.uploadImage(child_file, "image/jpeg",id);
-                                }
-                                catch (Exception e)
-                                {
-                                    Log.d("Lỗi: ",child_file.getPath());
-                                }
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                    }
-                    return id;
-                }
-                private String up_Cot(String id,java.io.File folder){
-                    for (java.io.File child_file : folder.listFiles())
-                    {
-                        if(child_file.isDirectory())
-                        {
-                            BienDem++;
-                            id = findOrCreateFolder(id,child_file.getName(),"folder",null);
-                            Log.d("TEST",child_file.getPath());
-                            up_BTS(id,child_file);
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
-                            //Log.d("TT", String.valueOf(cvs.size()));
-                            if (cvs.size() == 0) {
-                                mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id);
-
-                            } else if (cvs.size() != 0) {
-                                try {
-                                    mClassDriveServiceHelper.delete(cvs.get(0).getId());
-                                    String IDImage = findOrCreateFolder(id, child_file.getName(),"text",child_file);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
-                            if (cvs.size() == 0)
-                            {
-                                try {
-                                    mClassDriveServiceHelper.uploadImage(child_file, "image/jpeg",id);
-                                }
-                                catch (Exception e)
-                                {
-                                    Log.d("Lỗi: ",child_file.getPath());
-                                }
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                    }
-                    return id;
-                }
-                private String up_BTS(String id,java.io.File folder){
-                    for (java.io.File child_file : folder.listFiles())
-                    {
-                        if(child_file.isDirectory())
-                        {
-                            BienDem++;
-                            id = findOrCreateFolder(id,child_file.getName(),"folder",null);
-                            Log.d("TEST",child_file.getPath());
-                            up_Anten(id,child_file);
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
-                            //Log.d("TT", String.valueOf(cvs.size()));
-                            if (cvs.size() == 0) {
-                                mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id);
-
-                            } else if (cvs.size() != 0) {
-                                try {
-                                    mClassDriveServiceHelper.delete(cvs.get(0).getId());
-                                    String IDImage = findOrCreateFolder(id, child_file.getName(),"text",child_file);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
-                            if (cvs.size() == 0)
-                            {
-                                try {
-                                    mClassDriveServiceHelper.uploadImage(child_file, "image/jpeg",id);
-                                }
-                                catch (Exception e)
-                                {
-                                    Log.d("Lỗi: ",child_file.getPath());
-                                }
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                    }
-                    return id;
-                }
-                private String up_Anten(String id,java.io.File folder){
-                    for (java.io.File child_file : folder.listFiles())
-                    {
-                        if(child_file.isDirectory())
-                        {
-                            BienDem++;
-                            id = findOrCreateFolder(id,child_file.getName(),"folder",null);
-                            Log.d("TEST",child_file.getPath());
-                            up_CongTrinh(id,child_file);
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
-                            //Log.d("TT", String.valueOf(cvs.size()));
-                            if (cvs.size() == 0) {
-                                mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id);
-
-                            } else if (cvs.size() != 0) {
-                                try {
-                                    mClassDriveServiceHelper.delete(cvs.get(0).getId());
-                                    String IDImage = findOrCreateFolder(id, child_file.getName(),"text",child_file);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
-                            if (cvs.size() == 0)
-                            {
-                                try {
-                                    mClassDriveServiceHelper.uploadImage(child_file, "image/jpeg",id);
-                                }
-                                catch (Exception e)
-                                {
-                                    Log.d("Lỗi: ",child_file.getPath());
-                                }
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                    }
-                    return id;
-                }
-                private String up_CongTrinh(String id,java.io.File folder){
-                    for (java.io.File child_file : folder.listFiles())
-                    {
-                        if(child_file.isDirectory())
-                        {
-                            BienDem++;
-                            id = findOrCreateFolder(id,child_file.getName(),"folder",null);
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
-                            //Log.d("TT", String.valueOf(cvs.size()));
-                            if (cvs.size() == 0) {
-                                mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id);
-
-                            } else if (cvs.size() != 0) {
-                                try {
-                                    mClassDriveServiceHelper.delete(cvs.get(0).getId());
-                                    String IDImage = findOrCreateFolder(id, child_file.getName(),"text",child_file);
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                        else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
-                            List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
-                            if (cvs.size() == 0)
-                            {
-                                try {
-                                    mClassDriveServiceHelper.uploadImage(child_file, "image/jpeg",id);
-                                }
-                                catch (Exception e)
-                                {
-                                    Log.d("Lỗi: ",child_file.getPath());
-                                }
-                            }
-                            Log.d("TEST",child_file.getPath());
-                        }
-                    }
-                    return id;
-                }*/
                 private String[] upload(String id, File child_file){
                         String[] KQ = new String[0];
                         if(child_file.isDirectory())
                         {
-                            BienDem++;
+
                             KQ = new String[]{findOrCreateFolder(id, child_file.getName(), "folder", null).toString(), "folder"};
                             Log.d("TEST",child_file.getPath());
                         }
                         else if(child_file.isFile() && child_file.getName().contains(".txt")){
-                            BienDem++;
+
                             List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.search(id,child_file.getName());
+                            BienDem++;
                             //Log.d("TT", String.valueOf(cvs.size()));
                             if (cvs.size() == 0) {
                                 KQ = new String[]{mClassDriveServiceHelper.uploadImage(child_file,UT.MIME_TXT, id),"text"};
@@ -707,7 +490,7 @@ public class ActivityMenu extends AppCompatActivity {
                             Log.d("TEST",child_file.getPath());
                         }
                         else if(child_file.isFile() && child_file.getName().contains(".jpg")){
-                            BienDem++;
+
                             List<GoogleDriveFileHolder> cvs = mClassDriveServiceHelper.seachFile(id,child_file.getName(),"image/jpeg");
                             if (cvs.size() == 0)
                             {
@@ -778,64 +561,7 @@ public class ActivityMenu extends AppCompatActivity {
                             }
                         }
                     }
-                    //up_Tram(IDfolderTRAMTong,folder);
-//                    File folderData = new File("/storage/emulated/0/DataViettel/"+"Data"+tenTram);
-//                    File folderDataBia = new File("/storage/emulated/0/DataViettel/"+"Data"+tenTram+"/TABLEBia.txt");
-//                    String IDfolderTRAMTong = findOrCreateFolder("root", tenTram,"folder",null);///tên folder
-//                    String IDfolderTRAM = findOrCreateFolder(IDfolderTRAMTong, tenTram,"folder",null);///tên folder
-//                    String IDfolderDataTRAM = findOrCreateFolder(IDfolderTRAMTong, "Data" + tenTram,"folder",null);
-//
-//                    for (File fileTRAM : folder.listFiles()) {
-//                        if (IDfolderTRAM != null)
-//                        {
-//                            String[] name = fileTRAM.getName().split("\n");
-//                            IDfolderHM = findOrCreateFolder(IDfolderTRAM,name[0],"folder",null);
-//                            File folderHM = new File(folder+"/"+fileTRAM.getName());
-//                            for (File fileHM : folderHM.listFiles()) {
-//                                String IDfolderCT = findOrCreateFolder(IDfolderHM, fileHM.getName(),"folder",null);
-//                                File folderCT = new File(folderHM+"/"+fileHM.getName());
-//                                for (File fileCT : folderCT.listFiles()) {
-//                                    File fl = new File(folderCT + "/" + fileCT.getName());///tên hình ảnh
-//                                    String IDImage = findOrCreateFolder(IDfolderCT, fl.getName(),"image",fl);
-//                                    /*List<GoogleDriveFileHolder> cvs = mDriveServiceHelper.seachFile(fileCT.getName(),"image/jpeg");
-//                                    if (cvs.size() == 0)
-//                                    {
-//                                       id = mDriveServiceHelper.uploadImage(fl, "image/jpeg", IDfolderCT);
-//                                    }*/
-//                                }
-//                            }
-//                        }
-//                    }
-                    //                            if (folderDataBia.exists()) {
-                    //                                String IDfolderDataTRAM = findOrCreateFolder(IDfolderTRAMTong, "Data" + tenTram);
-                    //                                for (java.io.File fileDATA : folderData.listFiles()) {
-                    //                                    if (IDfolderDataTRAM != null) {
-                    //                                        List<GoogleDriveFileHolder> cvs = search(IDfolderDataTRAM,fileDATA.getName());
-                    //                                        //Log.d("TT", String.valueOf(cvs.size()));
-                    //                                        if (cvs.size() == 0) {
-                    //                                            java.io.File fl = new java.io.File(folderData + "/" + fileDATA.getName());///tên hình ảnh
-                    //                                            //PHẢI KIỂM TRA tRỐNG
-                    //                                            if(KiemTraTrong(fl)) uploadImage(fl,UT.MIME_TXT, IDfolderDataTRAM);
-                    //
-                    //                                        } else if (cvs.size() != 0) {
-                    //                                            try {
-                    //                                                mDriveService.files().delete(cvs.get(0).getId()).execute();
-                    //                                                java.io.File fl = new java.io.File(folderData + "/" + fileDATA.getName());///tên hình ảnh
-                    //                                                if(KiemTraTrong(fl)) uploadImage(fl,UT.MIME_TXT, IDfolderDataTRAM);
-                    //
-                    //                                            } catch (IOException e) {
-                    //                                                e.printStackTrace();
-                    //                                            }
-                    //
-                    //                                        }
-                    //                                    }
-                    //                                }
-                    //                            }
-                    //                            try
-                    //                            {
-                    //                                //mDispTxt.setText("Đã tải lên google drive thành công\n");
-                    //                            }
-                    //                            catch (Exception e) {}
+
                     return null;
                 }
 
@@ -862,6 +588,7 @@ public class ActivityMenu extends AppCompatActivity {
                 protected void onPostExecute(Void nada) { super.onPostExecute(nada);
                     txtKQ.setText("Đã tải lên toàn bộ dữ liệu \n");
                     txtKQ.append("Đã tải lên toàn bộ hình ảnh");
+                    phantram.setText(100 + " %");
                     mBusy = false;
                 }
             }.execute();
@@ -869,12 +596,11 @@ public class ActivityMenu extends AppCompatActivity {
     }
     public Integer DemSoFile(String tenTram){
         java.io.File folder = new java.io.File(SPC.pathDataApp_PNDT,tenTram);
-        SoFile = 1;
         GetlistFile(folder);
         return SoFile;
     }
     public void GetlistFile(java.io.File folder){
-        for (java.io.File child_file : folder.listFiles()) {
+        /*for (java.io.File child_file : folder.listFiles()) {
             if(child_file.isDirectory()){
                 SoFile++;
                 //Log.d("TEST",child_file.getPath());
@@ -888,6 +614,58 @@ public class ActivityMenu extends AppCompatActivity {
             else if(child_file.isFile() && child_file.getName().contains(".jpg")){
                 SoFile++;
                 //Log.d("TEST",child_file.getPath());
+            }
+        }*/
+        File DuLieu = new File(folder,"DuLieu");
+        File HinhAnh = new File(folder,"HinhAnh");
+        SoFile = 3;
+        //Đếm số lượng file có trong Dulieu
+        int count_DuLieu = DuLieu.listFiles().length;
+        SoFile += count_DuLieu;
+        //Đếm số lượng file có trong HinhAnh
+        int count_HinhAnh = HinhAnh.listFiles().length;
+        SoFile += count_HinhAnh;
+        for (File item_Cot:DuLieu.listFiles()){
+            if (item_Cot.isDirectory() && !item_Cot.getName().contains("DanhSachBTS"))
+            {
+                //Đếm số lượng file có trong Cot
+                int count_Cot = item_Cot.listFiles().length;
+                SoFile += count_Cot;
+                for (File item_BTS:item_Cot.listFiles())
+                {
+                    if (item_BTS.isDirectory())
+                    {
+                        //Đếm số lượng file có trong BTS
+                        int count_BTS = item_Cot.listFiles().length;
+                        SoFile += count_BTS;
+                        for (File item_Anten:item_BTS.listFiles())
+                        {
+                            if (item_Anten.isDirectory())
+                            {
+                                //Đếm số lượng file có trong Anten
+                                int count_Anten = item_Anten.listFiles().length;
+                                SoFile += count_Anten;
+                                for (File item_CongTrinh:item_BTS.listFiles())
+                                {
+                                    if (item_CongTrinh.isDirectory())
+                                    {
+                                        //Đếm số lượng file có trong CongTrinh
+                                        int count_CongTrinh = item_CongTrinh.listFiles().length;
+                                        SoFile += count_CongTrinh;
+                                    }
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+            else if (item_Cot.isDirectory() && item_Cot.getName().contains("DanhSachBTS"))
+            {
+                //Đếm số lượng file có trong DanhSachBTS
+                int count_DanhSachBTS = item_Cot.listFiles().length;
+                SoFile += count_DanhSachBTS;
             }
         }
     }

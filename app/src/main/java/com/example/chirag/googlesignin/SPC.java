@@ -14,13 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.google.android.gms.common.api.internal.LifecycleFragment;
 import com.google.api.services.driveactivity.v2.model.Edit;
+
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -35,9 +35,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.w3c.dom.Document;
@@ -45,6 +45,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -70,12 +71,15 @@ final class SPC {
     static final File pathTemplate = new File(Environment.getExternalStorageDirectory(), "Template");
     static final ArrayList<String> listLoaiAnten = new ArrayList<String>(Arrays.asList("Định hướng"));
 
-    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100", "2300"));
-    static final ArrayList<String> listLoaiCongTrinh = new ArrayList<String>(Arrays.asList("Khu nhà ở", "Khu đất trống", "Khu nhà 1 2 tầng", "Khu nhà 3 4 tầng", "Khu nhà xưởng", "Khu nhà cấp 4", "Khu công nghiệp 1 2 tầng", "Khu đường và đồng ruộng", "Khu sân bay, nhà thấp tầng", "Khu bãi xe"));
+    static final ArrayList<String> listBangTan = new ArrayList<String>(Arrays.asList("900", "1800", "900/1800", "2100","2300"));
+    static final ArrayList<String> listSoDauConnecter = new ArrayList<String>(Arrays.asList("2", "4"));
+    static final ArrayList<String> listLoaiCongTrinh = new ArrayList<String>(Arrays.asList("Khu nhà ở", "Khu đất trống", "Khu nhà 1 2 tầng", "Khu nhà 3 4 tầng","Khu nhà xưởng","Khu nhà cấp 4","Khu công nghiệp 1 2 tầng","Khu đường và đồng ruộng","Khu sân bay, nhà thấp tầng","Khu bãi xe"));
+
     static final ArrayList<String> ThietKeTram = new ArrayList<String>(Arrays.asList("MaTram", "DiaDiem", "ToaDo", "NgayDo", "ViTriDat"));
     static final ArrayList<String> TenHinhAnh = new ArrayList<String>(Arrays.asList("Hình ảnh các công trình hướng sector 1", "Hình ảnh các công trình hướng sector 2", "Hình ảnh các công trình hướng sector 3", "Hình ảnh các công trình hướng sector 4", "Hình ảnh các công trình hướng sector 5"));
     static final ArrayList<String> TenHinhAnhTongThe = new ArrayList<String>(Arrays.asList("Hình ảnh biển nhà trạm", "Hình ảnh tổng thể cột anten", "Hình ảnh tổng thể các thiết bị trong phòng máy", "Hình ảnh thiết bị treo trên cột"));
     static final ArrayList<String> ThietKeNhaDatTram = new ArrayList<String>(Arrays.asList("TenCongTrinh", "SoTang", "ChieuCaoNha", "ChieuDai", "ChieuRong"));
+
     static final ArrayList<String> ThietKeCot = new ArrayList<String>(Arrays.asList("TenCot", "ChieuCaoCot", "SoChan", "KichThuocCot", "ViTriX", "ViTriY", "DanhSachTramGoc"));
     static final ArrayList<String> ThietKeBTS = new ArrayList<String>(Arrays.asList("TenTramGoc", "ChungLoaiThietBi", "BangTanHoatDong", "MangSuDung"));
     static final ArrayList<String> ThietKeThanhPhan = new ArrayList<String>(Arrays.asList("TenThanhPhan", "ChieuDai", "ChungLoai", "SuyHaodB", "SuyHao"));
@@ -112,6 +116,7 @@ final class SPC {
 
     //    Cũ --------------------------------------------------------------------------------------------------------------%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     static void SaveListAutoCompleteTextView_json(String nameFile, File pathFile, ArrayList<AutoCompleteTextView> listAutoCompleteTextView, ArrayList<String> arrayList) throws JSONException {
+
         JSONObject obj = new JSONObject();
         for (int i = 0; i < listAutoCompleteTextView.size(); i++) {
             obj.put(arrayList.get(i), listAutoCompleteTextView.get(i).getText().toString());
@@ -241,6 +246,46 @@ final class SPC {
         } else return false;
     }
 
+    static void saveTextFile(String name,String text,File file){
+        String content = text;
+        FileOutputStream outputStream;
+        try {
+            if (!file.exists())
+                if (!file.mkdirs())
+                {
+                    Log.d("App", "failed to create directory");
+                }
+            file = new File(file, name+".txt");
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+            //Toast.makeText(Table3Activity.this,"Đã lưu thành công", Toast.LENGTH_SHORT).show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+   
+    static void ReadListAutoCompleteTextView_Json(String nameFile,File pathFile,ArrayList<AutoCompleteTextView> listAutoCompleteTextView,ArrayList<String> arrayList) throws JSONException {
+        File fileData = new File(pathFile,nameFile);
+        if(fileData.exists())
+        {
+           String text = readText(fileData);
+
+           JSONObject jsonObject = new JSONObject(text);
+
+            for(int i=0;i<arrayList.size();i++)
+            {
+                try {
+                    listAutoCompleteTextView.get(i).setText(jsonObject.getString(arrayList.get(i)));
+
+                } catch (Exception e) {
+                    listAutoCompleteTextView.get(i).setText("0");
+                }
+
+            }
+        }
+
+
 
     static Bitmap GanToaDo(Bitmap bitmap, String MaTram, String ToaDo, String DiaDiem) {
         Bitmap AnhDauRa = null;
@@ -303,6 +348,7 @@ final class SPC {
         return lstThietBi;
     }
 
+
     static ArrayList LayDanhSachSuyHao() {
         ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate, "BangSuyHao.txt"));
         ArrayList<String> lstThietBi = new ArrayList<String>();
@@ -315,8 +361,23 @@ final class SPC {
         return lstThietBi;
     }
 
-    static void setPopUp_img(Context context, TextView edt, ArrayList<String> arrayList, ImageButton imageButton) {
-        if (imageButton != null) {
+    static ArrayList LayDanhSachSuyHao(){
+        ArrayList<String> dataThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        ArrayList<String> lstThietBi = new ArrayList<String>();
+        for (String itemThietThietBi :dataThietBi)
+        {
+            String ThietBi = itemThietThietBi.split("&")[1];
+            if (!lstThietBi.contains(ThietBi))
+            {
+                lstThietBi.add(ThietBi);
+            }
+        }
+        return lstThietBi;
+    }
+    static void setPopUp_img(Context context, TextView edt, ArrayList<String> arrayList, ImageButton imageButton){
+        if (imageButton != null)
+        {
+
             imageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -398,11 +459,22 @@ final class SPC {
         return CongSuat;
     }
 
-    static String layMangSuDung(String ChungLoaiThietBi, String BangTanHoatDong) {
-        String CongSuat = "";
-        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate, "ListThietBi.txt"));
-        for (String item : listThietBi) {
-            if (item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)) {
+    static String laySoMayPhat(String ChungLoaiThietBi, String BangTanHoatDong){
+        String CongSuat ="";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+                CongSuat = item.split("&")[6];
+            }
+        }
+        return CongSuat;
+    }
+    static String layMangSuDung(String ChungLoaiThietBi, String BangTanHoatDong){
+        String CongSuat ="";
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"ListThietBi.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)){
+
                 CongSuat = item.split("&")[2];
             }
         }
@@ -498,16 +570,84 @@ final class SPC {
         return DoTangIchAnten;
     }
 
-    static String laySuyHaodB(String ChungLoaiThietBi, String BangTanHoatDong) {
+    static String laySuyHaodB(String TenthietBi,String ChungLoaiThietBi, String BangTanHoatDong){
         String DoTangIchAnten = "0.0";
-        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate, "BangSuyHao.txt"));
-        for (String item : listThietBi) {
-            if (item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong)) {
-                DoTangIchAnten = item.split("&")[4];
+        ArrayList<String> listThietBi = readAllLineText(new File(pathTemplate,"BangSuyHao.txt"));
+        for(String item:listThietBi){
+            if(item.contains(ChungLoaiThietBi) && item.contains(BangTanHoatDong) && item.contains(TenthietBi)){
+                DoTangIchAnten = item.split("&")[3];
+
             }
         }
         return DoTangIchAnten;
     }
+
+    public static Bitmap BITMAP_RESIZER(Bitmap bitmap, int newWidth, int newHeight){
+        Bitmap scaledBitmap = Bitmap.createBitmap(newWidth, newHeight, Bitmap.Config.ARGB_8888);
+
+        float ratioX = newWidth / (float) bitmap.getWidth();
+        float ratioY = newHeight / (float) bitmap.getHeight();
+        float middleX = newWidth / 2.0f;
+        float middleY = newHeight / 2.0f;
+
+        Matrix scaleMatrix = new Matrix();
+        scaleMatrix.setScale(ratioX, ratioY, middleX, middleY);
+
+        Canvas canvas = new Canvas(scaledBitmap);
+        canvas.setMatrix(scaleMatrix);
+        canvas.drawBitmap(bitmap, middleX - bitmap.getWidth() / 2, middleY - bitmap.getHeight() / 2, new Paint(Paint.FILTER_BITMAP_FLAG));
+        return scaledBitmap;
+
+    }
+    public static String DataforPath(String name){
+        String s=null;
+        BufferedReader input = null;
+        File file = null;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, name+".txt");
+            input = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+            String line;
+            StringBuffer buffer = new StringBuffer();
+            while ((line = input.readLine()) != null) {
+                buffer.append(line).append("\n");
+            }
+            s = buffer.toString();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return s;
+    }
+    public void saveDataOnTemplate(String text, String Name){
+        String content = text;
+        File file;
+        FileOutputStream outputStream;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, Name+".txt");
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveDataOnCacher(String text, String Name){
+        String content = text;
+        File file;
+        FileOutputStream outputStream;
+        try {
+            file = new File(Environment.getExternalStorageDirectory(), "Template");
+            file = new File(file, Name+".txt");
+            outputStream = new FileOutputStream(file);
+            outputStream.write(content.getBytes());
+            outputStream.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     //region Công thức tính
     static String TinhCongSuatPhat2(String CongSuatPhat1) {
@@ -535,7 +675,6 @@ final class SPC {
 
         return SuyHao;
     }
-
     static boolean isNumeric(String str) {
         try {
             Double.parseDouble(str);
@@ -742,103 +881,196 @@ final class SPC {
 
     //endregion
     //region Thư viện thiết bị
-    static final String ListThietBi = "1&Ericsson RBS 2216&2G&900&39.81&Tập trung\n" +
-            "2&Ericsson RBS 2216&2G&900&35.56&Tập trung\n" +
-            "3&Ericsson RBS 2216&2G&1800&35.48&Tập trung\n" +
-            "4&Ericsson RBS 2216&2G&1800&31.7&Tập trung\n" +
-            "5&Ericsson RBS 2206&2G&900&67.6&Tập trung\n" +
-            "6&Ericsson RBS 2206&2G&900&63.2&Tập trung\n" +
-            "7&Ericsson RBS 2206&2G&1800&47.9&Tập trung\n" +
-            "8&Ericsson RBS 2206&2G&1800&44.8&Tập trung\n" +
-            "9&Ericsson RBS 2106&2G&900&67.6&Tập trung\n" +
-            "10&Ericsson RBS 2106&2G&900&63.2&Tập trung\n" +
-            "11&Ericsson RBS 2106&2G&1800&47.9&Tập trung\n" +
-            "12&Ericsson RBS 2106&2G&1800&44.8&Tập trung\n" +
-            "13&Ericsson RBS 2116&2G&900&35.48&Tập trung\n" +
-            "14&Ericsson RBS 2116&2G&900&31.7&Tập trung\n" +
-            "15&Ericsson RBS 2116&2G&1800&31.62&Tập trung\n" +
-            "16&Ericsson RBS 2116&2G&1800&28.26&Tập trung\n" +
-            "17&Ericsson RBS 2111&2G&900/1800&20&Tập trung\n" +
-            "18&Ericsson RBS 2308&2G&900&2.5&Tập trung\n" +
-            "19&Ericsson RBS 2308&2G&1800&2.2&Tập trung\n" +
-            "20&Ericsson RBS 2309&2G&900&5&Tập trung\n" +
-            "21&Ericsson RBS 2309&2G&1800&5&Tập trung\n" +
-            "22&Nokia Flexi EDGE BTS&2G&900/1800&41.7&Tập trung\n" +
-            "22&Nokia Flexi EDGE BTS&2G&900/1800&41.7&Tập trung\n" +
-            "23&Nokia Flexi EDGE BTS&2G&900/1800&37.24&Tập trung\n" +
-            "23&Nokia Flexi EDGE BTS&2G&900/1800&37.24&Tập trung\n" +
-            "24& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&20&Phân tán\n" +
-            "25& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&40&Phân tán\n" +
-            "26& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&60&Phân tán\n" +
-            "27& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&80&Phân tán\n" +
-            "28& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&80&Phân tán\n" +
-            "29& Nokia Flexi Multiradio BTS GSM/EDGE&2G&900/1800&80&Phân tán\n" +
-            "30& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&20&Phân tán\n" +
-            "31& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&40&Phân tán\n" +
-            "32& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&60&Phân tán\n" +
-            "33& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&80&Phân tán\n" +
-            "34& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&100&Phân tán\n" +
-            "35& Nokia Flexi Multiradio 10 BTS GSM/EDGE&2G&900/1800&120&Phân tán\n" +
-            "36&Huawei BTS 3012&2G&900&95.28&Tập trung\n" +
-            "37&Huawei BTS 3012&2G&900&44.57&Tập trung\n" +
-            "38&Huawei BTS 3012&2G&1800&95.28&Tập trung\n" +
-            "39&Huawei BTS 3012&2G&1800&44.57&Tập trung\n" +
-            "40&Huawei BTS 3900&2G&900&90&Tập trung\n" +
-            "41&Huawei BTS 3900&2G&900&40&Tập trung\n" +
-            "42&Huawei BTS 3900&2G&1800&80&Tập trung\n" +
-            "43&Huawei BTS 3900&2G&1800&36&Tập trung\n" +
-            "44&Huawei DBS 3900&2G&900/1800&40&Phân tán\n" +
-            "45&Huawei DBS 3900&2G&900/1800&20&Phân tán\n" +
-            "46&Huawei DBS 3900&2G&900/1800&7&Phân tán\n" +
-            "47&Ericsson RBS 6601&2G&900&40&Phân tán\n" +
-            "48&Ericsson RBS 6601&2G&900&80&Phân tán\n" +
-            "49&Ericsson RBS 6601&2G&1800&40&Phân tán\n" +
-            "50&Ericsson RBS 6601&2G&1800&80&Phân tán\n" +
-            "51&Ericsson RBS 3206&3G&2100&20&Tập trung\n" +
-            "52&Ericsson RBS 3206&3G&2100&40&Tập trung\n" +
-            "53&Ericsson RBS 3418&3G&2100&20&Phân tán\n" +
-            "54&Ericsson RBS 3418&3G&2100&40&Phân tán\n" +
-            "55&Ericsson RBS 3418&3G&2100&60&Phân tán\n" +
-            "56&Nokia Flexi WCDMA BTS&3G&2100&20&Tập trung\n" +
-            "57&Nokia Flexi WCDMA BTS&3G&2100&40&Tập trung\n" +
-            "58&Huawei BTS 3900&3G&2100&20&Tập trung\n" +
-            "59&Huawei BTS 3900&3G&2100&40&Tập trung\n" +
-            "60&Huawei BTS 3900&3G&2100&60&Tập trung\n" +
-            "61&Huawei BTS 3900&3G&2100&80&Tập trung\n" +
-            "62&Huawei DBS 3900&3G&2100&20&Phân tán\n" +
-            "63&Huawei DBS 3900&3G&2100&40&Phân tán\n" +
-            "64&Huawei DBS 3900&3G&2100&60&Phân tán\n" +
-            "65&Huawei DBS 3900&3G&2100&80&Phân tán\n" +
-            "66&ZTE ZXSDR BS8800&3G&2100&20&Tập trung\n" +
-            "67&ZTE ZXSDR BS8800&3G&2100&40&Tập trung\n" +
-            "68&ZTE ZXSDR BS8800&3G&2100&60&Tập trung\n" +
-            "69&ZTE ZXSDR B8200&3G&2100&20&Phân tán\n" +
-            "70&ZTE ZXSDR B8200&3G&2100&40&Phân tán\n" +
-            "71&ZTE ZXSDR B8200&3G&2100&60&Phân tán\n" +
-            "72&ZTE ZXSDR B8200&3G&2100&80&Phân tán\n" +
-            "73&ZTE ZXSDR 8700&3G&2100&20&Phân tán\n" +
-            "74&ZTE ZXSDR 8700&3G&2100&40&Phân tán\n" +
-            "75&ZTE ZXSDR 8700&3G&2100&60&Phân tán\n" +
-            "76&ZTE ZXSDR 8700&3G&2100&80&Phân tán\n" +
-            "77&Ericsson RBS 6601&3G&2100&20&Phân tán\n" +
-            "78&Ericsson RBS 6601&3G&2100&40&Phân tán\n" +
-            "79&Ericsson RBS 6601&3G&2100&60&Phân tán\n" +
-            "80&Ericsson RBS 6601&3G&2100&80&Phân tán\n" +
-            "81&Ericsson RBS 6601&4G_LTE&1800&40&Phân tán\n" +
-            "82&Nokia Flexi Multiradio AirScale&4G_LTE&1800&40&Phân tán\n" +
-            "83&VTTEK4G-184b&4G_LTE&1800&40&Phân tán\n" +
-            "84&ZTE ZXSDR A8602&3G&2100&20&RRU tích hợp anten\n" +
-            "85&ZTE ZXSDR A8602&3G&2100&40&RRU tích hợp anten\n" +
-            "86&ZTE ZXSDR A8602&3G&2100&60&RRU tích hợp anten\n" +
-            "87&ZTE ZXSDR A8602&3G&2100&80&RRU tích hợp anten\n" +
-            "88&Ericsson RBS 6601&4G_LTE&2100&40&Phân tán\n" +
-            "89&Nokia Flexi Multiradio AirScale&4G_LTE&2100&40&Phân tán\n" +
-            "90&Ericsson RBS 6601&4G_LTE&1800&60&Phân tán\n" +
-            "91&Ericsson RBS 6601&4G_LTE&1800&120&Phân tán\n" +
-            "92&Ericsson RBS 6601&4G_LTE&1800&160&Phân tán\n" +
-            "93&Nokia Flexi Multiradio AirScale&4G_LTE&1800&60&Phân tán\n" +
-            "94&Nokia Flexi Multiradio AirScale&4G_LTE&1800&120&Phân tán\n" +
-            "95&Nokia Flexi Multiradio AirScale&4G_LTE&1800&160&Phân tán\n";
+    static final String ListThietBi = "1&ERICSSON RBS 2106&GSM&900&48.30&&2\n" +
+            "2&ERICSSON RBS 2106&GSM&900&48.01&&4\n" +
+            "3&ERICSSON RBS 2106&GSM&1800&46.80&&2\n" +
+            "4&ERICSSON RBS 2106&GSM&1800&46.51&&4\n" +
+            "5&ERICSSON RBS 2111 (RRU-N)&GSM&900&43.01&&2\n" +
+            "6&ERICSSON RBS 2111 (RRU-N)&GSM&1800&43.01&&2\n" +
+            "7&ERICSSON RBS 2116&GSM&900&47.99&&2\n" +
+            "8&ERICSSON RBS 2116&GSM&900&47.48&&4\n" +
+            "9&ERICSSON RBS 2116&GSM&1800&47.48&&2\n" +
+            "10&ERICSSON RBS 2116&GSM&1800&46.99&&4\n" +
+            "11&ERICSSON RBS 2206&GSM&900&47.48&&2\n" +
+            "12&ERICSSON RBS 2206&GSM&900&46.99&&4\n" +
+            "13&ERICSSON RBS 2206&GSM&1800&46.53&&2\n" +
+            "14&ERICSSON RBS 2206&GSM&1800&46.02&&4\n" +
+            "15&ERICSSON RBS 2216&GSM&900&47.99&&2\n" +
+            "16&ERICSSON RBS 2216&GSM&900&47.48&&4\n" +
+            "17&ERICSSON RBS 2216&GSM&1800&47.48&&2\n" +
+            "18&ERICSSON RBS 2216&GSM&1800&46.99&&4\n" +
+            "19&ERICSSON RBS 2308&GSM&900&33.98&Anten tích hợp &2\n" +
+            "20&ERICSSON RBS 2308&GSM&1800&33.42&Anten tích hợp &2\n" +
+            "21&ERICSSON RBS 2309&GSM&900&36.99&Anten tích hợp &2\n" +
+            "22&ERICSSON RBS 2309&GSM&1800&36.99&Anten tích hợp &2\n" +
+            "23&ERICSSON RBS 3206&UMTS&2100&47.78&&1\n" +
+            "24&ERICSSON RBS 3206&UMTS&2100&47.78&&2\n" +
+            "25&ERICSSON RBS 3206&UMTS&2100&47.78&&3\n" +
+            "26&ERICSSON RBS 3206&UMTS&2100&47.78&&4\n" +
+            "27&ERICSSON RBS 3418 (RRUW-01)&UMTS&2100&47.78&&1\n" +
+            "28&ERICSSON RBS 3418 (RRUW-01)&UMTS&2100&47.78&&2\n" +
+            "29&ERICSSON RBS 3418 (RRUW-01)&UMTS&2100&47.78&&3\n" +
+            "30&ERICSSON RBS MICRO 6501&UMTS&1800&36.99&Anten tích hợp &1\n" +
+            "31&ERICSSON RBS MICRO 6501&UMTS&2100&36.99&Anten tích hợp &2\n" +
+            "32&ERICSSON RBS MICRO 6502&LTE&1800&36.99&Anten tích hợp &1\n" +
+            "33&ERICSSON RBS MICRO 6502&LTE&2100&36.99&Anten tích hợp &2\n" +
+            "34&ERICSSON RBS 6601 (RRUS 01)&GSM&900&49.03&&1\n" +
+            "35&ERICSSON RBS 6601 (RRUS 01)&GSM&900&49.03&&2\n" +
+            "36&ERICSSON RBS 6601 (RRUS 01)&GSM&900&49.03&&3\n" +
+            "37&ERICSSON RBS 6601 (RRUS 01)&GSM&900&49.03&&4\n" +
+            "38&ERICSSON RBS 6601 (RRUS 01)&GSM&1800&49.03&&1\n" +
+            "39&ERICSSON RBS 6601 (RRUS 01)&GSM&1800&49.03&&2\n" +
+            "40&ERICSSON RBS 6601 (RRUS 01)&GSM&1800&49.03&&3\n" +
+            "41&ERICSSON RBS 6601 (RRUS 01)&GSM&1800&49.03&&4\n" +
+            "42&ERICSSON RBS 6601 (RRUS 01)&UMTS&2100&49.03&&1\n" +
+            "43&ERICSSON RBS 6601 (RRUS 01)&UMTS&2100&49.03&&2\n" +
+            "44&ERICSSON RBS 6601 (RRUS 01)&UMTS&2100&49.03&&3\n" +
+            "45&ERICSSON RBS 6601 (RRUS 01)&UMTS&2100&49.03&&4\n" +
+            "46&ERICSSON RBS 6601 (Radio 2219)&GSM&900&47.78&&1\n" +
+            "47&ERICSSON RBS 6601 (Radio 2219)&GSM&900&47.78&&2\n" +
+            "48&ERICSSON RBS 6601 (Radio 2219)&GSM&LTE&1800&49.03&&1\n" +
+            "49&ERICSSON RBS 6601 (Radio 2219)&GSM&LTE&1800&49.03&&2\n" +
+            "50&ERICSSON RBS 6601 (RRUS 32)&LTE&1800&46.02&&1\n" +
+            "51&ERICSSON RBS 6601 (Radio 4415)&LTE&2100&46.02&&1\n" +
+            "52&ERICSSON RBS 6601 (Radio 4415)&LTE&2100&46.02&&2\n" +
+            "53&ERICSSON RBS 6601 (Radio 4428)&LTE&2100&46.02&&1\n" +
+            "54&ERICSSON RBS 6601 (Radio 4428)&LTE&2100&49.03&&2\n" +
+            "55&HUAWEI BTS3012&GSM&900&49.03&&2\n" +
+            "56&HUAWEI BTS3012&GSM&900&49.03&&4\n" +
+            "57&HUAWEI BTS3012&GSM&1800&49.03&&2\n" +
+            "58&HUAWEI BTS3012&GSM&1800&49.03&&4\n" +
+            "59&HUAWEI BTS3900&GSM&900&49.03&&2\n" +
+            "60&HUAWEI BTS3900&GSM&900&49.03&&4\n" +
+            "61&HUAWEI BTS3900&GSM&1800&49.03&&2\n" +
+            "62&HUAWEI BTS3900&GSM&1800&49.03&&4\n" +
+            "63&HUAWEI BTS3900&UMTS&2100&49.03&&1\n" +
+            "64&HUAWEI BTS3900&UMTS&2100&49.03&&2\n" +
+            "65&HUAWEI BTS3900&UMTS&2100&48.57&&3\n" +
+            "66&HUAWEI DBS3900 (RRU3804)&UMTS&2100&47.78&&1\n" +
+            "67&HUAWEI DBS3900 (RRU3804)&UMTS&2100&47.78&&2\n" +
+            "68&HUAWEI DBS3900 (RRU3804)&UMTS&2100&47.78&&3\n" +
+            "69&HUAWEI DBS3900 (RRU3804)&UMTS&2100&47.78&&4\n" +
+            "70&HUAWEI DBS3900 (RRU3826)&UMTS&2100&49.03&&1\n" +
+            "71&HUAWEI DBS3900 (RRU3826)&UMTS&2100&49.03&&2\n" +
+            "72&HUAWEI DBS3900 (RRU3826)&UMTS&2100&48.92&&3\n" +
+            "73&HUAWEI DBS3900 (RRU3826)&UMTS&2100&49.03&&4\n" +
+            "74&HUAWEI DBS3900 (RRU3926)&GSM&900&49.03&&1\n" +
+            "75&HUAWEI DBS3900 (RRU3926)&GSM&900&49.03&&2\n" +
+            "76&HUAWEI DBS3900 (RRU3926)&GSM&900&49.08&&3\n" +
+            "77&HUAWEI DBS3900 (RRU3926)&GSM&900&49.03&&4\n" +
+            "78&HUAWEI DBS3900 (RRU3926)&GSM&900&49.03&&5\n" +
+            "79&HUAWEI DBS3900 (RRU3926)&GSM&900&48.57&&6\n" +
+            "80&HUAWEI DBS3900 (RRU3926)&GSM&900&48.45&&7\n" +
+            "81&HUAWEI DBS3900 (RRU3926)&GSM&900&47.48&&8\n" +
+            "82&HUAWEI DBS3900 (RRU3936)&GSM&900&49.03&Bổ sung&1\n" +
+            "83&HUAWEI DBS3900 (RRU3936)&GSM&900&49.03&Bổ sung&2\n" +
+            "84&HUAWEI DBS3900 (RRU3936)&GSM&900&49.08&Bổ sung&3\n" +
+            "85&HUAWEI DBS3900 (RRU3936)&GSM&900&49.03&Bổ sung&4\n" +
+            "86&HUAWEI DBS3900 (RRU3936)&GSM&900&49.03&Bổ sung&5\n" +
+            "87&HUAWEI DBS3900 (RRU3936)&GSM&900&48.57&Bổ sung&6\n" +
+            "88&HUAWEI DBS3900 (RRU3936)&GSM&900&48.45&Bổ sung&7\n" +
+            "89&HUAWEI DBS3900 (RRU3936)&GSM&900&47.48&Bổ sung&8\n" +
+            "90&HUAWEI DBS3900 (RRU3936)&GSM&1800&49.03&Bổ sung&1\n" +
+            "91&HUAWEI DBS3900 (RRU3936)&GSM&1800&49.03&Bổ sung&2\n" +
+            "92&HUAWEI DBS3900 (RRU3936)&GSM&1800&49.08&Bổ sung&3\n" +
+            "93&HUAWEI DBS3900 (RRU3936)&GSM&1800&49.03&Bổ sung&4\n" +
+            "94&HUAWEI DBS3900 (RRU3936)&GSM&1800&49.03&Bổ sung&5\n" +
+            "95&HUAWEI DBS3900 (RRU3936)&GSM&1800&48.57&Bổ sung&6\n" +
+            "96&HUAWEI DBS3900 (RRU3936)&GSM&1800&48.45&Bổ sung&7\n" +
+            "97&HUAWEI DBS3900 (RRU3936)&GSM&1800&47.48&Bổ sung&8\n" +
+            "98&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&46.02&&1\n" +
+            "99&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&49.03&&2\n" +
+            "100&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&47.78&&3\n" +
+            "101&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&47.78&&4\n" +
+            "102&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&47.78&&5\n" +
+            "103&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&47.78&&6\n" +
+            "104&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&46.90&&7\n" +
+            "105&HUAWEI DBS3900 (RRU3008 V1)&GSM&900&46.43&&8\n" +
+            "106&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&46.02&&1\n" +
+            "107&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&49.03&&2\n" +
+            "108&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&47.78&&3\n" +
+            "109&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&49.03&&4\n" +
+            "110&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&48.13&&5\n" +
+            "111&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&48.92&&6\n" +
+            "112&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&48.45&&7\n" +
+            "113&HUAWEI DBS3900 (RRU3008 V2)&GSM&900&49.03&&8\n" +
+            "114&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&46.02&&1\n" +
+            "115&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&49.03&&2\n" +
+            "116&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&47.78&&3\n" +
+            "117&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&47.78&&4\n" +
+            "118&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&47.78&&5\n" +
+            "119&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&47.78&&6\n" +
+            "120&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&46.90&&7\n" +
+            "121&HUAWEI DBS3900 (RRU3008 V1)&GSM&1800&46.43&&8\n" +
+            "122&HUAWEI DBS3900 (RRU3952)&UMTS&2100&47.78&Bổ sung&1\n" +
+            "123&HUAWEI DBS3900 (RRU3952)&UMTS&2100&50.79&Bổ sung&2\n" +
+            "124&HUAWEI DBS3900 (RRU3952)&UMTS&2100&49.54&Bổ sung&3\n" +
+            "125&HUAWEI DBS3900 (RRU3952)&UMTS&2100&50.79&Bổ sung&4\n" +
+            "126&NOKIA FLEXI EDGE BTS&GSM&900&46.99&&2\n" +
+            "127&NOKIA FLEXI EDGE BTS&GSM&900&46.99&&4\n" +
+            "128&NOKIA FLEXI EDGE BTS&GSM&1800&46.99&&2\n" +
+            "129&NOKIA FLEXI EDGE BTS&GSM&1800&46.99&&4\n" +
+            "130&NOKIA FLEXI WCDMA BTS&UMTS&2100&46.99&&1\n" +
+            "131&NOKIA FLEXI WCDMA BTS&UMTS&2100&46.99&&2\n" +
+            "132&NOKIA FLEXI WCDMA BTS&UMTS&2100&46.99&&3\n" +
+            "133&NOKIA FLEXI WCDMA BTS&UMTS&2100&46.99&&4\n" +
+            "134&NOKIA FLEXI MULTIRADIO 10 BTS (FHDB)&GSM&900&47.78&&1\n" +
+            "135&NOKIA FLEXI MULTIRADIO 10 BTS (FHDB)&GSM&900&47.78&&2\n" +
+            "136&NOKIA FLEXI MULTIRADIO 10 BTS (FHDB)&GSM&900&47.78&&3\n" +
+            "137&NOKIA FLEXI MULTIRADIO 10 BTS (FHDB)&GSM&900&47.78&&4\n" +
+            "138&NOKIA FLEXI MULTIRADIO 10 BTS (FHEB)&GSM&1800&47.78&&1\n" +
+            "139&NOKIA FLEXI MULTIRADIO 10 BTS (FHEB)&GSM&1800&47.78&&2\n" +
+            "140&NOKIA FLEXI MULTIRADIO 10 BTS (FHEB)&GSM&1800&47.78&&3\n" +
+            "141&NOKIA FLEXI MULTIRADIO 10 BTS (FHEB)&GSM&1800&47.78&&4\n" +
+            "142&NOKIA FLEXI MULTIRADIO 10 BTS (FXDB)&GSM&900&49.03&&1\n" +
+            "143&NOKIA FLEXI MULTIRADIO 10 BTS (FXDB)&GSM&900&49.03&&2\n" +
+            "144&NOKIA FLEXI MULTIRADIO 10 BTS (FXDB)&GSM&900&49.03&&3\n" +
+            "145&NOKIA FLEXI MULTIRADIO 10 BTS (FXDB)&GSM&900&49.03&&4\n" +
+            "146&NOKIA FLEXI MULTIRADIO 10 BTS (FXEB)&GSM&1800&49.03&&1\n" +
+            "147&NOKIA FLEXI MULTIRADIO 10 BTS (FXEB)&GSM&1800&49.03&&2\n" +
+            "148&NOKIA FLEXI MULTIRADIO 10 BTS (FXEB)&GSM&1800&49.03&&3\n" +
+            "149&NOKIA FLEXI MULTIRADIO 10 BTS (FXEB)&GSM&1800&49.03&&4\n" +
+            "150&NOKIA FLEXI MULTIRADIO 10 BTS (FRGT)&UMTS&2100&49.03&&1\n" +
+            "151&NOKIA FLEXI MULTIRADIO 10 BTS (FRGT)&UMTS&2100&49.03&&2\n" +
+            "152&NOKIA FLEXI MULTIRADIO 10 BTS (FRGT)&UMTS&2100&49.03&&3\n" +
+            "153&NOKIA FLEXI MULTIRADIO 10 BTS (FRGT)&UMTS&2100&49.03&&4\n" +
+            "154&NOKIA FLEXI MULTIRADIO 10 BTS (FRGY)&UMTS&2100&47.78&&1\n" +
+            "155&NOKIA FLEXI MULTIRADIO 10 BTS (FRGY)&UMTS&2100&47.78&&2\n" +
+            "156&NOKIA FLEXI MULTIRADIO 10 BTS (FRGY)&UMTS&2100&47.78&&3\n" +
+            "157&NOKIA FLEXI MULTIRADIO 10 BTS (FRGY)&UMTS&2100&47.78&&4\n" +
+            "158&NOKIA FLEXI MULTIRADIO 10 BTS (FRGU)&UMTS&2100&47.78&&1\n" +
+            "159&NOKIA FLEXI MULTIRADIO 10 BTS (FRGU)&UMTS&2100&47.78&&2\n" +
+            "160&NOKIA FLEXI MULTIRADIO 10 BTS (FRGU)&UMTS&2100&47.78&&3\n" +
+            "161&NOKIA FLEXI MULTIRADIO 10 BTS (FRGX)&UMTS&2100&49.03&&1\n" +
+            "162&NOKIA FLEXI MULTIRADIO 10 BTS (FRGX)&UMTS&2100&49.03&&2\n" +
+            "163&NOKIA FLEXI MULTIRADIO 10 BTS (FRGX)&UMTS&2100&49.03&&3\n" +
+            "164&NOKIA FLEXI MULTIRADIO 10 BTS (FRGQ)&UMTS&2100&49.03&&1\n" +
+            "165&NOKIA FLEXI MULTIRADIO 10 BTS (FRGQ)&UMTS&2100&49.03&&2\n" +
+            "166&NOKIA FLEXI MULTIRADIO 10 BTS (FRGQ)&UMTS&2100&49.03&&3\n" +
+            "167&NOKIA FLEXI MULTIRADIO AIRSCALE (FHED)&LTE&1800&46.02&&1\n" +
+            "168&NOKIA FLEXI MULTIRADIO AIRSCALE (FHED)&LTE&1800&46.02&&2\n" +
+            "169&NOKIA FLEXI MULTIRADIO AIRSCALE (AHEB)&LTE&1800&46.02&&1\n" +
+            "170&NOKIA FLEXI MULTIRADIO AIRSCALE (FRGU)&LTE&2100&47.78&Bổ sung&1\n" +
+            "171&VTTEK4G-184b (vRRU-184b)&LTE&1800&46.02&&1\n" +
+            "172&ZTE ZXSDR B8200 (ZXSDR R8840)&UMTS&2100&47.78&&1\n" +
+            "173&ZTE ZXSDR B8200 (ZXSDR R8840)&UMTS&2100&47.78&&2\n" +
+            "174&ZTE ZXSDR B8200 (ZXSDR R8840)&UMTS&2100&47.78&&3\n" +
+            "175&ZTE ZXSDR B8200 (ZXSDR R8840)&UMTS&2100&47.78&&4\n" +
+            "176&ZTE ZXSDR B8200 (ZXSDR R8881)&UMTS&2100&49.03&&1\n" +
+            "177&ZTE ZXSDR B8200 (ZXSDR R8881)&UMTS&2100&49.03&&2\n" +
+            "178&ZTE ZXSDR B8200 (ZXSDR R8881)&UMTS&2100&49.03&&3\n" +
+            "179&ZTE ZXSDR B8200 (ZXSDR R8881)&UMTS&2100&49.03&&4\n" +
+            "180&ZTE ZXSDR BS8700 (ZXSDR R8881)&UMTS&2100&49.03&&1\n" +
+            "181&ZTE ZXSDR BS8700 (ZXSDR R8881)&UMTS&2100&49.03&&2\n" +
+            "182&ZTE ZXSDR BS8700 (ZXSDR R8881)&UMTS&2100&49.03&&3\n" +
+            "183&ZTE ZXSDR BS8700 (ZXSDR R8881)&UMTS&2100&49.03&&4\n" +
+            "184&ZTE ZXSDR BS8700 (ZXSDR A8602)&UMTS&2100&46.02&Anten tích hợp &1\n" +
+            "185&ZTE ZXSDR BS8700 (ZXSDR A8602)&UMTS&2100&46.02&Anten tích hợp &2\n" +
+            "186&ZTE ZXSDR BS8700 (ZXSDR A8602)&UMTS&2100&46.02&Anten tích hợp &3\n" +
+            "187&ZTE ZXSDR BS8700 (ZXSDR A8602)&UMTS&2100&46.02&Anten tích hợp &4\n" +
+            "188&ZTE ZXSDR BS8800&UMTS&2100&47.78&&1\n" +
+            "189&ZTE ZXSDR BS8800&UMTS&2100&47.78&&2\n" +
+            "190&ZTE ZXSDR BS8800&UMTS&2100&47.78&&3\n";
     static final String ListAnten = "1&ACE SXPWL4WH-14/15-65/65V-iVT&Định hướng&900&14.5&1.6& 2–10\n" +
             "2&ACE SXPWL4WH-14/15-65/65V-iVT&Định hướng&1800&14.5&1.6& 2–10\n" +
             "3&ACE SXPWL4WH-14/15-65/65V-iVT&Định hướng&2100&14.5&1.6& 2–10\n" +
@@ -1023,15 +1255,21 @@ final class SPC {
             "182&Rosenberger MB-4WKX33VB1-00&Định hướng&1900&19.3&2.69&2-10\n" +
             "183&Rosenberger MB-4WKX33VB1-00&Định hướng&2100&19.6&2.69&2-10\n" +
             "184&Rosenberger MB-4WKX33VB1-00&Định hướng&2500&19.4&2.69&2-10\n";
-    static final String BangSuyHao = "1/2&1800&1/2\" at 1800 MHz&0.103&10.3&0.5&0.5\n" +
-            "1/2&2100&1/2\" at 2100 MHz&0.103&10.3&0.5&0.5\n" +
-            "1/2&2300&1/2\" at 2300 MHz&0.11543&11.543&0.5&0.5\n" +
-            "1/2&900&1/2\" at 900 MHz&0.06822&6.822&0.5&0.5\n" +
-            "1/2&1800&1/2\" Feeder&0.103&10.3&0.5&0.5\n" +
-            "7/8&1800&7/8\" at 1800 MHz&0.06&6&0.5&0.5\n" +
-            "7/8&2100&7/8\" at 2100 MHz&0.06&6&0.5&0.5\n" +
-            "7/8&2300&7/8\" at 2300 MHz&0.06624&6.624&0.5&0.5\n" +
-            "7/8&900&7/8\" at 900 MHz&0.03861&3.861&0.5&0.5\n" +
-            "7/8&1800&7/8\" Feeder&0.06&6&0.5&0.5\n";
+    static final String BangSuyHao = "Connector&Connector&900&0.05\n" +
+            "Connector&Connector&1800&0.07\n" +
+            "Connector&Connector&2100&0.07\n" +
+            "Dualband Combiner&Dualband Combiner&900&0.15\n" +
+            "Dualband Combiner&Dualband Combiner&1800&0.25\n" +
+            "Dualband Combiner&Dualband Combiner&2100&0.35\n" +
+            "Feeder&7/8\"&900&3.67\n" +
+            "Feeder&7/8\"&1800&5.04\n" +
+            "Feeder&7/8\"&2100&5.53\n" +
+            "Feeder&1/2\"&900&7.12\n" +
+            "Feeder&1/2\"&1800&10.06\n" +
+            "Feeder&1/2\"&2100&10.96\n" +
+            "Jumper&1/2\"&900&7.12\n" +
+            "Jumper&1/2\"&1800&10.06\n" +
+            "Jumper&1/2\"&2100&10.96\n" +
+            "Connector&Andrew AL5DF-PS&&0.05";
     //endregion
 }
