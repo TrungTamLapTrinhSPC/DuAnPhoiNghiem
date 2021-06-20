@@ -64,7 +64,6 @@ public class Adapter_Grid_DoiTuong_AnhChup extends BaseAdapter {
         {
             imageview.setVisibility(View.VISIBLE);
             imageview.setImageURI(myobjects.get(position).getImageUri());
-            //imageview.setImageBitmap(SPC.thumble_image(myobjects.get(position).getImageUri()));
         }
         else
         {

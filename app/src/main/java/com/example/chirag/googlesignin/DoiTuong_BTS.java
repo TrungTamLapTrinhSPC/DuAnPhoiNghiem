@@ -5,14 +5,12 @@ public class DoiTuong_BTS {
     private String ChungLoaiThietBi;
     private String BangTanHoatDong;
     private String MangSuDung;
-    private String SoMayThuPhatSong;
 
-    public DoiTuong_BTS(String tenTramGoc, String chungLoaiThietBi, String bangTanHoatDong, String mangSuDung, String soMayThuPhatSong) {
+    public DoiTuong_BTS(String tenTramGoc, String chungLoaiThietBi, String bangTanHoatDong, String mangSuDung) {
         TenTramGoc = tenTramGoc;
         ChungLoaiThietBi = chungLoaiThietBi;
         BangTanHoatDong = bangTanHoatDong;
         MangSuDung = mangSuDung;
-        SoMayThuPhatSong = soMayThuPhatSong;
     }
 
     public String getTenTramGoc() {
@@ -43,15 +41,7 @@ public class DoiTuong_BTS {
         return MangSuDung;
     }
 
-    public void setMangSuDung(String mangSuDung) {
-        MangSuDung = mangSuDung;
-    }
-
-    public String getSoMayThuPhatSong() {
-        return SoMayThuPhatSong;
-    }
-
-    public void setSoMayThuPhatSong(String soMayThuPhatSong) {
-        SoMayThuPhatSong = soMayThuPhatSong;
+    public void setMangSuDung(String MangSuDung) {
+        MangSuDung = MangSuDung;
     }
 }

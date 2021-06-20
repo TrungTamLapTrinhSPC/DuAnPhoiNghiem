@@ -8,9 +8,8 @@ public class DoiTuong_CongTrinh {
     private String GocPhuongVi;
     private String DoDay;
     private String DoRong;
-    private int width;
 
-    public DoiTuong_CongTrinh(String tenCongTrinh, String chieuCao, String khoangCach, String soTang, String gocPhuongVi, String doDay, String doRong, int width) {
+    public DoiTuong_CongTrinh(String tenCongTrinh, String chieuCao, String khoangCach, String soTang, String gocPhuongVi, String doDay, String doRong) {
         TenCongTrinh = tenCongTrinh;
         ChieuCao = chieuCao;
         KhoangCach = khoangCach;
@@ -18,7 +17,6 @@ public class DoiTuong_CongTrinh {
         GocPhuongVi = gocPhuongVi;
         DoDay = doDay;
         DoRong = doRong;
-        this.width = width;
     }
 
     public String getTenCongTrinh() {
@@ -75,13 +73,5 @@ public class DoiTuong_CongTrinh {
 
     public void setDoRong(String doRong) {
         DoRong = doRong;
-    }
-
-    public int getWidth() {
-        return width;
-    }
-
-    public void setWidth(int width) {
-        this.width = width;
     }
 }
