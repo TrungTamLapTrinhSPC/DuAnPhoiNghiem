@@ -42,7 +42,7 @@
             android:layout_marginRight="2dp"
             android:layout_height="1.5dp"
             android:background="@drawable/line"></LinearLayout>
-        <EditText
+        <AutoCompleteTextView
             android:textColorHint="#1D8B98"
             android:textColor="#1D8B98"
             android:gravity="center"
