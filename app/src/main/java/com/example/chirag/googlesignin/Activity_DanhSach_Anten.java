@@ -7,7 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -19,6 +19,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import org.apache.commons.io.FileUtils;
 import org.json.JSONException;
@@ -37,7 +39,6 @@ public class Activity_DanhSach_Anten extends AppCompatActivity {
     List<DoiTuong_Anten> list_Anten = new ArrayList<>();
     Adapter_DoiTuong_Anten adapter_doiTuongAnten;
     String MaTram,TenCot,TenTramGoc,DiaDiem,ToaDo;
-
     File pathDanhSachAnten,pathHinhAnh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -50,7 +50,7 @@
                 android:textSize="18dp"
                 android:textStyle="normal" />
 
-            <android.support.v7.widget.SearchView
+            <SearchView
                 android:id="@+id/SearchViewCT"
                 android:layout_width="match_parent"
                 app:searchHintIcon="@drawable/ic_search_xam_24dp"
