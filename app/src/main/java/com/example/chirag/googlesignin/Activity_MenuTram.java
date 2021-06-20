@@ -126,13 +126,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         listView.setOnItemClickListener(onItemClick);
         girdView.setOnItemLongClickListener(onItemLongClickListener);
         girdView.setOnItemClickListener(onItemClick);
-        btnRestart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Activity_MenuTram.this, Activity_MenuTram.class);
-                startActivity(intent);
-            }
-        });
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -179,7 +172,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
     //endregion
     private void NhanBien() {
     }
-// <<<<<<< DoXuanHieu
 
     private void TaoThuVien() {
         if (SPC.TaoThuMuc(SPC.pathDataApp_PNDT))
@@ -190,17 +182,6 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         SPC.saveTextFile("ListAnten", SPC.ListAnten, SPC.pathTemplate);
         SPC.saveTextFile("BangSuyHao", SPC.BangSuyHao, SPC.pathTemplate);
         SPC.saveTextFile("ListThietBi", SPC.ListThietBi, SPC.pathTemplate);
-// =======
-//     private void TaoThuVien(){
-//         if(SPC.TaoThuMuc(SPC.pathDataApp_PNDT))
-//             Toast.makeText(Activity_MenuTram.this,"Đã tạo bộ nhớ", Toast.LENGTH_SHORT).show();
-//         if(SPC.TaoThuMuc(SPC.pathTemplate))
-//             Toast.makeText(Activity_MenuTram.this,"Đã lưu thư viện", Toast.LENGTH_SHORT).show();
-
-//         SPC.saveTextFile("ListAnten",SPC.ListAnten,SPC.pathTemplate);
-//         SPC.saveTextFile("BangSuyHao",SPC.BangSuyHao,SPC.pathTemplate);
-//         SPC.saveTextFile("ListThietBi",SPC.ListThietBi,SPC.pathTemplate);
-// >>>>>>> main
         SPC.LayDanhSachThietBi();
 
     }
@@ -287,28 +268,13 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
 
     private String DemSoTramGoc(File fileTram) {
         int sotram = 0;
-// <<<<<<< DoXuanHieu
         File[] listCot = new File(fileTram, "DuLieu").listFiles();
         for (File cot : listCot) {
             if (cot.isDirectory()) {
                 File[] listTram = cot.listFiles();
                 sotram += listTram.length - 1;
             }
-// =======
-//         File fileBTS =new File(fileTram,"DuLieu/DanhSachBTS");
-//         if (fileBTS.exists())
-//         {
-//             File[] listCot = fileBTS.listFiles();
-//             sotram = listCot.length;
-// >>>>>>> main
         }
-        else
-        {
-            SPC.TaoThuMuc(fileBTS);
-            sotram = 0;
-        }
-
-
         return String.valueOf(sotram);
     }
 
@@ -706,12 +672,10 @@ public class Activity_MenuTram extends AppCompatActivity implements ConnectionCa
         });
         btnLuuThongSo.setOnClickListener(new View.OnClickListener() {
             @Override
-
             public void onClick(View v) {
                 ArrayList<AutoCompleteTextView> listAutoCompleteTextView = new ArrayList<AutoCompleteTextView>(Arrays.asList(edtMaTram, edtDiaDiem, edtToaDo, edtNgayDo, edtViTriDat));
                 for (AutoCompleteTextView edt : listAutoCompleteTextView) {
                     if (edt.getText().toString().trim().equals("")) {
-
                         Toast.makeText(Activity_MenuTram.this, "Hãy nhập đủ dữ liệu!", Toast.LENGTH_SHORT).show();
                         break;
                     } else {

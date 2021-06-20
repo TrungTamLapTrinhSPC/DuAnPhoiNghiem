@@ -16,7 +16,6 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,8 +70,6 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
     Button btnLuu;
     File mFile;
     Uri imageUri;
-    int height ;
-    int width ;
     //AutoCompleteTextView
     AutoCompleteTextView edtTenCongTrinh, edtChieuCao, edtKhoangCach, edtSoTang, edtGocPhuongVi, edtDoDay, edtDoRong;
 
@@ -85,21 +82,8 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         AnhXa();
         SuKien();
         NhanBien();
-// <<<<<<< DoXuanHieu
         try {
             SettupCongTrinhCaoTang();
-// =======
-//         DisplayMetrics displayMetrics = new DisplayMetrics();
-//         getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-//         height = displayMetrics.heightPixels;
-//         width = displayMetrics.widthPixels;
-// //        try {
-// //            SettupCongTrinhCaoTang();
-// //        } catch (JSONException e) {
-// //            e.printStackTrace();
-// //        }
-//         try {
-// >>>>>>> main
             listview.setVisibility(View.GONE);
             SettupListView();
         } catch (JSONException e) {
@@ -113,7 +97,6 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         }
 
     }
-// <<<<<<< DoXuanHieu
 
     private void SettupCongTrinhCaoTang() throws JSONException, IOException, SAXException, ParserConfigurationException {
 //        File filecongtrinh = new File(pathThietKeAnten, "CongTrinhCaoTang");
@@ -194,61 +177,6 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                     String DoRong = jsonObject.getString("DoRong");
                     list_CongTrinh.add(new DoiTuong_CongTrinh(TenCongTrinh, ChieuCao, KhoangCach, SoTang, GocPhuongVi, DoDay, DoRong));
                     System.out.println("ittem"+ item);
-// =======
-// //    private void SettupCongTrinhCaoTang() throws JSONException {
-// //        File filecongtrinh = new File (pathThietKeAnten,"CongTrinhCaoTang");
-// //        if (filecongtrinh.exists())
-// //        {
-// //            if (filecongtrinh.isDirectory()){
-// //                File[] listcongtrinh = filecongtrinh.listFiles();
-// //                for(File congtrinh:listcongtrinh)
-// //                {
-// //                    if(congtrinh.getName().contains(".txt"))
-// //                    {
-// //                        SPC.ReadListAutoCompleteTextView_Json(congtrinh.getName(),filecongtrinh,listAutoCompleteTextView,SPC.ThietKeCongTrinh);
-// //                    }
-// //                }
-// //            }
-// //        }
-// //        else SPC.TaoThuMuc(filecongtrinh);
-// //    }
-//     private void SettupListView() throws JSONException {
-//         list_CongTrinh.clear();
-//         File filecongtrinh = new File (pathThietKeAnten,"CongTrinhThapTang");
-//         if (filecongtrinh.exists()){
-//             if (filecongtrinh.isDirectory()){
-//                 File[] listcongtrinh = filecongtrinh.listFiles();
-//                 if (listcongtrinh.length ==0)
-//                 {
-//                     listview.setVisibility(View.GONE);
-//                 } else
-//                 {
-//                     listview.setVisibility(View.VISIBLE);
-//                 }
-//                 for(File congtrinh:listcongtrinh)
-//                 {
-//                     if(congtrinh.getName().contains(".txt"))
-//                     {
-//                         String thietkecongtrinh = SPC.readText(congtrinh);
-//                         JSONObject jsonObject = new JSONObject(thietkecongtrinh);
-//                         String TenCongTrinh = jsonObject.getString("TenCongTrinh");
-//                         String ChieuCao = jsonObject.getString("ChieuCao");
-//                         String KhoangCach = jsonObject.getString("KhoangCach");
-//                         String SoTang = jsonObject.getString("SoTang");
-//                         String GocPhuongVi = jsonObject.getString("GocPhuongVi");
-//                         String DoDay = jsonObject.getString("DoDay");
-//                         String DoRong = jsonObject.getString("DoRong");
-// //                        String[] mangcongtrinh = thietkecongtrinh.split("&");
-// //                        String TenCongTrinh = mangcongtrinh[SPC.TimViTri("TenCongTrinh",SPC.ThietKeCongTrinh)];
-// //                        String ChieuCao = mangcongtrinh[SPC.TimViTri("ChieuCao",SPC.ThietKeCongTrinh)];
-// //                        String KhoangCach = mangcongtrinh[SPC.TimViTri("KhoangCach",SPC.ThietKeCongTrinh)];
-// //                        String SoTang = mangcongtrinh[SPC.TimViTri("SoTang",SPC.ThietKeCongTrinh)];
-// //                        String GocPhuongVi = mangcongtrinh[SPC.TimViTri("GocPhuongVi",SPC.ThietKeCongTrinh)];
-// //                        String DoDay = mangcongtrinh[SPC.TimViTri("DoDay",SPC.ThietKeCongTrinh)];
-// //                        String DoRong = mangcongtrinh[SPC.TimViTri("DoRong",SPC.ThietKeCongTrinh)];
-//                         list_CongTrinh.add(new DoiTuong_CongTrinh(TenCongTrinh,ChieuCao,KhoangCach,SoTang,GocPhuongVi,DoDay,DoRong,width));
-//                     }
-// >>>>>>> main
                 }
                 /**HIỂN THỊ RA MÀN HÌNH*/
                 adapter_doiTuong_CongTrinh = new Adapter_DoiTuong_CongTrinh(list_CongTrinh, Activity_DanhSach_CongTrinh.this, R.layout.item_congtrinh);
@@ -337,7 +265,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                 overridePendingTransition(R.anim.zoom, R.anim.zoomin);
             }
         });
-       /* btnLuu.setOnClickListener(new View.OnClickListener() {
+        btnLuu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AutoCompleteTextView edtTenCongTrinh = findViewById(R.id.edtTenCongTrinh);
@@ -416,7 +344,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
                     }
                 });
             }
-        });*/
+        });
     }
 
     private void AnhXa() {
@@ -427,7 +355,7 @@ public class Activity_DanhSach_CongTrinh extends AppCompatActivity {
         tvToaDo = findViewById(R.id.tvToaDo);
         btnMenu = findViewById(R.id.btnMenu);
         tvViTri = findViewById(R.id.tvViTri);
-//        btnLuu = findViewById(R.id.btnLuu);
+        btnLuu = findViewById(R.id.btnLuu);
         btnChup = findViewById(R.id.btnChup);
         btnSua = findViewById(R.id.btnSua);
         imgHinh = findViewById(R.id.imgHinh);
